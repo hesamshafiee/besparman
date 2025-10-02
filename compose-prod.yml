@@ -1,0 +1,389 @@
+services:
+    app:
+        image: gitlab.abrbit.com:5555/esaj/panel/main:stable
+        container_name: esaj_api
+        restart: unless-stopped
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            APP_DEBUG: false
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+            APP_URL: https://prod.testesaj.ir/
+            IRANCELL_BILL: site
+            LOG_CHANNEL: sentry
+            QUEUE_CONNECTION: redis
+
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: mongo
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+
+            DB_HOST2: mysql_telecpoce
+            DB_PORT2: 3306
+            DB_DATABASE2: telecope
+            DB_USERNAME2: telecope
+            DB_PASSWORD2: gaaTh7AeooK0eehieigheD3A
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: true
+
+            QUEUE_COUNT: ${QUEUE_COUNT}
+
+            REDIS_HOST: redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            REVERB_HOST: app_reverb
+            REVERB_PORT: 9001
+            REVERB_SCHEME: http
+            REVERB_APP_ID: 019711c7-fa1d-7181-b6f2-46981059c291
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://f848559f0611ba94ad341761c68029fa@sentry.abrbit.com/8
+            SENTRY_TRACES_SAMPLE_RATE: 0.2
+            FTP_HOST: eftps.mtnirancell.ir
+            FTP_USERNAME: "MTNIRANCELL0\\safirertebatatjavan-"
+            FTP_PASSWORD: "&dfr56%t7u2Wv"
+        ports:
+            - 2000:80
+        volumes:
+            - esaj-storage:/var/www/html/storage/app
+            - esaj-logs:/var/www/html/storage/logs
+        networks:
+            - esaj
+
+    app_group_queue:
+        image: gitlab.abrbit.com:5555/esaj/panel/main:stable
+        restart: unless-stopped
+        command: sh run_workers.sh
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            APP_DEBUG: true
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+            APP_URL: https://prod.testesaj.ir/
+            LOG_CHANNEL: sentry
+            QUEUE_CONNECTION: redis
+
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: mongo
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+
+            DB_HOST2: mysql_telecpoce
+            DB_PORT2: 3306
+            DB_DATABASE2: telecope
+            DB_USERNAME2: telecope
+            DB_PASSWORD2: gaaTh7AeooK0eehieigheD3A
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: true
+
+            REDIS_HOST: redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            QUEUE_GROUP_COUNT: ${QUEUE_COUNT}
+
+            REVERB_HOST: app_reverb
+            REVERB_PORT: 9001
+            REVERB_SCHEME: http
+            REVERB_APP_ID: 019711c7-fa1d-7181-b6f2-46981059c291
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://f848559f0611ba94ad341761c68029fa@sentry.abrbit.com/8
+            SENTRY_TRACES_SAMPLE_RATE: 0.2
+        volumes:
+            - esaj-storage:/var/www/html/storage/app
+            - esaj-logs-group:/var/www/html/storage/logs
+        networks:
+            - esaj
+
+    horizon:
+        image: gitlab.abrbit.com:5555/esaj/panel/main:stable
+        restart: unless-stopped
+        command: php artisan horizon
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            APP_DEBUG: true
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+            APP_URL: https://prod.testesaj.ir/
+            LOG_CHANNEL: sentry
+            QUEUE_CONNECTION: redis
+
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: mongo
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+
+            DB_HOST2: mysql_telecpoce
+            DB_PORT2: 3306
+            DB_DATABASE2: telecope
+            DB_USERNAME2: telecope
+            DB_PASSWORD2: gaaTh7AeooK0eehieigheD3A
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: true
+
+            REDIS_HOST: redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            REVERB_HOST: app_reverb
+            REVERB_PORT: 9001
+            REVERB_SCHEME: http
+            REVERB_APP_ID: 019711c7-fa1d-7181-b6f2-46981059c291
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://f848559f0611ba94ad341761c68029fa@sentry.abrbit.com/8
+            SENTRY_TRACES_SAMPLE_RATE: 0.2
+        volumes:
+            - esaj-storage:/var/www/html/storage/app
+            - esaj-logs-worker:/var/www/html/storage/logs
+        networks:
+            - esaj
+
+
+    app_reverb:
+        image: gitlab.abrbit.com:5555/esaj/panel/main:stable
+        restart: unless-stopped
+        command: php artisan reverb:start --host=0.0.0.0 --port=9001
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            APP_DEBUG: true
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+            APP_URL: https://prod.testesaj.ir/
+            LOG_CHANNEL: sentry
+            QUEUE_CONNECTION: redis
+
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: mongo
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+
+            DB_HOST2: mysql_telecpoce
+            DB_PORT2: 3306
+            DB_DATABASE2: telecope
+            DB_USERNAME2: telecope
+            DB_PASSWORD2: gaaTh7AeooK0eehieigheD3A
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: true
+
+            REDIS_HOST: redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            REVERB_HOST: app_reverb
+            REVERB_PORT: 9001
+            REVERB_SCHEME: http
+            REVERB_APP_ID: 019711c7-fa1d-7181-b6f2-46981059c291
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://f848559f0611ba94ad341761c68029fa@sentry.abrbit.com/8
+            SENTRY_TRACES_SAMPLE_RATE: 0.2
+        ports:
+            - "9001:9001"
+        volumes:
+            - esaj-storage:/var/www/html/storage/app
+            - esaj-logs-worker:/var/www/html/storage/logs
+        networks:
+            - esaj
+
+    app_scheduler:
+        image: gitlab.abrbit.com:5555/esaj/panel/main:stable
+        container_name: esaj_scheduler
+        restart: always
+        command: php artisan schedule:work
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            APP_DEBUG: true
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+
+            QUEUE_CONNECTION: redis
+
+            LOG_CHANNEL: sentry # Or other appropriate channel for stageing
+
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: mongo
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+
+            DB_HOST2: mysql_telecpoce
+            DB_PORT2: 3306
+            DB_DATABASE2: telecope
+            DB_USERNAME2: telecope
+            DB_PASSWORD2: gaaTh7AeooK0eehieigheD3A
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: true
+
+            QUEUE_COUNT: ${QUEUE_COUNT}
+
+            REDIS_HOST: redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+        volumes:
+            - esaj-storage:/var/www/html/storage/app
+            - esaj-logs-scheduler:/var/www/html/storage/logs
+        networks:
+            - esaj
+
+    mysql:
+        image: registry.abrbit.com/library/mariadb
+        container_name: esaj_db
+        restart: always
+        environment:
+            MYSQL_DATABASE: esaj
+            MYSQL_ROOT_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_USER: esaj
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+            M: Ab
+            C: As
+        volumes:
+            - db-1:/var/lib/mysql
+            - ./conf.d:/etc/mysql/conf.d
+        networks:
+            - esaj
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p ZvXzmqqZiFPfeFv8UW4rwdym" , "-h", "localhost" ]
+            retries: 3
+            timeout: 5s
+
+    mysqld_exporter:
+        image: docker.arvancloud.ir/prom/mysqld-exporter:latest
+        container_name: mysqld_exporter
+        restart: always
+        volumes:
+            - .my.cnf:/.my.cnf
+        depends_on:
+            - mysql
+        ports:
+            - "9104:9104"
+        networks:
+            - esaj
+
+    redis:
+        container_name: esaj_redis
+        restart: always
+        image: registry.abrbit.com/bitnami/redis:latest
+        ports:
+            - '6379:6379'
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+            - ALLOW_EMPTY_PASSWORD=no
+        networks:
+            - esaj
+
+    phpmyadmin:
+        container_name: esaj_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 2007:80
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+        networks:
+            - esaj
+        depends_on:
+            - mysql
+
+    mongo:
+        image: docker.arvancloud.ir/mongo:latest
+        container_name: mongodb
+        restart: always
+        command: ["mongod", "--wiredTigerCacheSizeGB", "0.25"]
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: esaj
+            MONGO_INITDB_ROOT_PASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+            MONGO_INITDB_DATABASE: esaj
+        volumes:
+            - prod_mongodb_data:/data/db
+        # ports:
+        #     - "27017:27017"
+        networks:
+            - esaj
+    mongo_express:
+        image: docker.arvancloud.ir/mongo-express:latest
+        container_name: mongo_express
+        restart: always
+        ports:
+            - "8082:8081"
+        environment:
+            ME_CONFIG_MONGODB_SERVER: mongodb
+            ME_CONFIG_MONGODB_ADMINUSERNAME: esaj
+            ME_CONFIG_MONGODB_ADMINPASSWORD: eWuw3eikshauWiu4pa2Xan4soot5Iabu
+            ME_CONFIG_BASICAUTH_USERNAME: admin
+            ME_CONFIG_BASICAUTH_PASSWORD: co3EiquiCae9kae0Ieleek6o
+        networks:
+            - esaj
+networks:
+    esaj:
+        driver: bridge
+
+volumes:
+    esaj-storage:
+    db-old:
+    db-1:
+    db-2:
+    esaj-logs:
+    prod_mongodb_data:
+    esaj-logs-scheduler:
+    esaj-logs-worker:
+    esaj-logs-group:
+

@@ -1,0 +1,4 @@
+[mysqld]
+innodb_force_recovery=1
+innodb_buffer_pool_size = 20G
+innodb_log_file_size = 1G

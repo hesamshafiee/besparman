@@ -1,0 +1,56 @@
+variables:
+  DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG"
+  RELEASE_IMAGE_NAME: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:stable"
+  DB_DATABASE: "esaj_test"
+  DB_PASSWORD: "ZvXzmqqZiFPfeFv8UW4rwdym"
+  DB_USERNAME: "esaj_test"
+  REDIS_PASSWORD: "35QWKp1bjHCKnbREwFFFFaDE"
+  QUEUE_COUNT: 10
+
+stages:
+  - build
+  - test
+  - production
+  - stage
+
+test_stage:
+  stage: test
+  tags: [esaj]
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - echo "Starting test environment with Docker Compose..."
+    - docker compose -f compose-test.yml up -d
+  only:
+    - test
+
+build:
+  stage: build
+  tags: [esaj]
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-dev.yml up -d
+  only:
+    - development
+
+stage:
+  stage: stage
+  tags: [esaj]
+  script:
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-stage.yml up -d
+  only:
+    - stage
+
+production:
+  stage: production
+  tags: [esaj]
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  script:
+    - echo "Starting production environment..."
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-prod.yml up -d
+  only:
+    - main

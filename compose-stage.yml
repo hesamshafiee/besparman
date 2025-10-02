@@ -1,0 +1,295 @@
+services:
+    stage_app:
+        image: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:stable" # Use the built image
+        container_name: esaj_stage_api
+        restart: unless-stopped
+        env_file:
+            - ./docker/.env # Use the stageing environment file
+        environment:
+            DB_HOST: stage_mysql
+            DB_PORT: 3306
+            DB_DATABASE: stage_db
+            DB_USERNAME: stage
+            DB_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae
+            QUEUE_CONNECTION: database # Or other appropriate connection for stageing
+
+            # Assuming DB_HOST2 is also for the stage database
+            DB_HOST2: stage_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: stage_db
+            DB_USERNAME2: stage
+            DB_PASSWORD2: adu3amohphohdiemahchohb0shahJ0ae
+
+            REDIS_HOST: esaj_stage_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            APP_ENV: development # Set app environment to stageing
+            APP_DEBUG: true
+            APP_URL: https://stage.testesaj.ir
+
+            LOG_CHANNEL: sentry # Or other appropriate channel for stageing
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: stage_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj # Assuming the database name is the same
+            MONGODB_USERNAME: esaj # Hardcoded in .gitlab-ci.yml
+            MONGODB_PASSWORD: esaj_sandbox # Hardcoded in .gitlab-ci.yml
+            TELESCOPE_DRIVER: database # Or other appropriate driver for stageing
+            TELESCOPE_ENABLE: false # Disable telescope for stageing
+
+            QUEUE_COUNT: 2
+
+            REVERB_HOST: stage_reverb
+            REVERB_PORT: 9002
+            REVERB_SCHEME: http
+            REVERB_APP_ID: abc-def-g
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://ec9b9bbc551cec77ed4aa219de29aed6@sentry.abrbit.com/7
+            SENTRY_TRACES_SAMPLE_RATE: 0.5
+            FTP_HOST: eftps.mtnirancell.ir
+            FTP_USERNAME: "MTNIRANCELL0\\safirertebatatjavan-"
+            FTP_PASSWORD: "&dfr56%t7u2Wv"
+        ports:
+            - 3122:80 # Assign a port for the stage app
+        volumes:
+            - esaj-stage-storage:/var/www/html/storage/app # Use a dedicated volume for stageing
+        networks:
+            - esaj-stage-network
+
+    stage_worker:
+        image: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:stable"
+        restart: unless-stopped
+        command: php artisan queue:work --queue=group_1,group_2,high,medium,default --sleep=2 --tries=2 --max-time=3600 --timeout=600
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: stage_mysql
+            DB_PORT: 3306
+            DB_DATABASE: stage_db
+            DB_USERNAME: stage
+            DB_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae
+            QUEUE_CONNECTION: database # Or other appropriate connection for stageing
+
+            # Assuming DB_HOST2 is also for the stage database
+            DB_HOST2: stage_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: stage_db
+            DB_USERNAME2: stage
+            DB_PASSWORD2: adu3amohphohdiemahchohb0shahJ0ae
+
+            REDIS_HOST: esaj_stage_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            APP_ENV: development # Set app environment to stageing
+            APP_DEBUG: true
+            APP_URL: https://stage.testesaj.ir
+
+            LOG_CHANNEL: sentry # Or other appropriate channel for stageing
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: stage_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj # Assuming the database name is the same
+            MONGODB_USERNAME: esaj # Hardcoded in .gitlab-ci.yml
+            MONGODB_PASSWORD: esaj_sandbox # Hardcoded in .gitlab-ci.yml
+            TELESCOPE_DRIVER: database # Or other appropriate driver for stageing
+            TELESCOPE_ENABLE: false # Disable telescope for stageing
+
+            QUEUE_COUNT: 1
+
+            REVERB_HOST: stage_reverb
+            REVERB_PORT: 9002
+            REVERB_SCHEME: http
+            REVERB_APP_ID: abc-def-g
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://ec9b9bbc551cec77ed4aa219de29aed6@sentry.abrbit.com/7
+            SENTRY_TRACES_SAMPLE_RATE: 0.5
+        volumes:
+            - esaj-stage-storage:/var/www/html/storage/app
+        networks:
+            - esaj-stage-network
+
+    stage_scheduler:
+        image: gitlab.abrbit.com:5555/esaj/panel/stage:stable
+        container_name: esaj_stage_scheduler
+        restart: always
+        command: php artisan schedule:work
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: stage_mysql
+            DB_PORT: 3306
+            DB_DATABASE: stage_db
+            DB_USERNAME: stage
+            DB_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae
+            QUEUE_CONNECTION: database # Or other appropriate connection for stageing
+
+            # Assuming DB_HOST2 is also for the stage database
+            DB_HOST2: stage_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: stage_db
+            DB_USERNAME2: stage
+            DB_PASSWORD2: adu3amohphohdiemahchohb0shahJ0ae
+
+            REDIS_HOST: esaj_stage_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            APP_ENV: development # Set app environment to stageing
+            APP_DEBUG: true
+            APP_URL: https://stage.testesaj.ir
+
+            LOG_CHANNEL: sentry # Or other appropriate channel for stageing
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: stage_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj # Assuming the database name is the same
+            MONGODB_USERNAME: esaj # Hardcoded in .gitlab-ci.yml
+            MONGODB_PASSWORD: esaj_sandbox # Hardcoded in .gitlab-ci.yml
+            TELESCOPE_DRIVER: database # Or other appropriate driver for stageing
+            TELESCOPE_ENABLE: false # Disable telescope for stageing
+
+            QUEUE_COUNT: 1
+
+            REVERB_HOST: stage_reverb
+            REVERB_PORT: 9002
+            REVERB_SCHEME: http
+            REVERB_APP_ID: abc-def-g
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://ec9b9bbc551cec77ed4aa219de29aed6@sentry.abrbit.com/7
+            SENTRY_TRACES_SAMPLE_RATE: 0.5
+
+        networks:
+            - esaj-stage-network
+
+    stage_phpmyadmin:
+        container_name: esaj_stage_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 3123:80 # Assign a port for the stage phpmyadmin
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: stage_mysql # Link to the stage mysql service
+            PMA_ABSOLUTE_URI: https://pma-stage.testesaj.ir/ # No need for a specific URI in CI
+        networks:
+            - esaj-stage-network
+        depends_on:
+            - stage_mysql # Depend on the stage mysql service
+
+    stage_mysql:
+        image: registry.abrbit.com/library/mariadb
+        restart: always
+        container_name: esaj_stage_db
+        environment:
+            MYSQL_DATABASE: stage_db
+            MYSQL_ROOT_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae # Use DB_PASSWORD for root as well for simplicity in stageing
+            MYSQL_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae
+            MYSQL_USER: stage
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+        volumes:
+            - esaj-stage-db-1:/var/lib/mysql # Use a dedicated volume for stageing
+        networks:
+            - esaj-stage-network
+
+    stage_reverb:
+        image: gitlab.abrbit.com:5555/esaj/panel/stage:stable
+        restart: unless-stopped
+        command: php artisan reverb:start --host=0.0.0.0 --port=9002
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: stage_mysql
+            DB_PORT: 3306
+            DB_DATABASE: stage_db
+            DB_USERNAME: stage
+            DB_PASSWORD: adu3amohphohdiemahchohb0shahJ0ae
+            QUEUE_CONNECTION: database # Or other appropriate connection for stageing
+
+            # Assuming DB_HOST2 is also for the stage database
+            DB_HOST2: stage_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: stage_db
+            DB_USERNAME2: stage
+            DB_PASSWORD2: adu3amohphohdiemahchohb0shahJ0ae
+
+            APP_ENV: development # Set app environment to stageing
+            APP_DEBUG: true
+            APP_URL: https://stage.testesaj.ir
+
+            LOG_CHANNEL: sentry # Or other appropriate channel for stageing
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: stage_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj # Assuming the database name is the same
+            MONGODB_USERNAME: esaj # Hardcoded in .gitlab-ci.yml
+            MONGODB_PASSWORD: esaj_sandbox # Hardcoded in .gitlab-ci.yml
+            TELESCOPE_DRIVER: database # Or other appropriate driver for stageing
+            TELESCOPE_ENABLE: false # Disable telescope for stageing
+
+            QUEUE_COUNT: 1
+
+            REVERB_HOST: stage_reverb
+            REVERB_PORT: 9002
+            REVERB_SCHEME: http
+            REVERB_APP_ID: abc-def-g
+            REVERB_APP_KEY: gyfJBphgg1RKg4CseeACD2tsAmyCneQa
+            REVERB_APP_SECRET: 4262942C158216E259D5F8DB9BFFF
+            SENTRY_LARAVEL_DSN: https://ec9b9bbc551cec77ed4aa219de29aed6@sentry.abrbit.com/7
+            SENTRY_TRACES_SAMPLE_RATE: 0.5
+        ports:
+            - "9002:9002"
+        volumes:
+            - esaj-stage-storage:/var/www/html/storage/app
+        networks:
+            - esaj-stage-network
+
+
+    stage_redis:
+        container_name: esaj_stage_redis
+        image: registry.abrbit.com/bitnami/redis:latest
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+            - ALLOW_EMPTY_PASSWORD=no
+        networks:
+            - esaj-stage-network
+
+    stage_mongo:
+        image: docker.arvancloud.ir/mongo:latest
+        container_name: stage_mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: esaj # Hardcoded in .gitlab-ci.yml
+            MONGO_INITDB_ROOT_PASSWORD: esaj_sandbox # Hardcoded in .gitlab-ci.yml
+            MONGO_INITDB_DATABASE: esaj # Assuming the database name is the same
+        volumes:
+            - stage-mongodb-data:/data/db # Use a dedicated volume for stageing
+        networks:
+            - esaj-stage-network
+
+    stage_mongo_express:
+        image: docker.arvancloud.ir/mongo-express:latest
+        container_name: esaj_stage_mongo_express
+        restart: always
+        ports:
+            - "8085:8081"
+        environment:
+            ME_CONFIG_MONGODB_SERVER: stage_mongo
+            ME_CONFIG_MONGODB_ADMINUSERNAME: esaj
+            ME_CONFIG_MONGODB_ADMINPASSWORD: esaj_sandbox
+            ME_CONFIG_BASICAUTH_USERNAME: admin
+            ME_CONFIG_BASICAUTH_PASSWORD: co3EiquiCae9kae0Ieleek6o
+        networks:
+            - esaj-stage-network
+networks:
+    esaj-stage-network:
+        driver: bridge
+
+volumes:
+    esaj-stage-storage:
+    esaj-stage-db-1:
+    stage-mongodb-data:

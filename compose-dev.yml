@@ -1,0 +1,312 @@
+services:
+    snadbox_app:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        container_name: esaj_sandbox_api
+        restart: unless-stopped
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: sand_mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj_sand
+            DB_USERNAME: esaj_sand
+            DB_PASSWORD: Sw27Kqdyu6Xd6NPR14
+
+            DB_HOST2: sand_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: esaj_sand
+            DB_USERNAME2: esaj_sand
+            DB_PASSWORD2: Sw27Kqdyu6Xd6NPR14
+            QUEUE_CONNECTION: redis
+
+            QUEUE_COUNT: 1
+
+            APP_URL: https://dev.testesaj.ir/
+            APP_DEBUG: true
+            APP_ENV: development
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+            IRANCELL_BILL: site
+
+            LOG_CHANNEL: sentry
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: sand_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: esaj_sandbox
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: false
+
+            REDIS_HOST: esaj_sand_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+            REVERB_HOST: sandbox_reverb
+            REVERB_PORT: 9000
+            REVERB_SCHEME: http
+            REVERB_APP_ID: my-app-id
+            REVERB_APP_KEY: my-app-key
+            REVERB_APP_SECRET: my-app-secret
+
+            SENTRY_LARAVEL_DSN: https://eeed05985079ae4200ae4fd9db784683@sentry.abrbit.com/6
+            SENTRY_TRACES_SAMPLE_RATE: 0.0
+            FTP_HOST: eftps.mtnirancell.ir
+            FTP_USERNAME: "MTNIRANCELL0\\safirertebatatjavan-"
+            FTP_PASSWORD: "&dfr56%t7u2Wv"
+        ports:
+            - 3120:80
+        volumes:
+            - esaj-sand-storage:/var/www/html/storage/app
+        networks:
+            - esaj-sand
+
+    sandbox_scheduler:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        container_name: esaj_sand_scheduler
+        restart: always
+        command: php artisan schedule:work
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: sand_mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj_sand
+            DB_USERNAME: esaj_sand
+            DB_PASSWORD: Sw27Kqdyu6Xd6NPR14
+            APP_URL: https://dev.testesaj.ir/
+            APP_DEBUG: true
+            APP_ENV: development
+            QUEUE_CONNECTION: redis
+
+            REDIS_HOST: esaj_sand_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            DB_HOST2: sand_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: esaj_sand
+            DB_USERNAME2: esaj_sand
+            DB_PASSWORD2: Sw27Kqdyu6Xd6NPR14
+
+            REVERB_HOST: sandbox_reverb
+            REVERB_PORT: 9000
+            REVERB_SCHEME: http
+            REVERB_APP_ID: my-app-id
+            REVERB_APP_KEY: my-app-key
+            REVERB_APP_SECRET: my-app-secret
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: false
+            SENTRY_LARAVEL_DSN: https://eeed05985079ae4200ae4fd9db784683@sentry.abrbit.com/6
+            SENTRY_TRACES_SAMPLE_RATE: 0.0
+        volumes:
+            - esaj-sand-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj-sand
+
+    horizon_development:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        restart: always
+        command: php artisan horizon
+        container_name: horizon_development
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: sand_mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj_sand
+            DB_USERNAME: esaj_sand
+            DB_PASSWORD: Sw27Kqdyu6Xd6NPR14
+            APP_DEBUG: true
+            APP_ENV: development
+            QUEUE_CONNECTION: redis
+
+            REDIS_HOST: esaj_sand_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: false
+            APP_URL: https://dev.testesaj.ir/
+
+            DB_HOST2: sand_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: esaj_sand
+            DB_USERNAME2: esaj_sand
+            DB_PASSWORD2: Sw27Kqdyu6Xd6NPR14
+
+            LOG_CHANNEL: sentry
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: sand_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: esaj_sandbox
+
+            REVERB_HOST: sandbox_reverb
+            REVERB_PORT: 9000
+            REVERB_SCHEME: http
+            REVERB_APP_ID: my-app-id
+            REVERB_APP_KEY: my-app-key
+            REVERB_APP_SECRET: my-app-secret
+
+            SENTRY_LARAVEL_DSN: https://eeed05985079ae4200ae4fd9db784683@sentry.abrbit.com/6
+            SENTRY_TRACES_SAMPLE_RATE: 0.0
+        volumes:
+            - esaj-sand-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj-sand
+
+
+    sandbox_reverb:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        restart: always
+        command: php artisan reverb:start --host=0.0.0.0 --port=9000
+        env_file:
+            - ./docker/.env
+        environment:
+            DB_HOST: sand_mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj_sand
+            DB_USERNAME: esaj_sand
+            DB_PASSWORD: Sw27Kqdyu6Xd6NPR14
+            APP_DEBUG: true
+            APP_ENV: development
+            QUEUE_CONNECTION: redis
+
+            REDIS_HOST: esaj_sand_redis
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+            REDIS_PORT: 6379
+
+            TELESCOPE_DRIVER: database
+            TELESCOPE_ENABLE: false
+            APP_URL: https://dev.testesaj.ir/
+
+            DB_HOST2: sand_mysql
+            DB_PORT2: 3306
+            DB_DATABASE2: esaj_sand
+            DB_USERNAME2: esaj_sand
+            DB_PASSWORD2: Sw27Kqdyu6Xd6NPR14
+
+            LOG_CHANNEL: sentry
+            MONGODB_CONNECTION: mongodb
+            MONGODB_HOST: sand_mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE: esaj
+            MONGODB_USERNAME: esaj
+            MONGODB_PASSWORD: esaj_sandbox
+
+            REVERB_HOST: sandbox_reverb
+            REVERB_PORT: 9000
+            REVERB_SCHEME: http
+            REVERB_APP_ID: my-app-id
+            REVERB_APP_KEY: my-app-key
+            REVERB_APP_SECRET: my-app-secret
+
+            SENTRY_LARAVEL_DSN: https://eeed05985079ae4200ae4fd9db784683@sentry.abrbit.com/6
+            SENTRY_TRACES_SAMPLE_RATE: 0.0
+
+        ports:
+            - "9000:9000"
+
+        volumes:
+            - esaj-sand-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj-sand
+
+
+    sand_mysql:
+        image: registry.abrbit.com/library/mariadb
+        restart: always
+        container_name: esaj_sand_db
+        environment:
+            MYSQL_DATABASE: esaj_sand
+            MYSQL_ROOT_PASSWORD: Sw27Kqdyu6Xd6NPR14
+            MYSQL_PASSWORD: Sw27Kqdyu6Xd6NPR14
+            MYSQL_USER: esaj_sand
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+            IRANCELL_BILL: site
+        volumes:
+            - esaj-sand-db-1:/var/lib/mysql
+        networks:
+            - esaj-sand
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p Sw27Kqdyu6Xd6NPR14" , "-h", "sand_mysql" ]
+            retries: 3
+            timeout: 5s
+
+    # mysqld_exporter_sand:
+    #     image: docker.arvancloud.ir/prom/mysqld-exporter:latest
+    #     container_name: mysqld_exporter_dev
+    #     restart: always
+    #     environment:
+    #         - "DATA_SOURCE_NAME: exporter:GLw978SuA-qxTlry@(sand_mysql:3306)/"
+    #     volumes:
+    #         - .my.cnf:/.my.cnf
+    #     depends_on:
+    #         - sand_mysql
+    #     ports:
+    #         - "9105:9104"
+    #     networks:
+    #         - esaj-sand
+
+    sand_redis:
+        container_name: esaj_sand_redis
+        image: registry.abrbit.com/bitnami/redis:latest
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+            - ALLOW_EMPTY_PASSWORD=no
+        networks:
+            - esaj-sand
+    sand_phpmyadmin:
+        container_name: esaj_sand_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 3121:80
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: sand_mysql
+            PMA_ABSOLUTE_URI: https://pma-dev.testesaj.ir/
+        networks:
+            - esaj-sand
+        depends_on:
+            - sand_mysql
+    sand_mongo:
+        image: docker.arvancloud.ir/mongo:latest
+        container_name: sand_mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: esaj
+            MONGO_INITDB_ROOT_PASSWORD: esaj_sandbox
+            MONGO_INITDB_DATABASE: esaj
+        volumes:
+            - sand-mongodb-data:/data/db
+        # ports:
+        #     - "27017:27017"
+        networks:
+            - esaj-sand
+    sand_mongo_express:
+        image: docker.arvancloud.ir/mongo-express:latest
+        container_name: sand_mongo_express
+        restart: always
+        ports:
+            - "8081:8081"
+        environment:
+            ME_CONFIG_MONGODB_SERVER: sand_mongodb
+            ME_CONFIG_MONGODB_ADMINUSERNAME: esaj
+            ME_CONFIG_MONGODB_ADMINPASSWORD: esaj_sandbox
+            ME_CONFIG_BASICAUTH_USERNAME: admin
+            ME_CONFIG_BASICAUTH_PASSWORD: iik8AebuXee8kah5Ohphush3
+        networks:
+            - esaj-sand
+networks:
+    esaj-sand:
+        driver: bridge
+
+volumes:
+    esaj-sand-storage:
+    esaj-sand-db-1:
+    esaj-db-old:
+    sand-mongodb-data:
+
+

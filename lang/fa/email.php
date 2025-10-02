@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'cardToCardNotify' => 'کاربر گرامی، پرداخت کارت به کارت شما با موفقیت انجام شد.',
+    'cardToCardConfirm' => 'کاربر گرامی، فیش واریز کارت به کارت شما تأیید شد.',
+    'cardToCardFailed' => 'کاربر گرامی، متاسفانه فیش پرداخت کارت به کارت شما مورد تأیید قرار نگرفت.' . 'br' . 'علت رد تصویر: :message' . 'در صورت وجود هر گونه سوالی، با ما تماس بگیرید.',
+    'onlinePurchaseConfirmation' => 'پرداخت آنلاین شما با موفقیت انجام شد.',
+    'onlinePurchaseFailed' => 'متاسفانه پرداخت شما موفقیت‌آمیز نبود. در صورت کسر مبلغ تا 72 ساعت به حساب شما برگشت داده می شود.',
+    'question' => 'در صورت وجود هر گونه سوالی، با ما تماس بگیرید.',
+    'header' => 'با سلام',
+    'respect' => 'با احترام،',
+    'transferRequest' => 'کاربر گرامی، درخواست شما برای انتقال اعتبار به مبلغ :amount تومان به کاربر با شماره تلفن :phoneNumber ثبت شد.',
+    'transferRequestSubject' => 'ثبت درخواست انتقال اعتبار',
+    'increaseConfirmation' => 'کاربر گرامی، افزایش اعتبار کیف پول شما به مبلغ :amount تومان با موفقیت انجام شد.',
+    'increaseConfirmationSubject' => 'افزایش اعتبار',
+    'decreaseConfirmation' => 'کاربر گرامی، کاهش اعتبار کیف پول شما به مبلغ :amount تومان.',
+    'decreaseConfirmationSubject' => 'کاهش اعتبار',
+    'increaseFailed' => 'کاربر گرامی، متاسفانه افزایش اعتبار کیف پول شما موفقیت‌آمیز نبود.',
+    'increaseFailedSubject' => 'افزایش ناموفق اعتبار',
+    'transferConfirmation' => 'کاربر گرامی، درخواست شما برای انتقال اعتبار به مبلغ :amount تومان به کاربر با شماره تلفن :phoneNumber تایید شد.',
+    'transferConfirmationSubject' => 'انتقال موفقیت‌‍آمیز اعتبار',
+    'transferToConfirmation' => "کاربر گرامی، مبلغ :amount تومان از اعتبار کیف پول کاربر با شماره تلفن :phoneNumber به کیف پول شما منتقل شد.",
+    'transferToConfirmationSubject' => 'انتقال اعتبار به کیف پول شما',
+    'transferFailed' => 'کاربر گرامی، انتقال مبلغ :amount از اعتبار کیف پول شما به کاربر با شماره تلفن :phoneNumber توسط ادمین تایید نشد.',
+    'transferFailedSubject' => 'عدم تایید انتقال اعتبار',
+    'increaseByAdmin' => 'کاربر گرامی، مبلغ :amount تومان به کیف پول شما توسط ادمین افزوده شد.',
+    'increaseByAdminSubject' => 'افزایش اعتبار',
+    'decreaseByAdmin' => 'کاربر گرامی، مبلغ :amount تومان از کیف پول شما توسط ادمین کم شد.',
+    'decreaseByAdminSubject' => 'کاهش اعتبار',
+    'orderPaid' => 'کاربر عزیز، خرید شما تایید شد.',
+    'operatorProblem' => 'مشکل اپراتور'
+];

@@ -1,0 +1,153 @@
+# ===================================================================
+# GitLab CI Configuration - Cleaned & Refactored
+# ===================================================================
+
+# متغیرهای گلوبال که در جاب‌های مختلف استفاده می‌شوند
+variables:
+  DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG"
+  RELEASE_IMAGE_NAME: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:stable"
+  DB_DATABASE: "esaj_test"
+  DB_PASSWORD: "ZvXzmqqZiFPfeFv8UW4rwdym"
+  DB_USERNAME: "esaj_test"
+  REDIS_PASSWORD: "35QWKp1bjHCKnbREwFFFFaDE"
+  QUEUE_COUNT: 10
+
+# تعریف مراحل اصلی پایپ‌لاین طبق درخواست شما
+stages:
+  - development
+  - stage
+  - production
+  - test
+
+# تنظیمات پیش‌فرض برای تمام جاب‌ها جهت جلوگیری از تکرار
+default:
+  tags: [esaj]
+
+# -------------------------------------------------------------------
+# قالب تست (Test Template)
+# این یک قالب مخفی است تا جاب‌های تست برای stage و production
+# دقیقا یکسان باشند و کد تکراری نداشته باشیم.
+# -------------------------------------------------------------------
+.template_test_job:
+  stage: test # این جاب در مرحله 'test' اجرا می‌شود که در pipeline اصلی تعریف نشده، اما به عنوان یک قالب عمل می‌کند
+  image: docker.arvancloud.ir/thecodingmachine/php:8.3-v5-cli
+  services:
+    - name: docker.arvancloud.ir/mongo:latest
+      alias: mongodb
+      variables:
+        MONGO_INITDB_ROOT_USERNAME: mongo
+        MONGO_INITDB_ROOT_PASSWORD: mongo
+    - name: docker.arvancloud.ir/redis:7
+      alias: redis
+    - name: docker.arvancloud.ir/mariadb:10.11
+      alias: mariadb
+      variables:
+        MYSQL_ROOT_PASSWORD: rootpassword123
+        MYSQL_DATABASE: laravel_test
+        MYSQL_USER: laravel_user
+        MYSQL_PASSWORD: secretpassword123
+  variables:
+    # PHP Extensions & Config
+    PHP_EXTENSION_GD: 1
+    PHP_EXTENSION_CURL: 1
+    PHP_EXTENSION_BCMATH: 1
+    PHP_INI_MEMORY_LIMIT: 8g
+    PHP_INI_MAX_EXECUTION_TIME: 300
+    PHP_EXTENSION_PDO_SQLITE: 1
+    PHP_EXTENSION_SQLITE3: 1
+    PHP_INI_DATE__TIMEZONE: 'Asia/Tehran'
+    PHP_EXTENSION_MONGODB: 1
+    # Laravel Application Config
+    APP_ENV: testing
+    APP_DEBUG: true
+    APP_URL: http://localhost
+    DB_CONNECTION: mysql
+    DB_HOST: mariadb
+    DB_DATABASE: laravel_test
+    DB_USERNAME: laravel_user
+    DB_PASSWORD: secretpassword123
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    REDIS_PASSWORD: ""
+    MONGODB_HOST: mongodb
+    MONGODB_PORT: "27017"
+    MONGODB_DATABASE: laravel_mongo
+    MONGODB_USERNAME: mongo
+    MONGODB_PASSWORD: mongo
+  before_script:
+    - composer require
+    - cp ./docker/.env.testing .env
+    - php artisan key:generate
+    - php artisan migrate --seed
+  script:
+    - vendor/bin/phpunit
+
+# ===================================================================
+# Stage: development
+# فقط روی برنچ 'development' اجرا می‌شود
+# ===================================================================
+deploy_development:
+  stage: development
+  image: docker.arvancloud.ir/docker:git
+  script:
+    - echo "Building and running development environment..."
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-dev.yml up -d
+  only:
+    - development
+
+# ===================================================================
+# Stage: stage
+# شامل دو جاب است که فقط روی برنچ 'stage' اجرا می‌شوند
+# ===================================================================
+# test_on_stage:
+#   stage: stage
+#   extends: .template_test_job # ارث‌بری کامل از قالب تست
+#   only:
+#    - stage
+
+deploy_stage:
+  stage: stage
+  image: docker.arvancloud.ir/docker:git
+  # needs: [test_on_stage] # تنها پس از موفقیت تست اجرا می‌شود
+  script:
+    - echo "Building and deploying to stage environment..."
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-stage.yml up -d
+  only:
+    - stage
+
+# ===================================================================
+# Stage: production
+# شامل دو جاب است که فقط روی برنچ 'main' اجرا می‌شوند
+# ===================================================================
+test_on_production:
+  stage: production
+  extends: .template_test_job # ارث‌بری کامل از قالب تست
+  only:
+   - main
+
+deploy_production:
+  stage: production
+  image: docker.arvancloud.ir/docker:git
+  needs: [test_on_production] # تنها پس از موفقیت تست اجرا می‌شود
+  script:
+    - echo "Building and deploying to production environment..."
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-prod.yml up -d
+  only:
+    - main
+
+deploy_test:
+  stage: production
+  image: docker.arvancloud.ir/docker:git
+  script:
+    - echo "Building and deploying to production environment..."
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build --tag "$RELEASE_IMAGE_NAME" .
+    - docker compose -f compose-test.yml up -d
+  only:
+    - test

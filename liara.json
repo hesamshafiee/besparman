@@ -1,0 +1,10 @@
+{
+    "platform": "laravel",
+    "app": "esaj",
+    "laravel": {
+        "phpVersion": "8.2",
+        "buildAssets": false,
+        "configCache": true,
+        "routeCache": true
+    }
+}

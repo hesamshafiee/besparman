@@ -1,0 +1,134 @@
+services:
+    app:
+        build:
+            args:
+                user: esaj
+                uid: 1000
+            context: ./
+            dockerfile: ./docker/Dockerfile
+        environment:
+          DB_HOST: mysql
+          DB_PORT: 3306
+          DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+          APP_DEBUG: true
+          AUTH_RATE_LIMIT_TIME: 60
+        image: esaj
+        container_name: esaj-app
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+          - ./:/var/www
+        networks:
+          - esaj
+    nginx:
+        image: nginx:alpine
+        container_name: esaj-nginx
+        restart: unless-stopped
+        ports:
+            - 80:80
+        volumes:
+          - ./:/var/www
+          - ./docker/nginx_dir/nginx_conf:/etc/nginx/conf.d/
+          - ./docker/nginx_dir/certs:/etc/nginx/certs
+        networks:
+          - esaj
+    mysql:
+        image: registry.abrbit.com/library/mariadb
+        container_name: esaj_db
+        environment:
+            MYSQL_DATABASE: esaj
+            MYSQL_ROOT_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_USER: esaj
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+        volumes:
+            - db-1:/var/lib/mysql
+        networks:
+            - esaj
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p ZvXzmqqZiFPfeFv8UW4rwdym" , "-h", "localhost" ]
+            retries: 3
+            timeout: 5s
+    redis:
+        container_name: esaj_redis
+        image: registry.abrbit.com/bitnami/redis:latest
+        ports:
+            - '6379:6379'
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+        networks:
+            - esaj
+    phpmyadmin:
+        container_name: esaj_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 2007:80
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+            UPLOAD_LIMIT: 300M
+        networks:
+            - esaj
+        depends_on:
+            - mysql
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb
+        restart: unless-stopped
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+        volumes:
+            - mongodb_data:/data/db
+        ports:
+            - "27017:27017"
+        networks:
+            - esaj
+    mongo-express:
+        image: mongo-express:latest
+        container_name: mongo-express
+        restart: unless-stopped
+        ports:
+            - "8081:8081"
+        environment:
+            ME_CONFIG_MONGODB_SERVER: mongodb  # Matches your MongoDB service name
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: root
+            ME_CONFIG_BASICAUTH_USERNAME: admin  # Web UI login
+            ME_CONFIG_BASICAUTH_PASSWORD: admin123  # Web UI password
+        depends_on:
+            - mongodb
+        networks:
+            - esaj
+    prometheus:
+      image: prom/prometheus:latest
+      container_name: prometheus
+      volumes:
+        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      ports:
+        - "9090:9090"
+      networks:
+        - esaj
+
+    grafana:
+      image: grafana/grafana:latest
+      container_name: grafana
+      ports:
+        - "3000:3000"
+      volumes:
+        - grafana-storage:/var/lib/grafana
+      depends_on:
+        - prometheus
+      networks:
+        - esaj
+networks:
+    esaj:
+        driver: bridge
+
+volumes:
+    db-1:
+    db-2:
+    mongodb_data:
+    grafana-storage:
+

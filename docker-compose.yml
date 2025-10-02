@@ -1,0 +1,147 @@
+services:
+    app:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        container_name: esaj_api
+        restart: unless-stopped
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            APP_DEBUG: true
+            APP_ENV: production
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_URL: https://api.esaj.abrbit.com
+            APP_SECRET_KEY: tlpw@:K#X0$[r,dxPg'Nm~y`3Co8£=[;T3N_:6V{t'z*].{1S!
+        ports:
+            - 2000:80
+        volumes:
+            - esaj-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj
+
+    snadbox_app:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        container_name: esaj_sandbox_api
+        restart: unless-stopped
+        environment:
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            APP_DEBUG: true
+            AUTH_RATE_LIMIT_TIME: 60
+            APP_ENV: local
+            APP_URL: https://sandbox.esaj.abrbit.com
+        ports:
+            - 2020:80
+        volumes:
+            - esaj-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj
+
+    app_migration:
+        image: gitlab.abrbit.com:5555/esaj/panel/development:stable
+        container_name: esaj_migration
+        restart: unless-stopped
+        environment:
+            DB_HOST: esaj_db
+            DB_PORT: 3306
+            DB_DATABASE: esaj
+            DB_USERNAME: esaj
+            DB_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+
+            DB_HOST_OLD: esaj_old
+            DB_PORT_OLD: 3306
+            DB_DATABASE_OLD: final_esaj
+            DB_USERNAME_OLD: esaj
+            DB_PASSWORD_OLD: esaj
+            APP_DEBUG: true
+        ports:
+            - 2008:80
+        volumes:
+            - esaj-storage:/var/www/html/storage/app/public
+        networks:
+            - esaj
+
+    mysql_old:
+        image: registry.abrbit.com/library/mysql
+        container_name: esaj_old
+
+        environment:
+            MYSQL_DATABASE: final_esaj
+            MYSQL_ROOT_PASSWORD: esaj
+            MYSQL_PASSWORD: esaj
+            MYSQL_USER: esaj
+        volumes:
+            - db-old:/var/lib/mysql
+        networks:
+            - esaj
+
+    phpmyadmin_old:
+        container_name: esaj_old_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 2009:80
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: esaj_old
+        networks:
+            - esaj
+        depends_on:
+            - mysql_old
+
+
+    mysql:
+        image: registry.abrbit.com/library/mariadb
+        container_name: esaj_db
+        environment:
+            MYSQL_DATABASE: esaj
+            MYSQL_ROOT_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_PASSWORD: ZvXzmqqZiFPfeFv8UW4rwdym
+            MYSQL_USER: esaj
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+        volumes:
+            - db-1:/var/lib/mysql
+        networks:
+            - esaj
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p ZvXzmqqZiFPfeFv8UW4rwdym" , "-h", "localhost" ]
+            retries: 3
+            timeout: 5s
+    redis:
+        container_name: esaj_redis
+        image: registry.abrbit.com/bitnami/redis:latest
+        ports:
+            - '6379:6379'
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+            - ALLOW_EMPTY_PASSWORD=no
+        networks:
+            - esaj
+    phpmyadmin:
+        container_name: esaj_phpmyadmin
+        image: registry.abrbit.com/library/phpmyadmin
+        restart: always
+        ports:
+            - 2007:80
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+        networks:
+            - esaj
+        depends_on:
+            - mysql
+networks:
+    esaj:
+        driver: bridge
+
+volumes:
+    esaj-storage:
+    db-old:
+    db-1:
+    db-2:
+
