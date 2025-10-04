@@ -16,23 +16,26 @@ class UserReportJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected null|string $date;
-    protected array $userIds;
+    protected string $date;
 
-    public function __construct($users, $date = null)
+    public function __construct(string $date)
     {
         $this->date = $date;
-//        $this->userIds = $users->pluck('id')->toArray();
-        $this->userIds = [$users->id];
     }
 
     public function handle()
     {
-        $dateToUse = $this->date ? Carbon::parse($this->date) : Carbon::now()->subDay();
-        $dateCondition = function ($query) use ($dateToUse) {
-            $query->whereDate('wt.created_at', $dateToUse);
-        };
+        $dateToUse = Carbon::parse($this->date);
+        $startOfDay = $dateToUse->copy()->startOfDay();
+        $endOfDay   = $dateToUse->copy()->endOfDay();
 
+        // --- 1. Preload existing reports ---
+        $existingReports = ReportDailyUser::whereBetween(
+            'date',
+            [new UTCDateTime($startOfDay->timestamp * 1000), new UTCDateTime($endOfDay->timestamp * 1000)]
+        )->pluck('user_id')->toArray();
+
+        // --- 2. Aggregate user totals in one query ---
         $totals = DB::table('wallet_transactions as wt')
             ->join('users as u', 'wt.user_id', '=', 'u.id')
             ->join('profiles as p', 'u.profile_id', '=', 'p.id')
@@ -50,92 +53,68 @@ class UserReportJob implements ShouldQueue
                 DB::raw('COUNT(*) as total_count')
             )
             ->where('wt.detail', 'decrease_purchase_buyer')
-            ->where('wt.third_party_status', true)
+            ->where('wt.third_party_status', 1)
             ->where('wt.type', 'decrease')
-            ->where($dateCondition)
-            ->whereIn('wt.user_id', $this->userIds)
-            ->groupBy('wt.user_id', 'u.mobile', 'u.name', 'p.national_code', 'p.address', 'p.postal_code', 'p.city', 'p.province')
+            ->whereBetween('wt.created_at', [$startOfDay, $endOfDay])
+            ->groupBy(
+                'wt.user_id',
+                'u.mobile',
+                'u.name',
+                'p.national_code',
+                'p.address',
+                'p.city',
+                'p.province',
+                'p.postal_code'
+            )
             ->get()
             ->keyBy('user_id');
 
-        $operatorData = DB::table('wallet_transactions as wt')
+        if ($totals->isEmpty()) {
+            return;
+        }
+
+        // --- 3. Aggregate operator breakdown ---
+        $operators = DB::table('wallet_transactions as wt')
             ->join('operators as o', 'wt.operator_id', '=', 'o.id')
-            ->join('products as p', DB::raw("JSON_UNQUOTE(JSON_EXTRACT(wt.extra_info, '$.product_id'))"), '=', 'p.id')
+            ->leftJoin(
+                'products as pr',
+                DB::raw("JSON_UNQUOTE(JSON_EXTRACT(wt.extra_info, '$.product_id'))"),
+                '=',
+                'pr.id'
+            )
             ->select(
                 'wt.user_id',
                 'wt.operator_id',
                 'o.name as operator_name',
-                'o.name as operator_title',
-                'wt.product_type',
-                'wt.product_name',
-                'p.sim_card_type',
-                'wt.value as total',
-                'wt.original_price as total_original_price'
+                DB::raw('SUM(wt.value) as total'),
+                DB::raw('SUM(wt.original_price) as total_original_price'),
+                DB::raw('COUNT(*) as total_count')
             )
             ->where('wt.detail', 'decrease_purchase_buyer')
+            ->where('wt.third_party_status', 1)
             ->where('wt.type', 'decrease')
-            ->where($dateCondition)
-            ->whereIn('wt.user_id', $this->userIds)
+            ->whereBetween('wt.created_at', [$startOfDay, $endOfDay])
             ->whereNotNull('wt.operator_id')
+            ->groupBy('wt.user_id', 'wt.operator_id', 'o.name')
             ->get()
-            ->groupBy('user_id')
-            ->map(function ($userItems) {
-                return $userItems->groupBy('operator_id')->map(function ($items, $operatorId) {
-                    $first = $items->first();
+            ->groupBy('user_id');
 
-                    return [
-                        'name' => $first->operator_name,
-                        'title' => $first->operator_title,
-                        'total' => $items->sum('total'),
-                        'total_original_price' => $items->sum('total_original_price'),
-                        'count' => $items->count(),
-                        '_id' => (int) $operatorId,
-                        'report' => $items
-                            ->groupBy(function ($item) {
-                                return implode('|', [
-                                    trim($item->product_type ?? 'unknown_type'),
-                                    trim($item->product_name ?? 'unknown_name'),
-                                    trim($item->sim_card_type ?? 'unknown_sim'),
-                                ]);
-                            })
-                            ->map(function ($groupedItems) {
-                                $first = $groupedItems->first();
-
-                                return [
-                                    'total' => $groupedItems->sum('total'),
-                                    'total_original_price' => $groupedItems->sum('total_original_price'),
-                                    'count' => $groupedItems->count(),
-                                    'product_type' => $first->product_type ?? 'unknown_type',
-                                    'product_name' => $first->product_name ?? 'unknown_name',
-                                    'sim_card_type' => $first->sim_card_type ?? 'unknown_sim',
-                                ];
-                            })
-                            ->values()->toArray(),
-                    ];
-                });
-            });
-
+        // --- 4. Build insert payload ---
         $results = [];
 
         foreach ($totals as $userId => $item) {
-            // Check if a report already exists for this user and date
-            $existing = ReportDailyUser::where('user_id', (int)$userId)
-                ->where('date', new UTCDateTime($dateToUse))
-                ->first();
-
-            if ($existing) {
+            if (in_array($userId, $existingReports, true)) {
                 continue;
             }
 
-            $operators = optional($operatorData->get($userId))->toArray() ?? [];
-            $irancell = collect($operators)->firstWhere('name', 'Irancell');
-            $mci = collect($operators)->firstWhere('name', 'Mci');
-            $rightel = collect($operators)->firstWhere('name', 'Rightel');
-            $aptel = collect($operators)->firstWhere('name', 'Aptel');
-            $shatel = collect($operators)->firstWhere('name', 'Shatel');
+            $userOperators = $operators->get($userId, collect());
+
+            $opMap = $userOperators->mapWithKeys(function ($op) {
+                return [$op->operator_name => $op];
+            });
 
             $results[] = [
-                'user_id' => (int)$userId,
+                'user_id' => (int) $userId,
                 'mobile' => $item->mobile,
                 'name' => $item->name,
                 'national_code' => $item->national_code,
@@ -146,25 +125,29 @@ class UserReportJob implements ShouldQueue
                 'total_value' => (float) $item->total_value,
                 'original_price' => (float) $item->total_original_price,
                 'total_count' => (int) $item->total_count,
-                'operators' => $operators,
-                'irancell_total' => (float) ($irancell['total'] ?? 0),
-                'irancell_total_original_price' => (float) ($irancell['total_original_price'] ?? 0),
-                'mci_total' => (float) ($mci['total'] ?? 0),
-                'mci_total_original_price' => (float) ($mci['total_original_price'] ?? 0),
-                'rightel_total' => (float) ($rightel['total'] ?? 0),
-                'rightel_total_original_price' => (float) ($rightel['total_original_price'] ?? 0),
-                'aptel_total' => (float) ($aptel['total'] ?? 0),
-                'aptel_total_original_price' => (float) ($aptel['total_original_price'] ?? 0),
-                'shatel_total' => (float) ($shatel['total'] ?? 0),
-                'shatel_total_original_price' => (float) ($shatel['total_original_price'] ?? 0),
-                'date' => new UTCDateTime($dateToUse),
+                'operators' => $userOperators->toArray(),
+                'irancell_total' => (float) ($opMap['Irancell']->total ?? 0),
+                'irancell_total_original_price' => (float) ($opMap['Irancell']->total_original_price ?? 0),
+                'mci_total' => (float) ($opMap['Mci']->total ?? 0),
+                'mci_total_original_price' => (float) ($opMap['Mci']->total_original_price ?? 0),
+                'rightel_total' => (float) ($opMap['Rightel']->total ?? 0),
+                'rightel_total_original_price' => (float) ($opMap['Rightel']->total_original_price ?? 0),
+                'aptel_total' => (float) ($opMap['Aptel']->total ?? 0),
+                'aptel_total_original_price' => (float) ($opMap['Aptel']->total_original_price ?? 0),
+                'shatel_total' => (float) ($opMap['Shatel']->total ?? 0),
+                'shatel_total_original_price' => (float) ($opMap['Shatel']->total_original_price ?? 0),
+                'date' => new UTCDateTime($startOfDay->timestamp * 1000),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
         }
 
+        // --- 5. Bulk insert ---
         if (!empty($results)) {
-            ReportDailyUser::insert($results);
+            // Insert in chunks to avoid huge queries
+            collect($results)->chunk(1000)->each(function ($chunk) {
+                ReportDailyUser::insert($chunk->toArray());
+            });
         }
     }
 }

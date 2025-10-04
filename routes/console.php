@@ -48,6 +48,8 @@ app(Schedule::class)->call(function () {
 
 app(Schedule::class)->call(function () {
     User::chunk(50, function ($users) {
-        UserReportJob::dispatch($users)->onQueue('report');
+        foreach ($users as $user) {
+            UserReportJob::dispatch($user)->onQueue('report');
+        }
     });
 })->dailyAt('00:15');

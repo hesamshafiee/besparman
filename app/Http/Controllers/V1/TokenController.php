@@ -46,7 +46,7 @@ class TokenController extends Controller
      */
     public function destroy(PersonalAccessToken $personalAccessToken): JsonResponse
     {
-        if ($personalAccessToken->tokenable_id !== Auth::id()) {
+        if ($personalAccessToken->tokenable_id === Auth::id()) {
             if ($personalAccessToken->delete()) {
                 return response()->ok(__('general.deletedSuccessfully', ['id' => $personalAccessToken->id]));
             }
