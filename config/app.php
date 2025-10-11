@@ -201,7 +201,9 @@ return [
         \App\Services\V1\Wallet\WalletServiceProvider::class,
         \App\Providers\SettingServiceProvider::class,
         \App\Services\V1\Financial\FinancialServiceProvider::class,
-        \App\Services\V1\Search\SearchServiceProvider::class
+        \App\Services\V1\Search\SearchServiceProvider::class,
+        App\Providers\SearchServiceProvider::class,
+
     ],
 
     /*

@@ -52,6 +52,7 @@ use App\Http\Controllers\V1\ReconciliationController;
 use App\Http\Controllers\V1\TelegramController;
 use App\Http\Controllers\V1\UserSettingController;
 use App\Http\Controllers\V1\VersionController;
+use App\Http\Controllers\V1\SearchDemoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -357,6 +358,11 @@ Route::middleware(['checkToken'])->group(function () {
         Route::get('/draft-topups', [DraftTopupController::class, 'index']);
         Route::post('/draft-topups', [DraftTopupController::class, 'store']);
         Route::delete('/draft-topups/{draftTopup?}', [DraftTopupController::class, 'destroy']);
+
+
+
+        Route::get('/search-demo/seed',   [SearchDemoController::class, 'seed']);
+        Route::get('/search-demo/search', [SearchDemoController::class, 'search']); 
     });
 });
 
