@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS metabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER IF NOT EXISTS 'metabase_ro'@'%' IDENTIFIED BY 'Mb!12345678';
+GRANT SELECT ON bm.* TO 'metabase_ro'@'%';
+CREATE USER IF NOT EXISTS 'metabase'@'%' IDENTIFIED BY 'Strong-MB-Pass-Here';
+GRANT ALL PRIVILEGES ON metabase.* TO 'metabase'@'%';
+FLUSH PRIVILEGES;

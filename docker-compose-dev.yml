@@ -20,6 +20,7 @@ services:
           - ./:/var/www
         networks:
           - bm
+
     nginx:
         image: nginx:alpine
         container_name: bm-nginx
@@ -32,6 +33,7 @@ services:
           - ./docker/nginx_dir/certs:/etc/nginx/certs
         networks:
           - bm
+
     mysql:
         image: registry.abrbit.com/library/mariadb
         container_name: bm_db
@@ -43,12 +45,14 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
         volumes:
             - db-1:/var/lib/mysql
+            - ./docker/mysql_init:/docker-entrypoint-initdb.d
         networks:
             - bm
         healthcheck:
             test: [ "CMD", "mysqladmin", "ping", "-p ZvXzmqqZiFPfeFv8UW4rwdym" , "-h", "localhost" ]
             retries: 3
             timeout: 5s
+
     redis:
         container_name: bm_redis
         image: registry.abrbit.com/bitnami/redis:latest
@@ -58,6 +62,7 @@ services:
             - ALLOW_EMPTY_PASSWORD=yes
         networks:
             - bm
+
     phpmyadmin:
         container_name: bm_phpmyadmin
         image: registry.abrbit.com/library/phpmyadmin
@@ -72,6 +77,7 @@ services:
             - bm
         depends_on:
             - mysql
+
     mongodbbn:
         image: mongo:latest
         container_name: mongodbbn
@@ -85,6 +91,7 @@ services:
             - "27017:27017"
         networks:
             - bm
+
     mongo-expressbn:
         image: mongo-express:latest
         container_name: mongo-expressbn
@@ -101,6 +108,7 @@ services:
             - mongodbbn
         networks:
             - bm
+
     prometheusbn:
       image: prom/prometheus:latest
       container_name: prometheusbn
@@ -122,6 +130,32 @@ services:
         - prometheusbn
       networks:
         - bm
+
+    # ---------------- Metabase ----------------
+    metabase:
+      image: metabase/metabase:latest
+      container_name: bm_metabase
+      restart: unless-stopped
+      environment:
+        MB_DB_TYPE: "mysql"
+        MB_DB_DBNAME: "metabase"              # قبلش این DB رو روی MariaDB بساز
+        MB_DB_HOST: "mysql"                   # نام سرویس دیتابیس
+        MB_DB_PORT: "3306"
+        MB_DB_USER: "metabase"                # یوزری که روی MariaDB ساختی
+        MB_DB_PASS: "Strong-MB-Pass-Here"
+
+        MB_SITE_NAME: "BM Metabase"
+        MB_SITE_URL: "http://localhost/metabase"   # چون پشت Nginx روی /metabase سرو می‌شود
+        MB_ENCRYPTION_SECRET_KEY: "ChangeThisToExactly32CharsSecret!!!!"
+        JAVA_TOOL_OPTIONS: "-Xms256m -Xmx1g"
+      depends_on:
+        - mysql
+      networks:
+        - bm
+      # پورت بیرونی لازم نیست؛ Nginx روی /metabase هندل می‌کند
+      # ports:
+      #   - "3030:3000"
+
 networks:
     bm:
         driver: bridge
@@ -131,4 +165,3 @@ volumes:
     db-2:
     mongodb_data:
     grafana-storage:
-
