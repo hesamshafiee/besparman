@@ -195,7 +195,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\TelescopeServiceProvider::class,
         \App\Services\V1\Image\ImageServiceProvider::class,
         \App\Services\V1\Cart\CartServiceProvider::class,
         \App\Services\V1\Wallet\WalletServiceProvider::class,
