@@ -23,7 +23,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('personal_access_tokens', function (Blueprint $table) {
-            $table->dropColumn(['ip_address', 'user_agent', 'last_login_at']);
+            if (Schema::hasColumn('personal_access_tokens', 'ip_address')) {
+                $table->dropColumn('ip_address');
+            }
+
+            if (Schema::hasColumn('personal_access_tokens', 'user_agent')) {
+                $table->dropColumn('user_agent');
+            }
         });
     }
 };
