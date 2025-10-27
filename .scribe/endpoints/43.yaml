@@ -2,10 +2,12 @@ name: Tag
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/tags
     metadata:
+      custom: []
       groupName: Tag
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/tags
     metadata:
+      custom: []
       groupName: Tag
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       table:
+        custom: []
         name: table
         description: ''
         required: true
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       tags:
+        custom: []
         name: tags
         description: 'Must not be greater than 100 characters.'
         required: true
@@ -83,7 +86,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       table: architecto
       tags:
@@ -95,12 +98,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/tags/create
     metadata:
+      custom: []
       groupName: Tag
       groupDescription: ''
       subgroup: ''
@@ -109,7 +113,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -119,6 +122,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: ''
         required: true
@@ -127,8 +131,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
@@ -137,7 +142,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: architecto
       type: architecto
@@ -148,12 +153,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/tags/{tag_id}'
     metadata:
+      custom: []
       groupName: Tag
       groupDescription: ''
       subgroup: ''
@@ -162,12 +168,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       tag_id:
+        custom: []
         name: tag_id
         description: 'The ID of the tag.'
         required: true
@@ -176,7 +182,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       tag_id: 16
     queryParameters: []
@@ -190,12 +196,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/tags/force/{tag_id}'
     metadata:
+      custom: []
       groupName: Tag
       groupDescription: ''
       subgroup: ''
@@ -204,12 +211,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       tag_id:
+        custom: []
         name: tag_id
         description: 'The ID of the tag.'
         required: true
@@ -218,7 +225,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       tag_id: 16
     queryParameters: []
@@ -232,4 +239,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

@@ -2,10 +2,12 @@ name: Telegram
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/telegram
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/clients/telegram/{userTelegramAccount_id}'
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -54,12 +56,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       userTelegramAccount_id:
+        custom: []
         name: userTelegramAccount_id
         description: 'The ID of the userTelegramAccount.'
         required: true
@@ -68,7 +70,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       userTelegramAccount_id: 16
     queryParameters: []
@@ -82,12 +84,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/telegram/active-link/{code?}'
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -96,12 +99,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       code:
+        custom: []
         name: code
         description: ''
         required: false
@@ -110,7 +113,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       code: architecto
     queryParameters: []
@@ -120,6 +123,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -127,18 +131,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/tickets/close/{ticket_id}'
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -147,12 +151,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       ticket_id:
+        custom: []
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
@@ -161,7 +165,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       ticket_id: 16
     queryParameters: []
@@ -171,6 +175,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -178,18 +183,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/tickets
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -198,7 +203,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -208,6 +212,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       ticket_id:
+        custom: []
         name: ticket_id
         description: 'The <code>id</code> of an existing record in the tickets table.'
         required: false
@@ -216,8 +221,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       title:
+        custom: []
         name: title
         description: 'This field is required when <code>ticket_id</code> is not present. Must be at least 3 characters. Must not be greater than 50 characters.'
         required: false
@@ -226,8 +232,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       message:
+        custom: []
         name: message
         description: ''
         required: true
@@ -236,12 +243,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       category:
+        custom: []
         name: category
         description: ''
-        required: true
-        example: general
+        required: false
+        example: billing
         type: string
         enumValues:
           - technical
@@ -252,8 +260,9 @@ endpoints:
           - feedback
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -263,12 +272,12 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       ticket_id: 4326.41688
       title: m
       message: architecto
-      category: general
+      category: billing
     fileParameters:
       images:
         - null
@@ -278,12 +287,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/telegram/save-telegram-id
     metadata:
+      custom: []
       groupName: Telegram
       groupDescription: ''
       subgroup: ''
@@ -292,7 +302,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -309,4 +318,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

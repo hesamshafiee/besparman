@@ -2,10 +2,12 @@ name: ProfitSplit
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/profit-splits
     metadata:
+      custom: []
       groupName: ProfitSplit
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/profit-splits
     metadata:
+      custom: []
       groupName: ProfitSplit
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       seller_profit:
+        custom: []
         name: seller_profit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: true
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profit_id:
+        custom: []
         name: profit_id
         description: 'The <code>id</code> of an existing record in the profits table.'
         required: true
@@ -92,7 +96,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       seller_profit: 22
@@ -104,12 +108,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/profit-splits/{profitSplit_id}'
     metadata:
+      custom: []
       groupName: ProfitSplit
       groupDescription: ''
       subgroup: ''
@@ -118,23 +123,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       profitSplit_id:
+        custom: []
         name: profitSplit_id
         description: 'The ID of the profitSplit.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      profitSplit_id: 16
+      profitSplit_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -146,4 +151,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

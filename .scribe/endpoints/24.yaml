@@ -2,10 +2,12 @@ name: Warehouse
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/warehouses
     metadata:
+      custom: []
       groupName: Warehouse
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/warehouses
     metadata:
+      custom: []
       groupName: Warehouse
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       product_id:
+        custom: []
         name: product_id
         description: 'The <code>id</code> of an existing record in the products table.'
         required: true
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       count:
+        custom: []
         name: count
         description: ''
         required: true
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       weight:
+        custom: []
         name: weight
         description: ''
         required: false
@@ -92,8 +96,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -102,18 +107,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       expiry_date:
+        custom: []
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:21'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       warehouse_address:
+        custom: []
         name: warehouse_address
         description: 'Must not be greater than 500 characters.'
         required: false
@@ -122,8 +129,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       source:
+        custom: []
         name: source
         description: 'Must not be greater than 500 characters.'
         required: false
@@ -132,13 +140,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       product_id: 4326.41688
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-09-29T15:53:21'
+      expiry_date: '2025-10-27T12:21:30'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -148,12 +156,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/warehouses/{warehouse_id}'
     metadata:
+      custom: []
       groupName: Warehouse
       groupDescription: ''
       subgroup: ''
@@ -162,12 +171,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       warehouse_id:
+        custom: []
         name: warehouse_id
         description: 'The ID of the warehouse.'
         required: true
@@ -176,7 +185,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       warehouse_id: 16
     queryParameters: []
@@ -190,4 +199,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

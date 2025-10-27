@@ -4,10 +4,12 @@ name: Prize
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/prizes
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/prizes
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -69,6 +70,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -76,18 +78,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/prizes-purchase
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -96,7 +98,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -109,6 +110,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -116,18 +118,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/prizes-purchase
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -136,7 +138,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -149,6 +150,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -156,18 +158,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/prizes
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -176,7 +178,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -186,6 +187,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -194,8 +196,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must be at least 3 characters. Must not be greater than 65535 characters.'
         required: false
@@ -204,8 +207,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       point:
+        custom: []
         name: point
         description: 'Must be at least 1. Must not be greater than 1000000.'
         required: true
@@ -214,8 +218,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
@@ -232,8 +237,9 @@ endpoints:
           - discount
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -242,8 +248,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -252,8 +259,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       product_id:
+        custom: []
         name: product_id
         description: 'The <code>id</code> of an existing record in the products table.'
         required: false
@@ -262,8 +270,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profile_id:
+        custom: []
         name: profile_id
         description: ''
         required: true
@@ -272,8 +281,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       ext_id:
+        custom: []
         name: ext_id
         description: ''
         required: true
@@ -282,8 +292,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_type:
+        custom: []
         name: operator_type
         description: ''
         required: false
@@ -292,8 +303,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       count:
+        custom: []
         name: count
         description: ''
         required: false
@@ -302,8 +314,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       url:
+        custom: []
         name: url
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -312,8 +325,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       tags:
+        custom: []
         name: tags
         description: 'Must not be greater than 100 characters.'
         required: false
@@ -323,8 +337,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -334,7 +349,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       name: b
       description: 'Et animi quos velit et fugiat.'
@@ -359,12 +374,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/prizes/items
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -373,7 +389,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -383,6 +398,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       prize_id:
+        custom: []
         name: prize_id
         description: 'The <code>id</code> of an existing record in the prizes table.'
         required: true
@@ -391,8 +407,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       code:
+        custom: []
         name: code
         description: 'Must not be greater than 100 characters.'
         required: true
@@ -402,7 +419,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       prize_id: 4326.41688
       code:
@@ -414,12 +431,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/prizes/{prize_id}'
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -428,12 +446,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       prize_id:
+        custom: []
         name: prize_id
         description: 'The ID of the prize.'
         required: true
@@ -442,7 +460,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       prize_id: 16
     queryParameters: []
@@ -456,12 +474,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/prizes/status/{prize_id}'
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -470,12 +489,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       prize_id:
+        custom: []
         name: prize_id
         description: 'The ID of the prize.'
         required: true
@@ -484,7 +503,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       prize_id: 16
     queryParameters: []
@@ -498,12 +517,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/prizes-purchase/status/{prizePurchase_id}'
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -512,12 +532,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       prizePurchase_id:
+        custom: []
         name: prizePurchase_id
         description: 'The ID of the prizePurchase.'
         required: true
@@ -526,7 +546,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       prizePurchase_id: 16
     queryParameters: []
@@ -540,12 +560,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: 'api/prizes/purchase/{prize_id}'
     metadata:
+      custom: []
       groupName: Prize
       groupDescription: ''
       subgroup: ''
@@ -554,12 +575,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       prize_id:
+        custom: []
         name: prize_id
         description: 'The ID of the prize.'
         required: true
@@ -568,7 +589,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       prize_id: 16
     queryParameters: []
@@ -582,4 +603,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

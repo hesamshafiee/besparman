@@ -2,10 +2,12 @@ name: Search
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/filter
     metadata:
+      custom: []
       groupName: Search
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -24,6 +25,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       table:
+        custom: []
         name: table
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
@@ -32,8 +34,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       items:
+        custom: []
         name: items
         description: 'Must be at least 1 character. Must not be greater than 100 characters.'
         required: true
@@ -43,7 +46,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       table: b
       items:
@@ -55,4 +58,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

@@ -2,10 +2,12 @@ name: PhoneBook
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/phone-books
     metadata:
+      custom: []
       groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/phone-books
     metadata:
+      custom: []
       groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       phone_number:
+        custom: []
         name: phone_number
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: true
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       last_settings:
+        custom: []
         name: last_settings
         description: 'Must be a valid JSON string.'
         required: true
@@ -92,7 +96,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       phone_number: '137449171806'
       name: z
@@ -104,12 +108,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/phone-books/batch
     metadata:
+      custom: []
       groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
@@ -118,7 +123,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -128,6 +132,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       phone_number:
+        custom: []
         name: phone_number
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -136,8 +141,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: true
@@ -146,8 +152,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       last_settings:
+        custom: []
         name: last_settings
         description: 'Must be a valid JSON string.'
         required: true
@@ -156,7 +163,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       phone_number: '137449171806'
       name: z
@@ -168,12 +175,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/phone-books/check
     metadata:
+      custom: []
       groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
@@ -182,7 +190,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -192,6 +199,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       phone_number:
+        custom: []
         name: phone_number
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -200,8 +208,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: true
@@ -210,8 +219,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       last_settings:
+        custom: []
         name: last_settings
         description: 'Must be a valid JSON string.'
         required: true
@@ -220,7 +230,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       phone_number: '137449171806'
       name: z
@@ -232,12 +242,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/phone-books/{phoneBook_id}'
     metadata:
+      custom: []
       groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
@@ -246,12 +257,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       phoneBook_id:
+        custom: []
         name: phoneBook_id
         description: 'The ID of the phoneBook.'
         required: true
@@ -260,7 +271,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       phoneBook_id: 16
     queryParameters: []
@@ -274,4 +285,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

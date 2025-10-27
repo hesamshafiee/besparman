@@ -4,10 +4,12 @@ name: UserSetting
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/user-settings
     metadata:
+      custom: []
       groupName: UserSetting
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/clients/user-settings
     metadata:
+      custom: []
       groupName: UserSetting
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,6 +67,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       settings:
+        custom: []
         name: settings
         description: ''
         required: true
@@ -74,8 +76,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       settings.minimum_wallet:
+        custom: []
         name: settings.minimum_wallet
         description: 'Must be at least 0.'
         required: true
@@ -84,8 +87,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       settings.otp_telegram:
+        custom: []
         name: settings.otp_telegram
         description: 'Must be at least 0. Must not be greater than 1.'
         required: false
@@ -94,7 +98,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       settings:
         minimum_wallet: 27
@@ -106,12 +110,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/clients/user-settings/{id}'
     metadata:
+      custom: []
       groupName: UserSetting
       groupDescription: ''
       subgroup: ''
@@ -120,12 +125,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
+        custom: []
         name: id
         description: 'The ID of the user setting.'
         required: true
@@ -134,13 +139,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       settings:
+        custom: []
         name: settings
         description: ''
         required: true
@@ -149,8 +155,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       settings.minimum_wallet:
+        custom: []
         name: settings.minimum_wallet
         description: 'Must be at least 0.'
         required: false
@@ -159,8 +166,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       settings.otp_telegram:
+        custom: []
         name: settings.otp_telegram
         description: 'Must be at least 0. Must not be greater than 1.'
         required: false
@@ -169,7 +177,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       settings:
         minimum_wallet: 27
@@ -181,12 +189,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/clients/user-settings/{id}'
     metadata:
+      custom: []
       groupName: UserSetting
       groupDescription: ''
       subgroup: ''
@@ -195,12 +204,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
+        custom: []
         name: id
         description: 'The ID of the user setting.'
         required: true
@@ -209,7 +218,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       id: architecto
     queryParameters: []
@@ -223,4 +232,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

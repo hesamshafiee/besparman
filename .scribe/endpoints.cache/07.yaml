@@ -4,10 +4,12 @@ name: Reconciliation
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/reconciliations
     metadata:
+      custom: []
       groupName: Reconciliation
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/reconciliations2
     metadata:
+      custom: []
       groupName: Reconciliation
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -69,6 +70,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -76,18 +78,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/reconciliations/check
     metadata:
+      custom: []
       groupName: Reconciliation
       groupDescription: ''
       subgroup: ''
@@ -96,7 +98,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -109,6 +110,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -116,18 +118,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: 'api/reconciliations2/{order_id}'
     metadata:
+      custom: []
       groupName: Reconciliation
       groupDescription: ''
       subgroup: ''
@@ -136,12 +138,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       order_id:
+        custom: []
         name: order_id
         description: 'The ID of the order.'
         required: true
@@ -150,24 +152,25 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       order_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       status:
+        custom: []
         name: status
         description: ''
         required: true
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -175,4 +178,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

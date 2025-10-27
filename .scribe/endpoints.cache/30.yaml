@@ -4,10 +4,12 @@ name: Profit
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/profits
     metadata:
+      custom: []
       groupName: Profit
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/profits
     metadata:
+      custom: []
       groupName: Profit
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,6 +67,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -74,8 +76,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profit:
+        custom: []
         name: profit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: true
@@ -84,8 +87,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: 'Must be between 0 and 1 digit.'
         required: false
@@ -94,8 +98,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -104,8 +109,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -114,7 +120,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       profit: 22
@@ -128,12 +134,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/profits/{profit_id}'
     metadata:
+      custom: []
       groupName: Profit
       groupDescription: ''
       subgroup: ''
@@ -142,23 +149,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       profit_id:
+        custom: []
         name: profit_id
         description: 'The ID of the profit.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      profit_id: 16
+      profit_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -170,4 +177,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

@@ -2,10 +2,12 @@ name: Report
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/reports
     metadata:
+      custom: []
       groupName: Report
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -24,6 +25,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       collection:
+        custom: []
         name: collection
         description: ''
         required: true
@@ -32,8 +34,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       sums:
+        custom: []
         name: sums
         description: ''
         required: false
@@ -43,8 +46,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       groupBy:
+        custom: []
         name: groupBy
         description: ''
         required: false
@@ -54,8 +58,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       sort:
+        custom: []
         name: sort
         description: ''
         required: false
@@ -67,8 +72,9 @@ endpoints:
           - '-1'
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       limit:
+        custom: []
         name: limit
         description: 'Must be at least 1.'
         required: false
@@ -77,8 +83,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       page:
+        custom: []
         name: page
         description: 'Must be at least 1.'
         required: false
@@ -87,8 +94,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       wheres:
+        custom: []
         name: wheres
         description: ''
         required: false
@@ -98,7 +106,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       collection: architecto
       sums:
@@ -118,4 +126,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

@@ -47,48 +47,6 @@ class AuthService
             $user = User::where('mobile', $this->mobile)->withTrashed()->first();
             if ($user) {
                 if ($user->trashed()) {
-                    if ($user->deleted_at->eq(Carbon::create(2012, 12, 12, 12, 12, 12))) {
-                        $response = Http::get('https://esaj.ir/site/getuserbyid?id=' . $user->id);
-
-                        $walletValue  = $response->json('wallet_value');
-                        $point  = (int) ceil($response->json('point'));
-                        $batchArray = [];
-
-                        foreach ($response->json('phone_book') as $index => $number) {
-                            $batchArray[$index]['name'] = $number['name'];
-                            $batchArray[$index]['phone_number'] = $number['mobile'];
-                            $batchArray[$index]['user_id'] = $user->id;
-                            $batchArray[$index]['last_settings'] = '{}';
-                        }
-
-                        $walletTransaction = WalletTransaction::where('user_id', $user->id)->firstOrFail();
-                        $walletTransaction->value = $walletValue;
-                        $walletTransaction->wallet_value_after_transaction = $walletValue;
-                        $walletTransaction->sign = $walletTransaction->sign();
-
-                        return DB::transaction(function () use ($user, $batchArray, $point, $walletValue, $walletTransaction) {
-                            $user->points = $point;
-                            $user->deleted_at = null;
-                            $wallet = $user->wallet;
-                            $wallet->value = $walletValue;
-                            $chunkSize = 100;
-                            $insertStatus = true;
-
-                            foreach (array_chunk($batchArray, $chunkSize) as $chunk) {
-                                if (DB::table('phone_books')->insertOrIgnore($chunk)) {
-                                    $insertStatus = true;
-                                } else {
-                                    $insertStatus = false;
-                                }
-                            }
-
-                            if ($insertStatus && $user->save() && $walletTransaction->save() && $wallet->save()) {
-                                return $this->gateway->login($user, $this->password, $this->otpForce, $this->twoStepType);
-                            }
-
-                            return response()->serverError(__('general.somethingWrong'));
-                        });
-                    }
                     return response()->forbidden(__('auth.deletedUserError'));
                 } else {
                     return $this->gateway->login($user, $this->password, $this->otpForce, $this->twoStepType);

@@ -4,10 +4,12 @@ name: purchaseWithoutCart
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/operators/get-balances
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/package-list
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,10 +67,11 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       operator:
+        custom: []
         name: operator
         description: ''
         required: true
-        example: aptel
+        example: rightel
         type: string
         enumValues:
           - aptel
@@ -79,9 +81,9 @@ endpoints:
           - irancell
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      operator: aptel
+      operator: rightel
     fileParameters: []
     responses: []
     responseFields: []
@@ -89,12 +91,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/top-up
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -103,7 +106,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -120,12 +122,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/top-up/package
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -134,7 +137,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -151,12 +153,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/irancell/bill
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -165,7 +168,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -175,6 +177,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -183,7 +186,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
     fileParameters: []
@@ -193,12 +196,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/irancell/offers
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -207,7 +211,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -217,6 +220,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -225,7 +229,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
     fileParameters: []
@@ -235,12 +239,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/irancell/sim-type
     metadata:
+      custom: []
       groupName: purchaseWithoutCart
       groupDescription: ''
       subgroup: ''
@@ -249,7 +254,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -259,6 +263,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -267,7 +272,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
     fileParameters: []
@@ -277,4 +282,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

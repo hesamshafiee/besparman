@@ -2,10 +2,12 @@ name: PanelMessage
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/panel-messages
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/panel-messages
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       short_content:
+        custom: []
         name: short_content
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       body:
+        custom: []
         name: body
         description: 'Must not be greater than 1000 characters. Must be at least 3 characters.'
         required: true
@@ -92,8 +96,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
@@ -102,8 +107,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_open:
+        custom: []
         name: is_open
         description: ''
         required: false
@@ -112,7 +118,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       short_content: tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr
@@ -126,12 +132,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/panel-messages/{panelMessage_id}'
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -140,12 +147,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       panelMessage_id:
+        custom: []
         name: panelMessage_id
         description: 'The ID of the panelMessage.'
         required: true
@@ -154,13 +161,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       panelMessage_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
@@ -169,8 +177,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       short_content:
+        custom: []
         name: short_content
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
@@ -179,8 +188,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       body:
+        custom: []
         name: body
         description: 'Must not be greater than 1000 characters. Must be at least 3 characters.'
         required: true
@@ -189,18 +199,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_open:
+        custom: []
         name: is_open
         description: ''
         required: false
@@ -209,12 +221,12 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       short_content: tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr
       body: erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt
-      status: false
+      status: true
       is_open: false
     fileParameters: []
     responses: []
@@ -223,12 +235,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/panel-messages/{panelMessage_id}'
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -237,12 +250,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       panelMessage_id:
+        custom: []
         name: panelMessage_id
         description: 'The ID of the panelMessage.'
         required: true
@@ -251,7 +264,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       panelMessage_id: 16
     queryParameters: []
@@ -265,12 +278,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/panel-messages
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -279,7 +293,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -292,6 +305,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -299,18 +313,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/versions
     metadata:
+      custom: []
       groupName: PanelMessage
       groupDescription: ''
       subgroup: ''
@@ -319,7 +333,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -332,6 +345,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -339,10 +353,8 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

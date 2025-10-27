@@ -2,10 +2,12 @@ name: Acl
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/acl
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/acl/get-role-permissions/{role_id}'
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -54,23 +56,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       role_id:
+        custom: []
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -78,6 +80,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -85,18 +88,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/give-permission-to-role
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -105,7 +108,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -115,6 +117,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -123,8 +126,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -133,8 +137,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -143,7 +148,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -154,12 +159,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/revoke-permission-to-role
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -168,7 +174,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -178,6 +183,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -186,8 +192,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -196,8 +203,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -206,7 +214,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -217,12 +225,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/sync-permission-to-role
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -231,7 +240,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -248,12 +256,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/assign-role-to-user
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -262,7 +271,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -272,6 +280,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -280,8 +289,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -290,8 +300,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -300,7 +311,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -311,12 +322,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/remove-role-to-user
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -325,7 +337,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -335,6 +346,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -343,8 +355,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -353,8 +366,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -363,7 +377,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -374,12 +388,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/acl/create-role
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -388,7 +403,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -398,6 +412,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -406,8 +421,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -416,8 +432,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -426,7 +443,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -437,12 +454,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/acl/update-role/{role_id}'
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -451,27 +469,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       role_id:
+        custom: []
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       role:
+        custom: []
         name: role
         description: ''
         required: true
@@ -480,8 +499,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permissions:
+        custom: []
         name: permissions
         description: 'This field is required when <code>user</code> is not present.'
         required: false
@@ -490,8 +510,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       user:
+        custom: []
         name: user
         description: 'This field is required when <code>permissions</code> is not present.'
         required: false
@@ -500,7 +521,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       role: architecto
       user: 4326.41688
@@ -511,12 +532,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/acl/role/{role_id}'
     metadata:
+      custom: []
       groupName: Acl
       groupDescription: ''
       subgroup: ''
@@ -525,23 +547,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       role_id:
+        custom: []
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -553,4 +575,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

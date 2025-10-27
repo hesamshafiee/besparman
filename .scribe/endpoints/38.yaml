@@ -2,10 +2,12 @@ name: WalletTransactionExtra
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/wallet/transaction/extras
     metadata:
+      custom: []
       groupName: WalletTransactionExtra
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/wallet/transaction/extras/{walletTransactionExtra_id}'
     metadata:
+      custom: []
       groupName: WalletTransactionExtra
       groupDescription: ''
       subgroup: ''
@@ -54,12 +56,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       walletTransactionExtra_id:
+        custom: []
         name: walletTransactionExtra_id
         description: 'The ID of the walletTransactionExtra.'
         required: true
@@ -68,13 +70,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       walletTransactionExtra_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       taken_value:
+        custom: []
         name: taken_value
         description: ''
         required: false
@@ -83,7 +86,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       taken_value: 4326.41688
     fileParameters: []
@@ -93,4 +96,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

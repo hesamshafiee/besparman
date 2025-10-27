@@ -4,10 +4,12 @@ name: Point
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/points
     metadata:
+      custom: []
       groupName: Point
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/points
     metadata:
+      custom: []
       groupName: Point
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,6 +67,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -74,12 +76,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: cell_internet
         type: string
         enumValues:
           - cell_internet
@@ -89,8 +92,9 @@ endpoints:
           - cell_direct_charge
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       value:
+        custom: []
         name: value
         description: 'Must be at least 1000. Must not be greater than 1000000.'
         required: true
@@ -99,8 +103,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       point:
+        custom: []
         name: point
         description: 'Must be at least 1. Must not be greater than 1000.'
         required: true
@@ -109,23 +114,24 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_direct_charge
+      type: cell_internet
       value: 17
       point: 15
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -133,12 +139,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/points/{point_id}'
     metadata:
+      custom: []
       groupName: Point
       groupDescription: ''
       subgroup: ''
@@ -147,12 +154,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       point_id:
+        custom: []
         name: point_id
         description: 'The ID of the point.'
         required: true
@@ -161,7 +168,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       point_id: 16
     queryParameters: []
@@ -175,4 +182,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

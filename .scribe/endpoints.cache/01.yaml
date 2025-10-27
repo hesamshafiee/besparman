@@ -4,10 +4,12 @@ name: Auth
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/auth
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -26,6 +27,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -34,8 +36,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       password:
+        custom: []
         name: password
         description: ''
         required: false
@@ -44,8 +47,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       code:
+        custom: []
         name: code
         description: 'Must be at least 6 characters. Must not be greater than 6 characters.'
         required: false
@@ -54,8 +58,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       otpForce:
+        custom: []
         name: otpForce
         description: ''
         required: false
@@ -64,8 +69,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       twoStepType:
+        custom: []
         name: twoStepType
         description: ''
         required: false
@@ -76,7 +82,7 @@ endpoints:
           - sms
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
       password: '|]|{+-'
@@ -90,12 +96,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/auth/reset-password
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -104,7 +111,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -114,6 +120,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -122,8 +129,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       password:
+        custom: []
         name: password
         description: 'This field is required when <code>code</code> is present.'
         required: false
@@ -132,8 +140,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       code:
+        custom: []
         name: code
         description: 'This field is required when <code>password</code> is present. Must be at least 6 characters. Must not be greater than 6 characters.'
         required: false
@@ -142,7 +151,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
       password: '|]|{+-'
@@ -154,12 +163,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/auth/reset-google2fa
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -168,7 +178,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -178,6 +187,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -186,8 +196,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       password:
+        custom: []
         name: password
         description: 'This field is required when <code>code</code> is present.'
         required: false
@@ -196,8 +207,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       code:
+        custom: []
         name: code
         description: 'This field is required when <code>password</code> is present. Must be at least 6 characters. Must not be greater than 6 characters.'
         required: false
@@ -206,7 +218,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
       password: '|]|{+-'
@@ -218,12 +230,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/auth/type
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -232,7 +245,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -245,27 +257,28 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 200
         content: '{"status":true,"auth":"usernamePassword","otp":"sms"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5999'
+          x-ratelimit-remaining: '5987'
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/auth/set-password
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -274,7 +287,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -284,6 +296,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       password:
+        custom: []
         name: password
         description: ''
         required: true
@@ -292,7 +305,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       password: '|]|{+-'
     fileParameters: []
@@ -302,12 +315,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/auth/check
     metadata:
+      custom: []
       groupName: Auth
       groupDescription: ''
       subgroup: ''
@@ -316,7 +330,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -329,6 +342,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -336,10 +350,8 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

@@ -4,10 +4,12 @@ name: Setting
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/settings
     metadata:
+      custom: []
       groupName: Setting
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/settings
     metadata:
+      custom: []
       groupName: Setting
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,16 +67,18 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       sms:
+        custom: []
         name: sms
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       email:
+        custom: []
         name: email
         description: ''
         required: false
@@ -84,12 +87,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       auth:
+        custom: []
         name: auth
         description: ''
         required: false
-        example: usernamePassword
+        example: otpOrPassword
         type: string
         enumValues:
           - otp
@@ -97,20 +101,22 @@ endpoints:
           - usernamePassword
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       otp:
+        custom: []
         name: otp
         description: ''
         required: false
-        example: google2fa
+        example: sms
         type: string
         enumValues:
           - sms
           - google2fa
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       jwt_expiration_time:
+        custom: []
         name: jwt_expiration_time
         description: 'Must be at least 1. Must not be greater than 1000.'
         required: false
@@ -119,8 +125,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       front:
+        custom: []
         name: front
         description: 'Must be a valid JSON string.'
         required: false
@@ -129,25 +136,26 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      sms: true
+      sms: false
       email: false
-      auth: usernamePassword
-      otp: google2fa
+      auth: otpOrPassword
+      otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -155,12 +163,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/settings/{setting_id}'
     metadata:
+      custom: []
       groupName: Setting
       groupDescription: ''
       subgroup: ''
@@ -169,12 +178,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       setting_id:
+        custom: []
         name: setting_id
         description: 'The ID of the setting.'
         required: true
@@ -183,7 +192,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       setting_id: 16
     queryParameters: []
@@ -197,4 +206,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

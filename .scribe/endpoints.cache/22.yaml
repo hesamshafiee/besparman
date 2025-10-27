@@ -4,10 +4,12 @@ name: Address
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/addresses
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/addresses
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,57 +67,74 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: true
-        example: architecto
+        required: false
+        example: null
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       title:
+        custom: []
         name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      province:
+        custom: []
+        name: province
         description: 'Must not be greater than 255 characters.'
         required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
+        deprecated: false
+      city:
         custom: []
-      province:
-        name: province
+        name: city
         description: 'Must not be greater than 255 characters.'
-        required: true
+        required: false
         example: g
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      address:
         custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
         example: z
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      postal_code:
         custom: []
-      address:
-        name: address
-        description: 'Must not be greater than 500 characters.'
-        required: true
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: false
         example: m
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      phone:
         custom: []
-      postal_code:
-        name: postal_code
+        name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
         example: i
@@ -124,9 +142,10 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
+        deprecated: false
+      mobile:
         custom: []
-      phone:
-        name: phone
+        name: mobile
         description: 'Must not be greater than 50 characters.'
         required: false
         example: 'y'
@@ -134,18 +153,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
-      mobile:
-        name: mobile
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: v
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
+        deprecated: false
       is_default:
+        custom: []
         name: is_default
         description: ''
         required: false
@@ -154,16 +164,15 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      user_id: architecto
-      title: 'n'
-      province: g
-      city: z
-      address: m
-      postal_code: i
-      phone: 'y'
-      mobile: v
+      title: b
+      province: 'n'
+      city: g
+      address: z
+      postal_code: m
+      phone: i
+      mobile: 'y'
       is_default: true
     fileParameters: []
     responses: []
@@ -172,12 +181,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/addresses/{address_id}'
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -186,12 +196,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       address_id:
+        custom: []
         name: address_id
         description: 'The ID of the address.'
         required: true
@@ -200,7 +210,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       address_id: 16
     queryParameters: []
@@ -214,12 +224,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/addresses
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -228,7 +239,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -241,6 +251,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -248,18 +259,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/clients/addresses
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -268,7 +279,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -278,57 +288,74 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: true
-        example: architecto
+        required: false
+        example: null
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       title:
+        custom: []
         name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      province:
+        custom: []
+        name: province
         description: 'Must not be greater than 255 characters.'
         required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
+        deprecated: false
+      city:
         custom: []
-      province:
-        name: province
+        name: city
         description: 'Must not be greater than 255 characters.'
-        required: true
+        required: false
         example: g
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      address:
         custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
         example: z
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      postal_code:
         custom: []
-      address:
-        name: address
-        description: 'Must not be greater than 500 characters.'
-        required: true
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: false
         example: m
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      phone:
         custom: []
-      postal_code:
-        name: postal_code
+        name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
         example: i
@@ -336,9 +363,10 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
+        deprecated: false
+      mobile:
         custom: []
-      phone:
-        name: phone
+        name: mobile
         description: 'Must not be greater than 50 characters.'
         required: false
         example: 'y'
@@ -346,159 +374,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
-      mobile:
-        name: mobile
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: v
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
+        deprecated: false
       is_default:
-        name: is_default
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-    cleanBodyParameters:
-      user_id: architecto
-      title: 'n'
-      province: g
-      city: z
-      address: m
-      postal_code: i
-      phone: 'y'
-      mobile: v
-      is_default: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/clients/addresses/{address_id}'
-    metadata:
-      groupName: Address
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      address_id:
-        name: address_id
-        description: 'The ID of the address.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      address_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      user_id:
-        name: user_id
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      title:
-        name: title
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      province:
-        name: province
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      address:
-        name: address
-        description: 'Must not be greater than 500 characters.'
-        required: true
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      postal_code:
-        name: postal_code
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      phone:
-        name: phone
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: 'y'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      mobile:
-        name: mobile
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: v
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      is_default:
         name: is_default
         description: ''
         required: false
@@ -507,16 +385,15 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      user_id: architecto
-      title: 'n'
-      province: g
-      city: z
-      address: m
-      postal_code: i
-      phone: 'y'
-      mobile: v
+      title: b
+      province: 'n'
+      city: g
+      address: z
+      postal_code: m
+      phone: i
+      mobile: 'y'
       is_default: true
     fileParameters: []
     responses: []
@@ -525,12 +402,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
-      - DELETE
+      - PATCH
     uri: 'api/clients/addresses/{address_id}'
     metadata:
+      custom: []
       groupName: Address
       groupDescription: ''
       subgroup: ''
@@ -539,12 +417,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       address_id:
+        custom: []
         name: address_id
         description: 'The ID of the address.'
         required: true
@@ -553,7 +431,157 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      address_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
         custom: []
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      province:
+        custom: []
+        name: province
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      city:
+        custom: []
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      postal_code:
+        custom: []
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      mobile:
+        custom: []
+        name: mobile
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_default:
+        custom: []
+        name: is_default
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: b
+      province: 'n'
+      city: g
+      address: z
+      postal_code: m
+      phone: i
+      mobile: 'y'
+      is_default: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/clients/addresses/{address_id}'
+    metadata:
+      custom: []
+      groupName: Address
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      address_id:
+        custom: []
+        name: address_id
+        description: 'The ID of the address.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanUrlParameters:
       address_id: 16
     queryParameters: []
@@ -567,4 +595,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

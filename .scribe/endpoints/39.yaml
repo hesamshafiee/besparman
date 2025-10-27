@@ -2,10 +2,12 @@ name: Ticket
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/tickets/by-user/{user?}'
     metadata:
+      custom: []
       groupName: Ticket
       groupDescription: ''
       subgroup: ''
@@ -14,23 +16,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       user:
+        custom: []
         name: user
         description: ''
         required: false
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      user: 16
+      user: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -38,6 +40,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -45,18 +48,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/tickets/conversation/{ticket_id}'
     metadata:
+      custom: []
       groupName: Ticket
       groupDescription: ''
       subgroup: ''
@@ -65,12 +68,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       ticket_id:
+        custom: []
         name: ticket_id
         description: 'The ID of the ticket.'
         required: true
@@ -79,7 +82,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       ticket_id: 16
     queryParameters: []
@@ -89,6 +92,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -96,18 +100,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/tickets
     metadata:
+      custom: []
       groupName: Ticket
       groupDescription: ''
       subgroup: ''
@@ -116,7 +120,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -129,6 +132,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -136,18 +140,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/tickets/by-user-status
     metadata:
+      custom: []
       groupName: Ticket
       groupDescription: ''
       subgroup: ''
@@ -156,7 +160,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -169,6 +172,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -176,10 +180,8 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

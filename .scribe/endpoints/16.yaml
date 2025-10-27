@@ -2,10 +2,12 @@ name: Payment
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/orders
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/payments
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -67,6 +68,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -74,18 +76,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/payments
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -94,7 +96,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -107,6 +108,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -114,18 +116,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/orders
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -134,7 +136,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -147,6 +148,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -154,18 +156,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/payment/confirm/{payment_id}'
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -174,12 +176,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       payment_id:
+        custom: []
         name: payment_id
         description: 'The ID of the payment.'
         required: true
@@ -188,7 +190,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       payment_id: 16
     queryParameters: []
@@ -198,6 +200,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -205,18 +208,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/payment/reject/{payment_id}'
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -225,12 +228,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       payment_id:
+        custom: []
         name: payment_id
         description: 'The ID of the payment.'
         required: true
@@ -239,7 +242,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       payment_id: 16
     queryParameters: []
@@ -249,6 +252,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -256,18 +260,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/payment/bank/increase
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -276,7 +280,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -286,6 +289,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       value:
+        custom: []
         name: value
         description: 'Must be at least 200000. Must not be greater than 2000000000.'
         required: true
@@ -294,8 +298,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       image:
+        custom: []
         name: image
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: true
@@ -305,7 +310,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       value: 1
     fileParameters:
@@ -317,12 +322,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/bank/payment/callback
     metadata:
+      custom: []
       groupName: Payment
       groupDescription: ''
       subgroup: ''
@@ -331,7 +337,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -348,4 +353,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

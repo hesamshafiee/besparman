@@ -2,10 +2,12 @@ name: Profile
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/profiles
     metadata:
+      custom: []
       groupName: Profile
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/profiles
     metadata:
+      custom: []
       groupName: Profile
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -64,16 +65,18 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       birth_date:
+        custom: []
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:22'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       address:
+        custom: []
         name: address
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       postal_code:
+        custom: []
         name: postal_code
         description: 'Must not be greater than 50 characters.'
         required: true
@@ -92,8 +96,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profession:
+        custom: []
         name: profession
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -102,8 +107,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       education:
+        custom: []
         name: education
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -112,8 +118,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       store_name:
+        custom: []
         name: store_name
         description: 'Must not be greater than 70 characters.'
         required: true
@@ -122,8 +129,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       national_code:
+        custom: []
         name: national_code
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -132,8 +140,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -173,8 +182,9 @@ endpoints:
           - یزد
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       city:
+        custom: []
         name: city
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -184,8 +194,9 @@ endpoints:
           - null
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       gender:
+        custom: []
         name: gender
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -196,8 +207,9 @@ endpoints:
           - female
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       phone:
+        custom: []
         name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
@@ -206,8 +218,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
@@ -216,8 +229,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       legal_info:
+        custom: []
         name: legal_info
         description: 'Must be a valid JSON string.'
         required: false
@@ -226,8 +240,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       ips:
+        custom: []
         name: ips
         description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
         required: true
@@ -237,8 +252,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -248,9 +264,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-09-29T15:53:22'
+      birth_date: '2025-10-27T12:21:30'
       address: b
       postal_code: 'n'
       profession: g
@@ -274,12 +290,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: 'api/profiles/by-admin/{user_id}'
     metadata:
+      custom: []
       groupName: Profile
       groupDescription: ''
       subgroup: ''
@@ -288,37 +305,39 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      user_id: 16
+      user_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       birth_date:
+        custom: []
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:22'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       address:
+        custom: []
         name: address
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
@@ -327,8 +346,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       postal_code:
+        custom: []
         name: postal_code
         description: 'Must not be greater than 50 characters.'
         required: true
@@ -337,8 +357,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profession:
+        custom: []
         name: profession
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -347,8 +368,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       education:
+        custom: []
         name: education
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -357,8 +379,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       store_name:
+        custom: []
         name: store_name
         description: 'Must not be greater than 70 characters.'
         required: true
@@ -367,8 +390,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       national_code:
+        custom: []
         name: national_code
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -377,8 +401,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -418,8 +443,9 @@ endpoints:
           - یزد
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       city:
+        custom: []
         name: city
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -429,8 +455,9 @@ endpoints:
           - null
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       gender:
+        custom: []
         name: gender
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -441,8 +468,9 @@ endpoints:
           - female
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       phone:
+        custom: []
         name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
@@ -451,8 +479,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
@@ -461,8 +490,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       legal_info:
+        custom: []
         name: legal_info
         description: 'Must be a valid JSON string.'
         required: false
@@ -471,8 +501,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       ips:
+        custom: []
         name: ips
         description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
         required: true
@@ -482,8 +513,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -493,9 +525,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-09-29T15:53:22'
+      birth_date: '2025-10-27T12:21:30'
       address: b
       postal_code: 'n'
       profession: g
@@ -519,12 +551,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/profile
     metadata:
+      custom: []
       groupName: Profile
       groupDescription: ''
       subgroup: ''
@@ -533,7 +566,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -546,6 +578,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -553,10 +586,8 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

@@ -2,10 +2,12 @@ name: CardCharge
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/card-charge
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/card-charge
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -64,6 +65,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       file_name:
+        custom: []
         name: file_name
         description: ''
         required: false
@@ -72,8 +74,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: ''
         required: false
@@ -82,8 +85,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       card_charges:
+        custom: []
         name: card_charges
         description: ''
         required: true
@@ -92,7 +96,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       file_name: architecto
       operator_id: 4326.41688
@@ -104,12 +108,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/card-charge/destroyOpen/{cardCharge_id}'
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -118,12 +123,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       cardCharge_id:
+        custom: []
         name: cardCharge_id
         description: 'The ID of the cardCharge.'
         required: true
@@ -132,7 +137,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       cardCharge_id: 16
     queryParameters: []
@@ -142,6 +147,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -149,18 +155,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/card-charge/freeReport
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -169,7 +175,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -182,6 +187,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -189,18 +195,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/card-charge/findBySerial
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -209,7 +215,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -219,6 +224,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       serial:
+        custom: []
         name: serial
         description: ''
         required: true
@@ -227,12 +233,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       serial: architecto
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -240,18 +247,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/clients/card-charge/buy
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -260,7 +267,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -270,6 +276,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       taken_value:
+        custom: []
         name: taken_value
         description: ''
         required: true
@@ -278,8 +285,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       products:
+        custom: []
         name: products
         description: ''
         required: true
@@ -288,7 +296,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       taken_value: architecto
       products: architecto
@@ -299,12 +307,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/card-charge
     metadata:
+      custom: []
       groupName: CardCharge
       groupDescription: ''
       subgroup: ''
@@ -313,7 +322,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -326,6 +334,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -333,10 +342,8 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

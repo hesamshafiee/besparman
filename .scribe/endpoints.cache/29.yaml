@@ -4,10 +4,12 @@ name: Comment
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/comments
     metadata:
+      custom: []
       groupName: Comment
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/comments
     metadata:
+      custom: []
       groupName: Comment
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,6 +67,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       comment:
+        custom: []
         name: comment
         description: 'Must be at least 10 characters. Must not be greater than 500 characters.'
         required: true
@@ -74,8 +76,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       comment_id:
+        custom: []
         name: comment_id
         description: 'The <code>id</code> of an existing record in the comments table.'
         required: false
@@ -84,8 +87,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       model:
+        custom: []
         name: model
         description: ''
         required: true
@@ -94,8 +98,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       id:
+        custom: []
         name: id
         description: ''
         required: true
@@ -104,7 +109,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       comment: b
       comment_id: 4326.41688
@@ -117,12 +122,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/comments/status/{comment_id}'
     metadata:
+      custom: []
       groupName: Comment
       groupDescription: ''
       subgroup: ''
@@ -131,12 +137,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       comment_id:
+        custom: []
         name: comment_id
         description: 'The ID of the comment.'
         required: true
@@ -145,13 +151,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       comment_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       comment:
+        custom: []
         name: comment
         description: 'Must be at least 10 characters. Must not be greater than 500 characters.'
         required: true
@@ -160,7 +167,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       comment: b
     fileParameters: []
@@ -170,4 +177,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

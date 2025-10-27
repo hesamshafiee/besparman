@@ -2,10 +2,12 @@ name: Order
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/orders/physical
     metadata:
+      custom: []
       groupName: Order
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/orders/{order}'
     metadata:
+      custom: []
       groupName: Order
       groupDescription: ''
       subgroup: ''
@@ -54,12 +56,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       order:
+        custom: []
         name: order
         description: 'The order.'
         required: true
@@ -68,7 +70,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       order: 16
     queryParameters: []
@@ -78,6 +80,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -85,18 +88,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/client/orders
     metadata:
+      custom: []
       groupName: Order
       groupDescription: ''
       subgroup: ''
@@ -105,7 +108,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -118,6 +120,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -125,18 +128,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/orders/status/{order_id}'
     metadata:
+      custom: []
       groupName: Order
       groupDescription: ''
       subgroup: ''
@@ -145,12 +148,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       order_id:
+        custom: []
         name: order_id
         description: 'The ID of the order.'
         required: true
@@ -159,17 +162,18 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       order_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       status:
+        custom: []
         name: status
         description: ''
         required: true
-        example: paid
+        example: reserved
         type: string
         enumValues:
           - canceled
@@ -181,9 +185,9 @@ endpoints:
           - received
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      status: paid
+      status: reserved
     fileParameters: []
     responses: []
     responseFields: []
@@ -191,4 +195,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

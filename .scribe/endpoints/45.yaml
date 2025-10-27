@@ -2,10 +2,12 @@ name: Alert
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/alert/telegram
     metadata:
+      custom: []
       groupName: Alert
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -31,4 +32,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

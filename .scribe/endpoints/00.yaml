@@ -2,10 +2,12 @@ name: Endpoints
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/documentation
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 500
         content: |-
           {
@@ -37,18 +39,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/oauth2-callback
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -57,7 +59,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -70,31 +71,32 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 200
-        content: |-
+        content: |
           <!doctype html>
           <html lang="en-US">
           <body>
+          <script src="oauth2-redirect.js"></script>
           </body>
           </html>
-          <script src="oauth2-redirect.js"></script>
         headers:
           content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: 'api/reconciliations/{walletTransaction_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -103,12 +105,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       walletTransaction_id:
+        custom: []
         name: walletTransaction_id
         description: 'The ID of the walletTransaction.'
         required: true
@@ -117,13 +119,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       walletTransaction_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       status:
+        custom: []
         name: status
         description: ''
         required: true
@@ -132,7 +135,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       status: true
     fileParameters: []
@@ -142,12 +145,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/payment/card/increase
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -156,7 +160,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -166,6 +169,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       value:
+        custom: []
         name: value
         description: 'Must be at least 200000. Must not be greater than 2000000000.'
         required: true
@@ -174,8 +178,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       image:
+        custom: []
         name: image
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: true
@@ -185,7 +190,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       value: 1
     fileParameters:
@@ -197,12 +202,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/menus/{menu_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -211,12 +217,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       menu_id:
+        custom: []
         name: menu_id
         description: 'The ID of the menu.'
         required: true
@@ -225,13 +231,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       menu_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
@@ -240,8 +247,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       items:
+        custom: []
         name: items
         description: 'Must be a valid JSON string.'
         required: false
@@ -250,21 +258,22 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       items: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -272,12 +281,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/addresses/{address_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -286,12 +296,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       address_id:
+        custom: []
         name: address_id
         description: 'The ID of the address.'
         required: true
@@ -300,64 +310,81 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       address_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: true
-        example: architecto
+        required: false
+        example: null
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       title:
+        custom: []
         name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      province:
+        custom: []
+        name: province
         description: 'Must not be greater than 255 characters.'
         required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
+        deprecated: false
+      city:
         custom: []
-      province:
-        name: province
+        name: city
         description: 'Must not be greater than 255 characters.'
-        required: true
+        required: false
         example: g
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      address:
         custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
         example: z
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      postal_code:
         custom: []
-      address:
-        name: address
-        description: 'Must not be greater than 500 characters.'
-        required: true
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: false
         example: m
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      phone:
         custom: []
-      postal_code:
-        name: postal_code
+        name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
         example: i
@@ -365,9 +392,10 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
+        deprecated: false
+      mobile:
         custom: []
-      phone:
-        name: phone
+        name: mobile
         description: 'Must not be greater than 50 characters.'
         required: false
         example: 'y'
@@ -375,37 +403,27 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
-      mobile:
-        name: mobile
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: v
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
+        deprecated: false
       is_default:
+        custom: []
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      user_id: architecto
-      title: 'n'
-      province: g
-      city: z
-      address: m
-      postal_code: i
-      phone: 'y'
-      mobile: v
-      is_default: true
+      title: b
+      province: 'n'
+      city: g
+      address: z
+      postal_code: m
+      phone: i
+      mobile: 'y'
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -413,12 +431,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/logistics/{logistic_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -427,12 +446,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       logistic_id:
+        custom: []
         name: logistic_id
         description: 'The ID of the logistic.'
         required: true
@@ -441,13 +460,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       logistic_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       city:
+        custom: []
         name: city
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -456,8 +476,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -466,8 +487,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       country:
+        custom: []
         name: country
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -476,8 +498,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: 'Must not be greater than 128 characters.'
         required: true
@@ -486,8 +509,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       capacity:
+        custom: []
         name: capacity
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -496,8 +520,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -506,8 +531,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       min_price_for_free_delivery:
+        custom: []
         name: min_price_for_free_delivery
         description: ''
         required: false
@@ -516,8 +542,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_delivery_after_day:
+        custom: []
         name: start_delivery_after_day
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -526,8 +553,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_delivery_after_time:
+        custom: []
         name: start_delivery_after_time
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -536,8 +564,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_time:
+        custom: []
         name: start_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -546,8 +575,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       end_time:
+        custom: []
         name: end_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -556,8 +586,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       divide_time:
+        custom: []
         name: divide_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -566,18 +597,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_active_in_holiday:
+        custom: []
         name: is_active_in_holiday
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       days_not_working:
+        custom: []
         name: days_not_working
         description: 'Must be a valid JSON string.'
         required: false
@@ -586,8 +619,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
@@ -596,18 +630,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       default:
+        custom: []
         name: default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_capital:
+        custom: []
         name: is_capital
         description: ''
         required: false
@@ -616,8 +652,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must not be greater than 250 characters.'
         required: false
@@ -626,7 +663,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       city: b
       province: 'n'
@@ -640,10 +677,10 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: false
+      is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
       status: false
-      default: true
+      default: false
       is_capital: false
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
@@ -653,12 +690,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/warehouses/{warehouse_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -667,12 +705,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       warehouse_id:
+        custom: []
         name: warehouse_id
         description: 'The ID of the warehouse.'
         required: true
@@ -681,13 +719,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       warehouse_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       product_id:
+        custom: []
         name: product_id
         description: 'The <code>id</code> of an existing record in the products table.'
         required: true
@@ -696,8 +735,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       count:
+        custom: []
         name: count
         description: ''
         required: true
@@ -706,8 +746,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       weight:
+        custom: []
         name: weight
         description: ''
         required: false
@@ -716,8 +757,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -726,18 +768,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       expiry_date:
+        custom: []
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:21'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       warehouse_address:
+        custom: []
         name: warehouse_address
         description: 'Must not be greater than 500 characters.'
         required: false
@@ -746,8 +790,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       source:
+        custom: []
         name: source
         description: 'Must not be greater than 500 characters.'
         required: false
@@ -756,13 +801,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       product_id: 4326.41688
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-09-29T15:53:21'
+      expiry_date: '2025-10-27T12:21:30'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -772,12 +817,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/landings/{landing_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -786,27 +832,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       landing_id:
+        custom: []
         name: landing_id
         description: 'The ID of the landing.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      landing_id: 16
+      landing_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must not be greater than 100 characters.'
         required: true
@@ -815,8 +862,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       content:
+        custom: []
         name: content
         description: 'Must be a valid JSON string.'
         required: false
@@ -825,21 +873,22 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       content: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -847,12 +896,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/users/two-steps
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -861,7 +911,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -874,6 +923,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -881,18 +931,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/users/restore/{id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -901,12 +951,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
+        custom: []
         name: id
         description: 'The ID of the restore.'
         required: true
@@ -915,7 +965,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       id: architecto
     queryParameters: []
@@ -925,6 +975,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -932,18 +983,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/users-soft-deleted
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -952,7 +1003,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -965,6 +1015,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -972,18 +1023,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/users
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -992,7 +1043,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -1002,6 +1052,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -1010,8 +1061,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       email:
+        custom: []
         name: email
         description: 'Must be a valid email address.'
         required: false
@@ -1020,132 +1072,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
-        name: type
-        description: ''
-        required: false
-        example: esaj
-        type: string
-        enumValues:
-          - panel
-          - webservice
-          - admin
-          - esaj
-          - ordinary
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-      private:
-        name: private
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      profile_confirm:
-        name: profile_confirm
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      name:
-        name: name
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      two_step:
-        name: two_step
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      mobile: '137449171806'
-      email: rowan.gulgowski@example.com
-      type: esaj
-      private: false
-      profile_confirm: true
-      name: architecto
-      two_step: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/users/{user_id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      user_id:
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      user_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      mobile:
-        name: mobile
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: rowan.gulgowski@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      type:
         name: type
         description: ''
         required: false
@@ -1159,8 +1088,9 @@ endpoints:
           - ordinary
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       private:
+        custom: []
         name: private
         description: ''
         required: false
@@ -1169,8 +1099,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profile_confirm:
+        custom: []
         name: profile_confirm
         description: ''
         required: false
@@ -1179,8 +1110,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: ''
         required: false
@@ -1189,17 +1121,18 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       two_step:
+        custom: []
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
@@ -1207,7 +1140,7 @@ endpoints:
       private: true
       profile_confirm: true
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1215,12 +1148,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
-      - DELETE
+      - PATCH
     uri: 'api/users/{user_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1229,58 +1163,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      user_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/users/add-images
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+      user_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       mobile:
+        custom: []
         name: mobile
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -1289,8 +1193,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       email:
+        custom: []
         name: email
         description: 'Must be a valid email address.'
         required: false
@@ -1299,8 +1204,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: false
@@ -1314,19 +1220,10 @@ endpoints:
           - ordinary
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       private:
-        name: private
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-      profile_confirm:
-        name: profile_confirm
+        name: private
         description: ''
         required: false
         example: true
@@ -1334,8 +1231,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      profile_confirm:
         custom: []
+        name: profile_confirm
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
       name:
+        custom: []
         name: name
         description: ''
         required: false
@@ -1344,8 +1253,172 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       two_step:
+        custom: []
+        name: two_step
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      mobile: '137449171806'
+      email: rowan.gulgowski@example.com
+      type: ordinary
+      private: true
+      profile_confirm: false
+      name: architecto
+      two_step: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{user_id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/users/add-images
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mobile:
+        custom: []
+        name: mobile
+        description: 'Must be between 12 and 12 digits.'
+        required: true
+        example: '137449171806'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: rowan.gulgowski@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: false
+        example: panel
+        type: string
+        enumValues:
+          - panel
+          - webservice
+          - admin
+          - esaj
+          - ordinary
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      private:
+        custom: []
+        name: private
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profile_confirm:
+        custom: []
+        name: profile_confirm
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      two_step:
+        custom: []
         name: two_step
         description: ''
         required: false
@@ -1354,11 +1427,11 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: ordinary
+      type: panel
       private: false
       profile_confirm: true
       name: architecto
@@ -1370,12 +1443,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/settings/{setting_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1384,12 +1458,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       setting_id:
+        custom: []
         name: setting_id
         description: 'The ID of the setting.'
         required: true
@@ -1398,13 +1472,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       setting_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       sms:
+        custom: []
         name: sms
         description: ''
         required: false
@@ -1413,8 +1488,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       email:
+        custom: []
         name: email
         description: ''
         required: false
@@ -1423,12 +1499,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       auth:
+        custom: []
         name: auth
         description: ''
         required: false
-        example: usernamePassword
+        example: otpOrPassword
         type: string
         enumValues:
           - otp
@@ -1436,20 +1513,22 @@ endpoints:
           - usernamePassword
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       otp:
+        custom: []
         name: otp
         description: ''
         required: false
-        example: google2fa
+        example: sms
         type: string
         enumValues:
           - sms
           - google2fa
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       jwt_expiration_time:
+        custom: []
         name: jwt_expiration_time
         description: 'Must be at least 1. Must not be greater than 1000.'
         required: false
@@ -1458,8 +1537,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       front:
+        custom: []
         name: front
         description: 'Must be a valid JSON string.'
         required: false
@@ -1468,25 +1548,26 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       sms: true
       email: true
-      auth: usernamePassword
-      otp: google2fa
+      auth: otpOrPassword
+      otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1494,12 +1575,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/comments/{comment_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1508,12 +1590,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       comment_id:
+        custom: []
         name: comment_id
         description: 'The ID of the comment.'
         required: true
@@ -1522,13 +1604,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       comment_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       comment:
+        custom: []
         name: comment
         description: 'Must be at least 10 characters. Must not be greater than 500 characters.'
         required: true
@@ -1537,7 +1620,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       comment: b
     fileParameters: []
@@ -1547,12 +1630,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/profits/{profit_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1561,27 +1645,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       profit_id:
+        custom: []
         name: profit_id
         description: 'The ID of the profit.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      profit_id: 16
+      profit_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -1590,8 +1675,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profit:
+        custom: []
         name: profit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: true
@@ -1600,8 +1686,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: 'Must be between 0 and 1 digit.'
         required: false
@@ -1610,8 +1697,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -1620,8 +1708,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -1630,7 +1719,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       profit: 22
@@ -1644,12 +1733,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/profit-splits/{profitSplit_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1658,27 +1748,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       profitSplit_id:
+        custom: []
         name: profitSplit_id
         description: 'The ID of the profitSplit.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      profitSplit_id: 16
+      profitSplit_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: true
@@ -1687,8 +1778,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       seller_profit:
+        custom: []
         name: seller_profit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: true
@@ -1697,8 +1789,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profit_id:
+        custom: []
         name: profit_id
         description: 'The <code>id</code> of an existing record in the profits table.'
         required: true
@@ -1707,7 +1800,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       seller_profit: 22
@@ -1719,12 +1812,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/profit-groups/user
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1733,7 +1827,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -1746,6 +1839,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -1753,18 +1847,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/profit-groups/{profitGroup_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1773,27 +1867,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       profitGroup_id:
+        custom: []
         name: profitGroup_id
         description: 'The ID of the profitGroup.'
         required: true
-        example: 16
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      profitGroup_id: 16
+      profitGroup_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -1802,8 +1897,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profit_split_ids:
+        custom: []
         name: profit_split_ids
         description: 'The <code>id</code> of an existing record in the profit_splits table.'
         required: true
@@ -1812,7 +1908,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
       profit_split_ids: []
@@ -1823,12 +1919,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/profiles/by-admin/{user_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -1837,37 +1934,39 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       user_id:
+        custom: []
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      user_id: 16
+      user_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       birth_date:
+        custom: []
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:22'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       address:
+        custom: []
         name: address
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
@@ -1876,8 +1975,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       postal_code:
+        custom: []
         name: postal_code
         description: 'Must not be greater than 50 characters.'
         required: true
@@ -1886,8 +1986,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profession:
+        custom: []
         name: profession
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -1896,8 +1997,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       education:
+        custom: []
         name: education
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -1906,8 +2008,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       store_name:
+        custom: []
         name: store_name
         description: 'Must not be greater than 70 characters.'
         required: true
@@ -1916,8 +2019,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       national_code:
+        custom: []
         name: national_code
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -1926,8 +2030,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -1967,8 +2072,9 @@ endpoints:
           - یزد
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       city:
+        custom: []
         name: city
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -1978,8 +2084,9 @@ endpoints:
           - null
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       gender:
+        custom: []
         name: gender
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -1990,8 +2097,9 @@ endpoints:
           - female
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       phone:
+        custom: []
         name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
@@ -2000,8 +2108,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
@@ -2010,8 +2119,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       legal_info:
+        custom: []
         name: legal_info
         description: 'Must be a valid JSON string.'
         required: false
@@ -2020,8 +2130,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       ips:
+        custom: []
         name: ips
         description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
         required: true
@@ -2031,8 +2142,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -2042,9 +2154,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-09-29T15:53:22'
+      birth_date: '2025-10-27T12:21:30'
       address: b
       postal_code: 'n'
       profession: g
@@ -2068,12 +2180,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: api/profiles
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2082,7 +2195,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -2092,16 +2204,18 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       birth_date:
+        custom: []
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:22'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       address:
+        custom: []
         name: address
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
@@ -2110,8 +2224,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       postal_code:
+        custom: []
         name: postal_code
         description: 'Must not be greater than 50 characters.'
         required: true
@@ -2120,8 +2235,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profession:
+        custom: []
         name: profession
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -2130,8 +2246,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       education:
+        custom: []
         name: education
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -2140,8 +2257,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       store_name:
+        custom: []
         name: store_name
         description: 'Must not be greater than 70 characters.'
         required: true
@@ -2150,8 +2268,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       national_code:
+        custom: []
         name: national_code
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -2160,8 +2279,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -2201,8 +2321,9 @@ endpoints:
           - یزد
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       city:
+        custom: []
         name: city
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -2212,8 +2333,9 @@ endpoints:
           - null
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       gender:
+        custom: []
         name: gender
         description: 'Must not be greater than 255 characters.'
         required: true
@@ -2224,8 +2346,9 @@ endpoints:
           - female
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       phone:
+        custom: []
         name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
@@ -2234,8 +2357,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
@@ -2244,8 +2368,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       legal_info:
+        custom: []
         name: legal_info
         description: 'Must be a valid JSON string.'
         required: false
@@ -2254,8 +2379,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: true
-        custom: []
+        deprecated: false
       ips:
+        custom: []
         name: ips
         description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
         required: true
@@ -2265,8 +2391,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -2276,9 +2403,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-09-29T15:53:22'
+      birth_date: '2025-10-27T12:21:30'
       address: b
       postal_code: 'n'
       profession: g
@@ -2302,12 +2429,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/operators/{operator_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2316,27 +2444,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       operator_id:
+        custom: []
         name: operator_id
         description: 'The ID of the operator.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      operator_id: 16
+      operator_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
+        custom: []
         name: title
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: false
@@ -2345,89 +2474,87 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       credit_cell_internet:
+        custom: []
         name: credit_cell_internet
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       credit_td_lte_internet:
+        custom: []
         name: credit_td_lte_internet
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       credit_cell_direct_charge:
+        custom: []
         name: credit_cell_direct_charge
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       credit_cell_internet_direct_charge:
+        custom: []
         name: credit_cell_internet_direct_charge
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permanent_cell_internet:
+        custom: []
         name: permanent_cell_internet
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permanent_td_lte_internet:
+        custom: []
         name: permanent_td_lte_internet
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permanent_cell_direct_charge:
+        custom: []
         name: permanent_cell_direct_charge
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       permanent_cell_internet_direct_charge:
-        name: permanent_cell_internet_direct_charge
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-      bill:
-        name: bill
+        name: permanent_cell_internet_direct_charge
         description: ''
         required: false
         example: false
@@ -2435,9 +2562,10 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      bill:
         custom: []
-      radin_status:
-        name: radin_status
+        name: bill
         description: ''
         required: false
         example: true
@@ -2445,8 +2573,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      radin_status:
         custom: []
+        name: radin_status
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
       radin_limit:
+        custom: []
         name: radin_limit
         description: ''
         required: false
@@ -2455,8 +2595,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       igap_limit:
+        custom: []
         name: igap_limit
         description: ''
         required: false
@@ -2465,8 +2606,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       radin_limit_package:
+        custom: []
         name: radin_limit_package
         description: ''
         required: false
@@ -2475,8 +2617,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       igap_limit_package:
+        custom: []
         name: igap_limit_package
         description: ''
         required: false
@@ -2485,8 +2628,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: 'Must be between 0 and 1 digit.'
         required: false
@@ -2495,19 +2639,19 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       title: b
-      credit_cell_internet: true
-      credit_td_lte_internet: false
-      credit_cell_direct_charge: false
-      credit_cell_internet_direct_charge: false
-      permanent_cell_internet: false
-      permanent_td_lte_internet: false
-      permanent_cell_direct_charge: true
-      permanent_cell_internet_direct_charge: true
-      bill: false
-      radin_status: true
+      credit_cell_internet: false
+      credit_td_lte_internet: true
+      credit_cell_direct_charge: true
+      credit_cell_internet_direct_charge: true
+      permanent_cell_internet: true
+      permanent_td_lte_internet: true
+      permanent_cell_direct_charge: false
+      permanent_cell_internet_direct_charge: false
+      bill: true
+      radin_status: false
       radin_limit: 4326.41688
       igap_limit: 4326.41688
       radin_limit_package: 4326.41688
@@ -2520,12 +2664,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/phone-books/{phoneBook_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2534,12 +2679,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       phoneBook_id:
+        custom: []
         name: phoneBook_id
         description: 'The ID of the phoneBook.'
         required: true
@@ -2548,13 +2693,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       phoneBook_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       phone_number:
+        custom: []
         name: phone_number
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -2563,8 +2709,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: true
@@ -2573,8 +2720,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       last_settings:
+        custom: []
         name: last_settings
         description: 'Must be a valid JSON string.'
         required: true
@@ -2583,7 +2731,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       phone_number: '137449171806'
       name: z
@@ -2595,12 +2743,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/group-charge
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2609,7 +2758,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -2622,6 +2770,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -2629,18 +2778,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: 'api/clients/user/mobile-charged-before/{mobile}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2649,12 +2798,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       mobile:
+        custom: []
         name: mobile
         description: ''
         required: true
@@ -2663,7 +2812,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       mobile: architecto
     queryParameters: []
@@ -2673,6 +2822,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -2680,18 +2830,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/users/financial/info
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2700,7 +2850,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -2713,6 +2862,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -2720,18 +2870,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/points/{point_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2740,12 +2890,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       point_id:
+        custom: []
         name: point_id
         description: 'The ID of the point.'
         required: true
@@ -2754,13 +2904,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       point_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -2769,8 +2920,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
@@ -2784,8 +2936,9 @@ endpoints:
           - cell_direct_charge
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       value:
+        custom: []
         name: value
         description: 'Must be at least 1000. Must not be greater than 1000000.'
         required: true
@@ -2794,8 +2947,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       point:
+        custom: []
         name: point
         description: 'Must be at least 1. Must not be greater than 1000.'
         required: true
@@ -2804,23 +2958,24 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
       type: cell_amazing_direct_charge
       value: 17
       point: 15
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -2828,12 +2983,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - PATCH
     uri: 'api/prizes/{prize_id}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -2842,12 +2998,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       prize_id:
+        custom: []
         name: prize_id
         description: 'The ID of the prize.'
         required: true
@@ -2856,13 +3012,14 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       prize_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -2871,8 +3028,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must be at least 3 characters. Must not be greater than 65535 characters.'
         required: false
@@ -2881,8 +3039,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       point:
+        custom: []
         name: point
         description: 'Must be at least 1. Must not be greater than 1000000.'
         required: true
@@ -2891,12 +3050,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
-        example: td_lte_internet
+        example: cell_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -2909,8 +3069,9 @@ endpoints:
           - discount
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -2919,8 +3080,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
@@ -2929,8 +3091,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       product_id:
+        custom: []
         name: product_id
         description: 'The <code>id</code> of an existing record in the products table.'
         required: false
@@ -2939,8 +3102,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profile_id:
+        custom: []
         name: profile_id
         description: ''
         required: true
@@ -2949,8 +3113,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       ext_id:
+        custom: []
         name: ext_id
         description: ''
         required: true
@@ -2959,8 +3124,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_type:
+        custom: []
         name: operator_type
         description: ''
         required: false
@@ -2969,8 +3135,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       count:
+        custom: []
         name: count
         description: ''
         required: false
@@ -2979,8 +3146,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       url:
+        custom: []
         name: url
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -2989,8 +3157,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       tags:
+        custom: []
         name: tags
         description: 'Must not be greater than 100 characters.'
         required: false
@@ -3000,8 +3169,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -3011,12 +3181,12 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: td_lte_internet
+      type: cell_direct_charge
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
@@ -3036,12 +3206,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/auth/logout
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -3050,7 +3221,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -3063,6 +3233,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -3070,18 +3241,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/draft-topups/{draftTopup?}'
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -3090,12 +3261,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       draftTopup:
+        custom: []
         name: draftTopup
         description: ''
         required: false
@@ -3104,7 +3275,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       draftTopup: 16
     queryParameters: []
@@ -3118,12 +3289,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
-      - POST
-    uri: api/top-up/bulk
+      - GET
+    uri: api/search-demo/seed
     metadata:
+      custom: []
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
@@ -3132,7 +3304,86 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/search-demo/search
+    metadata:
       custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/top-up/bulk
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -3142,6 +3393,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       topups:
+        custom: []
         name: topups
         description: 'Must have at least 1 items.'
         required: true
@@ -3151,8 +3403,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].product_id':
+        custom: []
         name: 'topups[].product_id'
         description: ''
         required: true
@@ -3161,8 +3414,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].mobile':
+        custom: []
         name: 'topups[].mobile'
         description: 'Must be between 12 and 12 digits.'
         required: true
@@ -3171,18 +3425,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].main_page':
+        custom: []
         name: 'topups[].main_page'
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].price':
+        custom: []
         name: 'topups[].price'
         description: ''
         required: true
@@ -3191,8 +3447,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].taken_value':
+        custom: []
         name: 'topups[].taken_value'
         description: ''
         required: false
@@ -3201,8 +3458,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].operator_type':
+        custom: []
         name: 'topups[].operator_type'
         description: ''
         required: false
@@ -3211,8 +3469,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].ext_id':
+        custom: []
         name: 'topups[].ext_id'
         description: ''
         required: false
@@ -3223,8 +3482,9 @@ endpoints:
           - '19'
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].webservice_code':
+        custom: []
         name: 'topups[].webservice_code'
         description: ''
         required: false
@@ -3233,18 +3493,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].fake_response':
+        custom: []
         name: 'topups[].fake_response'
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].return_url':
+        custom: []
         name: 'topups[].return_url'
         description: ''
         required: false
@@ -3253,8 +3515,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].discount_code':
+        custom: []
         name: 'topups[].discount_code'
         description: ''
         required: false
@@ -3263,8 +3526,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].offerCode':
+        custom: []
         name: 'topups[].offerCode'
         description: ''
         required: false
@@ -3273,8 +3537,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].offerType':
+        custom: []
         name: 'topups[].offerType'
         description: ''
         required: false
@@ -3283,8 +3548,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       'topups[].counter':
+        custom: []
         name: 'topups[].counter'
         description: 'Must be at least 1.'
         required: false
@@ -3293,19 +3559,19 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       topups:
         -
           product_id: 4326.41688
           mobile: '137449171806'
-          main_page: false
+          main_page: true
           price: 4326.41688
           taken_value: 4326.41688
           operator_type: architecto
           ext_id: '19'
           webservice_code: architecto
-          fake_response: true
+          fake_response: false
           return_url: 'http://www.bailey.biz/quos-velit-et-fugiat-sunt-nihil-accusantium-harum.html'
           discount_code: architecto
           offerCode: architecto
@@ -3318,4 +3584,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

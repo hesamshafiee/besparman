@@ -4,10 +4,12 @@ name: Discount
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/discounts
     metadata:
+      custom: []
       groupName: Discount
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/discounts
     metadata:
+      custom: []
       groupName: Discount
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -66,6 +67,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       code:
+        custom: []
         name: code
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -74,20 +76,22 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
-        example: money
+        example: percent
         type: string
         enumValues:
           - money
           - percent
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       value:
+        custom: []
         name: value
         description: ''
         required: true
@@ -96,8 +100,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       min_purchase:
+        custom: []
         name: min_purchase
         description: ''
         required: false
@@ -106,8 +111,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       max_purchase:
+        custom: []
         name: max_purchase
         description: ''
         required: false
@@ -116,8 +122,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       count:
+        custom: []
         name: count
         description: ''
         required: false
@@ -126,177 +133,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-      reusable:
-        name: reusable
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      expire_at:
-        name: expire_at
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-09-29T15:53:21'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      users:
-        name: users
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      products:
-        name: products
-        description: 'The <code>id</code> of an existing record in the products table.'
-        required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      code: b
-      type: money
-      value: 4326.41688
-      min_purchase: 4326.41688
-      max_purchase: 4326.41688
-      count: 4326.41688
-      status: false
-      reusable: false
-      expire_at: '2025-09-29T15:53:21'
-      users:
-        - 4326.41688
-      products:
-        - 4326.41688
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/discounts/{discount_id}'
-    metadata:
-      groupName: Discount
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      discount_id:
-        name: discount_id
-        description: 'The ID of the discount.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      discount_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      code:
-        name: code
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      type:
-        name: type
-        description: ''
-        required: true
-        example: money
-        type: string
-        enumValues:
-          - money
-          - percent
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      value:
-        name: value
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      min_purchase:
-        name: min_purchase
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      max_purchase:
-        name: max_purchase
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      count:
-        name: count
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      status:
         name: status
         description: ''
         required: false
@@ -305,28 +144,31 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       reusable:
+        custom: []
         name: reusable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       expire_at:
+        custom: []
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-09-29T15:53:21'
+        example: '2025-10-27T12:21:30'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       users:
+        custom: []
         name: users
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
@@ -336,8 +178,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       products:
+        custom: []
         name: products
         description: 'The <code>id</code> of an existing record in the products table.'
         required: false
@@ -347,17 +190,17 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       code: b
-      type: money
+      type: percent
       value: 4326.41688
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
       status: true
-      reusable: false
-      expire_at: '2025-09-29T15:53:21'
+      reusable: true
+      expire_at: '2025-10-27T12:21:30'
       users:
         - 4326.41688
       products:
@@ -369,12 +212,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
-      - DELETE
+      - PATCH
     uri: 'api/discounts/{discount_id}'
     metadata:
+      custom: []
       groupName: Discount
       groupDescription: ''
       subgroup: ''
@@ -383,12 +227,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       discount_id:
+        custom: []
         name: discount_id
         description: 'The ID of the discount.'
         required: true
@@ -397,7 +241,188 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      discount_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
         custom: []
+        name: code
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: percent
+        type: string
+        enumValues:
+          - money
+          - percent
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      value:
+        custom: []
+        name: value
+        description: ''
+        required: true
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      min_purchase:
+        custom: []
+        name: min_purchase
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      max_purchase:
+        custom: []
+        name: max_purchase
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      count:
+        custom: []
+        name: count
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      reusable:
+        custom: []
+        name: reusable
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      expire_at:
+        custom: []
+        name: expire_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-10-27T12:21:30'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      users:
+        custom: []
+        name: users
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example:
+          - 4326.41688
+        type: 'number[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      products:
+        custom: []
+        name: products
+        description: 'The <code>id</code> of an existing record in the products table.'
+        required: false
+        example:
+          - 4326.41688
+        type: 'number[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      code: b
+      type: percent
+      value: 4326.41688
+      min_purchase: 4326.41688
+      max_purchase: 4326.41688
+      count: 4326.41688
+      status: true
+      reusable: false
+      expire_at: '2025-10-27T12:21:30'
+      users:
+        - 4326.41688
+      products:
+        - 4326.41688
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/discounts/{discount_id}'
+    metadata:
+      custom: []
+      groupName: Discount
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      discount_id:
+        custom: []
+        name: discount_id
+        description: 'The ID of the discount.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanUrlParameters:
       discount_id: 16
     queryParameters: []
@@ -411,4 +436,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []

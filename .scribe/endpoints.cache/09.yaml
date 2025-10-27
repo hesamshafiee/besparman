@@ -4,10 +4,12 @@ name: Product
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/products
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -16,7 +18,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -29,6 +30,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -36,18 +38,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/products/private
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -56,7 +58,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -69,6 +70,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -76,18 +78,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/products
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -96,7 +98,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -106,6 +107,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       sku:
+        custom: []
         name: sku
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: false
@@ -114,8 +116,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -124,8 +127,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name_en:
+        custom: []
         name: name_en
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: false
@@ -134,8 +138,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -144,8 +149,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description_full:
+        custom: []
         name: description_full
         description: 'Must not be greater than 1000 characters.'
         required: false
@@ -154,8 +160,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -164,8 +171,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       second_price:
+        custom: []
         name: second_price
         description: ''
         required: false
@@ -174,8 +182,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       showable_price:
+        custom: []
         name: showable_price
         description: ''
         required: false
@@ -184,12 +193,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
-        example: cell_amazing_direct_charge
+        example: cell_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -201,8 +211,9 @@ endpoints:
           - card_charge
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       minimum_sale:
+        custom: []
         name: minimum_sale
         description: ''
         required: false
@@ -211,8 +222,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       dimension:
+        custom: []
         name: dimension
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: false
@@ -221,8 +233,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       deliverable:
+        custom: []
         name: deliverable
         description: ''
         required: false
@@ -231,18 +244,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       third_party_id:
+        custom: []
         name: third_party_id
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -251,8 +266,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: false
@@ -261,8 +277,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       order:
+        custom: []
         name: order
         description: ''
         required: false
@@ -271,8 +288,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       period:
+        custom: []
         name: period
         description: ''
         required: false
@@ -281,8 +299,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       sim_card_type:
+        custom: []
         name: sim_card_type
         description: ''
         required: false
@@ -291,8 +310,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       private:
+        custom: []
         name: private
         description: ''
         required: false
@@ -301,8 +321,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profile_id:
+        custom: []
         name: profile_id
         description: ''
         required: false
@@ -311,8 +332,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -322,7 +344,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       sku: b
       name: 'n'
@@ -332,11 +354,11 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_amazing_direct_charge
+      type: cell_direct_charge
       minimum_sale: 4326.41688
       dimension: m
       deliverable: true
-      status: false
+      status: true
       third_party_id: i
       operator_id: 4326.41688
       order: 4326.41688
@@ -353,12 +375,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: 'api/products/assign-category/{product_id}'
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -367,27 +390,28 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       product_id:
+        custom: []
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      product_id: 16
+      product_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       sku:
+        custom: []
         name: sku
         description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
         required: false
@@ -396,8 +420,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name:
+        custom: []
         name: name
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
@@ -406,8 +431,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       name_en:
+        custom: []
         name: name_en
         description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: false
@@ -416,8 +442,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -426,8 +453,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description_full:
+        custom: []
         name: description_full
         description: 'Must not be greater than 1000 characters.'
         required: false
@@ -436,8 +464,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -446,8 +475,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       second_price:
+        custom: []
         name: second_price
         description: ''
         required: false
@@ -456,8 +486,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       showable_price:
+        custom: []
         name: showable_price
         description: ''
         required: false
@@ -466,12 +497,13 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: td_lte_internet
         type: string
         enumValues:
           - cell_internet
@@ -483,8 +515,9 @@ endpoints:
           - card_charge
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       minimum_sale:
+        custom: []
         name: minimum_sale
         description: ''
         required: false
@@ -493,8 +526,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       dimension:
+        custom: []
         name: dimension
         description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: false
@@ -503,28 +537,31 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       deliverable:
+        custom: []
         name: deliverable
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       third_party_id:
+        custom: []
         name: third_party_id
         description: 'Must not be greater than 255 characters.'
         required: false
@@ -533,8 +570,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       operator_id:
+        custom: []
         name: operator_id
         description: 'The <code>id</code> of an existing record in the operators table.'
         required: false
@@ -543,8 +581,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       order:
+        custom: []
         name: order
         description: ''
         required: false
@@ -553,8 +592,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       period:
+        custom: []
         name: period
         description: ''
         required: false
@@ -563,8 +603,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       sim_card_type:
+        custom: []
         name: sim_card_type
         description: ''
         required: false
@@ -573,8 +614,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       private:
+        custom: []
         name: private
         description: ''
         required: false
@@ -583,8 +625,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       profile_id:
+        custom: []
         name: profile_id
         description: ''
         required: false
@@ -593,8 +636,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       images:
+        custom: []
         name: images
         description: 'Must be an image. Must not be greater than 2048 kilobytes.'
         required: false
@@ -604,7 +648,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       sku: b
       name: 'n'
@@ -614,10 +658,606 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_internet
+      type: td_lte_internet
       minimum_sale: 4326.41688
       dimension: m
-      deliverable: true
+      deliverable: false
+      status: false
+      third_party_id: i
+      operator_id: 4326.41688
+      order: 4326.41688
+      period: 4326.41688
+      sim_card_type: architecto
+      private: true
+      profile_id: architecto
+    fileParameters:
+      images:
+        - null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: api/products/bulk-update
+    metadata:
+      custom: []
+      groupName: Product
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      sku:
+        custom: []
+        name: sku
+        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name_en:
+        custom: []
+        name: name_en
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'Quos velit et fugiat sunt nihil accusantium harum.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: ''
+        required: true
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      second_price:
+        custom: []
+        name: second_price
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      showable_price:
+        custom: []
+        name: showable_price
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: cell_amazing_direct_charge
+        type: string
+        enumValues:
+          - cell_internet
+          - td_lte_internet
+          - cell_internet_direct_charge
+          - cell_amazing_direct_charge
+          - cell_direct_charge
+          - cart
+          - card_charge
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      minimum_sale:
+        custom: []
+        name: minimum_sale
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      dimension:
+        custom: []
+        name: dimension
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      deliverable:
+        custom: []
+        name: deliverable
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      third_party_id:
+        custom: []
+        name: third_party_id
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      operator_id:
+        custom: []
+        name: operator_id
+        description: 'The <code>id</code> of an existing record in the operators table.'
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      order:
+        custom: []
+        name: order
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      period:
+        custom: []
+        name: period
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sim_card_type:
+        custom: []
+        name: sim_card_type
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      private:
+        custom: []
+        name: private
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profile_id:
+        custom: []
+        name: profile_id
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      images:
+        custom: []
+        name: images
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      sku: b
+      name: 'n'
+      name_en: g
+      description: 'Quos velit et fugiat sunt nihil accusantium harum.'
+      description_full: i
+      price: 4326.41688
+      second_price: 4326.41688
+      showable_price: 4326.41688
+      type: cell_amazing_direct_charge
+      minimum_sale: 4326.41688
+      dimension: m
+      deliverable: false
+      status: true
+      third_party_id: i
+      operator_id: 4326.41688
+      order: 4326.41688
+      period: 4326.41688
+      sim_card_type: architecto
+      private: false
+      profile_id: architecto
+    fileParameters:
+      images:
+        - null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/products/{id}'
+    metadata:
+      custom: []
+      groupName: Product
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      sku:
+        custom: []
+        name: sku
+        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name_en:
+        custom: []
+        name: name_en
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'Quos velit et fugiat sunt nihil accusantium harum.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: ''
+        required: true
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      second_price:
+        custom: []
+        name: second_price
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      showable_price:
+        custom: []
+        name: showable_price
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: cell_internet_direct_charge
+        type: string
+        enumValues:
+          - cell_internet
+          - td_lte_internet
+          - cell_internet_direct_charge
+          - cell_amazing_direct_charge
+          - cell_direct_charge
+          - cart
+          - card_charge
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      minimum_sale:
+        custom: []
+        name: minimum_sale
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      dimension:
+        custom: []
+        name: dimension
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      deliverable:
+        custom: []
+        name: deliverable
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      third_party_id:
+        custom: []
+        name: third_party_id
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      operator_id:
+        custom: []
+        name: operator_id
+        description: 'The <code>id</code> of an existing record in the operators table.'
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      order:
+        custom: []
+        name: order
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      period:
+        custom: []
+        name: period
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sim_card_type:
+        custom: []
+        name: sim_card_type
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      private:
+        custom: []
+        name: private
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profile_id:
+        custom: []
+        name: profile_id
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      images:
+        custom: []
+        name: images
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      sku: b
+      name: 'n'
+      name_en: g
+      description: 'Quos velit et fugiat sunt nihil accusantium harum.'
+      description_full: i
+      price: 4326.41688
+      second_price: 4326.41688
+      showable_price: 4326.41688
+      type: cell_internet_direct_charge
+      minimum_sale: 4326.41688
+      dimension: m
+      deliverable: false
       status: true
       third_party_id: i
       operator_id: 4326.41688
@@ -635,565 +1275,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
-    httpMethods:
-      - PATCH
-    uri: api/products/bulk-update
-    metadata:
-      groupName: Product
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      sku:
-        name: sku
-        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      name:
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      name_en:
-        name: name_en
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'Quos velit et fugiat sunt nihil accusantium harum.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description_full:
-        name: description_full
-        description: 'Must not be greater than 1000 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      second_price:
-        name: second_price
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      showable_price:
-        name: showable_price
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      type:
-        name: type
-        description: ''
-        required: true
-        example: td_lte_internet
-        type: string
-        enumValues:
-          - cell_internet
-          - td_lte_internet
-          - cell_internet_direct_charge
-          - cell_amazing_direct_charge
-          - cell_direct_charge
-          - cart
-          - card_charge
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      minimum_sale:
-        name: minimum_sale
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      dimension:
-        name: dimension
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      deliverable:
-        name: deliverable
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      status:
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      third_party_id:
-        name: third_party_id
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      operator_id:
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      order:
-        name: order
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      period:
-        name: period
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      sim_card_type:
-        name: sim_card_type
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      private:
-        name: private
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      profile_id:
-        name: profile_id
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      images:
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      sku: b
-      name: 'n'
-      name_en: g
-      description: 'Quos velit et fugiat sunt nihil accusantium harum.'
-      description_full: i
-      price: 4326.41688
-      second_price: 4326.41688
-      showable_price: 4326.41688
-      type: td_lte_internet
-      minimum_sale: 4326.41688
-      dimension: m
-      deliverable: true
-      status: false
-      third_party_id: i
-      operator_id: 4326.41688
-      order: 4326.41688
-      period: 4326.41688
-      sim_card_type: architecto
-      private: true
-      profile_id: architecto
-    fileParameters:
-      images:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
     custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/products/{id}'
-    metadata:
-      groupName: Product
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the product.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      sku:
-        name: sku
-        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      name:
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      name_en:
-        name: name_en
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'Quos velit et fugiat sunt nihil accusantium harum.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description_full:
-        name: description_full
-        description: 'Must not be greater than 1000 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      second_price:
-        name: second_price
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      showable_price:
-        name: showable_price
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      type:
-        name: type
-        description: ''
-        required: true
-        example: cell_internet_direct_charge
-        type: string
-        enumValues:
-          - cell_internet
-          - td_lte_internet
-          - cell_internet_direct_charge
-          - cell_amazing_direct_charge
-          - cell_direct_charge
-          - cart
-          - card_charge
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      minimum_sale:
-        name: minimum_sale
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      dimension:
-        name: dimension
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      deliverable:
-        name: deliverable
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      status:
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      third_party_id:
-        name: third_party_id
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      operator_id:
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      order:
-        name: order
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      period:
-        name: period
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      sim_card_type:
-        name: sim_card_type
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      private:
-        name: private
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      profile_id:
-        name: profile_id
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      images:
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      sku: b
-      name: 'n'
-      name_en: g
-      description: 'Quos velit et fugiat sunt nihil accusantium harum.'
-      description_full: i
-      price: 4326.41688
-      second_price: 4326.41688
-      showable_price: 4326.41688
-      type: cell_internet_direct_charge
-      minimum_sale: 4326.41688
-      dimension: m
-      deliverable: true
-      status: false
-      third_party_id: i
-      operator_id: 4326.41688
-      order: 4326.41688
-      period: 4326.41688
-      sim_card_type: architecto
-      private: false
-      profile_id: architecto
-    fileParameters:
-      images:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
     httpMethods:
       - DELETE
     uri: 'api/products/{id}'
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -1202,23 +1290,23 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
+        custom: []
         name: id
         description: 'The ID of the product.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1230,12 +1318,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/products
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -1244,7 +1333,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -1257,30 +1345,28 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        custom: []
+        status: 200
+        content: '{"data":[{"id":539,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":538,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 100,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 100,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":100000,"second_price":100000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":537,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":50000,"second_price":50000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":536,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":535,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":534,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":50000,"second_price":50000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":533,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":532,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"physical_card_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":531,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"physical_card_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":530,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0631\u0627\u06cc\u062a\u0644 - 500,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0631\u0627\u06cc\u062a\u0644 - 500,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":500000,"second_price":500000,"images":null,"product_type":"card_charge","operator_id":3,"operator":"Rightel","sim_card_type":"credit","period":null,"categories_name":[]}],"links":{"first":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","last":"http:\/\/127.0.0.1\/api\/clients\/products?page=54","prev":null,"next":"http:\/\/127.0.0.1\/api\/clients\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":54,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","label":"1","page":1,"active":true},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"2","page":2,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=3","label":"3","page":3,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=4","label":"4","page":4,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=5","label":"5","page":5,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=6","label":"6","page":6,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=7","label":"7","page":7,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=8","label":"8","page":8,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=9","label":"9","page":9,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=10","label":"10","page":10,"active":false},{"url":null,"label":"...","active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=53","label":"53","page":53,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=54","label":"54","page":54,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"Next &raquo;","page":2,"active":false}],"path":"http:\/\/127.0.0.1\/api\/clients\/products","per_page":10,"to":10,"total":539},"balance":0,"additional":[]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5992'
+          x-ratelimit-remaining: '5980'
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/products/private
     metadata:
+      custom: []
       groupName: Product
       groupDescription: ''
       subgroup: ''
@@ -1289,7 +1375,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -1302,6 +1387,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 500
         content: |-
           {
@@ -1311,13 +1397,11 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5991'
+          x-ratelimit-remaining: '5979'
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []

@@ -2,10 +2,12 @@ name: Logistic
 description: ''
 endpoints:
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/logistics
     metadata:
+      custom: []
       groupName: Logistic
       groupDescription: ''
       subgroup: ''
@@ -14,7 +16,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -27,6 +28,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -34,18 +36,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - GET
     uri: api/clients/logistics
     metadata:
+      custom: []
       groupName: Logistic
       groupDescription: ''
       subgroup: ''
@@ -54,7 +56,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -67,6 +68,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+        custom: []
         status: 401
         content: '{"message":"Unauthenticated."}'
         headers:
@@ -74,18 +76,18 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - POST
     uri: api/logistics
     metadata:
+      custom: []
       groupName: Logistic
       groupDescription: ''
       subgroup: ''
@@ -94,7 +96,6 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -104,6 +105,7 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters:
       city:
+        custom: []
         name: city
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -112,8 +114,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       province:
+        custom: []
         name: province
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -122,8 +125,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       country:
+        custom: []
         name: country
         description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
         required: true
@@ -132,8 +136,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       type:
+        custom: []
         name: type
         description: 'Must not be greater than 128 characters.'
         required: true
@@ -142,8 +147,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       capacity:
+        custom: []
         name: capacity
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -152,8 +158,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       price:
+        custom: []
         name: price
         description: ''
         required: true
@@ -162,8 +169,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       min_price_for_free_delivery:
+        custom: []
         name: min_price_for_free_delivery
         description: ''
         required: false
@@ -172,8 +180,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_delivery_after_day:
+        custom: []
         name: start_delivery_after_day
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -182,8 +191,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_delivery_after_time:
+        custom: []
         name: start_delivery_after_time
         description: 'Must be between 1 and 250 digits.'
         required: false
@@ -192,8 +202,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       start_time:
+        custom: []
         name: start_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -202,8 +213,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       end_time:
+        custom: []
         name: end_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -212,8 +224,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       divide_time:
+        custom: []
         name: divide_time
         description: 'Must be between 1 and 24 digits.'
         required: false
@@ -222,18 +235,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_active_in_holiday:
+        custom: []
         name: is_active_in_holiday
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       days_not_working:
+        custom: []
         name: days_not_working
         description: 'Must be a valid JSON string.'
         required: false
@@ -242,8 +257,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       status:
+        custom: []
         name: status
         description: ''
         required: false
@@ -252,8 +268,9 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       default:
+        custom: []
         name: default
         description: ''
         required: false
@@ -262,18 +279,20 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       is_capital:
+        custom: []
         name: is_capital
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
       description:
+        custom: []
         name: description
         description: 'Must not be greater than 250 characters.'
         required: false
@@ -282,7 +301,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanBodyParameters:
       city: b
       province: 'n'
@@ -296,11 +315,11 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: true
+      is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
       status: true
       default: true
-      is_capital: false
+      is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
     responses: []
@@ -309,12 +328,13 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
   -
+    custom: []
     httpMethods:
       - DELETE
     uri: 'api/logistics/{logistic_id}'
     metadata:
+      custom: []
       groupName: Logistic
       groupDescription: ''
       subgroup: ''
@@ -323,12 +343,12 @@ endpoints:
       description: ''
       authenticated: false
       deprecated: false
-      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       logistic_id:
+        custom: []
         name: logistic_id
         description: 'The ID of the logistic.'
         required: true
@@ -337,7 +357,7 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
-        custom: []
+        deprecated: false
     cleanUrlParameters:
       logistic_id: 16
     queryParameters: []
@@ -351,4 +371,3 @@ endpoints:
     controller: null
     method: null
     route: null
-    custom: []
