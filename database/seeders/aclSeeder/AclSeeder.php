@@ -2,7 +2,6 @@
 
 namespace Database\Seeders\aclSeeder;
 
-
 use Illuminate\Database\Seeder;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -47,7 +46,8 @@ class AclSeeder extends Seeder
             AddressSeeder::class,
             OrderSeeder::class,
             VersionSeeder::class,
-            ScheduledTopupSeeder::class
+            ScheduledTopupSeeder::class,
+            WorkSeeder::class
         ]);
     }
 }

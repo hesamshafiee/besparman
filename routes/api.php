@@ -53,6 +53,7 @@ use App\Http\Controllers\V1\TelegramController;
 use App\Http\Controllers\V1\UserSettingController;
 use App\Http\Controllers\V1\VersionController;
 use App\Http\Controllers\V1\SearchDemoController;
+use App\Http\Controllers\V1\WorkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -276,6 +277,14 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/group-charge/force/{id}', [GroupChargeController::class, 'updateForce']);
         Route::get('/clients/group-charge', [GroupChargeController::class, 'clientIndex']);
 
+        
+        Route::get('/work', [WorkController::class, 'index']);
+        Route::delete('/work/{work}', [WorkController::class, 'destroy']);
+        Route::post('/work/{work}', [WorkController::class, 'restore']);
+        Route::get('/clients/work', [WorkController::class, 'clientIndex']);
+        Route::delete('/clients/work/{work}', [WorkController::class, 'clientDestroy']);
+        Route::post('/clients/work', [WorkController::class, 'clientStore']);
+        Route::patch('/clients/work/{work}', [WorkController::class, 'clientUpdate']);
 
         Route::get('/clients/user/mobile-charged-before/{mobile}', [UserController::class, 'clientCheckMobileChargedBefore']);
 
