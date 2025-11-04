@@ -1,14 +1,14 @@
-name: CardCharge
+name: Tag
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/card-charge
+    uri: api/tags
     metadata:
       custom: []
-      groupName: CardCharge
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/card-charge
+    uri: api/tags
     metadata:
       custom: []
-      groupName: CardCharge
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -64,31 +64,9 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      file_name:
+      table:
         custom: []
-        name: file_name
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_id:
-        custom: []
-        name: operator_id
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      card_charges:
-        custom: []
-        name: card_charges
+        name: table
         description: ''
         required: true
         example: architecto
@@ -97,10 +75,22 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      tags:
+        custom: []
+        name: tags
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example:
+          - 'n'
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
-      file_name: architecto
-      operator_id: 4326.41688
-      card_charges: architecto
+      table: architecto
+      tags:
+        - 'n'
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,11 +101,66 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: 'api/card-charge/destroyOpen/{cardCharge_id}'
+      - POST
+    uri: api/tags/create
     metadata:
       custom: []
-      groupName: CardCharge
+      groupName: Tag
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: architecto
+      type: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/tags/{tag_id}'
+    metadata:
+      custom: []
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -127,10 +172,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      cardCharge_id:
+      tag_id:
         custom: []
-        name: cardCharge_id
-        description: 'The ID of the cardCharge.'
+        name: tag_id
+        description: 'The ID of the tag.'
         required: true
         example: 16
         type: integer
@@ -139,167 +184,11 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      cardCharge_id: 16
+      tag_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/card-charge/freeReport
-    metadata:
-      custom: []
-      groupName: CardCharge
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/card-charge/findBySerial
-    metadata:
-      custom: []
-      groupName: CardCharge
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      serial:
-        custom: []
-        name: serial
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      serial: architecto
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/clients/card-charge/buy
-    metadata:
-      custom: []
-      groupName: CardCharge
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      taken_value:
-        custom: []
-        name: taken_value
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      products:
-        custom: []
-        name: products
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      taken_value: architecto
-      products: architecto
     fileParameters: []
     responses: []
     responseFields: []
@@ -310,11 +199,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: api/clients/card-charge
+      - DELETE
+    uri: 'api/tags/force/{tag_id}'
     metadata:
       custom: []
-      groupName: CardCharge
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -325,23 +214,26 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      tag_id:
+        custom: []
+        name: tag_id
+        description: 'The ID of the tag.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      tag_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    responses: []
     responseFields: []
     auth: []
     controller: null

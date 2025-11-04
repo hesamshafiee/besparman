@@ -1,14 +1,54 @@
-name: IrancellOfferPackage
+name: PointHistory
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/irancell-offer-package
+    uri: api/point-histories
     metadata:
       custom: []
-      groupName: IrancellOfferPackage
+      groupName: PointHistory
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/client/point-histories
+    metadata:
+      custom: []
+      groupName: PointHistory
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''

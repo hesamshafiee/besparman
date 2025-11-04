@@ -26,11 +26,7 @@ Artisan::command('inspire', function () {
 
 app(Schedule::class)->command('activitylog:clean')->weekly();
 
-app(Schedule::class)->command('topupgroup:process')->everyMinute()->withoutOverlapping();
-app(Schedule::class)->command('app:reconciliation')->everyTenMinutes();
-app(Schedule::class)->command('telescope:prune --hours=48')->daily();
 app(Schedule::class)->command('payments:settle-mellat')->dailyAt('23:45');
-app(Schedule::class)->command('report:operators-remaining')->dailyAt('00:03');
 
 app(Schedule::class)->call(function () {
     User::chunk(50, function ($users) {

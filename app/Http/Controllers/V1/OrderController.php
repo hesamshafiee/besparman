@@ -38,7 +38,7 @@ class OrderController extends Controller
         }
 
          $records = Order::whereHas('products', function ($query) {
-                $query->where('type', 'physical_card_charge');
+                $query->where('type', 'cart');
             })
             ->orderBy($order, $typeOrder)
             ->paginate($perPage);
@@ -78,7 +78,7 @@ class OrderController extends Controller
 
         $orders = Order::where('user_id', $user->id)
             ->whereHas('products', function ($query) {
-                $query->where('type', 'physical_card_charge');
+                $query->where('type', 'cart');
             })
             ->orderBy($order, $typeOrder)
             ->paginate($perPage);

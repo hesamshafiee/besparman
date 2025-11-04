@@ -96,61 +96,6 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'api/reconciliations/{walletTransaction_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      walletTransaction_id:
-        custom: []
-        name: walletTransaction_id
-        description: 'The ID of the walletTransaction.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      walletTransaction_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: true
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      status: true
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
     uri: api/payment/card/increase
     metadata:
       custom: []
@@ -411,7 +356,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -425,7 +370,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: false
+      is_default: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -605,7 +550,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -627,7 +572,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -638,7 +583,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -679,10 +624,10 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: true
+      is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
-      status: false
-      default: false
+      status: true
+      default: true
       is_capital: false
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
@@ -776,7 +721,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-27T12:21:30'
+        example: '2025-11-04T13:07:59'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -809,7 +754,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-10-27T12:21:30'
+      expiry_date: '2025-11-04T13:07:59'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -1080,7 +1025,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: admin
+        example: panel
         type: string
         enumValues:
           - panel
@@ -1107,7 +1052,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1129,7 +1074,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1138,11 +1083,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: admin
+      type: panel
       private: true
-      profile_confirm: true
+      profile_confirm: false
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1212,7 +1157,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: ordinary
+        example: panel
         type: string
         enumValues:
           - panel
@@ -1261,7 +1206,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1270,11 +1215,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: ordinary
+      type: panel
       private: true
       profile_confirm: false
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1375,7 +1320,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: panel
+        example: esaj
         type: string
         enumValues:
           - panel
@@ -1402,7 +1347,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1424,7 +1369,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1433,11 +1378,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: panel
+      type: esaj
       private: false
-      profile_confirm: true
+      profile_confirm: false
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1485,7 +1430,7 @@ endpoints:
         name: sms
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1507,7 +1452,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: otpOrPassword
+        example: usernamePassword
         type: string
         enumValues:
           - otp
@@ -1563,9 +1508,9 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      sms: true
+      sms: false
       email: true
-      auth: otpOrPassword
+      auth: usernamePassword
       otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
@@ -1961,7 +1906,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-27T12:21:30'
+        example: '2025-11-04T13:07:59'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2158,7 +2103,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-10-27T12:21:30'
+      birth_date: '2025-11-04T13:07:59'
       address: b
       postal_code: 'n'
       profession: g
@@ -2210,7 +2155,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-27T12:21:30'
+        example: '2025-11-04T13:08:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2407,7 +2352,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-10-27T12:21:30'
+      birth_date: '2025-11-04T13:08:00'
       address: b
       postal_code: 'n'
       profession: g
@@ -2504,7 +2449,7 @@ endpoints:
         name: credit_cell_direct_charge
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2515,7 +2460,7 @@ endpoints:
         name: credit_cell_internet_direct_charge
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2526,7 +2471,7 @@ endpoints:
         name: permanent_cell_internet
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2646,9 +2591,9 @@ endpoints:
       title: b
       credit_cell_internet: false
       credit_td_lte_internet: true
-      credit_cell_direct_charge: true
-      credit_cell_internet_direct_charge: true
-      permanent_cell_internet: true
+      credit_cell_direct_charge: false
+      credit_cell_internet_direct_charge: false
+      permanent_cell_internet: false
       permanent_td_lte_internet: true
       permanent_cell_direct_charge: false
       permanent_cell_internet_direct_charge: false
@@ -2748,48 +2693,8 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: api/clients/group-charge
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/clients/user/mobile-charged-before/{mobile}'
+      - POST
+    uri: 'api/work/{work}'
     metadata:
       custom: []
       groupName: Endpoints
@@ -2804,34 +2709,25 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      mobile:
+      work:
         custom: []
-        name: mobile
-        description: ''
+        name: work
+        description: 'The work.'
         required: true
-        example: architecto
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      mobile: architecto
+      work: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -2928,7 +2824,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_amazing_direct_charge
+        example: cell_internet
         type: string
         enumValues:
           - cell_internet
@@ -2974,7 +2870,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_amazing_direct_charge
+      type: cell_internet
       value: 17
       point: 15
       status: true
@@ -3058,7 +2954,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: cell_internet
         type: string
         enumValues:
           - cell_internet
@@ -3188,7 +3084,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_direct_charge
+      type: cell_internet
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
@@ -3243,49 +3139,6 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/draft-topups/{draftTopup?}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      draftTopup:
-        custom: []
-        name: draftTopup
-        description: ''
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      draftTopup: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -3366,221 +3219,6 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/top-up/bulk
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      topups:
-        custom: []
-        name: topups
-        description: 'Must have at least 1 items.'
-        required: true
-        example:
-          - []
-        type: 'object[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].product_id':
-        custom: []
-        name: 'topups[].product_id'
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].mobile':
-        custom: []
-        name: 'topups[].mobile'
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].main_page':
-        custom: []
-        name: 'topups[].main_page'
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].price':
-        custom: []
-        name: 'topups[].price'
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].taken_value':
-        custom: []
-        name: 'topups[].taken_value'
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].operator_type':
-        custom: []
-        name: 'topups[].operator_type'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].ext_id':
-        custom: []
-        name: 'topups[].ext_id'
-        description: ''
-        required: false
-        example: '19'
-        type: number
-        enumValues:
-          - '59'
-          - '19'
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].webservice_code':
-        custom: []
-        name: 'topups[].webservice_code'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].fake_response':
-        custom: []
-        name: 'topups[].fake_response'
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].return_url':
-        custom: []
-        name: 'topups[].return_url'
-        description: ''
-        required: false
-        example: 'http://www.bailey.biz/quos-velit-et-fugiat-sunt-nihil-accusantium-harum.html'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].discount_code':
-        custom: []
-        name: 'topups[].discount_code'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].offerCode':
-        custom: []
-        name: 'topups[].offerCode'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].offerType':
-        custom: []
-        name: 'topups[].offerType'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'topups[].counter':
-        custom: []
-        name: 'topups[].counter'
-        description: 'Must be at least 1.'
-        required: false
-        example: 22
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      topups:
-        -
-          product_id: 4326.41688
-          mobile: '137449171806'
-          main_page: true
-          price: 4326.41688
-          taken_value: 4326.41688
-          operator_type: architecto
-          ext_id: '19'
-          webservice_code: architecto
-          fake_response: false
-          return_url: 'http://www.bailey.biz/quos-velit-et-fugiat-sunt-nihil-accusantium-harum.html'
-          discount_code: architecto
-          offerCode: architecto
-          offerType: architecto
-          counter: 22
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null

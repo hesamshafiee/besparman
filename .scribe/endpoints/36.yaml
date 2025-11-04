@@ -1,14 +1,134 @@
-name: GroupCharge
+name: Prize
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/group-charge
+    uri: api/prizes
     metadata:
       custom: []
-      groupName: GroupCharge
+      groupName: Prize
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/clients/prizes
+    metadata:
+      custom: []
+      groupName: Prize
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/prizes-purchase
+    metadata:
+      custom: []
+      groupName: Prize
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/clients/prizes-purchase
+    metadata:
+      custom: []
+      groupName: Prize
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +165,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'api/group-charge/topup/{product_id}'
+    uri: api/prizes
     metadata:
       custom: []
-      groupName: GroupCharge
+      groupName: Prize
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -57,13 +177,39 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
-    urlParameters:
-      product_id:
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
         custom: []
-        name: product_id
-        description: 'The ID of the product.'
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: 'Must be at least 3 characters. Must not be greater than 65535 characters.'
+        required: false
+        example: 'Et animi quos velit et fugiat.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      point:
+        custom: []
+        name: point
+        description: 'Must be at least 1. Must not be greater than 1000000.'
         required: true
         example: 1
         type: integer
@@ -71,19 +217,22 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanUrlParameters:
-      product_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_numbers:
+      type:
         custom: []
-        name: phone_numbers
-        description: 'Must be a valid JSON string.'
+        name: type
+        description: ''
         required: true
-        example: '["architecto","architecto"]'
+        example: cell_direct_charge
         type: string
-        enumValues: []
+        enumValues:
+          - cell_internet
+          - td_lte_internet
+          - cell_internet_direct_charge
+          - cell_amazing_direct_charge
+          - cell_direct_charge
+          - physical
+          - increase_prize
+          - discount
         exampleWasSpecified: false
         nullable: false
         deprecated: false
@@ -98,11 +247,44 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      refCode:
+      operator_id:
         custom: []
-        name: refCode
-        description: ''
+        name: operator_id
+        description: 'The <code>id</code> of an existing record in the operators table.'
+        required: true
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      product_id:
+        custom: []
+        name: product_id
+        description: 'The <code>id</code> of an existing record in the products table.'
         required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profile_id:
+        custom: []
+        name: profile_id
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      ext_id:
+        custom: []
+        name: ext_id
+        description: ''
+        required: true
         example: architecto
         type: string
         enumValues: []
@@ -114,18 +296,76 @@ endpoints:
         name: operator_type
         description: ''
         required: false
-        example: architecto
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      count:
+        custom: []
+        name: count
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      url:
+        custom: []
+        name: url
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      tags:
+        custom: []
+        name: tags
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example:
+          - k
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      images:
+        custom: []
+        name: images
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
-      phone_numbers: '["architecto","architecto"]'
+      name: b
+      description: 'Et animi quos velit et fugiat.'
+      point: 1
+      type: cell_direct_charge
       price: 4326.41688
-      refCode: architecto
-      operator_type: architecto
-    fileParameters: []
+      operator_id: 4326.41688
+      product_id: 4326.41688
+      profile_id: architecto
+      ext_id: architecto
+      operator_type: 4326.41688
+      count: 4326.41688
+      url: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
+      tags:
+        - k
+    fileParameters:
+      images:
+        - null
     responses: []
     responseFields: []
     auth: []
@@ -136,10 +376,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'api/group-charge/topup-package/{product_id}'
+    uri: api/prizes/items
     metadata:
       custom: []
-      groupName: GroupCharge
+      groupName: Prize
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -150,71 +390,15 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      product_id:
-        custom: []
-        name: product_id
-        description: 'The ID of the product.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      product_id: 1
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      refCode:
+      prize_id:
         custom: []
-        name: refCode
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      offerCode:
-        custom: []
-        name: offerCode
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      offerType:
-        custom: []
-        name: offerType
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_type:
-        custom: []
-        name: operator_type
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      price:
-        custom: []
-        name: price
-        description: ''
+        name: prize_id
+        description: 'The <code>id</code> of an existing record in the prizes table.'
         required: true
         example: 4326.41688
         type: number
@@ -222,26 +406,22 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      phone_numbers:
+      code:
         custom: []
-        name: phone_numbers
-        description: 'Must be between 12 and 12 digits.'
+        name: code
+        description: 'Must not be greater than 100 characters.'
         required: true
         example:
-          - '137449171806'
+          - m
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      refCode: architecto
-      offerCode: architecto
-      offerType: architecto
-      operator_type: architecto
-      price: 4326.41688
-      phone_numbers:
-        - '137449171806'
+      prize_id: 4326.41688
+      code:
+        - m
     fileParameters: []
     responses: []
     responseFields: []
@@ -252,11 +432,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: 'api/group-charge/cancel/{product}'
+      - DELETE
+    uri: 'api/prizes/{prize_id}'
     metadata:
       custom: []
-      groupName: GroupCharge
+      groupName: Prize
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -268,19 +448,105 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      product:
+      prize_id:
         custom: []
-        name: product
-        description: ''
+        name: prize_id
+        description: 'The ID of the prize.'
         required: true
-        example: architecto
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      product: architecto
+      prize_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/prizes/status/{prize_id}'
+    metadata:
+      custom: []
+      groupName: Prize
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      prize_id:
+        custom: []
+        name: prize_id
+        description: 'The ID of the prize.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      prize_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/prizes-purchase/status/{prizePurchase_id}'
+    metadata:
+      custom: []
+      groupName: Prize
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      prizePurchase_id:
+        custom: []
+        name: prizePurchase_id
+        description: 'The ID of the prizePurchase.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      prizePurchase_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -296,14 +562,14 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'api/group-charge/force/{id}'
+    uri: 'api/prizes/purchase/{prize_id}'
     metadata:
       custom: []
-      groupName: GroupCharge
+      groupName: Prize
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the force attribute of a GroupCharge.'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -311,19 +577,19 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id:
+      prize_id:
         custom: []
-        name: id
-        description: 'The ID of the force.'
+        name: prize_id
+        description: 'The ID of the prize.'
         required: true
-        example: architecto
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      prize_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

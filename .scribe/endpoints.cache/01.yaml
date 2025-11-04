@@ -64,7 +64,7 @@ endpoints:
         name: otpForce
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -75,7 +75,7 @@ endpoints:
         name: twoStepType
         description: ''
         required: false
-        example: google2fa
+        example: sms
         type: string
         enumValues:
           - google2fa
@@ -87,8 +87,8 @@ endpoints:
       mobile: '137449171806'
       password: '|]|{+-'
       code: vdlj
-      otpForce: false
-      twoStepType: google2fa
+      otpForce: true
+      twoStepType: sms
     fileParameters: []
     responses: []
     responseFields: []
@@ -264,7 +264,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5987'
+          x-ratelimit-remaining: '5999'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

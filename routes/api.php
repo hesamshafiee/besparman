@@ -8,14 +8,11 @@ use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\CommentController;
 use App\Http\Controllers\V1\DeliveryController;
 use App\Http\Controllers\V1\DiscountController;
-use App\Http\Controllers\V1\FtpController;
-use App\Http\Controllers\V1\IrancellOfferPackageController;
 use App\Http\Controllers\V1\ImageController;
 use App\Http\Controllers\V1\LandingController;
 use App\Http\Controllers\V1\LogController;
 use App\Http\Controllers\V1\AddressController;
 use App\Http\Controllers\V1\LogisticController;
-use App\Http\Controllers\V1\MainPageReportController;
 use App\Http\Controllers\V1\MenuController;
 use App\Http\Controllers\V1\OperatorController;
 use App\Http\Controllers\V1\OrderController;
@@ -43,7 +40,6 @@ use App\Http\Controllers\V1\WalletTransactionExtraController;
 use App\Http\Controllers\V1\WarehouseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\TagController;
-use App\Http\Controllers\V1\ReconciliationController;
 use App\Http\Controllers\V1\TelegramController;
 use App\Http\Controllers\V1\UserSettingController;
 use App\Http\Controllers\V1\VersionController;
@@ -82,15 +78,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::delete('/acl/role/{role}', [AclController::class, 'deleteRole']);
         Route::get('/logs', [LogController::class, 'laravelLog']);
 
-        Route::get('/ftp/files', [FtpController::class, 'listFiles']);
-        Route::get('/ftp/download/{filename}', [FtpController::class, 'downloadFile'])->where('filename', '.*');
-        Route::get('/main-page/report', [MainPageReportController::class, 'report']);
-
-        Route::get('/reconciliations', [ReconciliationController::class, 'index']);
-        Route::get('/reconciliations2', [ReconciliationController::class, 'index2']);
-        Route::get('/reconciliations/check', [ReconciliationController::class, 'check']);
-        Route::post('/reconciliations/{walletTransaction}', [ReconciliationController::class, 'fixTransaction']);
-        Route::post('/reconciliations2/{order}', [ReconciliationController::class, 'fixTransaction2']);
     });
 
     Route::middleware(['auth:sanctum', 'validate.signature'])->group(function () {
@@ -262,8 +249,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/phone-books/{phoneBook}', [PhoneBookController::class, 'update']);
         Route::delete('/phone-books/{phoneBook}', [PhoneBookController::class, 'destroy']);
 
-        Route::get('/irancell-offer-package', [IrancellOfferPackageController::class, 'index']);
-
         
         Route::get('/work', [WorkController::class, 'index']);
         Route::delete('/work/{work}', [WorkController::class, 'destroy']);
@@ -272,9 +257,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::delete('/clients/work/{work}', [WorkController::class, 'clientDestroy']);
         Route::post('/clients/work', [WorkController::class, 'clientStore']);
         Route::patch('/clients/work/{work}', [WorkController::class, 'clientUpdate']);
-
-        Route::get('/clients/user/mobile-charged-before/{mobile}', [UserController::class, 'clientCheckMobileChargedBefore']);
-
 
 
 

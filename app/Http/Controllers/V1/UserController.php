@@ -224,24 +224,6 @@ class UserController extends Controller
     }
 
 
-
-    public function clientCheckMobileChargedBefore($mobile): JsonResponse
-    {
-         if (!preg_match('/^\d{12}$/', $mobile)) {
-            return response()->json(['error' => 'Mobile must be exactly 12 digits'], 422);
-        }
-
-
-        $exists = DB::table('charged_mobiles')
-            ->where('user_id', Auth::id())
-            ->where('mobile', $mobile)
-            ->exists();
-
-        return response()->json([
-            'charged_before' => $exists
-        ]);
-
-    }
 }
 
 

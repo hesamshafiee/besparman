@@ -39,7 +39,6 @@ class AclSeeder extends Seeder
             PanelMessageSeeder::class,
             PointSeeder::class,
             PrizeSeeder::class,
-            IrancellOfferPackageSeeder::class,
             PointHistorySeeder::class,
             AddressSeeder::class,
             OrderSeeder::class,
