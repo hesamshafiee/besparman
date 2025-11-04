@@ -6,7 +6,6 @@ use App\Events\CreateToken;
 use App\Models\Operator;
 use App\Models\Setting;
 use App\Models\User;
-use App\Observers\OperatorObserver;
 use App\Observers\SettingObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Login;
@@ -42,7 +41,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         User::observe(UserObserver::class);
-        Operator::observe(OperatorObserver::class);
         Setting::observe(SettingObserver::class);
     }
 
