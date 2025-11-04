@@ -173,7 +173,6 @@ class WorkController extends Controller
         $onlyTrashed = (bool) $request->boolean('only_trashed', false);
         $withTrashed = (bool) $request->boolean('with_trashed', false);
 
-        // ستون‌های مجاز برای سورت (می‌تونی موارد بیشتری هم اضافه کنی)
         $allowedColumns = ['id', 'created_at', 'updated_at'];
         if (!in_array($order, $allowedColumns, true)) {
             $order = 'id';
@@ -184,8 +183,7 @@ class WorkController extends Controller
 
         $base = Work::query();
 
-        // اعمال فیلتر soft delete
-        if ($onlyTrashed) {
+         if ($onlyTrashed) {
             $base->onlyTrashed();
         } elseif ($withTrashed) {
             $base->withTrashed();
