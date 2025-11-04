@@ -91,7 +91,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -100,7 +100,7 @@ endpoints:
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       items: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []

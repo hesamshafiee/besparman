@@ -14,7 +14,6 @@ use App\Http\Controllers\V1\LogController;
 use App\Http\Controllers\V1\AddressController;
 use App\Http\Controllers\V1\LogisticController;
 use App\Http\Controllers\V1\MenuController;
-use App\Http\Controllers\V1\OperatorController;
 use App\Http\Controllers\V1\OrderController;
 use App\Http\Controllers\V1\PanelMessageController;
 use App\Http\Controllers\V1\PaymentController;
@@ -240,7 +239,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/profiles/by-admin/{user}', [ProfileController::class, 'updateByAdmin']);
         Route::patch('/profiles', [ProfileController::class, 'update']);
 
-        Route::patch('/operators/{operator}', [OperatorController::class, 'update']);
 
         Route::get('/phone-books', [PhoneBookController::class, 'index']);
         Route::post('/phone-books', [PhoneBookController::class, 'store']);
@@ -348,7 +346,6 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
     Route::post('/telegram/save-telegram-id', [TelegramController::class, 'saveTelegramId']);
 
     Route::get('/username/{id}', [UsernameController::class, 'index']);
-    Route::get('/operators', [OperatorController::class, 'index']);
 });
 
 

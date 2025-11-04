@@ -197,7 +197,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet_direct_charge
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -248,7 +248,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -352,11 +352,11 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_internet_direct_charge
+      type: cell_amazing_direct_charge
       minimum_sale: 4326.41688
       dimension: m
       deliverable: false
-      status: true
+      status: false
       third_party_id: i
       operator_id: 4326.41688
       order: 4326.41688
@@ -501,7 +501,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -656,7 +656,7 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_internet
+      type: cell_amazing_direct_charge
       minimum_sale: 4326.41688
       dimension: m
       deliverable: false
@@ -793,7 +793,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet_direct_charge
+        example: card_charge
         type: string
         enumValues:
           - cell_internet
@@ -833,7 +833,7 @@ endpoints:
         name: deliverable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -910,7 +910,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -948,17 +948,17 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_internet_direct_charge
+      type: card_charge
       minimum_sale: 4326.41688
       dimension: m
-      deliverable: false
+      deliverable: true
       status: false
       third_party_id: i
       operator_id: 4326.41688
       order: 4326.41688
       period: 4326.41688
       sim_card_type: architecto
-      private: false
+      private: true
       profile_id: architecto
     fileParameters:
       images:
@@ -1097,7 +1097,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cart
+        example: card_charge
         type: string
         enumValues:
           - cell_internet
@@ -1137,7 +1137,7 @@ endpoints:
         name: deliverable
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1148,7 +1148,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1252,11 +1252,11 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cart
+      type: card_charge
       minimum_sale: 4326.41688
       dimension: m
-      deliverable: true
-      status: true
+      deliverable: false
+      status: false
       third_party_id: i
       operator_id: 4326.41688
       order: 4326.41688

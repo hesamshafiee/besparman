@@ -548,7 +548,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -592,7 +592,7 @@ endpoints:
         name: is_capital
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -622,11 +622,11 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: false
+      is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
       status: true
       default: true
-      is_capital: false
+      is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
     responses: []
@@ -719,7 +719,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T13:07:59'
+        example: '2025-11-04T13:58:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -752,7 +752,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-11-04T13:07:59'
+      expiry_date: '2025-11-04T13:58:43'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -824,7 +824,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -833,7 +833,7 @@ endpoints:
     cleanBodyParameters:
       title: b
       content: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1023,7 +1023,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: panel
+        example: ordinary
         type: string
         enumValues:
           - panel
@@ -1039,7 +1039,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1050,7 +1050,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1072,7 +1072,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1081,11 +1081,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: panel
-      private: true
-      profile_confirm: false
+      type: ordinary
+      private: false
+      profile_confirm: true
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1182,7 +1182,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1215,7 +1215,7 @@ endpoints:
       email: rowan.gulgowski@example.com
       type: panel
       private: true
-      profile_confirm: false
+      profile_confirm: true
       name: architecto
       two_step: true
     fileParameters: []
@@ -1318,7 +1318,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: esaj
+        example: admin
         type: string
         enumValues:
           - panel
@@ -1345,7 +1345,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1376,9 +1376,9 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: esaj
+      type: admin
       private: false
-      profile_confirm: false
+      profile_confirm: true
       name: architecto
       two_step: false
     fileParameters: []
@@ -1450,7 +1450,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: usernamePassword
+        example: otp
         type: string
         enumValues:
           - otp
@@ -1508,7 +1508,7 @@ endpoints:
     cleanBodyParameters:
       sms: false
       email: true
-      auth: usernamePassword
+      auth: otp
       otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
@@ -1904,7 +1904,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T13:07:59'
+        example: '2025-11-04T13:58:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2101,7 +2101,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-04T13:07:59'
+      birth_date: '2025-11-04T13:58:43'
       address: b
       postal_code: 'n'
       profession: g
@@ -2153,7 +2153,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T13:08:00'
+        example: '2025-11-04T13:58:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2350,7 +2350,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-04T13:08:00'
+      birth_date: '2025-11-04T13:58:43'
       address: b
       postal_code: 'n'
       profession: g
@@ -2368,241 +2368,6 @@ endpoints:
     fileParameters:
       images:
         - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/operators/{operator_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      operator_id:
-        custom: []
-        name: operator_id
-        description: 'The ID of the operator.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      operator_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      credit_cell_internet:
-        custom: []
-        name: credit_cell_internet
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      credit_td_lte_internet:
-        custom: []
-        name: credit_td_lte_internet
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      credit_cell_direct_charge:
-        custom: []
-        name: credit_cell_direct_charge
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      credit_cell_internet_direct_charge:
-        custom: []
-        name: credit_cell_internet_direct_charge
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      permanent_cell_internet:
-        custom: []
-        name: permanent_cell_internet
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      permanent_td_lte_internet:
-        custom: []
-        name: permanent_td_lte_internet
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      permanent_cell_direct_charge:
-        custom: []
-        name: permanent_cell_direct_charge
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      permanent_cell_internet_direct_charge:
-        custom: []
-        name: permanent_cell_internet_direct_charge
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      bill:
-        custom: []
-        name: bill
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      radin_status:
-        custom: []
-        name: radin_status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      radin_limit:
-        custom: []
-        name: radin_limit
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      igap_limit:
-        custom: []
-        name: igap_limit
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      radin_limit_package:
-        custom: []
-        name: radin_limit_package
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      igap_limit_package:
-        custom: []
-        name: igap_limit_package
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Must be between 0 and 1 digit.'
-        required: false
-        example: '1'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      credit_cell_internet: false
-      credit_td_lte_internet: true
-      credit_cell_direct_charge: false
-      credit_cell_internet_direct_charge: false
-      permanent_cell_internet: false
-      permanent_td_lte_internet: true
-      permanent_cell_direct_charge: false
-      permanent_cell_internet_direct_charge: false
-      bill: true
-      radin_status: false
-      radin_limit: 4326.41688
-      igap_limit: 4326.41688
-      radin_limit_package: 4326.41688
-      igap_limit_package: 4326.41688
-      status: '1'
-    fileParameters: []
     responses: []
     responseFields: []
     auth: []
@@ -2822,7 +2587,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -2868,7 +2633,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_internet
+      type: cell_amazing_direct_charge
       value: 17
       point: 15
       status: true
@@ -2952,7 +2717,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: physical
         type: string
         enumValues:
           - cell_internet
@@ -3082,7 +2847,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_internet
+      type: physical
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688

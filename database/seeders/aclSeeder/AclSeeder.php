@@ -33,7 +33,6 @@ class AclSeeder extends Seeder
             SettingSeeder::class,
             ProfitSeeder::class,
             ProfileSeeder::class,
-            OperatorSeeder::class,
             LandingSeeder::class,
             CommentSeeder::class,
             PanelMessageSeeder::class,

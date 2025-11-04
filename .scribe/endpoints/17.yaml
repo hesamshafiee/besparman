@@ -80,7 +80,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: admin
+        example: panel
         type: string
         enumValues:
           - admin
@@ -115,7 +115,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -123,10 +123,10 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       version: architecto
-      type: admin
+      type: panel
       title: architecto
       description: 'Eius et animi quos velit et.'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -220,7 +220,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -231,7 +231,7 @@ endpoints:
       type: panel
       title: architecto
       description: 'Eius et animi quos velit et.'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
