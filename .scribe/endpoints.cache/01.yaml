@@ -64,7 +64,7 @@ endpoints:
         name: otpForce
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -75,7 +75,7 @@ endpoints:
         name: twoStepType
         description: ''
         required: false
-        example: sms
+        example: google2fa
         type: string
         enumValues:
           - google2fa
@@ -87,8 +87,8 @@ endpoints:
       mobile: '137449171806'
       password: '|]|{+-'
       code: vdlj
-      otpForce: true
-      twoStepType: sms
+      otpForce: false
+      twoStepType: google2fa
     fileParameters: []
     responses: []
     responseFields: []

@@ -501,7 +501,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_amazing_direct_charge
+        example: card_charge
         type: string
         enumValues:
           - cell_internet
@@ -541,7 +541,7 @@ endpoints:
         name: deliverable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -552,7 +552,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -656,11 +656,11 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: cell_amazing_direct_charge
+      type: card_charge
       minimum_sale: 4326.41688
       dimension: m
-      deliverable: false
-      status: false
+      deliverable: true
+      status: true
       third_party_id: i
       operator_id: 4326.41688
       order: 4326.41688
@@ -793,7 +793,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: card_charge
+        example: cell_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -910,7 +910,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -948,7 +948,7 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: card_charge
+      type: cell_direct_charge
       minimum_sale: 4326.41688
       dimension: m
       deliverable: true
@@ -958,7 +958,7 @@ endpoints:
       order: 4326.41688
       period: 4326.41688
       sim_card_type: architecto
-      private: true
+      private: false
       profile_id: architecto
     fileParameters:
       images:
@@ -1097,7 +1097,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: card_charge
+        example: cart
         type: string
         enumValues:
           - cell_internet
@@ -1252,7 +1252,7 @@ endpoints:
       price: 4326.41688
       second_price: 4326.41688
       showable_price: 4326.41688
-      type: card_charge
+      type: cart
       minimum_sale: 4326.41688
       dimension: m
       deliverable: false
@@ -1345,7 +1345,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":539,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":538,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 100,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 100,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":100000,"second_price":100000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":537,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":50000,"second_price":50000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":536,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0622\u067e\u062a\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"card_charge","operator_id":4,"operator":"Aptel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":535,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":534,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 50,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":50000,"second_price":50000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":533,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0647\u0645\u0631\u0627\u0647 \u0627\u0648\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"physical_card_charge","operator_id":1,"operator":"Mci","sim_card_type":"credit","period":null,"categories_name":[]},{"id":532,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 200,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":200000,"second_price":200000,"images":null,"product_type":"physical_card_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":531,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 - 20,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":20000,"second_price":20000,"images":null,"product_type":"physical_card_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":530,"sku":null,"name":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0631\u0627\u06cc\u062a\u0644 - 500,000 \u0631\u06cc\u0627\u0644\u06cc","name_en":null,"description":"\u06a9\u0627\u0631\u062a \u0634\u0627\u0631\u0698 \u0631\u0627\u06cc\u062a\u0644 - 500,000 \u0631\u06cc\u0627\u0644\u06cc","description_full":null,"price":500000,"second_price":500000,"images":null,"product_type":"card_charge","operator_id":3,"operator":"Rightel","sim_card_type":"credit","period":null,"categories_name":[]}],"links":{"first":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","last":"http:\/\/127.0.0.1\/api\/clients\/products?page=54","prev":null,"next":"http:\/\/127.0.0.1\/api\/clients\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":54,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","label":"1","page":1,"active":true},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"2","page":2,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=3","label":"3","page":3,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=4","label":"4","page":4,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=5","label":"5","page":5,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=6","label":"6","page":6,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=7","label":"7","page":7,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=8","label":"8","page":8,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=9","label":"9","page":9,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=10","label":"10","page":10,"active":false},{"url":null,"label":"...","active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=53","label":"53","page":53,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=54","label":"54","page":54,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"Next &raquo;","page":2,"active":false}],"path":"http:\/\/127.0.0.1\/api\/clients\/products","per_page":10,"to":10,"total":539},"balance":0,"additional":[]}'
+        content: '{"data":[{"id":515,"sku":null,"name":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0631\u0627\u06cc\u062a\u0644 \u0634\u0648\u0631\u0627\u0646\u06af\u06cc\u0632 - \u0645\u0628\u0644\u063a \u062f\u0644\u062e\u0648\u0627\u0647","name_en":null,"description":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0631\u0627\u06cc\u062a\u0644 \u0634\u0648\u0631\u0627\u0646\u06af\u06cc\u0632 - \u0645\u0628\u0644\u063a \u062f\u0644\u062e\u0648\u0627\u0647","description_full":null,"price":10000,"second_price":2000000,"images":null,"product_type":"cell_amazing_direct_charge","operator_id":3,"operator":"Rightel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":514,"sku":null,"name":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 1000000","name_en":null,"description":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 1000000","description_full":null,"price":1000000,"second_price":null,"images":null,"product_type":"cell_amazing_direct_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":513,"sku":null,"name":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 200000","name_en":null,"description":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 200000","description_full":null,"price":200000,"second_price":null,"images":null,"product_type":"cell_amazing_direct_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":512,"sku":null,"name":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 50000","name_en":null,"description":"\u0634\u0627\u0631\u0698 \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644 \u0634\u06af\u0641\u062a \u0627\u0646\u06af\u06cc\u0632 - 50000","description_full":null,"price":50000,"second_price":null,"images":null,"product_type":"cell_amazing_direct_charge","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":511,"sku":null,"name":"(\u0627\u0639\u062a\u0628\u0627\u0631\u06cc) \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0648\u06cc\u0698\u0647 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644","name_en":null,"description":"(\u0627\u0639\u062a\u0628\u0627\u0631\u06cc) \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0648\u06cc\u0698\u0647 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644","description_full":null,"price":50000,"second_price":2000000,"images":null,"product_type":"cell_internet","operator_id":2,"operator":"Irancell","sim_card_type":"credit","period":null,"categories_name":[]},{"id":510,"sku":null,"name":"(\u062f\u0627\u0626\u0645\u06cc) \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0648\u06cc\u0698\u0647 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644","name_en":null,"description":"(\u062f\u0627\u0626\u0645\u06cc) \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0648\u06cc\u0698\u0647 \u0627\u06cc\u0631\u0627\u0646\u0633\u0644","description_full":null,"price":50000,"second_price":2000000,"images":null,"product_type":"cell_internet","operator_id":2,"operator":"Irancell","sim_card_type":"permanent","period":null,"categories_name":[]},{"id":509,"sku":null,"name":"6\u0645\u0627\u0647\u0647 - 28\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + (\u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) +60\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","name_en":null,"description":"6\u0645\u0627\u0647\u0647 - 28\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + (\u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) +60\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","description_full":null,"price":3327500,"second_price":null,"images":null,"product_type":"cell_internet","operator_id":5,"operator":"Shatel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":508,"sku":null,"name":"3\u0645\u0627\u0647\u0647 - 17\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 +( \u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) + 40\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","name_en":null,"description":"3\u0645\u0627\u0647\u0647 - 17\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 +( \u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) + 40\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","description_full":null,"price":2011900,"second_price":null,"images":null,"product_type":"cell_internet","operator_id":5,"operator":"Shatel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":507,"sku":null,"name":"3\u0645\u0627\u0647\u0647 - 10 \u06af\u06cc\u06af\u0627\u0628\u0627\u06cc\u062a \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + 30\u06af\u06cc\u06af\u0627\u0628\u0627\u06cc\u062a ADSL \u0634\u0627\u062a\u0644","name_en":null,"description":"3\u0645\u0627\u0647\u0647 - 10 \u06af\u06cc\u06af\u0627\u0628\u0627\u06cc\u062a \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + 30\u06af\u06cc\u06af\u0627\u0628\u0627\u06cc\u062a ADSL \u0634\u0627\u062a\u0644","description_full":null,"price":1540000,"second_price":null,"images":null,"product_type":"cell_internet","operator_id":5,"operator":"Shatel","sim_card_type":"credit","period":null,"categories_name":[]},{"id":506,"sku":null,"name":"3\u0645\u0627\u0647\u0647 - 6\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + (\u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) +30\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","name_en":null,"description":"3\u0645\u0627\u0647\u0647 - 6\u06af\u06cc\u06af \u0634\u0627\u062a\u0644 \u0645\u0648\u0628\u0627\u06cc\u0644 + (\u0645\u06a9\u0627\u0644\u0645\u0647 \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u062f\u0631\u0648\u0646 \u0634\u0628\u06a9\u0647) +30\u06af\u06cc\u06af ADSL \u0634\u0627\u062a\u0644","description_full":null,"price":1336500,"second_price":null,"images":null,"product_type":"cell_internet","operator_id":5,"operator":"Shatel","sim_card_type":"credit","period":null,"categories_name":[]}],"links":{"first":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","last":"http:\/\/127.0.0.1\/api\/clients\/products?page=52","prev":null,"next":"http:\/\/127.0.0.1\/api\/clients\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":52,"links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=1","label":"1","page":1,"active":true},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"2","page":2,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=3","label":"3","page":3,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=4","label":"4","page":4,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=5","label":"5","page":5,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=6","label":"6","page":6,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=7","label":"7","page":7,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=8","label":"8","page":8,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=9","label":"9","page":9,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=10","label":"10","page":10,"active":false},{"url":null,"label":"...","active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=51","label":"51","page":51,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=52","label":"52","page":52,"active":false},{"url":"http:\/\/127.0.0.1\/api\/clients\/products?page=2","label":"Next &raquo;","page":2,"active":false}],"path":"http:\/\/127.0.0.1\/api\/clients\/products","per_page":10,"to":10,"total":515},"balance":0,"additional":[]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

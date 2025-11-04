@@ -218,7 +218,7 @@ endpoints:
         name: is_open
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -229,7 +229,7 @@ endpoints:
       short_content: tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr
       body: erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt
       status: false
-      is_open: false
+      is_open: true
     fileParameters: []
     responses: []
     responseFields: []

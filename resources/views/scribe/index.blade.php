@@ -2647,7 +2647,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"postal_code\": \"m\",
     \"phone\": \"i\",
     \"mobile\": \"y\",
-    \"is_default\": true
+    \"is_default\": false
 }"
 </code></pre></div>
 
@@ -2670,7 +2670,7 @@ let body = {
     "postal_code": "m",
     "phone": "i",
     "mobile": "y",
-    "is_default": true
+    "is_default": false
 };
 
 fetch(url, {
@@ -2871,7 +2871,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -3148,7 +3148,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"postal_code\": \"m\",
     \"phone\": \"i\",
     \"mobile\": \"y\",
-    \"is_default\": true
+    \"is_default\": false
 }"
 </code></pre></div>
 
@@ -3171,7 +3171,7 @@ let body = {
     "postal_code": "m",
     "phone": "i",
     "mobile": "y",
-    "is_default": true
+    "is_default": false
 };
 
 fetch(url, {
@@ -3372,7 +3372,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -3902,8 +3902,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"mobile\": \"137449171806\",
     \"password\": \"|]|{+-\",
     \"code\": \"vdlj\",
-    \"otpForce\": true,
-    \"twoStepType\": \"sms\"
+    \"otpForce\": false,
+    \"twoStepType\": \"google2fa\"
 }"
 </code></pre></div>
 
@@ -3922,8 +3922,8 @@ let body = {
     "mobile": "137449171806",
     "password": "|]|{+-",
     "code": "vdlj",
-    "otpForce": true,
-    "twoStepType": "sms"
+    "otpForce": false,
+    "twoStepType": "google2fa"
 };
 
 fetch(url, {
@@ -4064,7 +4064,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>twoStepType</code></b>&nbsp;&nbsp;
@@ -4073,10 +4073,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="twoStepType"                data-endpoint="POSTapi-auth"
-               value="sms"
+               value="google2fa"
                data-component="body">
     <br>
-<p>Example: <code>sms</code></p>
+<p>Example: <code>google2fa</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>google2fa</code></li> <li><code>sms</code></li></ul>
         </div>
@@ -4950,7 +4950,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"date\": \"2025-11-04T13:58:42\",
+    \"date\": \"2025-11-04T14:44:58\",
     \"deliveryBetweenStart\": \"1374491711936806\",
     \"deliveryBetweenEnd\": \"1374491711936806\",
     \"address_id\": 4326.41688
@@ -4969,7 +4969,7 @@ const headers = {
 };
 
 let body = {
-    "date": "2025-11-04T13:58:42",
+    "date": "2025-11-04T14:44:58",
     "deliveryBetweenStart": "1374491711936806",
     "deliveryBetweenEnd": "1374491711936806",
     "address_id": 4326.41688
@@ -5077,10 +5077,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-cart-delivery--logistic_id-"
-               value="2025-11-04T13:58:42"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:42</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deliveryBetweenStart</code></b>&nbsp;&nbsp;
@@ -5861,7 +5861,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=b"\
     --form "data=["architecto","architecto"]"\
-    --form "images[]=@/tmp/phpia9j01ju9rciaId8wmG" </code></pre></div>
+    --form "images[]=@/tmp/php53l2onm77p0r3aITNYl" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6019,7 +6019,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=b"\
     --form "data=["architecto","architecto"]"\
-    --form "images[]=@/tmp/phpil7nimh1kff95BSftua" </code></pre></div>
+    --form "images[]=@/tmp/phpbuvkqsajir9f1MggeZt" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7027,9 +7027,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"min_purchase\": 4326.41688,
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
-    \"status\": true,
-    \"reusable\": true,
-    \"expire_at\": \"2025-11-04T13:58:42\",
+    \"status\": false,
+    \"reusable\": false,
+    \"expire_at\": \"2025-11-04T14:44:58\",
     \"users\": [
         4326.41688
     ],
@@ -7057,9 +7057,9 @@ let body = {
     "min_purchase": 4326.41688,
     "max_purchase": 4326.41688,
     "count": 4326.41688,
-    "status": true,
-    "reusable": true,
-    "expire_at": "2025-11-04T13:58:42",
+    "status": false,
+    "reusable": false,
+    "expire_at": "2025-11-04T14:44:58",
     "users": [
         4326.41688
     ],
@@ -7244,7 +7244,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>reusable</code></b>&nbsp;&nbsp;
@@ -7266,7 +7266,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expire_at</code></b>&nbsp;&nbsp;
@@ -7275,10 +7275,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="POSTapi-discounts"
-               value="2025-11-04T13:58:42"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:42</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -7328,14 +7328,14 @@ Must be one of:
     --header "Accept: application/json" \
     --data "{
     \"code\": \"b\",
-    \"type\": \"money\",
+    \"type\": \"percent\",
     \"value\": 4326.41688,
     \"min_purchase\": 4326.41688,
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
-    \"status\": false,
-    \"reusable\": true,
-    \"expire_at\": \"2025-11-04T13:58:42\",
+    \"status\": true,
+    \"reusable\": false,
+    \"expire_at\": \"2025-11-04T14:44:58\",
     \"users\": [
         4326.41688
     ],
@@ -7358,14 +7358,14 @@ const headers = {
 
 let body = {
     "code": "b",
-    "type": "money",
+    "type": "percent",
     "value": 4326.41688,
     "min_purchase": 4326.41688,
     "max_purchase": 4326.41688,
     "count": 4326.41688,
-    "status": false,
-    "reusable": true,
-    "expire_at": "2025-11-04T13:58:42",
+    "status": true,
+    "reusable": false,
+    "expire_at": "2025-11-04T14:44:58",
     "users": [
         4326.41688
     ],
@@ -7488,10 +7488,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-discounts--discount_id-"
-               value="money"
+               value="percent"
                data-component="body">
     <br>
-<p>Example: <code>money</code></p>
+<p>Example: <code>percent</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>money</code></li> <li><code>percent</code></li></ul>
         </div>
@@ -7563,7 +7563,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>reusable</code></b>&nbsp;&nbsp;
@@ -7585,7 +7585,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expire_at</code></b>&nbsp;&nbsp;
@@ -7594,10 +7594,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="PATCHapi-discounts--discount_id-"
-               value="2025-11-04T13:58:42"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:42</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -8029,7 +8029,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/phppbsoudb5vgeq4FweAN5" </code></pre></div>
+    --form "image[]=@/tmp/phpgeauknrps0u12rLkpAc" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8175,7 +8175,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"items\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -8193,7 +8193,7 @@ const headers = {
 let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "items": "[\"architecto\",\"architecto\"]",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -8335,7 +8335,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -8636,7 +8636,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"is_active_in_holiday\": true,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
     \"status\": true,
-    \"default\": true,
+    \"default\": false,
     \"is_capital\": true,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
@@ -8669,7 +8669,7 @@ let body = {
     "is_active_in_holiday": true,
     "days_not_working": "[\"architecto\",\"architecto\"]",
     "status": true,
-    "default": true,
+    "default": false,
     "is_capital": true,
     "description": "Et animi quos velit et fugiat."
 };
@@ -8989,7 +8989,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_capital</code></b>&nbsp;&nbsp;
@@ -9048,7 +9048,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"count\": 4326.41688,
     \"weight\": 4326.41688,
     \"price\": 4326.41688,
-    \"expiry_date\": \"2025-11-04T13:58:43\",
+    \"expiry_date\": \"2025-11-04T14:44:58\",
     \"warehouse_address\": \"m\",
     \"source\": \"i\"
 }"
@@ -9070,7 +9070,7 @@ let body = {
     "count": 4326.41688,
     "weight": 4326.41688,
     "price": 4326.41688,
-    "expiry_date": "2025-11-04T13:58:43",
+    "expiry_date": "2025-11-04T14:44:58",
     "warehouse_address": "m",
     "source": "i"
 };
@@ -9225,10 +9225,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiry_date"                data-endpoint="PATCHapi-warehouses--warehouse_id-"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>warehouse_address</code></b>&nbsp;&nbsp;
@@ -9849,8 +9849,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"ordinary\",
-    \"private\": false,
+    \"type\": \"panel\",
+    \"private\": true,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
     \"two_step\": false
@@ -9871,8 +9871,8 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "ordinary",
-    "private": false,
+    "type": "panel",
+    "private": true,
     "profile_confirm": true,
     "name": "architecto",
     "two_step": false
@@ -9991,10 +9991,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-users"
-               value="ordinary"
+               value="panel"
                data-component="body">
     <br>
-<p>Example: <code>ordinary</code></p>
+<p>Example: <code>panel</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10018,7 +10018,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_confirm</code></b>&nbsp;&nbsp;
@@ -10097,9 +10097,9 @@ Must be one of:
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"panel\",
+    \"type\": \"esaj\",
     \"private\": true,
-    \"profile_confirm\": true,
+    \"profile_confirm\": false,
     \"name\": \"architecto\",
     \"two_step\": true
 }"
@@ -10119,9 +10119,9 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "panel",
+    "type": "esaj",
     "private": true,
-    "profile_confirm": true,
+    "profile_confirm": false,
     "name": "architecto",
     "two_step": true
 };
@@ -10252,10 +10252,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-users--user_id-"
-               value="panel"
+               value="esaj"
                data-component="body">
     <br>
-<p>Example: <code>panel</code></p>
+<p>Example: <code>esaj</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10301,7 +10301,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -10485,7 +10485,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"private\": false,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
-    \"two_step\": false
+    \"two_step\": true
 }"
 </code></pre></div>
 
@@ -10507,7 +10507,7 @@ let body = {
     "private": false,
     "profile_confirm": true,
     "name": "architecto",
-    "two_step": false
+    "two_step": true
 };
 
 fetch(url, {
@@ -10706,7 +10706,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -10727,10 +10727,10 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": false,
-    \"email\": true,
+    \"sms\": true,
+    \"email\": false,
     \"auth\": \"otp\",
-    \"otp\": \"sms\",
+    \"otp\": \"google2fa\",
     \"jwt_expiration_time\": 1,
     \"front\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
     \"status\": true
@@ -10749,10 +10749,10 @@ const headers = {
 };
 
 let body = {
-    "sms": false,
-    "email": true,
+    "sms": true,
+    "email": false,
     "auth": "otp",
-    "otp": "sms",
+    "otp": "google2fa",
     "jwt_expiration_time": 1,
     "front": "[\"architecto\",\"architecto\"]",
     "status": true
@@ -10873,7 +10873,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -10895,7 +10895,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>auth</code></b>&nbsp;&nbsp;
@@ -10918,10 +10918,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="otp"                data-endpoint="PATCHapi-settings--setting_id-"
-               value="sms"
+               value="google2fa"
                data-component="body">
     <br>
-<p>Example: <code>sms</code></p>
+<p>Example: <code>google2fa</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>sms</code></li> <li><code>google2fa</code></li></ul>
         </div>
@@ -11793,7 +11793,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-11-04T13:58:43"\
+    --form "birth_date=2025-11-04T14:44:58"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -11807,7 +11807,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpooh94f9m781s9hvISb3" </code></pre></div>
+    --form "images[]=@/tmp/php5jlt3682c33q0FleoJ5" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -11821,7 +11821,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-11-04T13:58:43');
+body.append('birth_date', '2025-11-04T14:44:58');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -11939,10 +11939,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -12140,7 +12140,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-11-04T13:58:43"\
+    --form "birth_date=2025-11-04T14:44:58"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -12154,7 +12154,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpvtskr8oku4icc6JSpKx" </code></pre></div>
+    --form "images[]=@/tmp/php1o9qggoqjbajeUthQ85" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12168,7 +12168,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-11-04T13:58:43');
+body.append('birth_date', '2025-11-04T14:44:58');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -12273,10 +12273,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -12901,7 +12901,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"type\": \"cell_amazing_direct_charge\",
     \"value\": 17,
     \"point\": 15,
-    \"status\": true
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -12921,7 +12921,7 @@ let body = {
     "type": "cell_amazing_direct_charge",
     "value": 17,
     "point": 15,
-    "status": true
+    "status": false
 };
 
 fetch(url, {
@@ -13089,7 +13089,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -13112,7 +13112,7 @@ Must be one of:
     --form "name=b"\
     --form "description=Et animi quos velit et fugiat."\
     --form "point=1"\
-    --form "type=physical"\
+    --form "type=cell_direct_charge"\
     --form "price=4326.41688"\
     --form "operator_id=4326.41688"\
     --form "product_id=4326.41688"\
@@ -13122,7 +13122,7 @@ Must be one of:
     --form "count=4326.41688"\
     --form "url=http://rempel.com/sunt-nihil-accusantium-harum-mollitia"\
     --form "tags[]=k"\
-    --form "images[]=@/tmp/phpdjlqjb030hie2SQ3N8T" </code></pre></div>
+    --form "images[]=@/tmp/phpbldep8jbs3e36RuHyzu" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13139,7 +13139,7 @@ const body = new FormData();
 body.append('name', 'b');
 body.append('description', 'Et animi quos velit et fugiat.');
 body.append('point', '1');
-body.append('type', 'physical');
+body.append('type', 'cell_direct_charge');
 body.append('price', '4326.41688');
 body.append('operator_id', '4326.41688');
 body.append('product_id', '4326.41688');
@@ -13289,10 +13289,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-prizes--prize_id-"
-               value="physical"
+               value="cell_direct_charge"
                data-component="body">
     <br>
-<p>Example: <code>physical</code></p>
+<p>Example: <code>cell_direct_charge</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li> <li><code>physical</code></li> <li><code>increase_prize</code></li> <li><code>discount</code></li></ul>
         </div>
@@ -14708,7 +14708,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"b\",
     \"content\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -14726,7 +14726,7 @@ const headers = {
 let body = {
     "title": "b",
     "content": "[\"architecto\",\"architecto\"]",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -14855,7 +14855,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -15688,11 +15688,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"start_time\": \"1374491711936806\",
     \"end_time\": \"1374491711936806\",
     \"divide_time\": \"1374491711936806\",
-    \"is_active_in_holiday\": false,
+    \"is_active_in_holiday\": true,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
     \"status\": false,
     \"default\": false,
-    \"is_capital\": false,
+    \"is_capital\": true,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
 </code></pre></div>
@@ -15721,11 +15721,11 @@ let body = {
     "start_time": "1374491711936806",
     "end_time": "1374491711936806",
     "divide_time": "1374491711936806",
-    "is_active_in_holiday": false,
+    "is_active_in_holiday": true,
     "days_not_working": "[\"architecto\",\"architecto\"]",
     "status": false,
     "default": false,
-    "is_capital": false,
+    "is_capital": true,
     "description": "Et animi quos velit et fugiat."
 };
 
@@ -15975,7 +15975,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>days_not_working</code></b>&nbsp;&nbsp;
@@ -16053,7 +16053,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -16341,7 +16341,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"items\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": true
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -16359,7 +16359,7 @@ const headers = {
 let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "items": "[\"architecto\",\"architecto\"]",
-    "status": true
+    "status": false
 };
 
 fetch(url, {
@@ -16488,7 +16488,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -17192,7 +17192,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"unpaid\"
+    \"status\": \"posted\"
 }"
 </code></pre></div>
 
@@ -17208,7 +17208,7 @@ const headers = {
 };
 
 let body = {
-    "status": "unpaid"
+    "status": "posted"
 };
 
 fetch(url, {
@@ -17313,10 +17313,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PATCHapi-orders-status--order_id-"
-               value="unpaid"
+               value="posted"
                data-component="body">
     <br>
-<p>Example: <code>unpaid</code></p>
+<p>Example: <code>posted</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>canceled</code></li> <li><code>posted</code></li> <li><code>preparation</code></li> <li><code>paid</code></li> <li><code>reserved</code></li> <li><code>unpaid</code></li> <li><code>received</code></li></ul>
         </div>
@@ -17681,7 +17681,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"short_content\": \"tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr\",
     \"body\": \"erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt\",
     \"status\": false,
-    \"is_open\": false
+    \"is_open\": true
 }"
 </code></pre></div>
 
@@ -17701,7 +17701,7 @@ let body = {
     "short_content": "tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr",
     "body": "erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt",
     "status": false,
-    "is_open": false
+    "is_open": true
 };
 
 fetch(url, {
@@ -17877,7 +17877,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -19059,7 +19059,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/php2as2o0gek4if3MDcTnT" </code></pre></div>
+    --form "image[]=@/tmp/phpc3mhi8lr85d68jBtq8f" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -20177,7 +20177,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"operator_id\": 4326.41688,
-    \"type\": \"cell_amazing_direct_charge\",
+    \"type\": \"cell_internet_direct_charge\",
     \"value\": 17,
     \"point\": 15,
     \"status\": false
@@ -20197,7 +20197,7 @@ const headers = {
 
 let body = {
     "operator_id": 4326.41688,
-    "type": "cell_amazing_direct_charge",
+    "type": "cell_internet_direct_charge",
     "value": 17,
     "point": 15,
     "status": false
@@ -20304,10 +20304,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-points"
-               value="cell_amazing_direct_charge"
+               value="cell_internet_direct_charge"
                data-component="body">
     <br>
-<p>Example: <code>cell_amazing_direct_charge</code></p>
+<p>Example: <code>cell_internet_direct_charge</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li></ul>
         </div>
@@ -21265,7 +21265,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=b"\
     --form "description=Et animi quos velit et fugiat."\
     --form "point=1"\
-    --form "type=cell_direct_charge"\
+    --form "type=cell_amazing_direct_charge"\
     --form "price=4326.41688"\
     --form "operator_id=4326.41688"\
     --form "product_id=4326.41688"\
@@ -21275,7 +21275,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "count=4326.41688"\
     --form "url=http://rempel.com/sunt-nihil-accusantium-harum-mollitia"\
     --form "tags[]=k"\
-    --form "images[]=@/tmp/phpd1t96mlfh7jcbXATjCf" </code></pre></div>
+    --form "images[]=@/tmp/phphannemu9nrcb1O8cZzH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -21292,7 +21292,7 @@ const body = new FormData();
 body.append('name', 'b');
 body.append('description', 'Et animi quos velit et fugiat.');
 body.append('point', '1');
-body.append('type', 'cell_direct_charge');
+body.append('type', 'cell_amazing_direct_charge');
 body.append('price', '4326.41688');
 body.append('operator_id', '4326.41688');
 body.append('product_id', '4326.41688');
@@ -21429,10 +21429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-prizes"
-               value="cell_direct_charge"
+               value="cell_amazing_direct_charge"
                data-component="body">
     <br>
-<p>Example: <code>cell_direct_charge</code></p>
+<p>Example: <code>cell_amazing_direct_charge</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li> <li><code>physical</code></li> <li><code>increase_prize</code></li> <li><code>discount</code></li></ul>
         </div>
@@ -22498,7 +22498,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "sim_card_type=architecto"\
     --form "private=1"\
     --form "profile_id=architecto"\
-    --form "images[]=@/tmp/php6h3m2vm7epbgd9uukuv" </code></pre></div>
+    --form "images[]=@/tmp/phpc92dlmk62mpsck7QAxn" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -22928,11 +22928,11 @@ Must be one of:
     --form "price=4326.41688"\
     --form "second_price=4326.41688"\
     --form "showable_price=4326.41688"\
-    --form "type=cell_amazing_direct_charge"\
+    --form "type=card_charge"\
     --form "minimum_sale=4326.41688"\
     --form "dimension=m"\
-    --form "deliverable="\
-    --form "status="\
+    --form "deliverable=1"\
+    --form "status=1"\
     --form "third_party_id=i"\
     --form "operator_id=4326.41688"\
     --form "order=4326.41688"\
@@ -22940,7 +22940,7 @@ Must be one of:
     --form "sim_card_type=architecto"\
     --form "private=1"\
     --form "profile_id=architecto"\
-    --form "images[]=@/tmp/phpdrk87s369c44fDzzDYv" </code></pre></div>
+    --form "images[]=@/tmp/phpikr31aab11c9avWizSO" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -22962,11 +22962,11 @@ body.append('description_full', 'i');
 body.append('price', '4326.41688');
 body.append('second_price', '4326.41688');
 body.append('showable_price', '4326.41688');
-body.append('type', 'cell_amazing_direct_charge');
+body.append('type', 'card_charge');
 body.append('minimum_sale', '4326.41688');
 body.append('dimension', 'm');
-body.append('deliverable', '');
-body.append('status', '');
+body.append('deliverable', '1');
+body.append('status', '1');
 body.append('third_party_id', 'i');
 body.append('operator_id', '4326.41688');
 body.append('order', '4326.41688');
@@ -23174,10 +23174,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-products-assign-category--product_id-"
-               value="cell_amazing_direct_charge"
+               value="card_charge"
                data-component="body">
     <br>
-<p>Example: <code>cell_amazing_direct_charge</code></p>
+<p>Example: <code>card_charge</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li> <li><code>cart</code></li> <li><code>card_charge</code></li></ul>
         </div>
@@ -23225,7 +23225,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -23247,7 +23247,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>third_party_id</code></b>&nbsp;&nbsp;
@@ -23383,7 +23383,7 @@ Must be one of:
     --form "price=4326.41688"\
     --form "second_price=4326.41688"\
     --form "showable_price=4326.41688"\
-    --form "type=card_charge"\
+    --form "type=cell_direct_charge"\
     --form "minimum_sale=4326.41688"\
     --form "dimension=m"\
     --form "deliverable=1"\
@@ -23393,9 +23393,9 @@ Must be one of:
     --form "order=4326.41688"\
     --form "period=4326.41688"\
     --form "sim_card_type=architecto"\
-    --form "private=1"\
+    --form "private="\
     --form "profile_id=architecto"\
-    --form "images[]=@/tmp/php0la0kqu758d8fpGYLum" </code></pre></div>
+    --form "images[]=@/tmp/phpm0n6tjn53cs9cnOWfFH" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -23417,7 +23417,7 @@ body.append('description_full', 'i');
 body.append('price', '4326.41688');
 body.append('second_price', '4326.41688');
 body.append('showable_price', '4326.41688');
-body.append('type', 'card_charge');
+body.append('type', 'cell_direct_charge');
 body.append('minimum_sale', '4326.41688');
 body.append('dimension', 'm');
 body.append('deliverable', '1');
@@ -23427,7 +23427,7 @@ body.append('operator_id', '4326.41688');
 body.append('order', '4326.41688');
 body.append('period', '4326.41688');
 body.append('sim_card_type', 'architecto');
-body.append('private', '1');
+body.append('private', '');
 body.append('profile_id', 'architecto');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
@@ -23616,10 +23616,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-products-bulk-update"
-               value="card_charge"
+               value="cell_direct_charge"
                data-component="body">
     <br>
-<p>Example: <code>card_charge</code></p>
+<p>Example: <code>cell_direct_charge</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li> <li><code>cart</code></li> <li><code>card_charge</code></li></ul>
         </div>
@@ -23771,7 +23771,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_id</code></b>&nbsp;&nbsp;
@@ -23825,7 +23825,7 @@ Must be one of:
     --form "price=4326.41688"\
     --form "second_price=4326.41688"\
     --form "showable_price=4326.41688"\
-    --form "type=card_charge"\
+    --form "type=cart"\
     --form "minimum_sale=4326.41688"\
     --form "dimension=m"\
     --form "deliverable="\
@@ -23837,7 +23837,7 @@ Must be one of:
     --form "sim_card_type=architecto"\
     --form "private="\
     --form "profile_id=architecto"\
-    --form "images[]=@/tmp/phpt6dqnviq7jgb6P51MuQ" </code></pre></div>
+    --form "images[]=@/tmp/php0sqn4t01idhi9ruZOcm" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -23859,7 +23859,7 @@ body.append('description_full', 'i');
 body.append('price', '4326.41688');
 body.append('second_price', '4326.41688');
 body.append('showable_price', '4326.41688');
-body.append('type', 'card_charge');
+body.append('type', 'cart');
 body.append('minimum_sale', '4326.41688');
 body.append('dimension', 'm');
 body.append('deliverable', '');
@@ -24071,10 +24071,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-products--id-"
-               value="card_charge"
+               value="cart"
                data-component="body">
     <br>
-<p>Example: <code>card_charge</code></p>
+<p>Example: <code>cart</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>cell_internet</code></li> <li><code>td_lte_internet</code></li> <li><code>cell_internet_direct_charge</code></li> <li><code>cell_amazing_direct_charge</code></li> <li><code>cell_direct_charge</code></li> <li><code>cart</code></li> <li><code>card_charge</code></li></ul>
         </div>
@@ -24432,171 +24432,171 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 539,
+            &quot;id&quot;: 515,
             &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ آپتل - 200,000 ریالی&quot;,
+            &quot;name&quot;: &quot;شارژ مستقیم رایتل شورانگیز - مبلغ دلخواه&quot;,
             &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ آپتل - 200,000 ریالی&quot;,
+            &quot;description&quot;: &quot;شارژ مستقیم رایتل شورانگیز - مبلغ دلخواه&quot;,
             &quot;description_full&quot;: null,
-            &quot;price&quot;: 200000,
-            &quot;second_price&quot;: 200000,
+            &quot;price&quot;: 10000,
+            &quot;second_price&quot;: 2000000,
             &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;card_charge&quot;,
-            &quot;operator_id&quot;: 4,
-            &quot;operator&quot;: &quot;Aptel&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 538,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ آپتل - 100,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ آپتل - 100,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 100000,
-            &quot;second_price&quot;: 100000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;card_charge&quot;,
-            &quot;operator_id&quot;: 4,
-            &quot;operator&quot;: &quot;Aptel&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 537,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ آپتل - 50,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ آپتل - 50,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 50000,
-            &quot;second_price&quot;: 50000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;card_charge&quot;,
-            &quot;operator_id&quot;: 4,
-            &quot;operator&quot;: &quot;Aptel&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 536,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ آپتل - 20,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ آپتل - 20,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 20000,
-            &quot;second_price&quot;: 20000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;card_charge&quot;,
-            &quot;operator_id&quot;: 4,
-            &quot;operator&quot;: &quot;Aptel&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 535,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ فیزیکی همراه اول - 200,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ فیزیکی همراه اول - 200,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 200000,
-            &quot;second_price&quot;: 200000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;physical_card_charge&quot;,
-            &quot;operator_id&quot;: 1,
-            &quot;operator&quot;: &quot;Mci&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 534,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ فیزیکی همراه اول - 50,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ فیزیکی همراه اول - 50,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 50000,
-            &quot;second_price&quot;: 50000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;physical_card_charge&quot;,
-            &quot;operator_id&quot;: 1,
-            &quot;operator&quot;: &quot;Mci&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 533,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ فیزیکی همراه اول - 20,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ فیزیکی همراه اول - 20,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 20000,
-            &quot;second_price&quot;: 20000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;physical_card_charge&quot;,
-            &quot;operator_id&quot;: 1,
-            &quot;operator&quot;: &quot;Mci&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 532,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ فیزیکی ایرانسل - 200,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ فیزیکی ایرانسل - 200,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 200000,
-            &quot;second_price&quot;: 200000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;physical_card_charge&quot;,
-            &quot;operator_id&quot;: 2,
-            &quot;operator&quot;: &quot;Irancell&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 531,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ فیزیکی ایرانسل - 20,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ فیزیکی ایرانسل - 20,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 20000,
-            &quot;second_price&quot;: 20000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;physical_card_charge&quot;,
-            &quot;operator_id&quot;: 2,
-            &quot;operator&quot;: &quot;Irancell&quot;,
-            &quot;sim_card_type&quot;: &quot;credit&quot;,
-            &quot;period&quot;: null,
-            &quot;categories_name&quot;: []
-        },
-        {
-            &quot;id&quot;: 530,
-            &quot;sku&quot;: null,
-            &quot;name&quot;: &quot;کارت شارژ رایتل - 500,000 ریالی&quot;,
-            &quot;name_en&quot;: null,
-            &quot;description&quot;: &quot;کارت شارژ رایتل - 500,000 ریالی&quot;,
-            &quot;description_full&quot;: null,
-            &quot;price&quot;: 500000,
-            &quot;second_price&quot;: 500000,
-            &quot;images&quot;: null,
-            &quot;product_type&quot;: &quot;card_charge&quot;,
+            &quot;product_type&quot;: &quot;cell_amazing_direct_charge&quot;,
             &quot;operator_id&quot;: 3,
             &quot;operator&quot;: &quot;Rightel&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 514,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 1000000&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 1000000&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 1000000,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_amazing_direct_charge&quot;,
+            &quot;operator_id&quot;: 2,
+            &quot;operator&quot;: &quot;Irancell&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 513,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 200000&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 200000&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 200000,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_amazing_direct_charge&quot;,
+            &quot;operator_id&quot;: 2,
+            &quot;operator&quot;: &quot;Irancell&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 512,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 50000&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;شارژ مستقیم ایرانسل شگفت انگیز - 50000&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 50000,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_amazing_direct_charge&quot;,
+            &quot;operator_id&quot;: 2,
+            &quot;operator&quot;: &quot;Irancell&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 511,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;(اعتباری) پیشنهاد ویژه ایرانسل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;(اعتباری) پیشنهاد ویژه ایرانسل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 50000,
+            &quot;second_price&quot;: 2000000,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 2,
+            &quot;operator&quot;: &quot;Irancell&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 510,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;(دائمی) پیشنهاد ویژه ایرانسل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;(دائمی) پیشنهاد ویژه ایرانسل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 50000,
+            &quot;second_price&quot;: 2000000,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 2,
+            &quot;operator&quot;: &quot;Irancell&quot;,
+            &quot;sim_card_type&quot;: &quot;permanent&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 509,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;6ماهه - 28گیگ شاتل موبایل + (مکالمه نامحدود درون شبکه) +60گیگ ADSL شاتل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;6ماهه - 28گیگ شاتل موبایل + (مکالمه نامحدود درون شبکه) +60گیگ ADSL شاتل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 3327500,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 5,
+            &quot;operator&quot;: &quot;Shatel&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 508,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;3ماهه - 17گیگ شاتل موبایل +( مکالمه نامحدود درون شبکه) + 40گیگ ADSL شاتل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;3ماهه - 17گیگ شاتل موبایل +( مکالمه نامحدود درون شبکه) + 40گیگ ADSL شاتل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 2011900,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 5,
+            &quot;operator&quot;: &quot;Shatel&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 507,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;3ماهه - 10 گیگابایت شاتل موبایل + 30گیگابایت ADSL شاتل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;3ماهه - 10 گیگابایت شاتل موبایل + 30گیگابایت ADSL شاتل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 1540000,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 5,
+            &quot;operator&quot;: &quot;Shatel&quot;,
+            &quot;sim_card_type&quot;: &quot;credit&quot;,
+            &quot;period&quot;: null,
+            &quot;categories_name&quot;: []
+        },
+        {
+            &quot;id&quot;: 506,
+            &quot;sku&quot;: null,
+            &quot;name&quot;: &quot;3ماهه - 6گیگ شاتل موبایل + (مکالمه نامحدود درون شبکه) +30گیگ ADSL شاتل&quot;,
+            &quot;name_en&quot;: null,
+            &quot;description&quot;: &quot;3ماهه - 6گیگ شاتل موبایل + (مکالمه نامحدود درون شبکه) +30گیگ ADSL شاتل&quot;,
+            &quot;description_full&quot;: null,
+            &quot;price&quot;: 1336500,
+            &quot;second_price&quot;: null,
+            &quot;images&quot;: null,
+            &quot;product_type&quot;: &quot;cell_internet&quot;,
+            &quot;operator_id&quot;: 5,
+            &quot;operator&quot;: &quot;Shatel&quot;,
             &quot;sim_card_type&quot;: &quot;credit&quot;,
             &quot;period&quot;: null,
             &quot;categories_name&quot;: []
@@ -24604,14 +24604,14 @@ access-control-allow-origin: *
     ],
     &quot;links&quot;: {
         &quot;first&quot;: &quot;http://127.0.0.1/api/clients/products?page=1&quot;,
-        &quot;last&quot;: &quot;http://127.0.0.1/api/clients/products?page=54&quot;,
+        &quot;last&quot;: &quot;http://127.0.0.1/api/clients/products?page=52&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: &quot;http://127.0.0.1/api/clients/products?page=2&quot;
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
         &quot;from&quot;: 1,
-        &quot;last_page&quot;: 54,
+        &quot;last_page&quot;: 52,
         &quot;links&quot;: [
             {
                 &quot;url&quot;: null,
@@ -24685,15 +24685,15 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://127.0.0.1/api/clients/products?page=53&quot;,
-                &quot;label&quot;: &quot;53&quot;,
-                &quot;page&quot;: 53,
+                &quot;url&quot;: &quot;http://127.0.0.1/api/clients/products?page=51&quot;,
+                &quot;label&quot;: &quot;51&quot;,
+                &quot;page&quot;: 51,
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://127.0.0.1/api/clients/products?page=54&quot;,
-                &quot;label&quot;: &quot;54&quot;,
-                &quot;page&quot;: 54,
+                &quot;url&quot;: &quot;http://127.0.0.1/api/clients/products?page=52&quot;,
+                &quot;label&quot;: &quot;52&quot;,
+                &quot;page&quot;: 52,
                 &quot;active&quot;: false
             },
             {
@@ -24706,7 +24706,7 @@ access-control-allow-origin: *
         &quot;path&quot;: &quot;http://127.0.0.1/api/clients/products&quot;,
         &quot;per_page&quot;: 10,
         &quot;to&quot;: 10,
-        &quot;total&quot;: 539
+        &quot;total&quot;: 515
     },
     &quot;balance&quot;: 0,
     &quot;additional&quot;: []
@@ -25060,7 +25060,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-11-04T13:58:43"\
+    --form "birth_date=2025-11-04T14:44:58"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -25074,7 +25074,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpmbejul6q1b2t9KLgP0u" </code></pre></div>
+    --form "images[]=@/tmp/phpgisaigmgksh87mMxz6d" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25088,7 +25088,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-11-04T13:58:43');
+body.append('birth_date', '2025-11-04T14:44:58');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -25193,10 +25193,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -25394,7 +25394,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-11-04T13:58:43"\
+    --form "birth_date=2025-11-04T14:44:58"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -25408,7 +25408,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/php7q11ke892skg9LfQv71" </code></pre></div>
+    --form "images[]=@/tmp/php51mkfak1p44gcua4wc4" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25422,7 +25422,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-11-04T13:58:43');
+body.append('birth_date', '2025-11-04T14:44:58');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -25540,10 +25540,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles-by-admin--user_id-"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -27657,10 +27657,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"b\",
-    \"type\": \"money\",
+    \"type\": \"percent\",
     \"value\": 39,
-    \"status\": true,
-    \"start_date\": \"2025-11-04 13:58:42\",
+    \"status\": false,
+    \"start_date\": \"2025-11-04 14:44:58\",
     \"end_date\": \"2051-11-28\"
 }"
 </code></pre></div>
@@ -27678,10 +27678,10 @@ const headers = {
 
 let body = {
     "title": "b",
-    "type": "money",
+    "type": "percent",
     "value": 39,
-    "status": true,
-    "start_date": "2025-11-04 13:58:42",
+    "status": false,
+    "start_date": "2025-11-04 14:44:58",
     "end_date": "2051-11-28"
 };
 
@@ -27786,10 +27786,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-sales"
-               value="money"
+               value="percent"
                data-component="body">
     <br>
-<p>Example: <code>money</code></p>
+<p>Example: <code>percent</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>money</code></li> <li><code>percent</code></li></ul>
         </div>
@@ -27825,7 +27825,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
@@ -27834,10 +27834,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="POSTapi-sales"
-               value="2025-11-04 13:58:42"
+               value="2025-11-04 14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-11-04 13:58:42</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-11-04 14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -27873,8 +27873,8 @@ Must be one of:
     \"title\": \"b\",
     \"type\": \"percent\",
     \"value\": 39,
-    \"status\": false,
-    \"start_date\": \"2025-11-04 13:58:42\",
+    \"status\": true,
+    \"start_date\": \"2025-11-04 14:44:58\",
     \"end_date\": \"2051-11-28\"
 }"
 </code></pre></div>
@@ -27894,8 +27894,8 @@ let body = {
     "title": "b",
     "type": "percent",
     "value": 39,
-    "status": false,
-    "start_date": "2025-11-04 13:58:42",
+    "status": true,
+    "start_date": "2025-11-04 14:44:58",
     "end_date": "2051-11-28"
 };
 
@@ -28052,7 +28052,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
@@ -28061,10 +28061,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="PATCHapi-sales--sale_id-"
-               value="2025-11-04 13:58:42"
+               value="2025-11-04 14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-11-04 13:58:42</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-11-04 14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -28506,10 +28506,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": true,
+    \"sms\": false,
     \"email\": true,
     \"auth\": \"otp\",
-    \"otp\": \"google2fa\",
+    \"otp\": \"sms\",
     \"jwt_expiration_time\": 1,
     \"front\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
     \"status\": false
@@ -28528,10 +28528,10 @@ const headers = {
 };
 
 let body = {
-    "sms": true,
+    "sms": false,
     "email": true,
     "auth": "otp",
-    "otp": "google2fa",
+    "otp": "sms",
     "jwt_expiration_time": 1,
     "front": "[\"architecto\",\"architecto\"]",
     "status": false
@@ -28639,7 +28639,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -28684,10 +28684,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="otp"                data-endpoint="POSTapi-settings"
-               value="google2fa"
+               value="sms"
                data-component="body">
     <br>
-<p>Example: <code>google2fa</code></p>
+<p>Example: <code>sms</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>sms</code></li> <li><code>google2fa</code></li></ul>
         </div>
@@ -30086,8 +30086,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "ticket_id=4326.41688"\
     --form "title=m"\
     --form "message=architecto"\
-    --form "category=technical"\
-    --form "images[]=@/tmp/php62v2fiachkhd3m1uK3j" </code></pre></div>
+    --form "category=billing"\
+    --form "images[]=@/tmp/phpci2m52ac8aovakZmd5u" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -30104,7 +30104,7 @@ const body = new FormData();
 body.append('ticket_id', '4326.41688');
 body.append('title', 'm');
 body.append('message', 'architecto');
-body.append('category', 'technical');
+body.append('category', 'billing');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -30232,10 +30232,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="POSTapi-tickets"
-               value="technical"
+               value="billing"
                data-component="body">
     <br>
-<p>Example: <code>technical</code></p>
+<p>Example: <code>billing</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>technical</code></li> <li><code>billing</code></li> <li><code>account</code></li> <li><code>feature_request</code></li> <li><code>general</code></li> <li><code>feedback</code></li></ul>
         </div>
@@ -32523,7 +32523,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"version\": \"architecto\",
-    \"type\": \"panel\",
+    \"type\": \"admin\",
     \"title\": \"architecto\",
     \"description\": \"Eius et animi quos velit et.\",
     \"status\": false
@@ -32543,7 +32543,7 @@ const headers = {
 
 let body = {
     "version": "architecto",
-    "type": "panel",
+    "type": "admin",
     "title": "architecto",
     "description": "Eius et animi quos velit et.",
     "status": false
@@ -32650,10 +32650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-versions"
-               value="panel"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>panel</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>admin</code></li> <li><code>panel</code></li></ul>
         </div>
@@ -34805,7 +34805,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"count\": 4326.41688,
     \"weight\": 4326.41688,
     \"price\": 4326.41688,
-    \"expiry_date\": \"2025-11-04T13:58:43\",
+    \"expiry_date\": \"2025-11-04T14:44:58\",
     \"warehouse_address\": \"m\",
     \"source\": \"i\"
 }"
@@ -34827,7 +34827,7 @@ let body = {
     "count": 4326.41688,
     "weight": 4326.41688,
     "price": 4326.41688,
-    "expiry_date": "2025-11-04T13:58:43",
+    "expiry_date": "2025-11-04T14:44:58",
     "warehouse_address": "m",
     "source": "i"
 };
@@ -34969,10 +34969,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiry_date"                data-endpoint="POSTapi-warehouses"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>warehouse_address</code></b>&nbsp;&nbsp;
@@ -35644,8 +35644,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"b\",
     \"description\": \"Eius et animi quos velit et.\",
-    \"is_published\": true,
-    \"published_at\": \"2025-11-04T13:58:43\"
+    \"is_published\": false,
+    \"published_at\": \"2025-11-04T14:44:58\"
 }"
 </code></pre></div>
 
@@ -35663,8 +35663,8 @@ const headers = {
 let body = {
     "title": "b",
     "description": "Eius et animi quos velit et.",
-    "is_published": true,
-    "published_at": "2025-11-04T13:58:43"
+    "is_published": false,
+    "published_at": "2025-11-04T14:44:58"
 };
 
 fetch(url, {
@@ -35793,7 +35793,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
@@ -35802,10 +35802,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-clients-work"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
         </form>
 
@@ -35829,8 +35829,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"title\": \"b\",
     \"description\": \"Eius et animi quos velit et.\",
     \"is_published\": true,
-    \"published_at\": \"2025-11-04T13:58:43\",
-    \"image_driver\": \"local\"
+    \"published_at\": \"2025-11-04T14:44:58\",
+    \"image_driver\": \"public\"
 }"
 </code></pre></div>
 
@@ -35849,8 +35849,8 @@ let body = {
     "title": "b",
     "description": "Eius et animi quos velit et.",
     "is_published": true,
-    "published_at": "2025-11-04T13:58:43",
-    "image_driver": "local"
+    "published_at": "2025-11-04T14:44:58",
+    "image_driver": "public"
 };
 
 fetch(url, {
@@ -36001,10 +36001,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PATCHapi-clients-work--work_id-"
-               value="2025-11-04T13:58:43"
+               value="2025-11-04T14:44:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-04T13:58:43</code></p>
+<p>Must be a valid date. Example: <code>2025-11-04T14:44:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image_driver</code></b>&nbsp;&nbsp;
@@ -36013,10 +36013,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="image_driver"                data-endpoint="PATCHapi-clients-work--work_id-"
-               value="local"
+               value="public"
                data-component="body">
     <br>
-<p>Example: <code>local</code></p>
+<p>Example: <code>public</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>local</code></li> <li><code>public</code></li></ul>
         </div>

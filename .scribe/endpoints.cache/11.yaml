@@ -251,7 +251,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: technical
+        example: billing
         type: string
         enumValues:
           - technical
@@ -279,7 +279,7 @@ endpoints:
       ticket_id: 4326.41688
       title: m
       message: architecto
-      category: technical
+      category: billing
     fileParameters:
       images:
         - null
