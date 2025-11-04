@@ -38,15 +38,12 @@ class AclSeeder extends Seeder
             CommentSeeder::class,
             PanelMessageSeeder::class,
             PointSeeder::class,
-            GroupChargeSeeder::class,
             PrizeSeeder::class,
-            CardChargeSeeder::class,
             IrancellOfferPackageSeeder::class,
             PointHistorySeeder::class,
             AddressSeeder::class,
             OrderSeeder::class,
             VersionSeeder::class,
-            ScheduledTopupSeeder::class,
             WorkSeeder::class
         ]);
     }

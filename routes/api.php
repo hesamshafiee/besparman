@@ -8,11 +8,8 @@ use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\CommentController;
 use App\Http\Controllers\V1\DeliveryController;
 use App\Http\Controllers\V1\DiscountController;
-use App\Http\Controllers\V1\DraftTopupController;
 use App\Http\Controllers\V1\FtpController;
-use App\Http\Controllers\V1\GroupChargeController;
 use App\Http\Controllers\V1\IrancellOfferPackageController;
-use App\Http\Controllers\V1\CardChargeController;
 use App\Http\Controllers\V1\ImageController;
 use App\Http\Controllers\V1\LandingController;
 use App\Http\Controllers\V1\LogController;
@@ -33,10 +30,8 @@ use App\Http\Controllers\V1\ProfileController;
 use App\Http\Controllers\V1\ProfitController;
 use App\Http\Controllers\V1\ProfitGroupController;
 use App\Http\Controllers\V1\ProfitSplitController;
-use App\Http\Controllers\V1\purchaseWithoutCartController;
 use App\Http\Controllers\V1\ReportController;
 use App\Http\Controllers\V1\SaleController;
-use App\Http\Controllers\V1\ScheduledTopupController;
 use App\Http\Controllers\V1\SearchController;
 use App\Http\Controllers\V1\SettingController;
 use App\Http\Controllers\V1\TicketController;
@@ -89,7 +84,6 @@ Route::middleware(['checkToken'])->group(function () {
 
         Route::get('/ftp/files', [FtpController::class, 'listFiles']);
         Route::get('/ftp/download/{filename}', [FtpController::class, 'downloadFile'])->where('filename', '.*');
-        Route::get('/operators/get-balances', [purchaseWithoutCartController::class, 'getBalance']);
         Route::get('/main-page/report', [MainPageReportController::class, 'report']);
 
         Route::get('/reconciliations', [ReconciliationController::class, 'index']);
@@ -270,13 +264,6 @@ Route::middleware(['checkToken'])->group(function () {
 
         Route::get('/irancell-offer-package', [IrancellOfferPackageController::class, 'index']);
 
-        Route::get('/group-charge', [GroupChargeController::class, 'index']);
-        Route::post('/group-charge/topup/{product}', [GroupChargeController::class, 'storeTopup']);
-        Route::post('/group-charge/topup-package/{product}', [GroupChargeController::class, 'storeTopupPackage']);
-        Route::post('/group-charge/cancel/{product}', [GroupChargeController::class, 'cancel']);
-        Route::post('/group-charge/force/{id}', [GroupChargeController::class, 'updateForce']);
-        Route::get('/clients/group-charge', [GroupChargeController::class, 'clientIndex']);
-
         
         Route::get('/work', [WorkController::class, 'index']);
         Route::delete('/work/{work}', [WorkController::class, 'destroy']);
@@ -294,16 +281,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::get('/telegram/active-link/{code?}', [TelegramController::class, 'activeLink']);
 
 
-
-
-
-        Route::get('/card-charge', [CardChargeController::class, 'index']);
-        Route::post('/card-charge', [CardChargeController::class, 'store']);
-        Route::get('/card-charge/destroyOpen/{cardCharge}', [CardChargeController::class, 'destroyOpen']);
-        Route::get('/card-charge/freeReport', [CardChargeController::class, 'freeReport']);
-        Route::get('/card-charge/findBySerial', [CardChargeController::class, 'findBySerial']);
-        Route::post('/clients/card-charge/buy', [CardChargeController::class, 'clientBuy']);
-        Route::get('/clients/card-charge', [CardChargeController::class, 'clientIndex']);
 
 
         Route::get('/wallet/transaction/extras', [WalletTransactionExtraController::class, 'index']);
@@ -343,7 +320,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::get('/tokens/create', [TokenController::class, 'create']);
         Route::delete('/tokens', [TokenController::class, 'destroyAll']);
         Route::delete('/tokens/{personalAccessToken}', [TokenController::class, 'destroy']);
-        Route::post('/package-list', [purchaseWithoutCartController::class, 'packageList']);
 
         Route::get('auth/logout', [TokenController::class, 'logout']);
         Route::get('auth/refresh-token', [TokenController::class, 'refreshToken']);
@@ -359,14 +335,8 @@ Route::middleware(['checkToken'])->group(function () {
 
         Route::post('/alert/telegram', [AlertController::class, 'telegram']);
 
-        Route::get('/scheduled-topups', [ScheduledTopupController::class, 'index']);
-        Route::post('/scheduled-topups/cancel/{id}', [ScheduledTopupController::class, 'cancel']);
-
         Route::get('/profile', [ProfileController::class, 'getProfileOfLoggedInUser']);
 
-        Route::get('/draft-topups', [DraftTopupController::class, 'index']);
-        Route::post('/draft-topups', [DraftTopupController::class, 'store']);
-        Route::delete('/draft-topups/{draftTopup?}', [DraftTopupController::class, 'destroy']);
 
 
 
@@ -380,11 +350,7 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
     Route::get('/cart/all/{cart?}', [CartController::class, 'index']);
     Route::get('/cart/{product}/{cart?}', [CartController::class, 'addToCart']);
     Route::delete('/cart/{product}/{cart?}', [CartController::class, 'removeFromCart']);
-    Route::middleware(['throttle:top-up-limit', 'idempotency'])->group(function () {
-        Route::post('/top-up', [purchaseWithoutCartController::class, 'topUp']);
-        Route::post('/top-up/package', [purchaseWithoutCartController::class, 'topUp']);
-        Route::post('/top-up/bulk', [purchaseWithoutCartController::class, 'bulkTopUp']);
-    });
+
     Route::get('/images/list/public/{group}/{id}', [ImageController::class, 'imageList']);
     Route::get('/images/public/get/{name}/{rand}', [ImageController::class, 'getPublicImage']);
     Route::get('/clients/menus', [MenuController::class, 'clientIndex']);
@@ -393,9 +359,6 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
     Route::get('/clients/landings', [LandingController::class, 'clientIndex']);
     Route::get('/clients/products', [ProductController::class, 'clientIndex']);
     Route::get('/clients/products/private', [ProductController::class, 'privateClientIndex']);
-    Route::post('/irancell/bill', [purchaseWithoutCartController::class, 'irancellBill']);
-    Route::post('/irancell/offers', [purchaseWithoutCartController::class, 'irancellOffers']);
-    Route::post('/irancell/sim-type', [purchaseWithoutCartController::class, 'irancellSimType']);
     Route::get('/wallet/status/{res}', [WalletController::class, 'getStatus']);
 
 //    Route::post('/search', [SearchController::class, 'search']);

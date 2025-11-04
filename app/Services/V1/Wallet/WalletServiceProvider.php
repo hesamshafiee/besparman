@@ -18,8 +18,6 @@ class WalletServiceProvider extends ServiceProvider
                 new IncreaseByAdminBuilder(),
                 new DecreaseByAdminBuilder(),
                 new PayBuilder(),
-                new PayCardChargeBuilder(),
-                new PayWithoutCartBuilder(),
                 new IncreaseByBankBuilder(),
                 new DecreaseByBankBuilder(),
                 new IncreaseByRefundBuilder(),

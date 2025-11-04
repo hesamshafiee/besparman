@@ -54,40 +54,5 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinutes(env('AUTH_RATE_LIMIT_TIME', 2), env('AUTH_RATE_LIMIT', 5))->by(optional($request)->mobile ?: $request->ip());
         });
 
-        RateLimiter::for('top-up-limit', function (Request $request) {
-            $payload = $request->all();
-            $token = $request->bearerToken();
-            $user = null;
-
-            if ($token) {
-                $accessToken = PersonalAccessToken::findToken($token);
-                if ($accessToken) {
-                    $user = $accessToken->tokenable;
-                }
-            }
-
-            ksort($payload);
-            array_walk_recursive($payload, function (&$value) {
-                if (is_array($value)) ksort($value);
-            });
-
-            $normalizedPayload = json_encode($payload);
-
-            if ($user) {
-                if (method_exists($user, 'isPanel') && $user->isPanel()) {
-                    $key = 'topup:' . md5($normalizedPayload . $user->id);
-                    return [
-                        Limit::perSecond(1)->by($key),
-                    ];
-                } else {
-                    return Limit::none();
-                }
-            }
-
-            $key = 'topup:guest:' . md5($normalizedPayload . $request->ip());
-            return [
-                Limit::perSecond(1)->by($key),
-            ];
-        });
     }
 }

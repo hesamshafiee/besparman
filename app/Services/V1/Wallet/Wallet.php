@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static Collection increaseByRefund(WalletTransaction $transaction);
  * @method static Collection decreaseByAdmin(string $value, int $userId, string $message);
  * @method static Collection pay(string $returnUrl, string $bank);
- * @method static Collection payCardCharge(string $takenValue, string $webserviceCode, string $cartInstanceName);
- * @method static Collection payWithoutCart(Product $product, string $mobile, string $price, string $offerCode, string $offerType,  string $takenValue, string $type, int $ext_id, $webserviceCode, bool $fakeResponse, string $returnUrl, string $userMobile, bool $mainPage, string|null $discountCode, int|null $group_id, string|null $multipleTopupId);
  * @method static Collection continueAfterBank(Order $order, bool $topup = false);
  */
 class Wallet extends Facade

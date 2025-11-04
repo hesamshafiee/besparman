@@ -21,11 +21,8 @@ class BasicSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-            ProductCardChargeSeeder::class,
             ProductPhysicalCardChargeSeeder::class,
-            ProductCardChargeAptelSeeder::class,
-            ProfitSeeder::class,
-            ProfitCardChargeSeeder::class
+            ProfitSeeder::class
         ]);
     }
 }
