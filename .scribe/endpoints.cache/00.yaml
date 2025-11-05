@@ -211,7 +211,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -220,7 +220,7 @@ endpoints:
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       items: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -356,7 +356,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -370,7 +370,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: true
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -550,7 +550,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -583,7 +583,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -624,10 +624,10 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: true
+      is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
       status: true
-      default: false
+      default: true
       is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
@@ -721,7 +721,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T14:44:58'
+        example: '2025-11-05T15:23:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -754,7 +754,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-11-04T14:44:58'
+      expiry_date: '2025-11-05T15:23:25'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -826,7 +826,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -835,7 +835,7 @@ endpoints:
     cleanBodyParameters:
       title: b
       content: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1025,7 +1025,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: panel
+        example: ordinary
         type: string
         enumValues:
           - panel
@@ -1041,7 +1041,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1052,7 +1052,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1074,7 +1074,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1083,11 +1083,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: panel
-      private: true
-      profile_confirm: true
+      type: ordinary
+      private: false
+      profile_confirm: false
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1157,7 +1157,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: esaj
+        example: panel
         type: string
         enumValues:
           - panel
@@ -1184,7 +1184,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1215,9 +1215,9 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: esaj
+      type: panel
       private: true
-      profile_confirm: false
+      profile_confirm: true
       name: architecto
       two_step: true
     fileParameters: []
@@ -1336,7 +1336,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1369,7 +1369,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1379,10 +1379,10 @@ endpoints:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
       type: admin
-      private: false
+      private: true
       profile_confirm: true
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1452,7 +1452,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: otp
+        example: otpOrPassword
         type: string
         enumValues:
           - otp
@@ -1466,7 +1466,7 @@ endpoints:
         name: otp
         description: ''
         required: false
-        example: google2fa
+        example: sms
         type: string
         enumValues:
           - sms
@@ -1501,7 +1501,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1510,11 +1510,11 @@ endpoints:
     cleanBodyParameters:
       sms: true
       email: false
-      auth: otp
-      otp: google2fa
+      auth: otpOrPassword
+      otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1906,7 +1906,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T14:44:58'
+        example: '2025-11-05T15:23:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2103,7 +2103,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-04T14:44:58'
+      birth_date: '2025-11-05T15:23:25'
       address: b
       postal_code: 'n'
       profession: g
@@ -2155,7 +2155,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T14:44:58'
+        example: '2025-11-05T15:23:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2352,7 +2352,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-04T14:44:58'
+      birth_date: '2025-11-05T15:23:25'
       address: b
       postal_code: 'n'
       profession: g
@@ -2589,7 +2589,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_amazing_direct_charge
+        example: cell_internet
         type: string
         enumValues:
           - cell_internet
@@ -2635,7 +2635,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_amazing_direct_charge
+      type: cell_internet
       value: 17
       point: 15
       status: false
@@ -2719,7 +2719,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -2849,7 +2849,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_direct_charge
+      type: cell_amazing_direct_charge
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
@@ -2984,6 +2984,73 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/designs
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      config:
+        custom: []
+        name: config
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      rendered_image:
+        custom: []
+        name: rendered_image
+        description: 'Must be a file. Must not be greater than 5120 kilobytes.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      original_image:
+        custom: []
+        name: original_image
+        description: '5MB. Must be a file. Must not be greater than 10240 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      config: architecto
+    fileParameters:
+      rendered_image: null
+      original_image: null
+    responses: []
     responseFields: []
     auth: []
     controller: null

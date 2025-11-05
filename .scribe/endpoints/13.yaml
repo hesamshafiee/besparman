@@ -173,7 +173,7 @@ endpoints:
         name: status
         description: ''
         required: true
-        example: posted
+        example: canceled
         type: string
         enumValues:
           - canceled
@@ -187,7 +187,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      status: posted
+      status: canceled
     fileParameters: []
     responses: []
     responseFields: []

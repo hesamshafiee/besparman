@@ -259,67 +259,7 @@ class FinancialService
         });
     }
 
-    /**
-     * @param int $userId
-     * @param int $orderId
-     * @param array $thirdPartyInfo
-     * @param bool $thirdPartyStatus
-     * @param string $mobileNumber
-     * @param Product $product
-     * @param mixed|null $takenValue
-     * @param string $operatorExecutionTime
-     * @return array
-     */
-    public function transactionsAfterTopUP(
-        int $userId,
-        int $orderId,
-        array $thirdPartyInfo,
-        bool $thirdPartyStatus,
-        string $mobileNumber,
-        product $product,
-        mixed $takenValue = null,
-        string $operatorExecutionTime = ''
-    ): array {
-        $userWalletTransaction = WalletTransaction::where('user_id', $userId)
-            ->where('order_id', $orderId)
-            ->where('detail', WalletTransaction::DETAIL_DECREASE_PURCHASE_BUYER)
-            ->where('status', WalletTransaction::STATUS_CONFIRMED)
-            ->first();
 
-        if (!$userWalletTransaction) {
-            return ['status' => false];
-        }
-
-        try {
-            $userWalletTransaction->third_party_info = $thirdPartyInfo;
-            $userWalletTransaction->third_party_status = $thirdPartyStatus;
-            $extraInfo = $userWalletTransaction->extra_info;
-            $extraInfo['operator_execution_time'] = $operatorExecutionTime;
-            $userWalletTransaction->extra_info = $extraInfo;
-            if (is_null($userWalletTransaction->provider) && isset($thirdPartyInfo['provider'])) {
-                $userWalletTransaction->provider = $thirdPartyInfo['provider'];
-            }
-            $userWalletTransaction->save();
-
-            $walletTransactionExtra = new WalletTransactionExtra();
-            $walletTransactionExtra->wallet_transaction_id = $userWalletTransaction->id;
-            $walletTransactionExtra->user_id = $userId;
-            $walletTransactionExtra->value = $userWalletTransaction->value;
-            $walletTransactionExtra->mobile = $mobileNumber;
-            $walletTransactionExtra->operator_id = $product->operator->id;
-            $walletTransactionExtra->third_party_status = $thirdPartyStatus;
-
-            if ($thirdPartyStatus) {
-                $walletTransactionExtra->taken_value = $takenValue;
-            }
-
-            $walletTransactionExtra->save();
-
-            return ['status' => true, 'transaction' => $userWalletTransaction];
-        } catch (\Throwable $e) {
-            return ['status' => false];
-        }
-    }
 
     /**
      * @param Order $order
@@ -339,44 +279,7 @@ class FinancialService
         return ['status' => false, 'error' => $message];
     }
 
-    /**
-     * @param Order $order
-     * @param User $user
-     * @return array
-     */
-    public function operatorStatusFalse(Order $order, User $user): array
-    {
-        $userTransaction = WalletTransaction::where('user_id', $user->id)
-            ->where('order_id', $order->id)
-            ->where('detail', WalletTransaction::DETAIL_DECREASE_PURCHASE_BUYER)
-            ->where('status', WalletTransaction::STATUS_CONFIRMED)
-            ->first();
-
-        if (!$userTransaction) {
-            return Financial::cancellingOrder($order, 'Transaction not found');
-        }
-
-        if ($userTransaction->main_page) {
-            $userPayment = Payment::where('user_id', $user->id)
-                ->where('price', $userTransaction->value)
-                ->where('status', Payment::STATUSPAID)
-                ->where('created_at', '>=', Carbon::now()->subMinutes(30)->toDateTimeString())
-                ->where('order_id', $order->id)
-                ->first();
-
-            if ($userPayment) {
-                $bankClass = 'App\Services\V1\Payment\\' . ucfirst($userPayment->bank_name);
-                $paymentService = new PaymentService();
-                $paymentService->setGateway(new $bankClass());
-                $paymentService->reject($userPayment);
-            }
-        } else {
-            Wallet::increaseByRefund($userTransaction);
-        }
-
-        return $this->cancellingOrder($order, 'Errors from operator');
-    }
-
+    
     /**
      * @param float $esajPrice
      * @param float $esajProfit

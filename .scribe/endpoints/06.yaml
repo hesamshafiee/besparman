@@ -148,7 +148,7 @@ endpoints:
         name: reusable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -159,7 +159,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T14:44:58'
+        example: '2025-11-05T15:23:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -197,8 +197,8 @@ endpoints:
       max_purchase: 4326.41688
       count: 4326.41688
       status: false
-      reusable: false
-      expire_at: '2025-11-04T14:44:58'
+      reusable: true
+      expire_at: '2025-11-05T15:23:25'
       users:
         - 4326.41688
       products:
@@ -340,7 +340,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-04T14:44:58'
+        example: '2025-11-05T15:23:25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -379,7 +379,7 @@ endpoints:
       count: 4326.41688
       status: true
       reusable: false
-      expire_at: '2025-11-04T14:44:58'
+      expire_at: '2025-11-05T15:23:25'
       users:
         - 4326.41688
       products:

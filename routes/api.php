@@ -44,6 +44,8 @@ use App\Http\Controllers\V1\UserSettingController;
 use App\Http\Controllers\V1\VersionController;
 use App\Http\Controllers\V1\SearchDemoController;
 use App\Http\Controllers\V1\WorkController;
+use App\Http\Controllers\V1\DesignController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -347,6 +349,9 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
 
     Route::get('/username/{id}', [UsernameController::class, 'index']);
 });
+
+
+Route::post('/designs', [DesignController::class, 'store']);
 
 
 
