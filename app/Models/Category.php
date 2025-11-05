@@ -2,24 +2,41 @@
 
 namespace App\Models;
 
-use App\Traits\LogsActivityWithRequest;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-/**
- * @method static findOrFail(int $id)
- */
 class Category extends Model
 {
-    use HasFactory;
-    use LogsActivityWithRequest;
+    protected $fillable = ['name', 'parent_id', 'data'];
 
+    protected $casts = [
+        'data' => 'array',
+    ];
 
-    protected $fillable = ['name', 'data'];
-    protected $casts = ['data' => 'array'];
-
-    public function products()
+    /** 🔁 رابطه با دسته والد */
+    public function parent(): BelongsTo
     {
-        return $this->morphedByMany(Product::class, 'categorizable')->withPivot('address');
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    /** 🔁 زیرمجموعه‌ها */
+    public function children(): HasMany
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    /** 🔁 محصولات مرتبط */
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'category_product')
+                    ->withPivot('address');
+    }
+
+    /** 🧩 ساخت درخت دسته‌بندی (در صورت نیاز در resource استفاده می‌شود) */
+    public static function tree()
+    {
+        return self::with('children')->whereNull('parent_id')->get();
     }
 }
