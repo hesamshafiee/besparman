@@ -11,23 +11,15 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 150);
             $table->foreignId('parent_id')->nullable()->constrained('categories')->onDelete('cascade');
+            $table->string('status', 150)->nullable();
             $table->json('data')->nullable();
+            $table->json('default_setting')->nullable();
             $table->timestamps();
-        });
-
-        Schema::create('category_product', function (Blueprint $table) {
-            // 👇 روش استاندارد جدید لاراول
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            
-            $table->string('address', 100)->nullable();
-            $table->primary(['category_id', 'product_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('category_product');
         Schema::dropIfExists('categories');
     }
 };

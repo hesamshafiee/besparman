@@ -8,7 +8,7 @@ class CategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true; // می‌تونی اینجا از policy هم استفاده کنی
+        return true; 
     }
 
     public function rules(): array
@@ -17,6 +17,8 @@ class CategoryRequest extends FormRequest
             'name' => 'required|string|max:150',
             'parent_id' => 'nullable|exists:categories,id',
             'data' => 'nullable|json', 
+            'default_setting' => 'nullable|json', 
+            'status' => 'nullable|string|max:150', 
             'images.*' => 'nullable|image|max:2048',
         ];
     }

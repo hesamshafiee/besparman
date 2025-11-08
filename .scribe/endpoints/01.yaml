@@ -73,7 +73,7 @@ endpoints:
         name: twoStepType
         description: ''
         required: false
-        example: google2fa
+        example: sms
         type: string
         enumValues:
           - google2fa
@@ -86,7 +86,7 @@ endpoints:
       password: '|]|{+-'
       code: vdlj
       otpForce: false
-      twoStepType: google2fa
+      twoStepType: sms
     fileParameters: []
     responses: []
     responseFields: []

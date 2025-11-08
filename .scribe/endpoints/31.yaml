@@ -1,14 +1,14 @@
-name: Work
+name: PhoneBook
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/work
+    uri: api/phone-books
     metadata:
       custom: []
-      groupName: Work
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -44,58 +44,15 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - DELETE
-    uri: 'api/work/{work_id}'
+      - POST
+    uri: api/phone-books
     metadata:
       custom: []
-      groupName: Work
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      work_id:
-        custom: []
-        name: work_id
-        description: 'The ID of the work.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      work_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/clients/work
-    metadata:
-      custom: []
-      groupName: Work
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Undocumented function'
       description: ''
       authenticated: false
       deprecated: false
@@ -106,60 +63,44 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
+    bodyParameters:
+      phone_number:
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/clients/work/{work_id}'
-    metadata:
-      custom: []
-      groupName: Work
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      work_id:
-        custom: []
-        name: work_id
-        description: 'The ID of the work.'
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
         required: true
-        example: 16
-        type: integer
+        example: '137449171806'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanUrlParameters:
-      work_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_settings:
+        custom: []
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
     fileParameters: []
     responses: []
     responseFields: []
@@ -171,10 +112,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/clients/work
+    uri: api/phone-books/batch
     metadata:
       custom: []
-      groupName: Work
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -190,55 +131,43 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      title:
+      phone_number:
         custom: []
-        name: title
-        description: 'Must not be greater than 255 characters.'
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
         required: true
-        example: b
+        example: '137449171806'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      description:
+      name:
         custom: []
-        name: description
-        description: ''
-        required: false
-        example: 'Eius et animi quos velit et.'
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
         type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      is_published:
-        custom: []
-        name: is_published
-        description: ''
-        required: false
-        example: true
-        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      published_at:
+      last_settings:
         custom: []
-        name: published_at
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-11-05T15:23:25'
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
     cleanBodyParameters:
-      title: b
-      description: 'Eius et animi quos velit et.'
-      is_published: true
-      published_at: '2025-11-05T15:23:25'
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
     fileParameters: []
     responses: []
     responseFields: []
@@ -249,11 +178,78 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PATCH
-    uri: 'api/clients/work/{work_id}'
+      - POST
+    uri: api/phone-books/check
     metadata:
       custom: []
-      groupName: Work
+      groupName: PhoneBook
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone_number:
+        custom: []
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
+        required: true
+        example: '137449171806'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_settings:
+        custom: []
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/phone-books/{phoneBook_id}'
+    metadata:
+      custom: []
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -265,10 +261,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      work_id:
+      phoneBook_id:
         custom: []
-        name: work_id
-        description: 'The ID of the work.'
+        name: phoneBook_id
+        description: 'The ID of the phoneBook.'
         required: true
         example: 16
         type: integer
@@ -277,73 +273,11 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      work_id: 16
+      phoneBook_id: 16
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      description:
-        custom: []
-        name: description
-        description: ''
-        required: false
-        example: 'Eius et animi quos velit et.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      is_published:
-        custom: []
-        name: is_published
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      published_at:
-        custom: []
-        name: published_at
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-11-05T15:23:25'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      image_driver:
-        custom: []
-        name: image_driver
-        description: ''
-        required: false
-        example: public
-        type: string
-        enumValues:
-          - local
-          - public
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      description: 'Eius et animi quos velit et.'
-      is_published: false
-      published_at: '2025-11-05T15:23:25'
-      image_driver: public
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

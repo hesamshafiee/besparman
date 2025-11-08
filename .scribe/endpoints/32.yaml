@@ -1,14 +1,14 @@
-name: WalletTransactionExtra
+name: Work
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/wallet/transaction/extras
+    uri: api/work
     metadata:
       custom: []
-      groupName: WalletTransactionExtra
+      groupName: Work
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -44,11 +44,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PATCH
-    uri: 'api/wallet/transaction/extras/{walletTransactionExtra_id}'
+      - DELETE
+    uri: 'api/work/{work_id}'
     metadata:
       custom: []
-      groupName: WalletTransactionExtra
+      groupName: Work
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -60,10 +60,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      walletTransactionExtra_id:
+      work_id:
         custom: []
-        name: walletTransactionExtra_id
-        description: 'The ID of the walletTransactionExtra.'
+        name: work_id
+        description: 'The ID of the work.'
         required: true
         example: 16
         type: integer
@@ -72,23 +72,278 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      walletTransactionExtra_id: 16
+      work_id: 16
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      taken_value:
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/clients/work
+    metadata:
+      custom: []
+      groupName: Work
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Undocumented function'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
         custom: []
-        name: taken_value
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/clients/work/{work_id}'
+    metadata:
+      custom: []
+      groupName: Work
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The ID of the work.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+    cleanUrlParameters:
+      work_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/clients/work
+    metadata:
+      custom: []
+      groupName: Work
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_published:
+        custom: []
+        name: is_published
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-11-08T15:14:33'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
-      taken_value: 4326.41688
+      title: b
+      description: 'Eius et animi quos velit et.'
+      is_published: false
+      published_at: '2025-11-08T15:14:33'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/clients/work/{work_id}'
+    metadata:
+      custom: []
+      groupName: Work
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The ID of the work.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      work_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_published:
+        custom: []
+        name: is_published
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      published_at:
+        custom: []
+        name: published_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-11-08T15:14:33'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      image_driver:
+        custom: []
+        name: image_driver
+        description: ''
+        required: false
+        example: local
+        type: string
+        enumValues:
+          - local
+          - public
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: b
+      description: 'Eius et animi quos velit et.'
+      is_published: false
+      published_at: '2025-11-08T15:14:33'
+      image_driver: local
     fileParameters: []
     responses: []
     responseFields: []

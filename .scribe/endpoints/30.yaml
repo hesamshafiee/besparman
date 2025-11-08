@@ -1,14 +1,14 @@
-name: PhoneBook
+name: Profile
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/phone-books
+    uri: api/profiles
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Profile
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/phone-books
+    uri: api/profiles
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Profile
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -57,19 +57,163 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone_number:
+      birth_date:
         custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
+        name: birth_date
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-11-08T15:14:33'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
-        example: '137449171806'
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      postal_code:
+        custom: []
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profession:
+        custom: []
+        name: profession
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      education:
+        custom: []
+        name: education
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      store_name:
+        custom: []
+        name: store_name
+        description: 'Must not be greater than 70 characters.'
+        required: true
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      national_code:
+        custom: []
+        name: national_code
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      province:
+        custom: []
+        name: province
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'y'
+        type: string
+        enumValues:
+          - 'آذربایجان شرقی'
+          - 'آذربایجان غربی'
+          - اردبیل
+          - اصفهان
+          - البرز
+          - ایلام
+          - بوشهر
+          - تهران
+          - 'چهارمحال و بختیاری'
+          - 'خراسان جنوبی'
+          - 'خراسان رضوی'
+          - 'خراسان شمالی'
+          - خوزستان
+          - زنجان
+          - سمنان
+          - 'سیستان و بلوچستان'
+          - فارس
+          - قزوین
+          - قم
+          - کردستان
+          - کرمان
+          - کرمانشاه
+          - 'کهگیلویه و بویراحمد'
+          - گلستان
+          - لرستان
+          - گیلان
+          - مازندران
+          - مرکزی
+          - هرمزگان
+          - همدان
+          - یزد
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      city:
+        custom: []
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: v
+        type: string
+        enumValues:
+          - null
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      gender:
+        custom: []
+        name: gender
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: d
+        type: string
+        enumValues:
+          - male
+          - female
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: l
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -78,30 +222,68 @@ endpoints:
       name:
         custom: []
         name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
-        example: z
+        example: j
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      last_settings:
+      legal_info:
         custom: []
-        name: last_settings
+        name: legal_info
         description: 'Must be a valid JSON string.'
-        required: true
+        required: false
         example: '["architecto","architecto"]'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      ips:
+        custom: []
+        name: ips
+        description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
+        required: true
+        example:
+          - 'n'
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      images:
+        custom: []
+        name: images
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
+      birth_date: '2025-11-08T15:14:33'
+      address: b
+      postal_code: 'n'
+      profession: g
+      education: z
+      store_name: m
+      national_code: i
+      province: 'y'
+      city: v
+      gender: d
+      phone: l
+      name: j
+      legal_info: '["architecto","architecto"]'
+      ips:
+        - 'n'
+    fileParameters:
+      images:
+        - null
     responses: []
     responseFields: []
     auth: []
@@ -112,10 +294,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/phone-books/batch
+    uri: 'api/profiles/by-admin/{user_id}'
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Profile
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -124,162 +306,286 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/phone-books/check
-    metadata:
-      custom: []
-      groupName: PhoneBook
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/phone-books/{phoneBook_id}'
-    metadata:
-      custom: []
-      groupName: PhoneBook
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
-      phoneBook_id:
+      user_id:
         custom: []
-        name: phoneBook_id
-        description: 'The ID of the phoneBook.'
+        name: user_id
+        description: 'The ID of the user.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      phoneBook_id: 16
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      birth_date:
+        custom: []
+        name: birth_date
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-11-08T15:14:33'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      postal_code:
+        custom: []
+        name: postal_code
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      profession:
+        custom: []
+        name: profession
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      education:
+        custom: []
+        name: education
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      store_name:
+        custom: []
+        name: store_name
+        description: 'Must not be greater than 70 characters.'
+        required: true
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      national_code:
+        custom: []
+        name: national_code
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      province:
+        custom: []
+        name: province
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'y'
+        type: string
+        enumValues:
+          - 'آذربایجان شرقی'
+          - 'آذربایجان غربی'
+          - اردبیل
+          - اصفهان
+          - البرز
+          - ایلام
+          - بوشهر
+          - تهران
+          - 'چهارمحال و بختیاری'
+          - 'خراسان جنوبی'
+          - 'خراسان رضوی'
+          - 'خراسان شمالی'
+          - خوزستان
+          - زنجان
+          - سمنان
+          - 'سیستان و بلوچستان'
+          - فارس
+          - قزوین
+          - قم
+          - کردستان
+          - کرمان
+          - کرمانشاه
+          - 'کهگیلویه و بویراحمد'
+          - گلستان
+          - لرستان
+          - گیلان
+          - مازندران
+          - مرکزی
+          - هرمزگان
+          - همدان
+          - یزد
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      city:
+        custom: []
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: v
+        type: string
+        enumValues:
+          - null
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      gender:
+        custom: []
+        name: gender
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: d
+        type: string
+        enumValues:
+          - male
+          - female
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
+        required: true
+        example: j
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      legal_info:
+        custom: []
+        name: legal_info
+        description: 'Must be a valid JSON string.'
+        required: false
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      ips:
+        custom: []
+        name: ips
+        description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
+        required: true
+        example:
+          - 'n'
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      images:
+        custom: []
+        name: images
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      birth_date: '2025-11-08T15:14:33'
+      address: b
+      postal_code: 'n'
+      profession: g
+      education: z
+      store_name: m
+      national_code: i
+      province: 'y'
+      city: v
+      gender: d
+      phone: l
+      name: j
+      legal_info: '["architecto","architecto"]'
+      ips:
+        - 'n'
+    fileParameters:
+      images:
+        - null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/profile
+    metadata:
+      custom: []
+      groupName: Profile
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []
     auth: []
     controller: null

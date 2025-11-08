@@ -45,6 +45,8 @@ use App\Http\Controllers\V1\VersionController;
 use App\Http\Controllers\V1\SearchDemoController;
 use App\Http\Controllers\V1\WorkController;
 use App\Http\Controllers\V1\DesignController;
+use App\Http\Controllers\V1\MockupController;
+
 
 
 /*
@@ -78,7 +80,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/acl/update-role/{role}', [AclController::class, 'updateRole']);
         Route::delete('/acl/role/{role}', [AclController::class, 'deleteRole']);
         Route::get('/logs', [LogController::class, 'laravelLog']);
-
     });
 
     Route::middleware(['auth:sanctum', 'validate.signature'])->group(function () {
@@ -87,6 +88,11 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/categories/{id}', [CategoryController::class, 'update']);
         Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
+        Route::get('/mockups',        [MockupController::class, 'index']);
+        Route::post('/mockups',        [MockupController::class, 'store']);
+        Route::put('/mockups/{id}',   [MockupController::class, 'update']);
+        Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
+
         Route::get('/products', [ProductController::class, 'index']);
         Route::get('/products/private', [ProductController::class, 'privateIndex']);
         Route::post('/products', [ProductController::class, 'store']);
@@ -94,12 +100,15 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/products/bulk-update', [ProductController::class, 'bulkUpdate']);
         Route::patch('/products/{id}', [ProductController::class, 'update']);
         Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-//    Route::post('/products/options/{product}', [ProductController::class, 'options']);
+        Route::post('/products/bulk-from-images', [ProductController::class, 'bulkFromImages']);
+
+        //    Route::post('/products/options/{product}', [ProductController::class, 'options']);
 
         Route::get('/discounts', [DiscountController::class, 'index']);
         Route::post('/discounts', [DiscountController::class, 'store']);
         Route::patch('/discounts/{discount}', [DiscountController::class, 'update']);
         Route::delete('/discounts/{discount}', [DiscountController::class, 'destroy']);
+
 
         Route::get('/images/get/{name}/{rand}', [ImageController::class, 'getImage']);
         Route::delete('/images/delete/{name}/{driver}/{type}', [ImageController::class, 'deleteSingleImage']);
@@ -249,7 +258,7 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/phone-books/{phoneBook}', [PhoneBookController::class, 'update']);
         Route::delete('/phone-books/{phoneBook}', [PhoneBookController::class, 'destroy']);
 
-        
+
         Route::get('/work', [WorkController::class, 'index']);
         Route::delete('/work/{work}', [WorkController::class, 'destroy']);
         Route::post('/work/{work}', [WorkController::class, 'restore']);
@@ -323,7 +332,7 @@ Route::middleware(['checkToken'])->group(function () {
 
 
         Route::get('/search-demo/seed',   [SearchDemoController::class, 'seed']);
-        Route::get('/search-demo/search', [SearchDemoController::class, 'search']); 
+        Route::get('/search-demo/search', [SearchDemoController::class, 'search']);
     });
 });
 
@@ -336,14 +345,14 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
     Route::get('/images/list/public/{group}/{id}', [ImageController::class, 'imageList']);
     Route::get('/images/public/get/{name}/{rand}', [ImageController::class, 'getPublicImage']);
     Route::get('/clients/menus', [MenuController::class, 'clientIndex']);
-    Route::post('/payment/bank/increase' , [PaymentController::class, 'bank'])->name('bank');
-    Route::post('/bank/payment/callback' , [PaymentController::class, 'callbackFromBank'])->name('callback');
+    Route::post('/payment/bank/increase', [PaymentController::class, 'bank'])->name('bank');
+    Route::post('/bank/payment/callback', [PaymentController::class, 'callbackFromBank'])->name('callback');
     Route::get('/clients/landings', [LandingController::class, 'clientIndex']);
     Route::get('/clients/products', [ProductController::class, 'clientIndex']);
     Route::get('/clients/products/private', [ProductController::class, 'privateClientIndex']);
     Route::get('/wallet/status/{res}', [WalletController::class, 'getStatus']);
 
-//    Route::post('/search', [SearchController::class, 'search']);
+    //    Route::post('/search', [SearchController::class, 'search']);
     Route::post('/filter', [SearchController::class, 'filter']);
     Route::post('/telegram/save-telegram-id', [TelegramController::class, 'saveTelegramId']);
 
@@ -352,6 +361,3 @@ Route::middleware(['OptionalSanctum', 'validate.signature'])->group(function () 
 
 
 Route::post('/designs', [DesignController::class, 'store']);
-
-
-

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\basicSeeders;
 
+use App\Models\Category;
 use App\Models\Mockup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -10,61 +11,76 @@ class MockupSeeder extends Seeder
 {
     public function run(): void
     {
-        // مثال: برای دسته "تی‌شرت‌های گرافیکی" که id=4 فرض شده
-        $categoryId = 4;
+        // 1) تضمین وجود کتگوری هدف و گرفتن id برگ (leaf)
+        // مثلا مسیر: محصولات → تی‌شرت‌ها → مردانه سفید
+        $leafCategoryId = $this->ensureCategoryPath([
+            'محصولات',
+            'تی‌شرت‌ها',
+            'مردانه سفید',
+        ]);
 
+        // 2) دیتای موکاپ‌ها (layers را آرایه بده؛ مدل خودکار cast می‌کند)
         $items = [
             [
-                'name' => 'تی‌شرت مردانه سفید',
-                'slug' => Str::slug('تی‌شرت مردانه سفید') . '-men-white',
-                'canvas_width'  => 4500,
-                'canvas_height' => 5400,
-                'dpi'           => 300,
-                'print_x'       => 1200,
-                'print_y'       => 900,
-                'print_width'   => 2100,
-                'print_height'  => 3000,
-                'print_rotation'=> 0,
-                'fit_mode'      => 'contain',
-                'layers'        => [
+                'name'           => 'تی‌شرت مردانه سفید',
+                'slug'           => 'tshirt-men-white',
+                'canvas_width'   => 4500,
+                'canvas_height'  => 5400,
+                'dpi'            => 300,
+                'print_x'        => 1200,
+                'print_y'        => 900,
+                'print_width'    => 2100,
+                'print_height'   => 3000,
+                'print_rotation' => 0,
+                'fit_mode'       => 'contain',
+                'layers' => [
                     'base'    => '/storage/mockups/tshirt_men_white/base.png',
                     'overlay' => '/storage/mockups/tshirt_men_white/overlay.png',
                     'shadow'  => '/storage/mockups/tshirt_men_white/shadow.png',
                     'mask'    => '/storage/mockups/tshirt_men_white/mask.png',
                 ],
-                'preview_bg'    => '#FFFFFF',
-                'is_active'     => true,
-                'sort'          => 1,
+                'preview_bg'     => '#FFFFFF',
+                'is_active'      => 1,
+                'sort'           => 1,
+                'category_id'    => $leafCategoryId,
             ],
-            [
-                'name' => 'تی‌شرت زنانه مشکی',
-                'slug' => Str::slug('تی‌شرت زنانه مشکی') . '-women-black',
-                'canvas_width'  => 4500,
-                'canvas_height' => 5400,
-                'dpi'           => 300,
-                'print_x'       => 1150,
-                'print_y'       => 850,
-                'print_width'   => 2200,
-                'print_height'  => 3100,
-                'print_rotation'=> 0,
-                'fit_mode'      => 'contain',
-                'layers'        => [
-                    'base'    => '/storage/mockups/tshirt_women_black/base.png',
-                    'overlay' => '/storage/mockups/tshirt_women_black/overlay.png',
-                    'shadow'  => '/storage/mockups/tshirt_women_black/shadow.png',
-                    'mask'    => '/storage/mockups/tshirt_women_black/mask.png',
-                ],
-                'preview_bg'    => '#000000',
-                'is_active'     => true,
-                'sort'          => 2,
-            ],
+            // ... هر موکاپ دیگری هم همینجا اضافه کن، فقط category_id را همین $leafCategoryId بده
         ];
 
-        foreach ($items as $it) {
+        // 3) insert امن/idempotent
+        foreach ($items as $row) {
+            $slug = $row['slug'] ?? Str::slug($row['name']);
             Mockup::updateOrCreate(
-                ['slug' => $it['slug']],
-                $it + ['category_id' => $categoryId]
+                ['slug' => $slug],
+                $row + ['slug' => $slug]
             );
         }
+    }
+
+    /**
+     * مسیر کتگوری را تضمین می‌کند و id برگ را برمی‌گرداند.
+     * مثلا ['محصولات','تی‌شرت‌ها','مردانه سفید']
+     */
+    protected function ensureCategoryPath(array $parts): int
+    {
+        $parentId = null;
+
+        foreach ($parts as $name) {
+            $slug = Str::slug($name, '-');
+
+            /** @var \App\Models\Category $cat */
+            $cat = Category::firstOrCreate(
+                ['name' => $name, 'parent_id' => $parentId],
+                [
+                    'data'      => [],
+                    // اگر ستون slug داری، اینو هم ست کن:
+                    // 'slug'   => $slug,
+                ]
+            );
+
+            $parentId = $cat->id;
+        }
+
+        return (int) $parentId;
     }
 }

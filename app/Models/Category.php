@@ -6,13 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Category extends Model
 {
-    protected $fillable = ['name', 'parent_id', 'data'];
+    use HasFactory;
+
+    
+    protected $fillable = ['name', 'parent_id', 'data', 'status', 'default_setting'];
 
     protected $casts = [
         'data' => 'array',
+        'default_setting' => 'array',
     ];
 
     /** 🔁 رابطه با دسته والد */
@@ -31,7 +37,7 @@ class Category extends Model
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'category_product')
-                    ->withPivot('address');
+            ->withPivot('address');
     }
 
     /** 🧩 ساخت درخت دسته‌بندی (در صورت نیاز در resource استفاده می‌شود) */

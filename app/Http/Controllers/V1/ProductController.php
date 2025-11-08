@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
+     * 
      * @param Request $request
      * @return JsonResponse
      * @throws AuthorizationException

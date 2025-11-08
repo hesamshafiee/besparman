@@ -53,10 +53,10 @@ class Product extends Model implements Sortable
     /**
      * @return MorphToMany
      */
-    public function categories(): MorphToMany
-    {
-        return $this->morphToMany(Category::class, 'categorizable')->withPivot('address');
-    }
+    // public function categories(): MorphToMany
+    // {
+    //     return $this->morphToMany(Category::class, 'categorizable')->withPivot('address');
+    // }
 
     /**
      * @return HasOne
@@ -67,31 +67,33 @@ class Product extends Model implements Sortable
     }
 
     protected $fillable = [
+        'user_id',
+        'category_id',
         'name',
-        'name_en',
-        'description',
-        'description_full',
-        'price',
-        'type',
-        'minimum_sale',
-        'dimension',
+        'slug',
         'sku',
+        'description',
+        'category_name',
+        'original_path',
+        'preview_path',
+        'price',
         'second_price',
-        'showable_price',
-        'deliverable',
         'status',
-        'third_party_id',
         'operator_id',
-        'profile_id',
         'order',
         'period',
+        'profile_id',
         'sim_card_type',
-        'private',
-        'category_name'
+        'type',
+        'settings',
     ];
 
     protected $casts = [
         'options' => 'array',
+        'price'        => 'integer',
+        'second_price' => 'integer',
+        'status'       => 'integer',
+        'settings'     => 'array',
     ];
 
     /**
@@ -100,5 +102,19 @@ class Product extends Model implements Sortable
     public function operator(): BelongsTo
     {
         return $this->belongsTo(Operator::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
+    public function mockupRenders()
+    {
+        return $this->hasMany(ProductMockupRender::class);
     }
 }
