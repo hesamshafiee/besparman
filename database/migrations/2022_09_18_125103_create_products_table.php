@@ -13,15 +13,11 @@ return new class extends Migration
 
             // روابط
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            // اگر فعلاً FK برای category/work نمی‌خواهید، فقط یکی را تعریف کنید (نه دو بار):
-            //$table->unsignedBigInteger('category_id')->nullable();
-            //$table->unsignedBigInteger('work_id')->nullable();
-            // اگر FK می‌خواهید، به‌جای خطوط بالا از این‌ها استفاده کنید:
-             $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
-             $table->foreignId('work_id')->nullable()->constrained('works')->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
+            $table->foreignId('work_id')->nullable()->constrained('works')->nullOnDelete();
 
             // پایه
-            $table->string('name', 200);
+            $table->string('name', 200)->nullable();
             $table->string('slug', 220)->unique();
             $table->string('name_en')->nullable();
 

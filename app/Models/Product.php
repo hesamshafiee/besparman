@@ -69,7 +69,6 @@ class Product extends Model
         return $this->belongsTo(Work::class);
     }
 
-    // رندرهای موکاپ محصول
     public function mockupRenders()
     {
         return $this->hasMany(ProductMockupRender::class);

@@ -2,161 +2,189 @@
 
 namespace App\Http\Controllers\V1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\V1\ProductRequest;
-use App\Http\Resources\V1\ProductResource;
-use App\Models\Product;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
-class ProductController extends Controller
+use App\Http\Requests\StoreWorkRequest;
+use App\Http\Controllers\Controller;
+
+use App\Http\Requests\UpdateWorkRequest;
+use App\Http\Resources\V1\WorkResource;
+use App\Models\Work;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
+
+
+
+class WorkController extends Controller
 {
+
     /**
-     * لیست محصولات کاربر (کلاینت)
+     * Undocumented function
      *
-     * @group Product(Client)
+     * @param Request $request
+     * @return JsonResponse
+     * @group Work
      */
     public function clientIndex(Request $request): JsonResponse
     {
-        $id        = (int) $request->query('id', 0);
-        $order     = $request->query('order', 'id');
-        $typeOrder = strtolower($request->query('type_order', 'desc'));
-        $perPage   = (int) $request->query('per_page', 10);
+        $id = (int) $request->query('id', 0);
+        if ($id) {
+            return response()->jsonMacro(new WorkResource(
+                Work::where(
+                    [
+                        'user_id' => Auth::id(),
+                        'id' => $id
+                    ]
+                )->firstOrFail()
+            ));
+        }
 
-        $allowedColumns = ['id', 'created_at', 'updated_at', 'price', 'status', 'sort'];
-        if (!in_array($order, $allowedColumns, true)) {
+        $order = $request->query('order', 'id');
+        $typeOrder = $request->query('type_order', 'desc');
+        $perPage = (int) $request->query('per_page', 10);
+
+
+        $allowedColumns = ['id', 'created_at', 'updated_at'];
+        if (!in_array($order, $allowedColumns)) {
             $order = 'id';
         }
-        if (!in_array($typeOrder, ['asc','desc'], true)) {
+
+
+        if (!in_array(strtolower($typeOrder), ['asc', 'desc'])) {
             $typeOrder = 'desc';
         }
 
-        $base = Product::query()->where('user_id', Auth::id());
-
-        if ($id) {
-            $item = (clone $base)->where('id', $id)->firstOrFail();
-            return response()->jsonMacro(new ProductResource($item));
-        }
-
-        // فیلترهای سمت کلاینت (اختیاری)
-        if ($request->filled('category_id')) {
-            $base->where('category_id', (int) $request->query('category_id'));
-        }
-        if ($request->filled('status')) {
-            $base->where('status', (int) $request->query('status'));
-        }
-        if ($q = $request->query('q')) {
-            $base->where(function ($x) use ($q) {
-                $x->where('name', 'like', "%{$q}%")
-                  ->orWhere('slug', 'like', "%{$q}%")
-                  ->orWhere('sku',  'like', "%{$q}%");
-            });
-        }
-
-        $paginator = $base->orderBy($order, $typeOrder)->paginate($perPage);
-        return response()->jsonMacro(ProductResource::collection($paginator));
+        return response()->jsonMacro(WorkResource::collection(Work::where('user_id', Auth::id())->orderBy($order, $typeOrder)->paginate($perPage)));
     }
 
+
+
+
+
     /**
-     * ساخت محصول (کلاینت)
      *
-     * @group Product(Client)
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @group Work
      */
-    public function clientStore(ProductRequest $request): JsonResponse
+    public function clientStore(Request $request): JsonResponse
     {
-        // مالکیت: user_id از prepareForValidation روی کاربر لاگین پر می‌شود
-        $data    = $request->validated();
-        $product = new Product($data);
+        $validated = $request->validate([
+            'title'         => ['required', 'string', 'max:255'],
+            'description'   => ['nullable', 'string'],
+            'is_published'  => ['sometimes', 'boolean'],
+            'published_at'  => ['nullable', 'date'],
+        ]);
 
-        if (empty($product->slug)) {
-            $product->slug = Str::slug($product->name).'-'.Str::random(4);
-        }
-        $product->user_id = Auth::id();
+        $work = new Work();
+        $work->fill($request->only(['title', 'description']));
+        $work->user_id      = \Illuminate\Support\Facades\Auth::id();
+        $work->slug         = Work::makeSlug($validated['title']);
+        $work->is_published = (bool) $request->boolean('is_published', true);
+        $work->published_at = $request->date('published_at') ?? now();
 
-        if (! $product->save()) {
+        if (! $work->save()) {
             return response()->serverError(__('general.somethingWrong'));
         }
         return response()->ok(__('general.savedSuccessfully'));
     }
 
+
+
     /**
-     * بروزرسانی محصول (کلاینت)
      *
-     * @group Product(Client)
+     * @param Request $request
+     * @param Work    $work
+     * @return JsonResponse
+     * @group Work
      */
-    public function clientUpdate(ProductRequest $request, Product $product): JsonResponse
+    public function clientUpdate(Request $request, Work $work): JsonResponse
     {
-        if ($product->user_id !== Auth::id()) {
+        $validated = $request->validate([
+            'title'         => ['sometimes', 'string', 'max:255'],
+            'description'   => ['nullable', 'string'],
+            'is_published'  => ['sometimes', 'boolean'],
+            'published_at'  => ['nullable', 'date'],
+            'image_driver'  => ['sometimes', 'in:local,public'],
+        ]);
+
+        if ($work->user_id !== Auth::id()) {
             return response()->forbidden(__('general.forbidden'));
         }
 
-        $data = $request->validated();
-
-        // اگر slug کلید داده شده ولی خالی بود، دوباره بسازیم
-        if (array_key_exists('slug', $data) && empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name'] ?? $product->name).'-'.Str::random(4);
+        if (array_key_exists('title', $validated)) {
+            $work->title = $validated['title'];
+            $work->slug  = Work::makeSlug($validated['title']);
+        }
+        if (array_key_exists('description', $validated)) {
+            $work->description = $validated['description'];
+        }
+        if (array_key_exists('is_published', $validated)) {
+            $work->is_published = (bool) $validated['is_published'];
+        }
+        if (array_key_exists('published_at', $validated)) {
+            $work->published_at = $validated['published_at'];
         }
 
-        $product->fill($data);
 
-        if (! $product->save()) {
+        if (! $work->save()) {
             return response()->serverError(__('general.somethingWrong'));
         }
-        return response()->ok(__('general.updatedSuccessfully', ['id' => $product->id]));
+        return response()->ok(__('general.updatedSuccessfully'));
     }
 
+
     /**
-     * حذف محصول (کلاینت)
      *
-     * @group Product(Client)
+     * @param Work $work
+     * @return void
+     * @group Work
      */
-    public function clientDestroy(Product $product)
+    public function clientDestroy(Work $work)
     {
-        if ($product->user_id !== Auth::id()) {
+        if ($work->user_id !== Auth::id()) {
             return response()->forbidden(__('general.forbidden'));
         }
-
-        if ($product->delete()) {
-            return response()->ok(__('general.deletedSuccessfully', ['id' => $product->id]));
+        if ($work->delete()) {
+            return response()->ok(__('general.deletedSuccessfully', ['id' => $work->id]));
         }
         return response()->serverError(__('general.somethingWrong'));
     }
 
-    // ---------------------------------------------------------------------
-    //                                 Admin
-    // ---------------------------------------------------------------------
 
     /**
-     * لیست محصولات (ادمین) با سافت‌دیلیت و فیلترها
      *
-     * @group Product(Admin)
-     * @throws AuthorizationException
+     * @param Request $request
+     * @return JsonResponse
+     * @group Work
      */
     public function index(Request $request): JsonResponse
     {
-        $this->authorize('show', Product::class);
+        $this->authorize('show', Work::class);
 
         $id        = (int) $request->query('id', 0);
         $order     = $request->query('order', 'id');
         $typeOrder = strtolower($request->query('type_order', 'desc'));
         $perPage   = (int) $request->query('per_page', 10);
 
+        // کنترل soft delete
         $onlyTrashed = (bool) $request->boolean('only_trashed', false);
         $withTrashed = (bool) $request->boolean('with_trashed', false);
 
-        $allowedColumns = ['id', 'created_at', 'updated_at', 'price', 'status', 'sort'];
+        // ستون‌های مجاز برای سورت (می‌تونی موارد بیشتری هم اضافه کنی)
+        $allowedColumns = ['id', 'created_at', 'updated_at'];
         if (!in_array($order, $allowedColumns, true)) {
             $order = 'id';
         }
-        if (!in_array($typeOrder, ['asc','desc'], true)) {
+        if (!in_array($typeOrder, ['asc', 'desc'], true)) {
             $typeOrder = 'desc';
         }
 
-        $base = Product::query();
+        $base = Work::query();
 
+        // اعمال فیلتر soft delete
         if ($onlyTrashed) {
             $base->onlyTrashed();
         } elseif ($withTrashed) {
@@ -165,114 +193,34 @@ class ProductController extends Controller
 
         if ($id) {
             $item = (clone $base)->where('id', $id)->firstOrFail();
-            return response()->jsonMacro(new ProductResource($item));
-        }
-
-        // فیلترهای ادمین
-        if ($request->filled('user_id')) {
-            $base->where('user_id', (int) $request->query('user_id'));
-        }
-        if ($request->filled('category_id')) {
-            $base->where('category_id', (int) $request->query('category_id'));
-        }
-        if ($request->filled('status')) {
-            $base->where('status', (int) $request->query('status'));
-        }
-        if ($request->filled('min_price')) {
-            $base->where('price', '>=', (int) $request->query('min_price'));
-        }
-        if ($request->filled('max_price')) {
-            $base->where('price', '<=', (int) $request->query('max_price'));
-        }
-        if ($q = $request->query('q')) {
-            $base->where(function ($x) use ($q) {
-                $x->where('name', 'like', "%{$q}%")
-                  ->orWhere('slug', 'like', "%{$q}%")
-                  ->orWhere('sku',  'like', "%{$q}%");
-            });
+            return response()->jsonMacro(new WorkResource($item));
         }
 
         $paginator = $base->orderBy($order, $typeOrder)->paginate($perPage);
-        return response()->jsonMacro(ProductResource::collection($paginator));
+        return response()->jsonMacro(WorkResource::collection($paginator));
     }
 
     /**
-     * ساخت محصول (ادمین)
      *
-     * @group Product(Admin)
-     * @throws AuthorizationException
+     * @param Work $work
+     * @return void
+     * @group Work
      */
-    public function store(ProductRequest $request): JsonResponse
+    public function destroy(Work $work)
     {
-        $this->authorize('create', Product::class);
-
-        $data    = $request->validated();
-        $product = new Product($data);
-
-        if (empty($product->slug)) {
-            $product->slug = Str::slug($product->name).'-'.Str::random(4);
-        }
-
-        if (! $product->save()) {
-            return response()->serverError(__('general.somethingWrong'));
-        }
-        return response()->ok(__('general.savedSuccessfully'));
-    }
-
-    /**
-     * بروزرسانی محصول (ادمین)
-     *
-     * @group Product(Admin)
-     * @throws AuthorizationException
-     */
-    public function update(ProductRequest $request, int $id): JsonResponse
-    {
-        $this->authorize('update', Product::class);
-
-        $product = Product::findOrFail($id);
-        $data    = $request->validated();
-
-        if (array_key_exists('slug', $data) && empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name'] ?? $product->name).'-'.Str::random(4);
-        }
-
-        $product->fill($data);
-
-        if (! $product->save()) {
-            return response()->serverError(__('general.somethingWrong'));
-        }
-        return response()->ok(__('general.updatedSuccessfully', ['id' => $id]));
-    }
-
-    /**
-     * حذف محصول (ادمین)
-     *
-     * @group Product(Admin)
-     * @throws AuthorizationException
-     */
-    public function destroy(Product $product)
-    {
-        $this->authorize('delete', Product::class);
-
-        if ($product->delete()) {
-            return response()->ok(__('general.deletedSuccessfully', ['id' => $product->id]));
+        $this->authorize('show', Work::class);
+        if ($work->delete()) {
+            return response()->ok(__('general.deletedSuccessfully', ['id' => $work->id]));
         }
         return response()->serverError(__('general.somethingWrong'));
     }
 
-    /**
-     * بازیابی محصول حذف‌شده (ادمین)
-     *
-     * @group Product(Admin)
-     * @throws AuthorizationException
-     */
     public function restore(int $id)
     {
-        $this->authorize('create', Product::class);
+        $this->authorize('create', Work::class);
 
-        $product = Product::onlyTrashed()->findOrFail($id);
-        $product->restore();
-
+        $artwork = Work::onlyTrashed()->findOrFail($id);
+        $artwork->restore();
         return response()->ok(__('general.restoredSuccessfully'));
     }
 }

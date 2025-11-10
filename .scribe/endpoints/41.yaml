@@ -1,14 +1,14 @@
-name: Search
+name: Alert
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - POST
-    uri: api/filter
+    uri: api/alert/telegram
     metadata:
       custom: []
-      groupName: Search
+      groupName: Alert
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -23,34 +23,8 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      table:
-        custom: []
-        name: table
-        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      items:
-        custom: []
-        name: items
-        description: 'Must be at least 1 character. Must not be greater than 100 characters.'
-        required: true
-        example:
-          - 'n'
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      table: b
-      items:
-        - 'n'
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

@@ -1,14 +1,14 @@
-name: ProfitSplit
+name: Profit
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/profit-splits
+    uri: api/profits
     metadata:
       custom: []
-      groupName: ProfitSplit
+      groupName: Profit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/profit-splits
+    uri: api/profits
     metadata:
       custom: []
-      groupName: ProfitSplit
+      groupName: Profit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -67,7 +67,7 @@ endpoints:
       title:
         custom: []
         name: title
-        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
         required: true
         example: b
         type: string
@@ -75,9 +75,9 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      seller_profit:
+      profit:
         custom: []
-        name: seller_profit
+        name: profit
         description: 'Must be at least 1. Must not be greater than 100.'
         required: true
         example: 22
@@ -86,10 +86,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      profit_id:
+      status:
         custom: []
-        name: profit_id
-        description: 'The <code>id</code> of an existing record in the profits table.'
+        name: status
+        description: 'Must be between 0 and 1 digit.'
+        required: false
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      operator_id:
+        custom: []
+        name: operator_id
+        description: 'The <code>id</code> of an existing record in the operators table.'
         required: true
         example: 4326.41688
         type: number
@@ -97,10 +108,23 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
+        required: true
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
       title: b
-      seller_profit: 22
-      profit_id: 4326.41688
+      profit: 22
+      status: '1'
+      operator_id: 4326.41688
+      type: m
     fileParameters: []
     responses: []
     responseFields: []
@@ -112,10 +136,10 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/profit-splits/{profitSplit_id}'
+    uri: 'api/profits/{profit_id}'
     metadata:
       custom: []
-      groupName: ProfitSplit
+      groupName: Profit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -127,19 +151,19 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      profitSplit_id:
+      profit_id:
         custom: []
-        name: profitSplit_id
-        description: 'The ID of the profitSplit.'
+        name: profit_id
+        description: 'The ID of the profit.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      profitSplit_id: 1
+      profit_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

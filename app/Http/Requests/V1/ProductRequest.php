@@ -17,11 +17,11 @@ class ProductRequest extends FormRequest
         $id = $this->route('id');
 
         return [
-            'user_id'     => ['nullable','integer','exists:users,id'],
-            'category_id' => ['nullable','integer','exists:categories,id'],
-            'work_id'     => ['nullable','integer','exists:works,id'],
+            'user_id'     => ['required','integer','exists:users,id'],
+            'category_id' => ['required','integer','exists:categories,id'],
+            'work_id'     => ['required','integer','exists:works,id'],
 
-            'name'        => ['required','string','max:200'],
+            'name'        => ['nullable','string','max:200'],
             'slug'        => ['nullable','string','max:220', Rule::unique('products','slug')->ignore($id)],
             'name_en'     => ['nullable','string','max:200'],
 
