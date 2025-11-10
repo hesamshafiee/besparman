@@ -22,7 +22,7 @@ class SuperAdminJob implements ShouldQueue
     public function handle()
     {
         $user = User::where('mobile', config('app.mobile_number_test_1'))->first();
-        $user2 = User::where('mobile', User::MOBILE_ESAJ)->first();
+        $user2 = User::where('mobile', User::MOBILE_ADMIN)->first();
 
         if ($user && env('APP_ENV') !== 'production') {
             $role = Role::where('name', 'super-admin')->first();

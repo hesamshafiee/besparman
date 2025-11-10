@@ -307,7 +307,7 @@ class FinancialService
             return true;
         }
 
-        $esajUser = User::where('mobile', User::MOBILE_ESAJ)->first();
+        $esajUser = User::where('mobile', User::MOBILE_ADMIN)->first();
         if (!$esajUser) {
             return false;
         }

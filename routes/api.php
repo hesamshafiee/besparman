@@ -93,14 +93,18 @@ Route::middleware(['checkToken'])->group(function () {
         Route::put('/mockups/{id}',   [MockupController::class, 'update']);
         Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
 
-        Route::get('/products', [ProductController::class, 'index']);
-        Route::get('/products/private', [ProductController::class, 'privateIndex']);
-        Route::post('/products', [ProductController::class, 'store']);
-        Route::post('/products/assign-category/{product}', [ProductController::class, 'assignCategoryToProduct']);
-        Route::patch('/products/bulk-update', [ProductController::class, 'bulkUpdate']);
-        Route::patch('/products/{id}', [ProductController::class, 'update']);
-        Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-        Route::post('/products/bulk-from-images', [ProductController::class, 'bulkFromImages']);
+        Route::get(   '/client/products',            [ProductController::class, 'clientIndex']);
+        Route::post(  '/client/products',            [ProductController::class, 'clientStore']);
+        Route::put(   '/client/products/{product}',  [ProductController::class, 'clientUpdate']);
+        Route::delete('/client/products/{product}',  [ProductController::class, 'clientDestroy']);
+
+
+        Route::get(   'v1/products',           [ProductController::class, 'index']);
+        Route::post(  'v1/products',           [ProductController::class, 'store']);
+        Route::put(   'v1/products/{id}',      [ProductController::class, 'update']);
+        Route::delete('v1/products/{product}', [ProductController::class, 'destroy']);
+        Route::post(  'v1/products/{id}/restore', [ProductController::class, 'restore']);
+
 
         //    Route::post('/products/options/{product}', [ProductController::class, 'options']);
 

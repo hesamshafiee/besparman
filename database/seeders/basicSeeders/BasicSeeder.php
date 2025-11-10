@@ -17,12 +17,11 @@ class BasicSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $this->call([
-            OperatorSeeder::class,
             UserSeeder::class,
             CategorySeeder::class,
             MockupSeeder::class,
-            ProductSeeder::class,
-            ProfitSeeder::class
+            //ProductSeeder::class,
+            //ProfitSeeder::class
         ]);
     }
 }
