@@ -241,7 +241,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -263,7 +263,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -274,7 +274,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -315,10 +315,10 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: false
+      is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
-      status: true
-      default: true
+      status: false
+      default: false
       is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []

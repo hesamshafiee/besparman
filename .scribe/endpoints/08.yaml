@@ -137,7 +137,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -148,7 +148,7 @@ endpoints:
         name: reusable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -159,7 +159,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-11T12:01:43'
+        example: '2025-11-11T12:51:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -196,9 +196,9 @@ endpoints:
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
-      status: true
-      reusable: false
-      expire_at: '2025-11-11T12:01:43'
+      status: false
+      reusable: true
+      expire_at: '2025-11-11T12:51:40'
       users:
         - 4326.41688
       products:
@@ -261,7 +261,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: money
+        example: percent
         type: string
         enumValues:
           - money
@@ -329,7 +329,7 @@ endpoints:
         name: reusable
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -340,7 +340,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-11T12:01:43'
+        example: '2025-11-11T12:51:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -372,14 +372,14 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       code: b
-      type: money
+      type: percent
       value: 4326.41688
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
       status: true
-      reusable: false
-      expire_at: '2025-11-11T12:01:43'
+      reusable: true
+      expire_at: '2025-11-11T12:51:40'
       users:
         - 4326.41688
       products:
