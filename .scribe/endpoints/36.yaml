@@ -80,7 +80,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: td_lte_internet
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -118,7 +118,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -126,10 +126,10 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: td_lte_internet
+      type: cell_amazing_direct_charge
       value: 17
       point: 15
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []

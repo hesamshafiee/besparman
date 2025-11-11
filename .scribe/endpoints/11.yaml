@@ -115,7 +115,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-11-10 13:16:52'
+        example: '2025-11-11 12:01:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-04'
+        example: '2051-12-05'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -137,8 +137,8 @@ endpoints:
       type: percent
       value: 39
       status: true
-      start_date: '2025-11-10 13:16:52'
-      end_date: '2051-12-04'
+      start_date: '2025-11-11 12:01:43'
+      end_date: '2051-12-05'
     fileParameters: []
     responses: []
     responseFields: []
@@ -232,7 +232,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-11-10 13:16:52'
+        example: '2025-11-11 12:01:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -243,7 +243,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-04'
+        example: '2051-12-05'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -254,8 +254,8 @@ endpoints:
       type: money
       value: 39
       status: true
-      start_date: '2025-11-10 13:16:52'
-      end_date: '2051-12-04'
+      start_date: '2025-11-11 12:01:43'
+      end_date: '2051-12-05'
     fileParameters: []
     responses: []
     responseFields: []

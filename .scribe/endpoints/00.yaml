@@ -94,6 +94,303 @@ endpoints:
     custom: []
     httpMethods:
       - POST
+    uri: api/client/products/bulk
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The <code>id</code> of an existing record in the works table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'مقادیر عمومی (در صورت نبودن override در دسته). Must not be greater than 200 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: 'Must be at least 0.'
+        required: true
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: '1'
+        type: integer
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sku:
+        custom: []
+        name: sku
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      mockup_id:
+        custom: []
+        name: mockup_id
+        description: 'The <code>id</code> of an existing record in the mockups table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      settings:
+        custom: []
+        name: settings
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: json/array/string.
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'تصویر عمومی (اگر برای هر دسته تصویر ندادی). Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      categories:
+        custom: []
+        name: categories
+        description: 'لیست دسته‌ها (هر آیتم = یک محصول). Must have at least 1 items.'
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'categories[].category_id':
+        custom: []
+        name: 'categories[].category_id'
+        description: 'The <code>id</code> of an existing record in the categories table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'categories[].address':
+        custom: []
+        name: 'categories[].address'
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].name':
+        custom: []
+        name: 'categories[].name'
+        description: 'overrideهای اختیاری مخصوص همان دسته. Must not be greater than 200 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].price':
+        custom: []
+        name: 'categories[].price'
+        description: 'Must be at least 0.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].status':
+        custom: []
+        name: 'categories[].status'
+        description: ''
+        required: false
+        example: '1'
+        type: integer
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].sku':
+        custom: []
+        name: 'categories[].sku'
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].mockup_id':
+        custom: []
+        name: 'categories[].mockup_id'
+        description: 'The <code>id</code> of an existing record in the mockups table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].settings':
+        custom: []
+        name: 'categories[].settings'
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].options':
+        custom: []
+        name: 'categories[].options'
+        description: json/array/string.
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].meta':
+        custom: []
+        name: 'categories[].meta'
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'categories[].image':
+        custom: []
+        name: 'categories[].image'
+        description: 'تصویر اختصاصی همان دسته (اختیاری). Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      work_id: 16
+      name: 'n'
+      price: 84
+      status: '1'
+      sku: z
+      mockup_id: 16
+      categories:
+        -
+          category_id: 16
+          address: 'n'
+          name: g
+          price: 12
+          status: '1'
+          sku: m
+          mockup_id: 16
+    fileParameters:
+      image: null
+      categories:
+        -
+          image: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
     uri: api/payment/card/increase
     metadata:
       custom: []
@@ -209,7 +506,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -218,7 +515,7 @@ endpoints:
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       items: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -354,7 +651,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -368,7 +665,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: true
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -570,7 +867,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -581,7 +878,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -592,7 +889,7 @@ endpoints:
         name: is_capital
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -624,9 +921,9 @@ endpoints:
       divide_time: '1374491711936806'
       is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
-      status: true
-      default: false
-      is_capital: true
+      status: false
+      default: true
+      is_capital: false
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
     responses: []
@@ -719,7 +1016,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-10T13:16:52'
+        example: '2025-11-11T12:01:44'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -752,7 +1049,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-11-10T13:16:52'
+      expiry_date: '2025-11-11T12:01:44'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -1023,7 +1320,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: esaj
+        example: panel
         type: string
         enumValues:
           - panel
@@ -1039,7 +1336,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1072,7 +1369,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1081,11 +1378,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: esaj
-      private: true
+      type: panel
+      private: false
       profile_confirm: false
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1155,7 +1452,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: esaj
+        example: webservice
         type: string
         enumValues:
           - panel
@@ -1171,7 +1468,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1213,8 +1510,8 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: esaj
-      private: false
+      type: webservice
+      private: true
       profile_confirm: false
       name: architecto
       two_step: false
@@ -1499,7 +1796,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1512,7 +1809,7 @@ endpoints:
       otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1904,7 +2201,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-10T13:16:52'
+        example: '2025-11-11T12:01:44'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2101,7 +2398,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-10T13:16:52'
+      birth_date: '2025-11-11T12:01:44'
       address: b
       postal_code: 'n'
       profession: g
@@ -2153,7 +2450,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-10T13:16:52'
+        example: '2025-11-11T12:01:44'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2350,7 +2647,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-10T13:16:52'
+      birth_date: '2025-11-11T12:01:44'
       address: b
       postal_code: 'n'
       profession: g
@@ -2625,7 +2922,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2636,7 +2933,7 @@ endpoints:
       type: cell_internet
       value: 17
       point: 15
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -2717,7 +3014,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: discount
         type: string
         enumValues:
           - cell_internet
@@ -2847,7 +3144,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_internet
+      type: discount
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688

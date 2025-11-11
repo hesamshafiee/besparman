@@ -270,7 +270,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -301,7 +301,7 @@ endpoints:
       print_rotation: 1
       fit_mode: cover
       preview_bg: w
-      is_active: true
+      is_active: false
       sort: 39
     fileParameters: []
     responses: []
@@ -551,7 +551,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -582,7 +582,7 @@ endpoints:
       print_rotation: 1
       fit_mode: stretch
       preview_bg: w
-      is_active: false
+      is_active: true
       sort: 39
     fileParameters: []
     responses: []

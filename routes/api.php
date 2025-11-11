@@ -97,6 +97,7 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/client/products',            [ProductController::class, 'clientStore']);
         Route::put('/client/products/{product}',  [ProductController::class, 'clientUpdate']);
         Route::delete('/client/products/{product}',  [ProductController::class, 'clientDestroy']);
+        Route::post('/client/products/bulk',  [ProductController::class, 'clientBulkStore']);
 
 
         Route::get('/products',           [ProductController::class, 'index']);

@@ -5,14 +5,14 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: api/v1/products
+    uri: api/products
     metadata:
       custom: []
       groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست محصولات (ادمین) با سافت‌دیلیت و فیلترها'
+      title: 'لیست محصولات (ادمین)'
       description: ''
       authenticated: false
       deprecated: false
@@ -45,7 +45,7 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/v1/products
+    uri: api/products
     metadata:
       custom: []
       groupName: Product(Admin)
@@ -68,45 +68,45 @@ endpoints:
         custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       category_id:
         custom: []
         name: category_id
         description: 'The <code>id</code> of an existing record in the categories table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       work_id:
         custom: []
         name: work_id
         description: 'The <code>id</code> of an existing record in the works table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       name:
         custom: []
         name: name
         description: 'Must not be greater than 200 characters.'
-        required: true
+        required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       slug:
         custom: []
@@ -337,7 +337,7 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'api/v1/products/{id}'
+    uri: 'api/products/{id}'
     metadata:
       custom: []
       groupName: Product(Admin)
@@ -372,45 +372,45 @@ endpoints:
         custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       category_id:
         custom: []
         name: category_id
         description: 'The <code>id</code> of an existing record in the categories table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       work_id:
         custom: []
         name: work_id
         description: 'The <code>id</code> of an existing record in the works table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       name:
         custom: []
         name: name
         description: 'Must not be greater than 200 characters.'
-        required: true
+        required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       slug:
         custom: []
@@ -641,7 +641,7 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/v1/products/{product_id}'
+    uri: 'api/products/{product_id}'
     metadata:
       custom: []
       groupName: Product(Admin)
@@ -684,7 +684,7 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'api/v1/products/{id}/restore'
+    uri: 'api/products/{id}/restore'
     metadata:
       custom: []
       groupName: Product(Admin)

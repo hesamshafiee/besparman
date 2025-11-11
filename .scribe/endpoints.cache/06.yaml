@@ -54,7 +54,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'ساخت محصول (کلاینت)'
+      title: 'ساخت محصول (کلاینت) + آپلود تصویر + تنظیمات'
       description: ''
       authenticated: false
       deprecated: false
@@ -70,45 +70,45 @@ endpoints:
         custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       category_id:
         custom: []
         name: category_id
         description: 'The <code>id</code> of an existing record in the categories table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       work_id:
         custom: []
         name: work_id
         description: 'The <code>id</code> of an existing record in the works table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       name:
         custom: []
         name: name
         description: 'Must not be greater than 200 characters.'
-        required: true
+        required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       slug:
         custom: []
@@ -374,45 +374,45 @@ endpoints:
         custom: []
         name: user_id
         description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       category_id:
         custom: []
         name: category_id
         description: 'The <code>id</code> of an existing record in the categories table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       work_id:
         custom: []
         name: work_id
         description: 'The <code>id</code> of an existing record in the works table.'
-        required: false
+        required: true
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
       name:
         custom: []
         name: name
         description: 'Must not be greater than 200 characters.'
-        required: true
+        required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       slug:
         custom: []
@@ -650,7 +650,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'حذف محصول (کلاینت)'
+      title: 'حذف محصول (کلاینت) + پاکسازی فایل‌ها'
       description: ''
       authenticated: false
       deprecated: false
