@@ -12,6 +12,7 @@ use App\Http\Controllers\V1\ImageController;
 use App\Http\Controllers\V1\LandingController;
 use App\Http\Controllers\V1\LogController;
 use App\Http\Controllers\V1\AddressController;
+use App\Http\Controllers\V1\CategoryOptionController;
 use App\Http\Controllers\V1\LogisticController;
 use App\Http\Controllers\V1\MenuController;
 use App\Http\Controllers\V1\OrderController;
@@ -46,8 +47,8 @@ use App\Http\Controllers\V1\SearchDemoController;
 use App\Http\Controllers\V1\WorkController;
 use App\Http\Controllers\V1\DesignController;
 use App\Http\Controllers\V1\MockupController;
-
-
+use App\Http\Controllers\V1\OptionController;
+use App\Http\Controllers\V1\OptionValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -254,6 +255,32 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/profiles/by-admin/{user}', [ProfileController::class, 'storeByAdmin']);
         Route::patch('/profiles/by-admin/{user}', [ProfileController::class, 'updateByAdmin']);
         Route::patch('/profiles', [ProfileController::class, 'update']);
+
+
+        Route::get('/options', [OptionController::class, 'index']);
+        Route::post('/options', [OptionController::class, 'store']);
+        Route::patch('/options/{option}', [OptionController::class, 'update']);
+        Route::delete('/options/{option}', [OptionController::class, 'destroy']);
+        Route::get('/clients/options', [OptionController::class, 'clientIndex']);
+
+
+
+        Route::get('/options/values/{option}', [OptionValueController::class, 'index']);
+        Route::post('/options/values/{option}', [OptionValueController::class, 'store']);
+        Route::patch('/options/values/{option}/{optionValue}', [OptionValueController::class, 'update']);
+        Route::delete('/options/values/{option}/{optionValue}', [OptionValueController::class, 'destroy']);
+        Route::get('/clients/options/values/{option}', [OptionValueController::class, 'clientIndex']);
+
+
+        
+        Route::get('/categories/options/{category}', [CategoryOptionController::class, 'index']);
+        Route::post('/categories/options/sync/{category}', [CategoryOptionController::class, 'sync']);
+        Route::delete('/categories/options/{category}/{option}', [CategoryOptionController::class, 'destroy']);
+        Route::get('/clients/categories/options/{category}', [CategoryOptionController::class, 'clientIndex']);
+
+
+
+
 
 
         Route::get('/phone-books', [PhoneBookController::class, 'index']);

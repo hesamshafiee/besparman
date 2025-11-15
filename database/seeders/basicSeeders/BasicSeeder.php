@@ -20,6 +20,10 @@ class BasicSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             MockupSeeder::class,
+            OptionSeeder::class,
+            OptionValueSeeder::class,
+            CategoryOptionSeeder::class,
+
             //ProductSeeder::class,
             //ProfitSeeder::class
         ]);

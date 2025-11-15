@@ -1,18 +1,18 @@
-name: PhoneBook
+name: Option
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/phone-books
+    uri: api/options
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Option
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'لیست Optionها (پنل ادمین)'
       description: ''
       authenticated: false
       deprecated: false
@@ -45,14 +45,14 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/phone-books
+    uri: api/options
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Option
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'ساخت Option جدید'
       description: ''
       authenticated: false
       deprecated: false
@@ -64,43 +64,95 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
       name:
         custom: []
         name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        description: 'Must not be greater than 191 characters.'
         required: true
-        example: z
+        example: b
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      last_settings:
+      code:
         custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
+        name: code
+        description: 'Must contain only letters, numbers, dashes and underscores. Must not be greater than 100 characters.'
         required: true
-        example: '["architecto","architecto"]'
+        example: 'n'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: text
+        type: string
+        enumValues:
+          - select
+          - multi_select
+          - text
+          - number
+          - swatch
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_required:
+        custom: []
+        name: is_required
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_order:
+        custom: []
+        name: sort_order
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
+      name: b
+      code: 'n'
+      type: text
+      is_required: false
+      is_active: true
+      sort_order: 84
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,130 +163,127 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: api/phone-books/batch
+      - PATCH
+    uri: 'api/options/{option_id}'
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Option
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'بروزرسانی Option'
       description: ''
       authenticated: false
       deprecated: false
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      option_id:
+        custom: []
+        name: option_id
+        description: 'The ID of the option.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      option_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
       name:
         custom: []
         name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
+        description: 'Must not be greater than 191 characters.'
+        required: false
+        example: b
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      last_settings:
+      code:
         custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
+        name: code
+        description: 'Must contain only letters, numbers, dashes and underscores. Must not be greater than 100 characters.'
+        required: false
+        example: 'n'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: false
+        example: text
+        type: string
+        enumValues:
+          - select
+          - multi_select
+          - text
+          - number
+          - swatch
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_required:
+        custom: []
+        name: is_required
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort_order:
+        custom: []
+        name: sort_order
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/phone-books/check
-    metadata:
-      custom: []
-      groupName: PhoneBook
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
+      name: b
+      code: 'n'
+      type: text
+      is_required: true
+      is_active: false
+      sort_order: 84
     fileParameters: []
     responses: []
     responseFields: []
@@ -246,14 +295,14 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/phone-books/{phoneBook_id}'
+    uri: 'api/options/{option_id}'
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Option
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'حذف Option'
       description: ''
       authenticated: false
       deprecated: false
@@ -261,25 +310,65 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      phoneBook_id:
+      option_id:
         custom: []
-        name: phoneBook_id
-        description: 'The ID of the phoneBook.'
+        name: option_id
+        description: 'The ID of the option.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      phoneBook_id: 16
+      option_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/clients/options
+    metadata:
+      custom: []
+      groupName: Option
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'لیست Optionها برای کلاینت (مثلاً Designer / Buyer)'
+      description: 'فقط Optionهای فعال'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []
     auth: []
     controller: null

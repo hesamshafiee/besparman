@@ -10,12 +10,7 @@ return new class extends Migration {
         Schema::create('mockups', function (Blueprint $table) {
             $table->id();
 
-            // اتصال به دسته
-            $table->foreignId('category_id')
-                ->constrained('categories')
-                ->onDelete('cascade');
-
-            // اطلاعات کلی
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('name', 150);
             $table->string('slug', 180)->unique();
 

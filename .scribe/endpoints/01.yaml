@@ -65,14 +65,14 @@ endpoints:
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -478,14 +478,14 @@ endpoints:
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -556,14 +556,14 @@ endpoints:
         name: role_id
         description: 'The ID of the role.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      role_id: 16
+      role_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

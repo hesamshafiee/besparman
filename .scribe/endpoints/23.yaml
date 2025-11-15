@@ -132,14 +132,14 @@ endpoints:
         name: landing_id
         description: 'The ID of the landing.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      landing_id: 16
+      landing_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -1,14 +1,14 @@
-name: Ticket
+name: PhoneBook
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: 'api/tickets/by-user/{user?}'
+    uri: api/phone-books
     metadata:
       custom: []
-      groupName: Ticket
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -19,20 +19,8 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      user:
-        custom: []
-        name: user
-        description: ''
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      user: 16
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -56,11 +44,212 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: 'api/tickets/conversation/{ticket_id}'
+      - POST
+    uri: api/phone-books
     metadata:
       custom: []
-      groupName: Ticket
+      groupName: PhoneBook
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone_number:
+        custom: []
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
+        required: true
+        example: '137449171806'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_settings:
+        custom: []
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/phone-books/batch
+    metadata:
+      custom: []
+      groupName: PhoneBook
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone_number:
+        custom: []
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
+        required: true
+        example: '137449171806'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_settings:
+        custom: []
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/phone-books/check
+    metadata:
+      custom: []
+      groupName: PhoneBook
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone_number:
+        custom: []
+        name: phone_number
+        description: 'Must be between 12 and 12 digits.'
+        required: true
+        example: '137449171806'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      last_settings:
+        custom: []
+        name: last_settings
+        description: 'Must be a valid JSON string.'
+        required: true
+        example: '["architecto","architecto"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone_number: '137449171806'
+      name: z
+      last_settings: '["architecto","architecto"]'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/phone-books/{phoneBook_id}'
+    metadata:
+      custom: []
+      groupName: PhoneBook
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -72,10 +261,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      ticket_id:
+      phoneBook_id:
         custom: []
-        name: ticket_id
-        description: 'The ID of the ticket.'
+        name: phoneBook_id
+        description: 'The ID of the phoneBook.'
         required: true
         example: 16
         type: integer
@@ -84,102 +273,13 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 16
+      phoneBook_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/tickets
-    metadata:
-      custom: []
-      groupName: Ticket
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/tickets/by-user-status
-    metadata:
-      custom: []
-      groupName: Ticket
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get ticket counts grouped by user and status'
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    responses: []
     responseFields: []
     auth: []
     controller: null

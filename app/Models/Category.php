@@ -45,4 +45,11 @@ class Category extends Model
     {
         return self::with('children')->whereNull('parent_id')->get();
     }
+
+
+    public function options()
+    {
+        return $this->belongsToMany(Option::class, 'category_option')
+            ->withPivot(['is_required', 'is_active', 'sort_order']);
+    }
 }

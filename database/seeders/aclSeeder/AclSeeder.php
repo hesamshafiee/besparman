@@ -43,7 +43,10 @@ class AclSeeder extends Seeder
             OrderSeeder::class,
             VersionSeeder::class,
             MockupSeeder::class,
-            WorkSeeder::class
+            WorkSeeder::class,
+            OptionSeeder::class,
+            OptionValueSeeder::class,
+            CategoryOptionSeeder::class
         ]);
     }
 }
