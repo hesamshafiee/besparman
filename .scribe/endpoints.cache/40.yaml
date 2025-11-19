@@ -82,7 +82,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet_direct_charge
+        example: cell_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -128,7 +128,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_internet_direct_charge
+      type: cell_direct_charge
       value: 17
       point: 15
       status: true

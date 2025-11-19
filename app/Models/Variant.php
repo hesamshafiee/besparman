@@ -16,6 +16,9 @@ class Variant extends Model
         'add_price',
         'is_active',
     ];
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
 
     public function mockups()
     {

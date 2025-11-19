@@ -80,7 +80,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: percent
+        example: money
         type: string
         enumValues:
           - money
@@ -115,7 +115,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-11-19 13:55:38'
+        example: '2025-11-19 14:11:04'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -134,10 +134,10 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: b
-      type: percent
+      type: money
       value: 39
       status: true
-      start_date: '2025-11-19 13:55:38'
+      start_date: '2025-11-19 14:11:04'
       end_date: '2051-12-13'
     fileParameters: []
     responses: []
@@ -221,7 +221,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -232,7 +232,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-11-19 13:55:38'
+        example: '2025-11-19 14:11:04'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,8 +253,8 @@ endpoints:
       title: b
       type: percent
       value: 39
-      status: false
-      start_date: '2025-11-19 13:55:38'
+      status: true
+      start_date: '2025-11-19 14:11:04'
       end_date: '2051-12-13'
     fileParameters: []
     responses: []

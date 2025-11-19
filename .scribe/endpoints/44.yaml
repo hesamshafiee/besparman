@@ -65,7 +65,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - '-1'
+          - '1'
         type: 'integer[]'
         enumValues:
           - '1'
@@ -114,7 +114,7 @@ endpoints:
       groupBy:
         - architecto
       sort:
-        - '-1'
+        - '1'
       limit: 22
       page: 67
       wheres:

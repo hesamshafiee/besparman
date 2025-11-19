@@ -80,7 +80,7 @@ endpoints:
         name: email
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -91,7 +91,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: usernamePassword
+        example: otpOrPassword
         type: string
         enumValues:
           - otp
@@ -148,8 +148,8 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       sms: true
-      email: true
-      auth: usernamePassword
+      email: false
+      auth: otpOrPassword
       otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
