@@ -10,7 +10,11 @@ return new class extends Migration {
         Schema::create('mockups', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            // دیگر category_id نداریم؛ mockup مستقیماً به variant متصل است
+            $table->foreignId('variant_id')
+                  ->constrained('variants')
+                  ->onDelete('cascade');
+
             $table->string('name', 150);
             $table->string('slug', 180)->unique();
 
@@ -29,8 +33,7 @@ return new class extends Migration {
             $table->unsignedSmallInteger('print_rotation')->default(0); // درجه
             $table->enum('fit_mode', ['contain', 'cover', 'stretch'])->default('contain');
 
-            // فایل‌ها/لایه‌ها
-            // می‌تونی base, overlay, shadow, mask رو نگه داری
+            // فایل‌ها/لایه‌ها (base, overlay, shadow, mask)
             $table->json('layers')->nullable();
 
             // تنظیمات نمایش
@@ -39,9 +42,6 @@ return new class extends Migration {
             $table->unsignedInteger('sort')->default(0);
 
             $table->timestamps();
-
-            // یک دسته نمی‌تونه دو موکاپ با یک اسم داشته باشه (اختیاری)
-            $table->unique(['category_id', 'name']);
         });
     }
 

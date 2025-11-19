@@ -13,7 +13,7 @@ class MockupResource extends JsonResource
     {
         return [
             'id'             => $this->id,
-            'category_id'    => $this->category_id,
+            'variant_id'    => $this->variant_id,
             'name'           => $this->name,
             'slug'           => $this->slug,
             'canvas_width'   => $this->canvas_width,
@@ -25,7 +25,7 @@ class MockupResource extends JsonResource
             'print_height'   => $this->print_height,
             'print_rotation' => $this->print_rotation,
             'fit_mode'       => $this->fit_mode,
-            'layers'         => $this->layers,      // cast به آرایه در مدل
+            'layers'         => $this->layers,     
             'preview_bg'     => $this->preview_bg,
             'is_active'      => (bool) $this->is_active,
             'sort'           => $this->sort,

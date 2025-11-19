@@ -91,7 +91,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: text
+        example: number
         type: string
         enumValues:
           - select
@@ -107,7 +107,7 @@ endpoints:
         name: is_required
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -118,7 +118,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -149,9 +149,9 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      type: text
-      is_required: false
-      is_active: true
+      type: number
+      is_required: true
+      is_active: false
       sort_order: 84
     fileParameters: []
     responses: []
@@ -222,7 +222,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: text
+        example: multi_select
         type: string
         enumValues:
           - select
@@ -249,7 +249,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -280,9 +280,9 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      type: text
+      type: multi_select
       is_required: true
-      is_active: false
+      is_active: true
       sort_order: 84
     fileParameters: []
     responses: []

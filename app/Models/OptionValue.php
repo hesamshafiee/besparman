@@ -29,6 +29,12 @@ class OptionValue extends Model
         return $this->belongsTo(Option::class);
     }
 
+    public function variants()
+    {
+        return $this->belongsToMany(Variant::class, 'variant_option_value')
+            ->withTimestamps();
+    }
+
     public function scopeActive($q)
     {
         return $q->where('is_active', true);

@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
 class Mockup extends Model
 {
     use HasFactory;
 
-    
     protected $fillable = [
-        'category_id',
+        'variant_id',
         'name',
         'slug',
         'canvas_width',
@@ -31,9 +29,9 @@ class Mockup extends Model
     ];
 
     protected $casts = [
-        'layers'    => 'array',
-        'is_active' => 'boolean',
-        'dpi'       => 'integer',
+        'layers'        => 'array',
+        'is_active'     => 'boolean',
+        'dpi'           => 'integer',
         'canvas_width'  => 'integer',
         'canvas_height' => 'integer',
         'print_x'       => 'integer',
@@ -42,10 +40,10 @@ class Mockup extends Model
         'print_height'  => 'integer',
         'print_rotation'=> 'integer',
         'sort'          => 'integer',
-    ];
+    ]; // 👈 این سطر خیلی مهمه؛ حتماً `];` داشته باشه
 
-    public function category()
+    public function variant()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Variant::class);
     }
 }

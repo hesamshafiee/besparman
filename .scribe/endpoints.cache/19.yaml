@@ -117,7 +117,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -128,7 +128,7 @@ endpoints:
       type: panel
       title: architecto
       description: 'Eius et animi quos velit et.'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -222,7 +222,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -233,7 +233,7 @@ endpoints:
       type: panel
       title: architecto
       description: 'Eius et animi quos velit et.'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []

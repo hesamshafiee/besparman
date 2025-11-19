@@ -4,6 +4,7 @@ namespace Database\Seeders\basicSeeders;
 
 use App\Models\Category;
 use App\Models\Mockup;
+use App\Models\Variant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -11,15 +12,26 @@ class MockupSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1) تضمین وجود کتگوری هدف و گرفتن id برگ (leaf)
-        // مثلا مسیر: محصولات → تی‌شرت‌ها → مردانه سفید
         $leafCategoryId = $this->ensureCategoryPath([
             'محصولات',
             'تی‌شرت‌ها',
             'مردانه سفید',
         ]);
 
-        // 2) دیتای موکاپ‌ها (layers را آرایه بده؛ مدل خودکار cast می‌کند)
+        $variant = Variant::firstOrCreate(
+            [
+                'category_id' => $leafCategoryId,
+                'sku'         => 'TSHIRT-MEN-WHITE',
+            ],
+            [
+                'stock'     => 0,
+                'add_price' => 0,
+                'is_active' => true,
+            ]
+        );
+
+        $variantId = (int) $variant->id;
+
         $items = [
             [
                 'name'           => 'تی‌شرت مردانه سفید',
@@ -42,14 +54,13 @@ class MockupSeeder extends Seeder
                 'preview_bg'     => '#FFFFFF',
                 'is_active'      => 1,
                 'sort'           => 1,
-                'category_id'    => $leafCategoryId,
+                'variant_id'     => $variantId,   // 👈 دیگه category_id نیست
             ],
-            // ... هر موکاپ دیگری هم همینجا اضافه کن، فقط category_id را همین $leafCategoryId بده
         ];
 
-        // 3) insert امن/idempotent
         foreach ($items as $row) {
             $slug = $row['slug'] ?? Str::slug($row['name']);
+
             Mockup::updateOrCreate(
                 ['slug' => $slug],
                 $row + ['slug' => $slug]
@@ -57,10 +68,7 @@ class MockupSeeder extends Seeder
         }
     }
 
-    /**
-     * مسیر کتگوری را تضمین می‌کند و id برگ را برمی‌گرداند.
-     * مثلا ['محصولات','تی‌شرت‌ها','مردانه سفید']
-     */
+
     protected function ensureCategoryPath(array $parts): int
     {
         $parentId = null;
@@ -68,13 +76,15 @@ class MockupSeeder extends Seeder
         foreach ($parts as $name) {
             $slug = Str::slug($name, '-');
 
-            /** @var \App\Models\Category $cat */
             $cat = Category::firstOrCreate(
-                ['name' => $name, 'parent_id' => $parentId],
                 [
-                    'data'      => [],
-                    // اگر ستون slug داری، اینو هم ست کن:
-                    // 'slug'   => $slug,
+                    'name'      => $name,
+                    'parent_id' => $parentId,
+                ],
+                [
+                    'data' => [],
+                    // اگر ستون slug داری، این‌جا هم می‌تونی ست کنی:
+                    // 'slug' => $slug,
                 ]
             );
 

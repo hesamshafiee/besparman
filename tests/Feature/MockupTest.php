@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Category;
 use App\Models\Mockup;
 use App\Models\User;
+use App\Models\Variant;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 use Spatie\Permission\Models\Role;
@@ -17,6 +18,7 @@ class MockupTest extends TestCase
 
     private User $user;
     private mixed $role;
+    private Variant $variant; // 👈 اینجا نگهش می‌داریم که همه تست‌ها ازش استفاده کنند
 
     protected function setUp(): void
     {
@@ -25,22 +27,34 @@ class MockupTest extends TestCase
         $this->artisan('migrate');
         $this->artisan('db:seed');
 
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create([
+            'type'            => 'panel',
+            'profile_confirm' => now(),
+        ]);
 
         $this->role = Role::create(['name' => 'role', 'guard_name' => 'web']);
         $this->role->givePermissionTo('mockup.*');
+        $this->user->assignRole($this->role);
 
         Sanctum::actingAs($this->user, ['*']);
+
+        // از دسته‌هایی که Seeder ساخته یکی رو برمی‌داریم (مثلا "یقه گرد" اگر بود)
+        $category = Category::where('name', 'یقه گرد')->first() ?? Category::first();
+
+        // ساخت یک Variant برای این کتگوری تا در تمام تست‌ها استفاده شود
+        $this->variant = Variant::create([
+            'category_id' => $category->id,
+            'sku'         => 'TEST-SKU-' . uniqid(),
+            'stock'       => 0,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
     }
 
     public function test_storing_and_deleting_mockup(): void
     {
-        $this->user->assignRole($this->role);
-
-        $category = Category::factory()->create();
-
         $payload = [
-            'category_id'   => $category->id,
+            'variant_id'    => $this->variant->id,   // ✅ این‌بار پرش می‌کنیم
             'name'          => fake()->sentence(2),
             // 'slug'        => اختیاری
             'canvas_width'  => 2400,
@@ -83,12 +97,8 @@ class MockupTest extends TestCase
 
     public function test_updating_mockup(): void
     {
-        $this->user->assignRole($this->role);
-
-        $category = Category::factory()->create();
-
         $mockup = Mockup::create([
-            'category_id'   => $category->id,
+            'variant_id'    => $this->variant->id, // ✅ بدون این، همون خطای 1364 رو می‌گیری
             'name'          => 'قدیمی',
             'slug'          => fake()->unique()->slug(),
             'canvas_width'  => 2000,
@@ -107,7 +117,7 @@ class MockupTest extends TestCase
         ]);
 
         $updatePayload = [
-            'category_id'   => $category->id,
+            'variant_id'    => $this->variant->id, // ✅ همچنان باید بیاد تو Request
             'name'          => 'جدید',
             'canvas_width'  => 2200,
             'canvas_height' => 2200,
@@ -140,12 +150,8 @@ class MockupTest extends TestCase
 
     public function test_fetching_mockups(): void
     {
-        $this->user->assignRole($this->role);
-
-        $category = Category::factory()->create();
-
         Mockup::create([
-            'category_id'   => $category->id,
+            'variant_id'    => $this->variant->id, // ✅ اینجا هم باید ست بشه
             'name'          => fake()->sentence(2),
             'slug'          => fake()->unique()->slug(),
             'canvas_width'  => 2000,
@@ -165,7 +171,8 @@ class MockupTest extends TestCase
 
         $response = $this->get('/api/mockups?per_page=2');
 
-        $response->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+        $response->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
@@ -173,7 +180,8 @@ class MockupTest extends TestCase
 
         $response2 = $this->get('/api/mockups?id=' . $first->id);
 
-        $response2->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+        $response2->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'balance', 'additional'])
         );
     }

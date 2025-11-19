@@ -27,28 +27,89 @@ class CartController extends Controller
         ], status::HTTP_OK)->header('balance', optional(Auth::user())->wallet->value ?? 0);
     }
 
-    /**
-     * @param Product $product
-     * @param string|null $cart
-     * @return JsonResponse
-     * @group Cart
-     */
-    public function addToCart(Product $product, string $cart = null) : JsonResponse
+    public function addToCart(Request $request, Product $product, string $cart = null) : JsonResponse
     {
-
-         if ($product->type != Product::TYPE_CART) {
+        // فقط محصولاتی که برای سبد خرید اجازه دارن
+        if ($product->type != Product::TYPE_CART) {
             return response()->json([
-            'message' => __('general.productTypeNotAllowed'),
+                'message' => __('general.productTypeNotAllowed'),
             ], status::HTTP_BAD_REQUEST);
         }
 
+        // ولیدیشن ورودی (کانفیگ آیتم در سبد)
+        $validated = $request->validate([
+            'quantity' => ['sometimes', 'integer', 'min:1'],
+
+            // تنظیمات چاپ / قرارگیری طرح روی موکاپ
+            'settings'                 => ['nullable', 'array'],
+            'settings.print_x'         => ['sometimes', 'numeric'],
+            'settings.print_y'         => ['sometimes', 'numeric'],
+            'settings.print_width'     => ['sometimes', 'numeric'],
+            'settings.print_height'    => ['sometimes', 'numeric'],
+            'settings.rotation'        => ['sometimes', 'numeric'],
+            'settings.fit_mode'        => ['sometimes', 'string', 'in:contain,cover,stretch'],
+            'settings.design'          => ['sometimes', 'array'],
+            'settings.design.scale'    => ['sometimes', 'numeric'],
+            'settings.design.offset_x' => ['sometimes', 'numeric'],
+            'settings.design.offset_y' => ['sometimes', 'numeric'],
+
+            // mockup انتخاب‌شده برای این آیتم
+            'mockup'            => ['nullable', 'array'],
+            'mockup.id'         => ['sometimes', 'integer'],
+            'mockup.name'       => ['sometimes', 'string'],
+            'mockup.preview_bg' => ['sometimes', 'string'],
+            'mockup.preview'    => ['sometimes', 'string'],
+
+            // اطلاعات تصویر نهایی/پریویو
+            'preview'           => ['nullable', 'array'],
+            'preview.path'      => ['sometimes', 'string'],
+            'preview.thumb'     => ['sometimes', 'string'],
+            'preview.driver'    => ['sometimes', 'string', 'in:local,public,s3'],
+
+            // optionها (سایز، رنگ، ...)
+            'options'                         => ['nullable', 'array'],
+            'options.*.option_id'             => ['required_with:options.*.option_value_id', 'integer'],
+            'options.*.option_name'           => ['sometimes', 'string'],
+            'options.*.option_value_id'       => ['required_with:options.*.option_id', 'integer'],
+            'options.*.option_value'          => ['sometimes', 'string'],
+
+            // هرچیز اضافه‌ای که بخوای برای آینده
+            'meta'                => ['nullable', 'array'],
+        ]);
+
+        $quantity = $validated['quantity'] ?? 1;
+
+        // کانفیگ آیتم که می‌ره داخل cart_detail
+        $config = [];
+
+        if (array_key_exists('settings', $validated)) {
+            $config['settings'] = $validated['settings'];
+        }
+        if (array_key_exists('mockup', $validated)) {
+            $config['mockup'] = $validated['mockup'];
+        }
+        if (array_key_exists('preview', $validated)) {
+            $config['preview'] = $validated['preview'];
+        }
+        if (array_key_exists('options', $validated)) {
+            $config['options'] = $validated['options'];
+        }
+        if (array_key_exists('meta', $validated)) {
+            $config['meta'] = $validated['meta'];
+        }
+
+        // این همون اینستنس چند-سبدی خودته
         $cartObj = Cart::instance('cart', $cart);
-        $cartResponse = $cartObj->addToCart($product, $count = 1);
+
+        // نسخه‌ی جدید سرویست که config هم می‌گیره
+        $cartResponse = $cartObj->addToCart($product, $quantity, $config);
 
         return response()->json([
-            'message' => $cartResponse['status'] ? __('general.addedToCart', ['id' => $product->id]) : $cartResponse['message'],
+            'message'  => $cartResponse['status']
+                ? __('general.addedToCart', ['id' => $product->id])
+                : $cartResponse['message'],
             'cart_key' => Auth::check() ? '' : $cartObj->cartKey,
-            'cart' => Cart::instance('cart', $cart)->all()
+            'cart'     => Cart::instance('cart', $cartObj->cartKey ?? $cart)->all(),
         ], $cartResponse['status'] ? status::HTTP_OK : status::HTTP_INTERNAL_SERVER_ERROR);
     }
 
@@ -101,7 +162,10 @@ class CartController extends Controller
         $returnUrl = $validated['returnUrl'] ?? '';
         $bank = $validated['bank'] ?? '';
 
-        $response = Wallet::pay($returnUrl, $bank);
+        //$response = Wallet::pay($returnUrl, $bank);
+
+        $response['status'] = 1 ;
+        $response['token'] = 10 ;
 
         if (isset($response['status']) && $response['status']) {
             return response()->ok(__('checkout successfully'));

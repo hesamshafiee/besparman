@@ -17,11 +17,12 @@ class MockupRequest extends FormRequest
         $id = $this->route('id');
 
         return [
-            'category_id'   => ['required','integer','exists:categories,id'],
+            'variant_id'    => ['required', 'integer', 'exists:variants,id'],
+
             'name'          => ['required','string','max:150'],
             'slug'          => [
                 'nullable','string','max:180',
-                Rule::unique('mockups','slug')->ignore($id)
+                Rule::unique('mockups','slug')->ignore($id),
             ],
 
             'canvas_width'  => ['required','integer','min:100'],

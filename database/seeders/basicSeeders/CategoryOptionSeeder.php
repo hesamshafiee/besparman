@@ -2,53 +2,61 @@
 
 namespace Database\Seeders\basicSeeders;
 
-use App\Models\Category;
-use App\Models\Option;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CategoryOptionSeeder extends Seeder
 {
     public function run(): void
     {
-        $color    = Option::where('code', 'color')->first();
-        $size     = Option::where('code', 'size')->first();
-        $material = Option::where('code', 'material')->first();
+        $now = Carbon::now();
 
-        // هر دسته‌ای که وجود دارد، مورد استفاده قرار می‌گیرد
+        $colorId      = DB::table('options')->where('code', 'color')->value('id');
+        $sizeId       = DB::table('options')->where('code', 'size')->value('id');
+        $materialId   = DB::table('options')->where('code', 'material')->value('id');
+        $phoneModelId = DB::table('options')->where('code', 'phone_model')->value('id');
 
-        $this->attachOptions('Clothing', [
-            $color?->id    => ['is_required' => true,  'is_active' => 1, 'sort_order' => 0],
-            $size?->id     => ['is_required' => true,  'is_active' => 1, 'sort_order' => 1],
-            $material?->id => ['is_required' => false, 'is_active' => 1, 'sort_order' => 2],
-        ]);
+        // دسته‌ها
+        $tshirtId  = DB::table('categories')->where('name', 'تیشرت')->value('id');
+        $hoodieId  = DB::table('categories')->where('name', 'هودی')->value('id');
+        $appleId   = DB::table('categories')->where('name', 'اپل')->value('id');
+        $samsungId = DB::table('categories')->where('name', 'سامسونگ')->value('id');
+        $xiaomiId  = DB::table('categories')->where('name', 'شیاِومی')->value('id');
 
-        $this->attachOptions('Shoes', [
-            $color?->id => ['is_required' => true, 'is_active' => 1, 'sort_order' => 0],
-            $size?->id  => ['is_required' => true, 'is_active' => 1, 'sort_order' => 1],
-        ]);
+        $rows = [
+            // تیشرت: رنگ + سایز + جنس
+            [$tshirtId, $colorId],
+            [$tshirtId, $sizeId],
+            [$tshirtId, $materialId],
 
-        $this->attachOptions('Accessories', [
-            $color?->id => ['is_required' => false, 'is_active' => 1, 'sort_order' => 0],
-        ]);
-    }
+            // هودی: رنگ + سایز
+            [$hoodieId, $colorId],
+            [$hoodieId, $sizeId],
 
-    private function attachOptions(string $categoryName, array $options): void
-    {
-        $category = Category::where('name', $categoryName)->first();
+            // قاب‌ها: رنگ + مدل گوشی
+            [$appleId,   $colorId],
+            [$appleId,   $phoneModelId],
 
-        if (!$category) {
-            return; // اگر همچین کتگوری‌ای نداریم، بی‌سروصدا رد شو
-        }
+            [$samsungId, $colorId],
+            [$samsungId, $phoneModelId],
 
-        foreach ($options as $optionId => $pivot) {
-            // اگر Option پیدا نشده بود (null->id) تو آرایه null شده، اینجا ردش می‌کنیم
-            if (!$optionId) {
-                continue;
+            [$xiaomiId,  $colorId],
+            [$xiaomiId,  $phoneModelId],
+        ];
+
+        foreach ($rows as [$categoryId, $optionId]) {
+            if ($categoryId && $optionId) {
+                DB::table('category_option')->insert([
+                    'category_id' => $categoryId,
+                    'option_id'   => $optionId,
+                    'is_required' => null, // یعنی از خود options.is_required تبعیت کند
+                    'is_active'   => 1,
+                    'sort_order'  => 0,
+                    'created_at'  => $now,
+                    'updated_at'  => $now,
+                ]);
             }
-
-            $category->options()->syncWithoutDetaching([
-                $optionId => $pivot,
-            ]);
         }
     }
 }

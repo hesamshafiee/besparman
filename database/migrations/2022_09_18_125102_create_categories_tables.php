@@ -14,6 +14,9 @@ return new class extends Migration {
             $table->string('status', 150)->nullable();
             $table->json('data')->nullable();
             $table->json('default_setting')->nullable();
+            $table->decimal('base_price', 10, 2)->default(0);
+            $table->decimal('markup_price', 10, 2)->default(0);
+            $table->tinyInteger('show_in_work')->default(0);
             $table->timestamps();
         });
     }

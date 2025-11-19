@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'لیست موکاپ‌ها'
       description: ''
       authenticated: false
       deprecated: false
@@ -52,7 +52,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'ساخت موکاپ جدید'
       description: ''
       authenticated: false
       deprecated: false
@@ -64,10 +64,291 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      category_id:
+      variant_id:
         custom: []
-        name: category_id
-        description: 'The <code>id</code> of an existing record in the categories table.'
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 150 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 180 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      canvas_width:
+        custom: []
+        name: canvas_width
+        description: 'Must be at least 100.'
+        required: true
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      canvas_height:
+        custom: []
+        name: canvas_height
+        description: 'Must be at least 100.'
+        required: true
+        example: 93
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      dpi:
+        custom: []
+        name: dpi
+        description: 'Must be at least 72. Must not be greater than 600.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      print_x:
+        custom: []
+        name: print_x
+        description: 'Must be at least 0.'
+        required: true
+        example: 76
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      print_y:
+        custom: []
+        name: print_y
+        description: 'Must be at least 0.'
+        required: true
+        example: 60
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      print_width:
+        custom: []
+        name: print_width
+        description: 'Must be at least 1.'
+        required: true
+        example: 26
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      print_height:
+        custom: []
+        name: print_height
+        description: 'Must be at least 1.'
+        required: true
+        example: 40
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      print_rotation:
+        custom: []
+        name: print_rotation
+        description: 'Must be between 0 and 359.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      fit_mode:
+        custom: []
+        name: fit_mode
+        description: ''
+        required: true
+        example: contain
+        type: string
+        enumValues:
+          - contain
+          - cover
+          - stretch
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      layers:
+        custom: []
+        name: layers
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      layers.base:
+        custom: []
+        name: layers.base
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      layers.overlay:
+        custom: []
+        name: layers.overlay
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      layers.shadow:
+        custom: []
+        name: layers.shadow
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: k
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      layers.mask:
+        custom: []
+        name: layers.mask
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: h
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      preview_bg:
+        custom: []
+        name: preview_bg
+        description: 'Must not be greater than 15 characters.'
+        required: false
+        example: w
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Must be at least 0.'
+        required: false
+        example: 39
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      variant_id: 16
+      name: 'n'
+      slug: g
+      canvas_width: 100
+      canvas_height: 93
+      dpi: 15
+      print_x: 76
+      print_y: 60
+      print_width: 26
+      print_height: 40
+      print_rotation: 1
+      fit_mode: contain
+      preview_bg: w
+      is_active: true
+      sort: 39
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/mockups/{id}'
+    metadata:
+      custom: []
+      groupName: Mockup
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'به‌روزرسانی موکاپ'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the mockup.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      variant_id:
+        custom: []
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
         required: true
         example: 16
         type: integer
@@ -288,7 +569,7 @@ endpoints:
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      category_id: 16
+      variant_id: 16
       name: 'n'
       slug: g
       canvas_width: 100
@@ -313,287 +594,6 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PUT
-    uri: 'api/mockups/{id}'
-    metadata:
-      custom: []
-      groupName: Mockup
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the mockup.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      category_id:
-        custom: []
-        name: category_id
-        description: 'The <code>id</code> of an existing record in the categories table.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must not be greater than 150 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      slug:
-        custom: []
-        name: slug
-        description: 'Must not be greater than 180 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      canvas_width:
-        custom: []
-        name: canvas_width
-        description: 'Must be at least 100.'
-        required: true
-        example: 100
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      canvas_height:
-        custom: []
-        name: canvas_height
-        description: 'Must be at least 100.'
-        required: true
-        example: 93
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      dpi:
-        custom: []
-        name: dpi
-        description: 'Must be at least 72. Must not be greater than 600.'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      print_x:
-        custom: []
-        name: print_x
-        description: 'Must be at least 0.'
-        required: true
-        example: 76
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      print_y:
-        custom: []
-        name: print_y
-        description: 'Must be at least 0.'
-        required: true
-        example: 60
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      print_width:
-        custom: []
-        name: print_width
-        description: 'Must be at least 1.'
-        required: true
-        example: 26
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      print_height:
-        custom: []
-        name: print_height
-        description: 'Must be at least 1.'
-        required: true
-        example: 40
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      print_rotation:
-        custom: []
-        name: print_rotation
-        description: 'Must be between 0 and 359.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      fit_mode:
-        custom: []
-        name: fit_mode
-        description: ''
-        required: true
-        example: stretch
-        type: string
-        enumValues:
-          - contain
-          - cover
-          - stretch
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      layers:
-        custom: []
-        name: layers
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      layers.base:
-        custom: []
-        name: layers.base
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      layers.overlay:
-        custom: []
-        name: layers.overlay
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      layers.shadow:
-        custom: []
-        name: layers.shadow
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: k
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      layers.mask:
-        custom: []
-        name: layers.mask
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: h
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      preview_bg:
-        custom: []
-        name: preview_bg
-        description: 'Must not be greater than 15 characters.'
-        required: false
-        example: w
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      sort:
-        custom: []
-        name: sort
-        description: 'Must be at least 0.'
-        required: false
-        example: 39
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      category_id: 16
-      name: 'n'
-      slug: g
-      canvas_width: 100
-      canvas_height: 93
-      dpi: 15
-      print_x: 76
-      print_y: 60
-      print_width: 26
-      print_height: 40
-      print_rotation: 1
-      fit_mode: stretch
-      preview_bg: w
-      is_active: true
-      sort: 39
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - DELETE
     uri: 'api/mockups/{id}'
     metadata:
@@ -602,7 +602,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'حذف موکاپ'
       description: ''
       authenticated: false
       deprecated: false

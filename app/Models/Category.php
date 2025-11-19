@@ -13,7 +13,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    
+
     protected $fillable = ['name', 'parent_id', 'data', 'status', 'default_setting'];
 
     protected $casts = [
@@ -51,5 +51,10 @@ class Category extends Model
     {
         return $this->belongsToMany(Option::class, 'category_option')
             ->withPivot(['is_required', 'is_active', 'sort_order']);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(Variant::class);
     }
 }

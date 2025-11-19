@@ -62,7 +62,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: '0'
+        example: '1'
         type: integer
         enumValues:
           - '0'
@@ -275,7 +275,7 @@ endpoints:
       work_id: 16
       name: 'n'
       price: 84
-      status: '0'
+      status: '1'
       sku: z
       mockup_id: 16
       categories:
@@ -562,7 +562,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -576,7 +576,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: true
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -778,7 +778,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -789,7 +789,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -800,7 +800,7 @@ endpoints:
         name: is_capital
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -832,9 +832,9 @@ endpoints:
       divide_time: '1374491711936806'
       is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
-      status: false
-      default: false
-      is_capital: false
+      status: true
+      default: true
+      is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
     responses: []
@@ -927,7 +927,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-15T12:59:00'
+        example: '2025-11-19T13:55:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -960,7 +960,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-11-15T12:59:00'
+      expiry_date: '2025-11-19T13:55:38'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -1231,7 +1231,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: webservice
+        example: ordinary
         type: string
         enumValues:
           - panel
@@ -1247,7 +1247,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1280,7 +1280,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1289,11 +1289,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: webservice
-      private: true
+      type: ordinary
+      private: false
       profile_confirm: true
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1363,7 +1363,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: esaj
+        example: ordinary
         type: string
         enumValues:
           - panel
@@ -1390,7 +1390,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1421,9 +1421,9 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: esaj
+      type: ordinary
       private: true
-      profile_confirm: false
+      profile_confirm: true
       name: architecto
       two_step: false
     fileParameters: []
@@ -1542,7 +1542,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1575,7 +1575,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1585,10 +1585,10 @@ endpoints:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
       type: admin
-      private: false
+      private: true
       profile_confirm: false
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1658,7 +1658,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: otp
+        example: usernamePassword
         type: string
         enumValues:
           - otp
@@ -1672,7 +1672,7 @@ endpoints:
         name: otp
         description: ''
         required: false
-        example: sms
+        example: google2fa
         type: string
         enumValues:
           - sms
@@ -1716,8 +1716,8 @@ endpoints:
     cleanBodyParameters:
       sms: false
       email: false
-      auth: otp
-      otp: sms
+      auth: usernamePassword
+      otp: google2fa
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
       status: true
@@ -2112,7 +2112,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-15T12:59:00'
+        example: '2025-11-19T13:55:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2309,7 +2309,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-15T12:59:00'
+      birth_date: '2025-11-19T13:55:39'
       address: b
       postal_code: 'n'
       profession: g
@@ -2361,7 +2361,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-15T12:59:00'
+        example: '2025-11-19T13:55:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2558,7 +2558,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-11-15T12:59:00'
+      birth_date: '2025-11-19T13:55:39'
       address: b
       postal_code: 'n'
       profession: g
@@ -2925,7 +2925,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: cell_amazing_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -3055,7 +3055,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_direct_charge
+      type: cell_amazing_direct_charge
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
@@ -3188,6 +3188,405 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/cart/{product_id}/{cart?}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      product_id:
+        custom: []
+        name: product_id
+        description: 'The ID of the product.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      cart:
+        custom: []
+        name: cart
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      product_id: 16
+      cart: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      quantity:
+        custom: []
+        name: quantity
+        description: 'Must be at least 1.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings:
+        custom: []
+        name: settings
+        description: 'تنظیمات چاپ / قرارگیری طرح روی موکاپ.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      settings.print_x:
+        custom: []
+        name: settings.print_x
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.print_y:
+        custom: []
+        name: settings.print_y
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.print_width:
+        custom: []
+        name: settings.print_width
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.print_height:
+        custom: []
+        name: settings.print_height
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.rotation:
+        custom: []
+        name: settings.rotation
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.fit_mode:
+        custom: []
+        name: settings.fit_mode
+        description: ''
+        required: false
+        example: stretch
+        type: string
+        enumValues:
+          - contain
+          - cover
+          - stretch
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.design:
+        custom: []
+        name: settings.design
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.design.scale:
+        custom: []
+        name: settings.design.scale
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.design.offset_x:
+        custom: []
+        name: settings.design.offset_x
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      settings.design.offset_y:
+        custom: []
+        name: settings.design.offset_y
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      mockup:
+        custom: []
+        name: mockup
+        description: 'mockup انتخاب‌شده برای این آیتم.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      mockup.id:
+        custom: []
+        name: mockup.id
+        description: ''
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      mockup.name:
+        custom: []
+        name: mockup.name
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      mockup.preview_bg:
+        custom: []
+        name: mockup.preview_bg
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      mockup.preview:
+        custom: []
+        name: mockup.preview
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      preview:
+        custom: []
+        name: preview
+        description: 'اطلاعات تصویر نهایی/پریویو.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      preview.path:
+        custom: []
+        name: preview.path
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      preview.thumb:
+        custom: []
+        name: preview.thumb
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      preview.driver:
+        custom: []
+        name: preview.driver
+        description: ''
+        required: false
+        example: public
+        type: string
+        enumValues:
+          - local
+          - public
+          - s3
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: 'optionها (سایز، رنگ، ...).'
+        required: false
+        example: null
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: 'هرچیز اضافه‌ای که بخوای برای آینده.'
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'options[].option_id':
+        custom: []
+        name: 'options[].option_id'
+        description: 'This field is required when <code>options.*.option_value_id</code> is present.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'options[].option_name':
+        custom: []
+        name: 'options[].option_name'
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'options[].option_value_id':
+        custom: []
+        name: 'options[].option_value_id'
+        description: 'This field is required when <code>options.*.option_id</code> is present.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'options[].option_value':
+        custom: []
+        name: 'options[].option_value'
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      quantity: 16
+      settings:
+        print_x: 4326.41688
+        print_y: 4326.41688
+        print_width: 4326.41688
+        print_height: 4326.41688
+        rotation: 4326.41688
+        fit_mode: stretch
+        design:
+          scale: 4326.41688
+          offset_x: 4326.41688
+          offset_y: 4326.41688
+      mockup:
+        id: 16
+        name: architecto
+        preview_bg: architecto
+        preview: architecto
+      preview:
+        path: architecto
+        thumb: architecto
+        driver: public
+      options:
+        -
+          option_id: 16
+          option_name: architecto
+          option_value_id: 16
+          option_value: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Product] 16"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '6000'
+          x-ratelimit-remaining: '5997'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

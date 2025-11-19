@@ -1,14 +1,14 @@
-name: Ticket
+name: WalletTransactionExtra
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: 'api/tickets/by-user/{user?}'
+    uri: api/wallet/transaction/extras
     metadata:
       custom: []
-      groupName: Ticket
+      groupName: WalletTransactionExtra
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -19,20 +19,8 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      user:
-        custom: []
-        name: user
-        description: ''
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      user: 1
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -56,11 +44,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: 'api/tickets/conversation/{ticket_id}'
+      - PATCH
+    uri: 'api/wallet/transaction/extras/{walletTransactionExtra_id}'
     metadata:
       custom: []
-      groupName: Ticket
+      groupName: WalletTransactionExtra
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -72,10 +60,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      ticket_id:
+      walletTransactionExtra_id:
         custom: []
-        name: ticket_id
-        description: 'The ID of the ticket.'
+        name: walletTransactionExtra_id
+        description: 'The ID of the walletTransactionExtra.'
         required: true
         example: 16
         type: integer
@@ -84,102 +72,25 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ticket_id: 16
+      walletTransactionExtra_id: 16
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
+    bodyParameters:
+      taken_value:
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/tickets
-    metadata:
-      custom: []
-      groupName: Ticket
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+        name: taken_value
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      taken_value: 4326.41688
     fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/tickets/by-user-status
-    metadata:
-      custom: []
-      groupName: Ticket
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get ticket counts grouped by user and status'
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    responses: []
     responseFields: []
     auth: []
     controller: null

@@ -19,10 +19,10 @@ class BasicSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             CategorySeeder::class,
-            MockupSeeder::class,
             OptionSeeder::class,
             OptionValueSeeder::class,
             CategoryOptionSeeder::class,
+            MockupSeeder::class,
 
             //ProductSeeder::class,
             //ProfitSeeder::class

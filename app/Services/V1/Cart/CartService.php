@@ -39,7 +39,8 @@ class CartService
         foreach ($this->cart['items'] as $key => $item) {
             $item = $this->withRelationshipIfExist($item);
 
-            if ($item['product'] && $item['product']['status'] &&
+            if (
+                $item['product'] && $item['product']['status'] &&
                 in_array($item['product']['type'], [Product::TYPE_CART, Product::TYPE_CARD_CHARGE, Product::TYPE_PHYSICAL_CARD_CHARGE])
             ) {
                 $eachItem = $this->checkDiscountForEachProduct($item, $discountCheck, $saleCheck);
@@ -57,9 +58,22 @@ class CartService
                 $price += $unitPrice * $eachItem['quantity'];
 
                 $orderItems['product'][$eachItem['product']['id']] = [
-                    'quantity' => $eachItem['quantity'],
-                    'discount' => $discount + $sale,
-                    'price' => $finalUnitPrice,
+                    'quantity'         => $eachItem['quantity'],
+                    'discount'         => $discount + $sale,
+                    'price'            => $finalUnitPrice,
+
+                    // اسنپ‌شات محصول (اگر خودت موقع addToCart گذاشتی، همونو بردار،
+                    // وگرنه از همون $eachItem['product'] پرش کن)
+                    'product_snapshot' => $eachItem['product_snapshot'] ?? $eachItem['product'] ?? null,
+
+                    // config آیتم در سبد
+                    'config' => [
+                        'settings' => $eachItem['settings'] ?? null,
+                        'mockup'   => $eachItem['mockup']   ?? null,
+                        'preview'  => $eachItem['preview']  ?? null,
+                        'options'  => $eachItem['options']  ?? null,
+                        'meta'     => $eachItem['meta']     ?? null,
+                    ],
                 ];
             } else {
                 unset($this->cart['items'][$key]);
@@ -187,33 +201,49 @@ class CartService
      * @param int $quantity
      * @return array
      */
-    public function addToCart(mixed $product, int $quantity = 1): array
+    public function addToCart(mixed $product, int $quantity = 1, array $config = []): array
     {
         $warehouse = $product->warehouse;
+
         if (is_null($warehouse) || $this->count($product) < $warehouse->count) {
+
+            // اگر قبلاً تو سبد هست، فعلاً فقط quantity رو زیاد می‌کنیم
             if ($this->has($product)) {
                 $this->update($product, $quantity);
             } else {
-                $this->put(
-                    [
-                        'quantity' => $quantity,
+                // اینجا اسنپ‌شات محصول + config رو ذخیره می‌کنیم
+                $base = [
+                    'quantity'         => $quantity,
+                    'product_snapshot' => [
+                        'id'           => $product->id,
+                        'name'         => $product->name,
+                        'slug'         => $product->slug,
+                        'price'        => $product->price,
+                        'currency'     => $product->currency ?? 'IRR',
+                        'preview_path' => $product->preview_path,
+                        'type'         => $product->type,
                     ],
-                    $product
-                );
+                ];
+
+                $payload = array_merge($base, $config);
+
+                $this->put($payload, $product);
             }
+
             $this->dbSet();
 
             return [
-                'status' => true,
-                'message' => 'added to cart successfully'
+                'status'  => true,
+                'message' => 'added to cart successfully',
             ];
         }
 
         return [
-            'status' => false,
-            'message' => 'no item in warehouse'
+            'status'  => false,
+            'message' => 'no item in warehouse',
         ];
     }
+
 
     /**
      * @param string $name
@@ -243,7 +273,7 @@ class CartService
      * @param string|null $mobile
      * @return bool
      */
-    public function addDelivery(string $logisticId, string $date, ?int $deliveryBetweenStart, ?int $deliveryBetweenEnd,?int $address_id, ?string $title, ?string $province, string $city, string $address, ?string $postal_code, ?string $phone, ?string $mobile): bool
+    public function addDelivery(string $logisticId, string $date, ?int $deliveryBetweenStart, ?int $deliveryBetweenEnd, ?int $address_id, ?string $title, ?string $province, string $city, string $address, ?string $postal_code, ?string $phone, ?string $mobile): bool
     {
         $this->cart['delivery'] = [
             'logisticId' => $logisticId,

@@ -12,57 +12,75 @@ class CategorySeeder extends Seeder
     {
         $now = Carbon::now();
 
-        // 1️⃣ اول ریشه را درج می‌کنیم
-        $parentId = DB::table('categories')->insertGetId([
-            'name' => 'محصولات',
-            'parent_id' => null,
-            'data' => json_encode([]),
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-
-        // 2️⃣ حالا زیرمجموعه‌ها را درج می‌کنیم
-        $children = [
-            'پوشاک با چاپ استاندارد',
-            'پوشاک با چاپ بزرگ',
-            'کلاه‌ها',
-            'تی‌شرت‌های گرافیکی',
-            'لباس‌های خط A (دامن گشاد از کمر)',
-            'برچسب‌ها و آهنرباها',
-            'قاب گوشی',
-            'پد میز',
-            'پد ماوس',
-            'بالش‌ها و ساک‌های دستی',
-            'چاپ‌ها، کارت‌ها و پوسترها',
-            'کیف‌های کوچک، روکش و کاور لپ‌تاپ',
-            'روتختی‌ها، پتوهای نرم و پرده‌های حمام',
-            'ماگ‌ها',
-            'شال‌ها',
-            'کیف‌های بندی',
-            'دفترچه‌های سیمی',
-            'دفترهای جلدسخت',
-            'ساعت‌ها',
-            'چاپ‌های تخته هنری',
-            'بلوک‌های اکریلیک و زیرلیوانی‌ها',
-            'پتوهای تزئینی و پارچه‌های دیواری',
-            'پادری‌های حمام',
-            'ساک‌های دستی کتانی',
-            'سنجاق‌ها',
-            'پازل‌ها',
-            'جوراب‌ها',
+        $categories = [
+            [
+                'name' => 'لباس',
+                'children' => [
+                    [
+                        'name' => 'تیشرت',
+                        'children' => [
+                            ['name' => 'یقه گرد', 'base_price' => 6000000, 'markup_price' => 0, 'show_in_work' => 1],
+                            ['name' => 'یقه هفت', 'base_price' => 5000000, 'markup_price' => 0, 'show_in_work' => 0],
+                        ],
+                    ],
+                    [
+                        'name' => 'هودی',
+                        'children' => [
+                            ['name' => 'ساده', 'base_price' => 7000000, 'markup_price' => 0, 'show_in_work' => 0],
+                            ['name' => 'کلاهدار', 'base_price' => 5000000, 'markup_price' => 0, 'show_in_work' => 0],
+                        ],
+                    ],
+                ],
+            ],
+            [
+                'name' => 'قاب',
+                'children' => [
+                    [
+                        'name' => 'اپل',
+                        'children' => [
+                            ['name' => 'سخت', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 1],
+                            ['name' => 'نرم', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                        ],
+                    ],
+                    [
+                        'name' => 'سامسونگ',
+                        'children' => [
+                            ['name' => 'سخت', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                            ['name' => 'نرم', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                        ],
+                    ],
+                    [
+                        'name' => 'شیاِومی',
+                        'children' => [
+                            ['name' => 'سخت', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                            ['name' => 'نرم', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                            ['name' => 'سه بعدی', 'base_price' => 2000000, 'markup_price' => 0, 'show_in_work' => 0],
+                        ],
+                    ],
+                ],
+            ],
         ];
 
-        $data = [];
-        foreach ($children as $name) {
-            $data[] = [
-                'name' => $name,
-                'parent_id' => $parentId,
-                'data' => json_encode([]),
-                'created_at' => $now,
-                'updated_at' => $now,
-            ];
-        }
+        $this->seedCategories($categories, null, $now);
+    }
 
-        DB::table('categories')->insert($data);
+    protected function seedCategories(array $items, ?int $parentId, Carbon $now): void
+    {
+        foreach ($items as $item) {
+            $id = DB::table('categories')->insertGetId([
+                'name'         => $item['name'],
+                'base_price'   => $item['base_price']   ?? 0,
+                'markup_price' => $item['markup_price'] ?? 0,
+                'show_in_work' => $item['show_in_work'] ?? 0,
+                'parent_id'    => $parentId,
+                'data'         => json_encode([]),
+                'created_at'   => $now,
+                'updated_at'   => $now,
+            ]);
+
+            if (!empty($item['children']) && is_array($item['children'])) {
+                $this->seedCategories($item['children'], $id, $now);
+            }
+        }
     }
 }

@@ -49,6 +49,7 @@ use App\Http\Controllers\V1\DesignController;
 use App\Http\Controllers\V1\MockupController;
 use App\Http\Controllers\V1\OptionController;
 use App\Http\Controllers\V1\OptionValueController;
+use App\Http\Controllers\V1\VariantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -271,8 +272,14 @@ Route::middleware(['checkToken'])->group(function () {
         Route::delete('/options/values/{option}/{optionValue}', [OptionValueController::class, 'destroy']);
         Route::get('/clients/options/values/{option}', [OptionValueController::class, 'clientIndex']);
 
+        Route::get('/clients/variants', [VariantController::class, 'clientIndex']);
+        Route::get('/variants', [VariantController::class, 'index']);
+        Route::post('/variants', [VariantController::class, 'store']);
+        Route::patch('/variants/{variant}', [VariantController::class, 'update']);
+        Route::delete('/variants/{variant}', [VariantController::class, 'destroy']);
 
-        
+
+
         Route::get('/categories/options/{category}', [CategoryOptionController::class, 'index']);
         Route::post('/categories/options/sync/{category}', [CategoryOptionController::class, 'sync']);
         Route::delete('/categories/options/{category}/{option}', [CategoryOptionController::class, 'destroy']);
