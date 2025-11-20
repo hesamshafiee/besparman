@@ -17,32 +17,48 @@ class ProductRequest extends FormRequest
         $id = $this->route('id');
 
         return [
-            'user_id'     => ['required','integer','exists:users,id'],
-            'category_id' => ['required','integer','exists:categories,id'],
-            'work_id'     => ['required','integer','exists:works,id'],
+            // روابط
+            'user_id'    => ['required','integer','exists:users,id'],
+            'variant_id' => ['required','integer','exists:variants,id'],
+            'work_id'    => ['required','integer','exists:works,id'],
 
+            // اطلاعات پایه
             'name'        => ['nullable','string','max:200'],
-            'slug'        => ['nullable','string','max:220', Rule::unique('products','slug')->ignore($id)],
+            'slug'        => [
+                'nullable',
+                'string',
+                'max:220',
+                Rule::unique('products','slug')->ignore($id)
+            ],
             'name_en'     => ['nullable','string','max:200'],
 
+            // توضیحات
             'description'       => ['nullable','string'],
             'description_full'  => ['nullable','string'],
 
-            'sku'         => ['nullable','string','max:100', Rule::unique('products','sku')->ignore($id)],
+            // قیمت/نوع
+            'sku'         => [
+                'nullable',
+                'string',
+                'max:100',
+                Rule::unique('products','sku')->ignore($id)
+            ],
             'price'       => ['nullable','integer','min:0'],
             'currency'    => ['nullable','string','size:3'],
             'type'        => ['nullable','string','max:50'],
 
+            // تنظیمات فروش/نمایش
             'minimum_sale'=> ['nullable','integer','min:1'],
             'dimension'   => ['nullable','string','max:50'],
             'score'       => ['nullable','integer','between:0,100'],
             'status'      => ['nullable','integer','between:0,5'],
             'sort'        => ['nullable','integer','min:0'],
 
+            // مسیر فایل‌ها (معمولاً توسط سیستم پر می‌شود)
             'original_path' => ['nullable','string','max:255'],
             'preview_path'  => ['nullable','string','max:255'],
 
-            // JSON
+            // JSON / آرایه‌ها
             'settings'    => ['nullable'], // string(json) یا array؛ در prepare تبدیل می‌کنیم
             'options'     => ['nullable'],
             'meta'        => ['nullable'],
@@ -53,6 +69,7 @@ class ProductRequest extends FormRequest
     {
         $data = $this->all();
 
+        // تبدیل رشته‌های JSON به آرایه
         foreach (['settings','options','meta'] as $key) {
             if (isset($data[$key]) && is_string($data[$key])) {
                 $decoded = json_decode($data[$key], true);
@@ -62,6 +79,7 @@ class ProductRequest extends FormRequest
             }
         }
 
+        // اگر slug خالی بود و name داشتیم، خودکار بسازیم
         if (empty($data['slug']) && !empty($data['name'])) {
             $data['slug'] = str($data['name'])->slug('-') . '-' . str()->random(4);
         }

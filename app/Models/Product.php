@@ -9,20 +9,18 @@ use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Traits\LogsActivityWithRequest;
 
-
-class Product extends Model
+class Product extends Model implements Sortable
 {
     use SoftDeletes;
     use HasFactory, SortableTrait;
     use LogsActivityWithRequest;
 
-
-    const STATUS_ACTIVE = 1;
+    const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 0;
 
     protected $fillable = [
         'user_id',
-        'category_id',
+        'variant_id',      // 👈 به جای category_id
         'work_id',
         'name',
         'slug',
@@ -54,16 +52,24 @@ class Product extends Model
         'options'  => 'array',
         'meta'     => 'array',
     ];
+    public $sortable = [
+        'order_column_name'  => 'sort',   // به‌جای "order"
+        'sort_when_creating' => true,     // موقع ایجاد، آخر صف بذار
+    ];
 
     /** روابط **/
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function category()
+
+    // قبلاً category بود، الان محصول مستقیم به Variant وصل است
+    public function variant()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Variant::class);
     }
+
     public function work()
     {
         return $this->belongsTo(Work::class);

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Work;
+use App\Models\Variant;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Laravel\Sanctum\Sanctum;
@@ -13,7 +14,6 @@ use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-
 
 class ProductTest extends TestCase
 {
@@ -26,62 +26,64 @@ class ProductTest extends TestCase
     {
         parent::setUp();
 
-        // مایگریشن و سیدها
         $this->artisan('migrate');
         $this->artisan('db:seed');
 
+        Storage::fake('public');
 
-        Storage::fake('public'); // ← اضافه شد
-
-        // کاربر لاگین
         $this->user = User::factory()->create();
 
-        // نقش ادمین تستی
         $this->role = Role::create(['name' => 'role', 'guard_name' => 'web']);
-        $this->role->givePermissionTo('product.*'); // فرض: permission در پروژه‌ات ساخته می‌شود
+        $this->role->givePermissionTo('product.*');
 
-        // احراز هویت
         Sanctum::actingAs($this->user, ['*']);
     }
-        private function fakePng(string $name = 'img.png'): UploadedFile
+
+    private function fakePng(string $name = 'img.png'): UploadedFile
     {
-        // PNG 1x1 شفاف
         $base64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMB/axhZV8AAAAASUVORK5CYII=';
         return UploadedFile::fake()->createWithContent($name, base64_decode($base64));
     }
 
-    /** ----------------- Client: create & delete ----------------- */
+    /**
+     * Client: create & delete
+     */
     public function test_client_storing_and_deleting_product(): void
     {
         $category = Category::factory()->create();
+        $variant  = Variant::create([
+            'category_id' => $category->id,
+            'sku'         => 'TST-SKU-1',
+            'stock'       => 10,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
 
         $w1 = Work::create([
-            'user_id' => $this->user->id,
-            'title' => 'Alpha',
-            'slug' => Work::makeSlug('Alpha'),
-            'description' => 'desc A',
-            'is_published' => true,
-            'published_at' => now(),
+            'user_id'       => $this->user->id,
+            'title'         => 'Alpha',
+            'slug'          => Work::makeSlug('Alpha'),
+            'description'   => 'desc A',
+            'is_published'  => true,
+            'published_at'  => now(),
         ]);
 
         $payload = [
-            'name'        => 'تیشرت طرح گربه',
-            'price'       => 250000,
-            'type'        => 'standard',
-            'category_id' => $category->id,
-            'status'      => 1,
-            'work_id'      => $w1->id,
-            'user_id'      => $this->user->id,
-            // settings/options می‌توانند string(json) هم باشند
-            'settings'    => json_encode([
+            'name'       => 'تیشرت طرح گربه',
+            'price'      => 250000,
+            'type'       => 'standard',
+            'variant_id' => $variant->id,
+            'status'     => 1,
+            'work_id'    => $w1->id,
+            'user_id'    => $this->user->id,
+            'settings'   => json_encode([
                 'fit_mode' => 'contain',
                 'rotation' => 0,
             ]),
         ];
 
-
-        // ایجاد (کلاینت)
         $res = $this->post('/api/client/products', $payload);
+
         $res->assertStatus(200)->assertJson([
             'status'  => true,
             'message' => __('general.savedSuccessfully'),
@@ -90,7 +92,6 @@ class ProductTest extends TestCase
         $product = Product::where('user_id', $this->user->id)->first();
         $this->assertNotNull($product);
 
-        // حذف (کلاینت)
         $del = $this->delete('/api/client/products/' . $product->id);
         $del->assertStatus(200)->assertJson([
             'status'  => true,
@@ -98,47 +99,53 @@ class ProductTest extends TestCase
         ]);
     }
 
-    /** ----------------- Client: update ----------------- */
+    /**
+     * Client: update
+     */
     public function test_client_updating_product(): void
     {
         $category = Category::factory()->create();
-        $w1 = Work::create([
-            'user_id' => $this->user->id,
-            'title' => 'Alpha',
-            'slug' => Work::makeSlug('Alpha'),
-            'description' => 'desc A',
-            'is_published' => true,
-            'published_at' => now(),
-        ]);
-
-        // محصول اولیه متعلق به همین کاربر
-        $product = Product::create([
-            'user_id'     => $this->user->id,
-            'work_id'      => $w1->id,
+        $variant  = Variant::create([
             'category_id' => $category->id,
-            'name'        => 'طرح قدیمی',
-            'slug'        => 'old-slug-1234',
-            'price'       => 150000,
-            'currency'    => 'IRR',
-            'type'        => 'standard',
-            'status'      => 1,
+            'sku'         => 'TST-SKU-2',
+            'stock'       => 5,
+            'add_price'   => 0,
+            'is_active'   => true,
         ]);
 
+        $w1 = Work::create([
+            'user_id'       => $this->user->id,
+            'title'         => 'Alpha',
+            'slug'          => Work::makeSlug('Alpha'),
+            'description'   => 'desc A',
+            'is_published'  => true,
+            'published_at'  => now(),
+        ]);
 
-
+        $product = Product::create([
+            'user_id'    => $this->user->id,
+            'work_id'    => $w1->id,
+            'variant_id' => $variant->id,
+            'name'       => 'طرح قدیمی',
+            'slug'       => 'old-slug-1234',
+            'price'      => 150000,
+            'currency'   => 'IRR',
+            'type'       => 'standard',
+            'status'     => 1,
+        ]);
 
         $update = [
-            'name'   => 'طرح جدید',
-            'price'  => 199000,
-            'status' => 1,
-            'user_id'     => $this->user->id,
-            'work_id'      => $w1->id,
-            'category_id' => $category->id,
-            // اگر slug خالی بفرستی، کنترلر دوباره می‌سازه
-            'slug'   => '',
+            'name'       => 'طرح جدید',
+            'price'      => 199000,
+            'status'     => 1,
+            'user_id'    => $this->user->id,
+            'work_id'    => $w1->id,
+            'variant_id' => $variant->id,
+            'slug'       => '',
         ];
 
         $res = $this->put('/api/client/products/' . $product->id, $update);
+
         $res->assertStatus(200)->assertJson([
             'status'  => true,
             'message' => __('general.updatedSuccessfully', ['id' => $product->id]),
@@ -151,73 +158,95 @@ class ProductTest extends TestCase
         ]);
     }
 
-    /** ----------------- Client: listing & single ----------------- */
+    /**
+     * Client: listing & single
+     */
     public function test_client_fetching_products(): void
     {
         $category = Category::factory()->create();
+        $variant  = Variant::create([
+            'category_id' => $category->id,
+            'sku'         => 'TST-SKU-3',
+            'stock'       => 8,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+
         $w1 = Work::create([
-            'user_id' => $this->user->id,
-            'title' => 'Alpha',
-            'slug' => Work::makeSlug('Alpha'),
-            'description' => 'desc A',
-            'is_published' => true,
-            'published_at' => now(),
+            'user_id'       => $this->user->id,
+            'title'         => 'Alpha',
+            'slug'          => Work::makeSlug('Alpha'),
+            'description'   => 'desc A',
+            'is_published'  => true,
+            'published_at'  => now(),
         ]);
 
         Product::create([
-            'user_id'     => $this->user->id,
-            'category_id' => $category->id,
-            'name'        => 'محصول ۱',
-            'work_id'      => $w1->id,
-            'slug'        => 'product-1-'.\Str::random(4),
-            'price'       => 120000,
-            'currency'    => 'IRR',
-            'type'        => 'standard',
-            'status'      => 1,
+            'user_id'    => $this->user->id,
+            'variant_id' => $variant->id,
+            'name'       => 'محصول ۱',
+            'work_id'    => $w1->id,
+            'slug'       => 'product-1-' . \Str::random(4),
+            'price'      => 120000,
+            'currency'   => 'IRR',
+            'type'       => 'standard',
+            'status'     => 1,
         ]);
 
-        // لیست صفحه‌بندی‌شده (کلاینت)
         $res = $this->get('/api/client/products?per_page=2');
-        $res->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+
+        $res->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
         $first = Product::where('user_id', $this->user->id)->first();
 
-        // دریافت تکی با ?id=
         $res2 = $this->get('/api/client/products?id=' . $first->id);
-        $res2->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+
+        $res2->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'balance', 'additional'])
         );
     }
 
-    /** ----------------- Admin: CRUD + restore ----------------- */
+    /**
+     * Admin: CRUD + restore
+     */
     public function test_admin_crud_and_restore(): void
     {
-        // نقش ادمین
         $this->user->assignRole($this->role);
 
         $category = Category::factory()->create();
-        $w1 = Work::create([
-            'user_id' => $this->user->id,
-            'title' => 'Alpha',
-            'slug' => Work::makeSlug('Alpha'),
-            'description' => 'desc A',
-            'is_published' => true,
-            'published_at' => now(),
+        $variant  = Variant::create([
+            'category_id' => $category->id,
+            'sku'         => 'TST-SKU-4',
+            'stock'       => 3,
+            'add_price'   => 0,
+            'is_active'   => true,
         ]);
 
-        // ایجاد (ادمین)
+        $w1 = Work::create([
+            'user_id'       => $this->user->id,
+            'title'         => 'Alpha',
+            'slug'          => Work::makeSlug('Alpha'),
+            'description'   => 'desc A',
+            'is_published'  => true,
+            'published_at'  => now(),
+        ]);
+
         $payload = [
-            'user_id'     => $this->user->id,
-            'category_id' => $category->id,
-            'name'        => 'هودی مشکی',
-            'price'       => 350000,
-            'type'        => 'standard',
-            'status'      => 1,
-            'work_id'      => $w1->id,
+            'user_id'    => $this->user->id,
+            'variant_id' => $variant->id,
+            'name'       => 'هودی مشکی',
+            'price'      => 350000,
+            'type'       => 'standard',
+            'status'     => 1,
+            'work_id'    => $w1->id,
         ];
+
         $create = $this->post('/api/products', $payload);
+
         $create->assertStatus(200)->assertJson([
             'status'  => true,
             'message' => __('general.savedSuccessfully'),
@@ -225,41 +254,40 @@ class ProductTest extends TestCase
 
         $product = Product::where('name', 'هودی مشکی')->firstOrFail();
 
-        // لیست (ادمین)
         $list = $this->get('/api/products?per_page=1');
-        $list->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+        $list->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
-        // تکی با id (ادمین)
         $single = $this->get('/api/products?id=' . $product->id);
-        $single->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+        $single->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
             $json->hasAll(['data', 'balance', 'additional'])
         );
 
-        // بروزرسانی (ادمین)
         $update = $this->put('/api/products/' . $product->id, [
-            'name'  => 'هودی سرمه‌ای',
-            'price' => 360000,
-            'work_id'      => $w1->id,
-            'user_id'     => $this->user->id,
-            'category_id' => $category->id,
+            'name'       => 'هودی سرمه‌ای',
+            'price'      => 360000,
+            'work_id'    => $w1->id,
+            'user_id'    => $this->user->id,
+            'variant_id' => $variant->id,
         ]);
+
         $update->assertStatus(200)->assertJson([
             'status'  => true,
             'message' => __('general.updatedSuccessfully', ['id' => $product->id]),
         ]);
+
         $this->assertDatabaseHas('products', [
-            'id'    => $product->id,
-            'name'  => 'هودی سرمه‌ای',
-            'price' => 360000,
-            'work_id'      => $w1->id,
-            'user_id'     => $this->user->id,
-            'category_id' => $category->id,
+            'id'        => $product->id,
+            'name'      => 'هودی سرمه‌ای',
+            'price'     => 360000,
+            'work_id'   => $w1->id,
+            'user_id'   => $this->user->id,
+            'variant_id'=> $variant->id,
         ]);
 
-
-        // حذف (ادمین) - soft delete
         $delete = $this->delete('/api/products/' . $product->id);
         $delete->assertStatus(200)->assertJson([
             'status'  => true,
@@ -267,7 +295,6 @@ class ProductTest extends TestCase
         ]);
         $this->assertSoftDeleted('products', ['id' => $product->id]);
 
-        // بازیابی (ادمین)
         $restore = $this->post('/api/products/' . $product->id . '/restore');
         $restore->assertStatus(200)->assertJson([
             'status'  => true,
@@ -275,47 +302,62 @@ class ProductTest extends TestCase
         ]);
         $this->assertDatabaseHas('products', ['id' => $product->id, 'deleted_at' => null]);
     }
-public function test_client_bulk_store_with_global_image_and_per_category_settings(): void
+
+    /**
+     * Client bulk store: global image + per-variant settings
+     */
+    public function test_client_bulk_store_with_global_image_and_per_variant_settings(): void
     {
-        // داده‌های لازم: دو دسته + یک work متعلق به کاربر
         $c1 = Category::factory()->create();
         $c2 = Category::factory()->create();
+
+        $v1 = Variant::create([
+            'category_id' => $c1->id,
+            'sku'         => 'BULK-SKU-1',
+            'stock'       => 10,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+        $v2 = Variant::create([
+            'category_id' => $c2->id,
+            'sku'         => 'BULK-SKU-2',
+            'stock'       => 5,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+
         $work = Work::factory()->create(['user_id' => $this->user->id]);
 
         $globalSettings = ['fit' => 'contain', 'offset' => ['x' => 0, 'y' => 0]];
-        $cat1Settings   = ['fit' => 'cover',   'scale'  => 1.1];
-        $cat2Settings   = ['fit' => 'contain', 'scale'  => 0.9];
+        $v1Settings     = ['fit' => 'cover',   'scale'  => 1.1];
+        $v2Settings     = ['fit' => 'contain', 'scale'  => 0.9];
 
         $payload = [
-            'work_id'   => $work->id,
-            'name'      => 'طرح مشترک',
-            'price'     => 150000,
-            'status'    => 1,
-            'sku'       => 'TS-2025',
-            'settings'  => json_encode($globalSettings),
+            'work_id'  => $work->id,
+            'name'     => 'طرح مشترک',
+            'price'    => 150000,
+            'status'   => 1,
+            'sku'      => 'TS-2025',
+            'settings' => json_encode($globalSettings),
 
-            // تصویر عمومی برای همه‌ی دسته‌ها
-            'image'     => $this->fakePng('common.png'),
+            'image'    => $this->fakePng('common.png'),
 
-            // هر دسته یک محصول؛ هرکدام settings جدا
-            'categories' => [
+            'variants' => [
                 [
-                    'category_id' => $c1->id,
-                    'address'     => 'node:12',
-                    'settings'    => json_encode($cat1Settings),
-                    // mockup_id اگر داری می‌تونی اضافه کنی
-                    // 'mockup_id' => Mockup::factory()->create()->id,
+                    'variant_id' => $v1->id,
+                    'address'    => 'node:12',
+                    'settings'   => json_encode($v1Settings),
                 ],
                 [
-                    'category_id' => $c2->id,
-                    // این یکی قیمت اختصاصی هم override می‌کند
-                    'price'       => 180000,
-                    'settings'    => json_encode($cat2Settings),
+                    'variant_id' => $v2->id,
+                    'price'      => 180000,
+                    'settings'   => json_encode($v2Settings),
                 ],
             ],
         ];
 
         $res = $this->post('/api/client/products/bulk', $payload);
+
         $res->assertStatus(200)
             ->assertJson([
                 'status'  => true,
@@ -323,7 +365,6 @@ public function test_client_bulk_store_with_global_image_and_per_category_settin
                 'data'    => ['work_id' => $work->id, 'count' => 2],
             ]);
 
-        // بررسی دیتابیس: دقیقاً 2 محصول با work_id مشترک و categoryهای متفاوت
         $products = Product::where('user_id', $this->user->id)
             ->where('work_id', $work->id)
             ->orderBy('id')
@@ -334,9 +375,8 @@ public function test_client_bulk_store_with_global_image_and_per_category_settin
         $p1 = $products[0];
         $p2 = $products[1];
 
-        // محصول اول
         $this->assertSame($work->id, $p1->work_id);
-        $this->assertSame($c1->id,   $p1->category_id);
+        $this->assertSame($v1->id,   $p1->variant_id);
         $this->assertSame(150000,    (int) $p1->price);
         $this->assertSame(1,         (int) $p1->status);
         $this->assertNotEmpty($p1->original_path);
@@ -345,10 +385,9 @@ public function test_client_bulk_store_with_global_image_and_per_category_settin
         $this->assertSame('cover',   $p1->settings['fit']);
         $this->assertSame(1.1,       (float) $p1->settings['scale']);
 
-        // محصول دوم
         $this->assertSame($work->id, $p2->work_id);
-        $this->assertSame($c2->id,   $p2->category_id);
-        $this->assertSame(180000,    (int) $p2->price); // override شده
+        $this->assertSame($v2->id,   $p2->variant_id);
+        $this->assertSame(180000,    (int) $p2->price);
         $this->assertSame(1,         (int) $p2->status);
         $this->assertNotEmpty($p2->original_path);
         $this->assertNotEmpty($p2->preview_path);
@@ -361,55 +400,88 @@ public function test_client_bulk_store_with_global_image_and_per_category_settin
     {
         $c1 = Category::factory()->create();
         $c2 = Category::factory()->create();
+
+        $v1 = Variant::create([
+            'category_id' => $c1->id,
+            'sku'         => 'BULK-SKU-3',
+            'stock'       => 5,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+        $v2 = Variant::create([
+            'category_id' => $c2->id,
+            'sku'         => 'BULK-SKU-4',
+            'stock'       => 7,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+
         $work = Work::factory()->create(['user_id' => $this->user->id]);
 
-        // هیچ تصویر عمومی نیست، و فقط برای یکی از دسته‌ها تصویر می‌فرستیم
         $payload = [
-            'work_id'   => $work->id,
-            'name'      => 'بدون تصویر عمومی',
-            'price'     => 1000,
-            'categories' => [
+            'work_id'  => $work->id,
+            'name'     => 'بدون تصویر عمومی',
+            'price'    => 1000,
+            'variants' => [
                 [
-                    'category_id' => $c1->id,
-                    'image' => $this->fakePng('c1.jpg'),
+                    'variant_id' => $v1->id,
+                    'image'      => $this->fakePng('v1.jpg'),
                 ],
                 [
-                    'category_id' => $c2->id,
+                    'variant_id' => $v2->id,
                     // تصویر ندارد → باید 422 بدهد
                 ],
             ],
         ];
 
         $res = $this->post('/api/client/products/bulk', $payload);
+
         $res->assertStatus(422);
     }
 
-    public function test_client_bulk_store_with_per_category_images_only(): void
+    public function test_client_bulk_store_with_per_variant_images_only(): void
     {
         $c1 = Category::factory()->create();
         $c2 = Category::factory()->create();
+
+        $v1 = Variant::create([
+            'category_id' => $c1->id,
+            'sku'         => 'BULK-SKU-5',
+            'stock'       => 8,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+        $v2 = Variant::create([
+            'category_id' => $c2->id,
+            'sku'         => 'BULK-SKU-6',
+            'stock'       => 4,
+            'add_price'   => 0,
+            'is_active'   => true,
+        ]);
+
         $work = Work::factory()->create(['user_id' => $this->user->id]);
 
         $payload = [
-            'work_id'   => $work->id,
-            'name'      => 'تصاویر اختصاصی دسته‌ها',
-            'price'     => 220000,
-            'status'    => 1,
-            'categories' => [
+            'work_id'  => $work->id,
+            'name'     => 'تصاویر اختصاصی واریانت‌ها',
+            'price'    => 220000,
+            'status'   => 1,
+            'variants' => [
                 [
-                    'category_id' => $c1->id,
-                    'image' => $this->fakePng('c1.png'),
-                    'settings'    => json_encode(['fit' => 'cover']),
+                    'variant_id' => $v1->id,
+                    'image'      => $this->fakePng('v1.png'),
+                    'settings'   => json_encode(['fit' => 'cover']),
                 ],
                 [
-                    'category_id' => $c2->id,
-                    'image' => $this->fakePng('c2.png'),
-                    'settings'    => json_encode(['fit' => 'contain']),
+                    'variant_id' => $v2->id,
+                    'image'      => $this->fakePng('v2.png'),
+                    'settings'   => json_encode(['fit' => 'contain']),
                 ],
             ],
         ];
 
         $res = $this->post('/api/client/products/bulk', $payload);
+
         $res->assertStatus(200)
             ->assertJson([
                 'status'  => true,
@@ -420,10 +492,11 @@ public function test_client_bulk_store_with_global_image_and_per_category_settin
         $this->assertDatabaseCount('products', 2);
 
         $ps = Product::where('work_id', $work->id)->orderBy('id')->get();
-        $this->assertSame($c1->id, $ps[0]->category_id);
+
+        $this->assertSame($v1->id, $ps[0]->variant_id);
         $this->assertSame('cover', $ps[0]->settings['fit']);
 
-        $this->assertSame($c2->id, $ps[1]->category_id);
+        $this->assertSame($v2->id, $ps[1]->variant_id);
         $this->assertSame('contain', $ps[1]->settings['fit']);
     }
 }

@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Http\UploadedFile;
 
 class ProductController extends Controller
 {
@@ -28,8 +27,12 @@ class ProductController extends Controller
         $perPage   = (int) $request->query('per_page', 10);
 
         $allowed = ['id', 'created_at', 'updated_at', 'price', 'status', 'sort'];
-        if (!in_array($order, $allowed, true)) $order = 'id';
-        if (!in_array($typeOrder, ['asc', 'desc'], true)) $typeOrder = 'desc';
+        if (!in_array($order, $allowed, true)) {
+            $order = 'id';
+        }
+        if (!in_array($typeOrder, ['asc', 'desc'], true)) {
+            $typeOrder = 'desc';
+        }
 
         $base = Product::query()->where('user_id', Auth::id());
 
@@ -43,7 +46,7 @@ class ProductController extends Controller
     }
 
     /**
-     * ساخت محصول (کلاینت) + آپلود تصویر + تنظیمات
+     * ساخت محصول (کلاینت)
      * @group Product(Client)
      */
     public function clientStore(ProductRequest $request): JsonResponse
@@ -52,11 +55,11 @@ class ProductController extends Controller
 
         $product = new Product($data);
         $product->user_id = Auth::id();
+
         if (empty($product->slug)) {
-            $product->slug = Str::slug($product->name) . '-' . Str::random(4);
+            $product->slug = Str::slug($product->name ?? 'product') . '-' . Str::random(4);
         }
 
-        // اگر تصویر آمد، بعد از save مسیرها را ست می‌کنیم
         if (!$product->save()) {
             return response()->serverError(__('general.somethingWrong'));
         }
@@ -84,18 +87,15 @@ class ProductController extends Controller
         $data = $this->normalizeJsonFields($request->validated(), ['settings', 'options', 'meta']);
 
         if (array_key_exists('slug', $data) && empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name'] ?? $product->name) . '-' . Str::random(4);
+            $data['slug'] = Str::slug($data['name'] ?? $product->name ?? 'product') . '-' . Str::random(4);
         }
 
         $product->fill($data);
 
-        // تصویر جدید؟
         if ($request->hasFile('image')) {
-            // حذف قبلی‌ها
             $this->deleteImageIfExists($product->original_path);
             $this->deleteImageIfExists($product->preview_path);
 
-            // ذخیره جدید
             [$orig, $prev] = $this->storeImageAndPreview($request->file('image'), $product->user_id);
             $product->original_path = $orig;
             $product->preview_path  = $prev;
@@ -104,6 +104,7 @@ class ProductController extends Controller
         if (!$product->save()) {
             return response()->serverError(__('general.somethingWrong'));
         }
+
         return response()->ok(__('general.updatedSuccessfully', ['id' => $product->id]));
     }
 
@@ -125,16 +126,22 @@ class ProductController extends Controller
             $this->deleteImageIfExists($prev);
             return response()->ok(__('general.deletedSuccessfully', ['id' => $product->id]));
         }
+
         return response()->serverError(__('general.somethingWrong'));
     }
 
-
+    /**
+     * ساخت انبوه محصول برای چند variant (کلاینت)
+     * قبلاً روی category_id بود، الان روی variant_id
+     *
+     * @group Product(Client)
+     */
     public function clientBulkStore(Request $request): JsonResponse
     {
         $validated = $request->validate([
             'work_id'                 => ['required', 'integer', 'exists:works,id'],
 
-            // مقادیر عمومی (در صورت نبودن override در دسته)
+            // مقادیر عمومی (در صورت نبودن override در آیتم‌ها)
             'name'                    => ['required', 'string', 'max:200'],
             'price'                   => ['required', 'integer', 'min:0'],
             'status'                  => ['nullable', 'integer', 'in:0,1'],
@@ -144,35 +151,35 @@ class ProductController extends Controller
             'options'                 => ['nullable'],
             'meta'                    => ['nullable'],
 
-            // تصویر عمومی (اگر برای هر دسته تصویر ندادی)
+            // تصویر عمومی
             'image'                   => ['nullable', 'file', 'image', 'max:5120'],
 
-            // لیست دسته‌ها (هر آیتم = یک محصول)
-            'categories'                          => ['required', 'array', 'min:1'],
-            'categories.*.category_id'            => ['required', 'integer', 'exists:categories,id'],
-            'categories.*.address'                => ['nullable', 'string', 'max:100'],
+            // لیست واریانت‌ها (هر آیتم = یک محصول)
+            'variants'                           => ['required', 'array', 'min:1'],
+            'variants.*.variant_id'              => ['required', 'integer', 'exists:variants,id'],
+            'variants.*.address'                 => ['nullable', 'string', 'max:100'], // اگر در meta استفاده می‌کنی
 
-            // overrideهای اختیاری مخصوص همان دسته
-            'categories.*.name'                   => ['nullable', 'string', 'max:200'],
-            'categories.*.price'                  => ['nullable', 'integer', 'min:0'],
-            'categories.*.status'                 => ['nullable', 'integer', 'in:0,1'],
-            'categories.*.sku'                    => ['nullable', 'string', 'max:100'],
-            'categories.*.mockup_id'              => ['nullable', 'integer', 'exists:mockups,id'],
-            'categories.*.settings'               => ['nullable'], // json/array/string
-            'categories.*.options'                => ['nullable'],
-            'categories.*.meta'                   => ['nullable'],
+            // overrideهای اختیاری مخصوص همان واریانت
+            'variants.*.name'                    => ['nullable', 'string', 'max:200'],
+            'variants.*.price'                   => ['nullable', 'integer', 'min:0'],
+            'variants.*.status'                  => ['nullable', 'integer', 'in:0,1'],
+            'variants.*.sku'                     => ['nullable', 'string', 'max:100'],
+            'variants.*.mockup_id'               => ['nullable', 'integer', 'exists:mockups,id'],
+            'variants.*.settings'                => ['nullable'], // json/array/string
+            'variants.*.options'                 => ['nullable'],
+            'variants.*.meta'                    => ['nullable'],
 
-            // تصویر اختصاصی همان دسته (اختیاری)
-            'categories.*.image'                  => ['nullable', 'file', 'image', 'max:5120'],
+            // تصویر اختصاصی همان واریانت (اختیاری)
+            'variants.*.image'                   => ['nullable', 'file', 'image', 'max:5120'],
         ]);
 
-        // اطمینان از داشتن تصویر: یا عمومی، یا برای تک‌تک دسته‌ها
+        // اطمینان از داشتن تصویر: یا عمومی، یا برای تک‌تک واریانت‌ها
         $hasGlobal = $request->hasFile('image');
-        if (! $hasGlobal) {
-            foreach ($request->input('categories', []) as $idx => $row) {
-                if (! $request->hasFile("categories.$idx.image")) {
+        if (!$hasGlobal) {
+            foreach ($request->input('variants', []) as $idx => $row) {
+                if (!$request->hasFile("variants.$idx.image")) {
                     return response()->json([
-                        'message' => 'برای هر دسته تصویر لازم است؛ یا یک تصویر عمومی بده یا برای هر دسته تصویر جدا ارسال کن.',
+                        'message' => 'برای هر واریانت تصویر لازم است؛ یا یک تصویر عمومی بده یا برای هر واریانت تصویر جدا ارسال کن.',
                     ], 422);
                 }
             }
@@ -180,7 +187,7 @@ class ProductController extends Controller
 
         // JSONهای عمومی را یکدست کنیم
         $global = $this->normalizeJsonFields($validated, ['settings', 'options', 'meta']);
-        $userId = \Auth::id();
+        $userId = Auth::id();
         $createdIds = [];
 
         \DB::beginTransaction();
@@ -191,55 +198,62 @@ class ProductController extends Controller
                 [$globalOrig, $globalPrev] = $this->storeImageAndPreview($request->file('image'), $userId);
             }
 
-            foreach ($validated['categories'] as $idx => $cat) {
-                // تصویر دسته (اگر هست) وگرنه عمومی
-                if ($request->hasFile("categories.$idx.image")) {
-                    [$orig, $prev] = $this->storeImageAndPreview($request->file("categories.$idx.image"), $userId);
+            foreach ($validated['variants'] as $idx => $row) {
+
+                // تصویر اختصاصی → اگر نبود از عمومی
+                if ($request->hasFile("variants.$idx.image")) {
+                    [$orig, $prev] = $this->storeImageAndPreview($request->file("variants.$idx.image"), $userId);
                 } else {
                     $orig = $globalOrig;
                     $prev = $globalPrev;
                 }
 
-                // settings/options/meta مخصوص دسته یا عمومی
-                $catNormalized = $this->normalizeJsonFields($cat, ['settings', 'options', 'meta']);
+                // settings/options/meta مخصوص آیتم یا عمومی
+                $rowNormalized = $this->normalizeJsonFields($row, ['settings', 'options', 'meta']);
 
-                $p = new \App\Models\Product();
-                $p->user_id          = $userId;
-                $p->work_id          = (int) $validated['work_id'];
-                $p->category_id      = (int) $cat['category_id'];
+                $p = new Product();
+                $p->user_id = $userId;
+                $p->work_id = (int) $validated['work_id'];
+                $p->variant_id = (int) $row['variant_id'];
 
-                // overrideهای دسته یا عمومی
-                $name   = $cat['name']   ?? $validated['name'];
-                $price  = $cat['price']  ?? $validated['price'];
-                $status = array_key_exists('status', $cat)
-                    ? (int) $cat['status']
+                // overrideهای هر واریانت یا عمومی
+                $name = $row['name'] ?? $validated['name'];
+                $price = $row['price'] ?? $validated['price'];
+                $status = array_key_exists('status', $row)
+                    ? (int) $row['status']
                     : (isset($validated['status']) ? (int) $validated['status'] : 0);
 
-                $p->name  = $name;
-                $p->slug  = \Illuminate\Support\Str::slug($name) . '-' . \Illuminate\Support\Str::random(4);
+                $p->name = $name;
+                $p->slug = Str::slug($name) . '-' . Str::random(4);
                 $p->price = (int) $price;
                 $p->status = $status;
 
-                // sku: اگر برای دسته آمد، همان؛ وگرنه عمومی. برای یکتا شدن کمی تصادفی.
-                if (!empty($cat['sku'])) {
-                    $p->sku = $cat['sku'] . '-' . \Illuminate\Support\Str::lower(\Illuminate\Support\Str::random(4));
+                // sku: اگر برای آیتم آمد، همان؛ وگرنه عمومی. برای یکتا شدن کمی تصادفی.
+                if (!empty($row['sku'])) {
+                    $p->sku = $row['sku'] . '-' . Str::lower(Str::random(4));
                 } elseif (!empty($validated['sku'])) {
-                    $p->sku = $validated['sku'] . '-' . \Illuminate\Support\Str::lower(\Illuminate\Support\Str::random(4));
+                    $p->sku = $validated['sku'] . '-' . Str::lower(Str::random(4));
                 }
 
-                // mockup_id: مخصوص دسته > عمومی
-                if (!empty($cat['mockup_id'])) {
-                    $p->mockup_id = (int) $cat['mockup_id'];
+                // mockup_id: مخصوص آیتم > عمومی
+                if (!empty($row['mockup_id'])) {
+                    $p->mockup_id = (int) $row['mockup_id'];
                 } elseif (!empty($validated['mockup_id'])) {
                     $p->mockup_id = (int) $validated['mockup_id'];
                 }
 
-                // settings/options/meta: مخصوص دسته > عمومی
-                $p->settings = $catNormalized['settings'] ?? ($global['settings'] ?? null);
-                $p->options  = $catNormalized['options']  ?? ($global['options']  ?? null);
-                $p->meta     = $catNormalized['meta']     ?? ($global['meta']     ?? null);
+                // settings/options/meta: مخصوص آیتم > عمومی
+                $p->settings = $rowNormalized['settings'] ?? ($global['settings'] ?? null);
+                $p->options  = $rowNormalized['options']  ?? ($global['options']  ?? null);
+                $p->meta     = $rowNormalized['meta']     ?? ($global['meta']     ?? null);
 
-                // مسیرها
+                // اگر address را می‌خواهی در meta ذخیره کنی:
+                if (!empty($row['address'])) {
+                    $meta = $p->meta ?? [];
+                    $meta['address'] = $row['address'];
+                    $p->meta = $meta;
+                }
+
                 $p->original_path = $orig;
                 $p->preview_path  = $prev;
 
@@ -265,7 +279,6 @@ class ProductController extends Controller
         }
     }
 
-
     // ---------------------------------------------------------------------
     //                                 Admin
     // ---------------------------------------------------------------------
@@ -279,20 +292,27 @@ class ProductController extends Controller
     {
         $this->authorize('show', Product::class);
 
-        $id        = (int) $request->query('id', 0);
-        $order     = $request->query('order', 'id');
-        $typeOrder = strtolower($request->query('type_order', 'desc'));
-        $perPage   = (int) $request->query('per_page', 10);
+        $id          = (int) $request->query('id', 0);
+        $order       = $request->query('order', 'id');
+        $typeOrder   = strtolower($request->query('type_order', 'desc'));
+        $perPage     = (int) $request->query('per_page', 10);
         $onlyTrashed = (bool) $request->boolean('only_trashed', false);
         $withTrashed = (bool) $request->boolean('with_trashed', false);
 
         $allowed = ['id', 'created_at', 'updated_at', 'price', 'status', 'sort'];
-        if (!in_array($order, $allowed, true)) $order = 'id';
-        if (!in_array($typeOrder, ['asc', 'desc'], true)) $typeOrder = 'desc';
+        if (!in_array($order, $allowed, true)) {
+            $order = 'id';
+        }
+        if (!in_array($typeOrder, ['asc', 'desc'], true)) {
+            $typeOrder = 'desc';
+        }
 
         $base = Product::query();
-        if ($onlyTrashed) $base->onlyTrashed();
-        elseif ($withTrashed) $base->withTrashed();
+        if ($onlyTrashed) {
+            $base->onlyTrashed();
+        } elseif ($withTrashed) {
+            $base->withTrashed();
+        }
 
         if ($id) {
             $item = (clone $base)->where('id', $id)->firstOrFail();
@@ -316,7 +336,7 @@ class ProductController extends Controller
         $product = new Product($data);
 
         if (empty($product->slug)) {
-            $product->slug = Str::slug($product->name) . '-' . Str::random(4);
+            $product->slug = Str::slug($product->name ?? 'product') . '-' . Str::random(4);
         }
 
         if (!$product->save()) {
@@ -346,7 +366,7 @@ class ProductController extends Controller
         $data    = $this->normalizeJsonFields($request->validated(), ['settings', 'options', 'meta']);
 
         if (array_key_exists('slug', $data) && empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name'] ?? $product->name) . '-' . Str::random(4);
+            $data['slug'] = Str::slug($data['name'] ?? $product->name ?? 'product') . '-' . Str::random(4);
         }
 
         $product->fill($data);
@@ -363,6 +383,7 @@ class ProductController extends Controller
         if (!$product->save()) {
             return response()->serverError(__('general.somethingWrong'));
         }
+
         return response()->ok(__('general.updatedSuccessfully', ['id' => $id]));
     }
 
@@ -383,6 +404,7 @@ class ProductController extends Controller
             $this->deleteImageIfExists($prev);
             return response()->ok(__('general.deletedSuccessfully', ['id' => $product->id]));
         }
+
         return response()->serverError(__('general.somethingWrong'));
     }
 
@@ -401,19 +423,16 @@ class ProductController extends Controller
         return response()->ok(__('general.restoredSuccessfully'));
     }
 
-
-
     // ===========================
-    // Helpers (تصویر و JSON)
+    // Helpers
     // ===========================
 
-    /**
-     * نرمال‌سازی فیلدهای JSON: هم String JSON و هم Array را قبول می‌کند.
-     */
     private function normalizeJsonFields(array $data, array $keys): array
     {
         foreach ($keys as $key) {
-            if (!array_key_exists($key, $data)) continue;
+            if (!array_key_exists($key, $data)) {
+                continue;
+            }
             if (is_string($data[$key])) {
                 $decoded = json_decode($data[$key], true);
                 if (json_last_error() === JSON_ERROR_NONE) {
@@ -425,9 +444,6 @@ class ProductController extends Controller
     }
 
     /**
-     * ذخیره تصویر و ساخت پیش‌نمایش (public disk).
-     * اگر کتابخانه‌ی تصویر نداری، preview همان کپی فایل اصلی خواهد بود.
-     *
      * @return array [$originalPath, $previewPath]
      */
     private function storeImageAndPreview($uploadedFile, int $userId): array
@@ -440,41 +456,28 @@ class ProductController extends Controller
         $originalRel = "{$baseDir}/{$uuid}.{$ext}";
         $previewRel  = "{$baseDir}/{$uuid}_preview.{$ext}";
 
-        // ذخیره فایل اصلی
         Storage::disk($disk)->put($originalRel, file_get_contents($uploadedFile->getRealPath()));
 
-        // ساخت پیش‌نمایش
         $this->makePreview($disk, $originalRel, $previewRel);
 
-        // مسیرهای وب (storage لینک سمبولیک داشته باشی)
         return [
             "/storage/{$originalRel}",
             "/storage/{$previewRel}",
         ];
     }
 
-    /**
-     * ساخت پیش‌نمایش (در صورت نبود Intervention، فقط کپی می‌کند)
-     */
     private function makePreview(string $disk, string $originalRel, string $previewRel): void
     {
-        // اگر Intervention/Image داری، اینجا ری‌سایز واقعی انجام بده:
-        // try {
-        //     $img = \Intervention\Image\Facades\Image::make(Storage::disk($disk)->path($originalRel));
-        //     $img->resize(800, null, function ($c) { $c->aspectRatio(); $c->upsize(); });
-        //     $img->save(Storage::disk($disk)->path($previewRel), 85, 'jpg');
-        // } catch (\Throwable $e) {
-        //     Storage::disk($disk)->copy($originalRel, $previewRel);
-        // }
-
-        // حالت ساده (بدون وابستگی)
+        // اگر Intervention/Image اضافه کردی، اینجا ری‌سایز واقعی انجام بده
         Storage::disk($disk)->copy($originalRel, $previewRel);
     }
 
     private function deleteImageIfExists(?string $publicPath): void
     {
-        if (!$publicPath) return;
-        // publicPath مثل /storage/products/uid/file.jpg است => باید به مسیر روی دیسک تبدیل شود
+        if (!$publicPath) {
+            return;
+        }
+
         $relative = ltrim(str_replace('/storage/', '', $publicPath), '/');
         if (Storage::disk('public')->exists($relative)) {
             Storage::disk('public')->delete($relative);
