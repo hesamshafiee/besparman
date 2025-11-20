@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست محصولات کاربر (کلاینت)'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -52,7 +52,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'ساخت محصول (کلاینت) + آپلود تصویر + تنظیمات'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -75,10 +75,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      category_id:
+      variant_id:
         custom: []
-        name: category_id
-        description: 'The <code>id</code> of an existing record in the categories table.'
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
         required: true
         example: 16
         type: integer
@@ -308,7 +308,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       user_id: 16
-      category_id: 16
+      variant_id: 16
       work_id: 16
       name: 'n'
       slug: g
@@ -344,7 +344,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'بروزرسانی محصول (کلاینت)'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -379,10 +379,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      category_id:
+      variant_id:
         custom: []
-        name: category_id
-        description: 'The <code>id</code> of an existing record in the categories table.'
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
         required: true
         example: 16
         type: integer
@@ -612,7 +612,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       user_id: 16
-      category_id: 16
+      variant_id: 16
       work_id: 16
       name: 'n'
       slug: g
@@ -648,7 +648,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'حذف محصول (کلاینت) + پاکسازی فایل‌ها'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -683,6 +683,305 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - POST
+    uri: api/client/products/bulk
+    metadata:
+      custom: []
+      groupName: Product(Client)
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        ساخت انبوه محصول برای چند variant (کلاینت)
+        قبلاً روی category_id بود، الان روی variant_id
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The <code>id</code> of an existing record in the works table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 200 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: 'Must be at least 0.'
+        required: true
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: '0'
+        type: integer
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sku:
+        custom: []
+        name: sku
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      mockup_id:
+        custom: []
+        name: mockup_id
+        description: 'The <code>id</code> of an existing record in the mockups table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      settings:
+        custom: []
+        name: settings
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      variants:
+        custom: []
+        name: variants
+        description: 'Must have at least 1 items.'
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'variants[].variant_id':
+        custom: []
+        name: 'variants[].variant_id'
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'variants[].address':
+        custom: []
+        name: 'variants[].address'
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].name':
+        custom: []
+        name: 'variants[].name'
+        description: 'اگر در meta استفاده می‌کنی. Must not be greater than 200 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].price':
+        custom: []
+        name: 'variants[].price'
+        description: 'Must be at least 0.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].status':
+        custom: []
+        name: 'variants[].status'
+        description: ''
+        required: false
+        example: '1'
+        type: integer
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].sku':
+        custom: []
+        name: 'variants[].sku'
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].mockup_id':
+        custom: []
+        name: 'variants[].mockup_id'
+        description: 'The <code>id</code> of an existing record in the mockups table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].settings':
+        custom: []
+        name: 'variants[].settings'
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].options':
+        custom: []
+        name: 'variants[].options'
+        description: json/array/string.
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].meta':
+        custom: []
+        name: 'variants[].meta'
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'variants[].image':
+        custom: []
+        name: 'variants[].image'
+        description: 'Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      work_id: 16
+      name: 'n'
+      price: 84
+      status: '0'
+      sku: z
+      mockup_id: 16
+      variants:
+        -
+          variant_id: 16
+          address: 'n'
+          name: g
+          price: 12
+          status: '1'
+          sku: m
+          mockup_id: 16
+    fileParameters:
+      image: null
+      variants:
+        -
+          image: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - GET
     uri: api/clients/products
     metadata:
@@ -691,7 +990,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست محصولات کاربر (کلاینت)'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false

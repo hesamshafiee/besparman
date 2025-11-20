@@ -142,7 +142,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -155,7 +155,7 @@ endpoints:
       otp: sms
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []

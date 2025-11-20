@@ -1,14 +1,14 @@
-name: Endpoints
+name: Product(Admin)
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: api/client/products/bulk
+      - GET
+    uri: api/products
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -17,13 +17,75 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/products
+    metadata:
+      custom: []
+      groupName: Product(Admin)
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      variant_id:
+        custom: []
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
       work_id:
         custom: []
         name: work_id
@@ -38,35 +100,55 @@ endpoints:
       name:
         custom: []
         name: name
-        description: 'مقادیر عمومی (در صورت نبودن override در دسته). Must not be greater than 200 characters.'
-        required: true
+        description: 'Must not be greater than 200 characters.'
+        required: false
         example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      price:
+      slug:
         custom: []
-        name: price
-        description: 'Must be at least 0.'
-        required: true
-        example: 84
-        type: integer
+        name: slug
+        description: 'Must not be greater than 220 characters.'
+        required: false
+        example: g
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      status:
+      name_en:
         custom: []
-        name: status
+        name: name_en
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
         description: ''
         required: false
-        example: '0'
-        type: integer
-        enumValues:
-          - '0'
-          - '1'
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
         exampleWasSpecified: false
         nullable: true
         deprecated: false
@@ -75,19 +157,118 @@ endpoints:
         name: sku
         description: 'Must not be greater than 100 characters.'
         required: false
-        example: z
+        example: 'n'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      mockup_id:
+      price:
         custom: []
-        name: mockup_id
-        description: 'The <code>id</code> of an existing record in the mockups table.'
+        name: price
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      currency:
+        custom: []
+        name: currency
+        description: 'Must be 3 characters.'
+        required: false
+        example: zmi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      minimum_sale:
+        custom: []
+        name: minimum_sale
+        description: 'Must be at least 1.'
         required: false
         example: 16
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      dimension:
+        custom: []
+        name: dimension
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      score:
+        custom: []
+        name: score
+        description: 'Must be between 0 and 100.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must be between 0 and 5.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Must be at least 0.'
+        required: false
+        example: 52
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      original_path:
+        custom: []
+        name: original_path
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      preview_path:
+        custom: []
+        name: preview_path
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: k
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
@@ -106,7 +287,7 @@ endpoints:
       options:
         custom: []
         name: options
-        description: json/array/string.
+        description: ''
         required: false
         example: null
         type: string
@@ -125,308 +306,26 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      image:
-        custom: []
-        name: image
-        description: 'تصویر عمومی (اگر برای هر دسته تصویر ندادی). Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      categories:
-        custom: []
-        name: categories
-        description: 'لیست دسته‌ها (هر آیتم = یک محصول). Must have at least 1 items.'
-        required: true
-        example:
-          - []
-        type: 'object[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'categories[].category_id':
-        custom: []
-        name: 'categories[].category_id'
-        description: 'The <code>id</code> of an existing record in the categories table.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'categories[].address':
-        custom: []
-        name: 'categories[].address'
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].name':
-        custom: []
-        name: 'categories[].name'
-        description: 'overrideهای اختیاری مخصوص همان دسته. Must not be greater than 200 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].price':
-        custom: []
-        name: 'categories[].price'
-        description: 'Must be at least 0.'
-        required: false
-        example: 12
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].status':
-        custom: []
-        name: 'categories[].status'
-        description: ''
-        required: false
-        example: '0'
-        type: integer
-        enumValues:
-          - '0'
-          - '1'
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].sku':
-        custom: []
-        name: 'categories[].sku'
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].mockup_id':
-        custom: []
-        name: 'categories[].mockup_id'
-        description: 'The <code>id</code> of an existing record in the mockups table.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].settings':
-        custom: []
-        name: 'categories[].settings'
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].options':
-        custom: []
-        name: 'categories[].options'
-        description: json/array/string.
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].meta':
-        custom: []
-        name: 'categories[].meta'
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'categories[].image':
-        custom: []
-        name: 'categories[].image'
-        description: 'تصویر اختصاصی همان دسته (اختیاری). Must be a file. Must be an image. Must not be greater than 5120 kilobytes.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
     cleanBodyParameters:
+      user_id: 16
+      variant_id: 16
       work_id: 16
       name: 'n'
+      slug: g
+      name_en: z
+      description: 'Eius et animi quos velit et.'
+      description_full: architecto
+      sku: 'n'
       price: 84
-      status: '0'
-      sku: z
-      mockup_id: 16
-      categories:
-        -
-          category_id: 16
-          address: 'n'
-          name: g
-          price: 12
-          status: '0'
-          sku: m
-          mockup_id: 16
-    fileParameters:
-      image: null
-      categories:
-        -
-          image: null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/payment/card/increase
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      value:
-        custom: []
-        name: value
-        description: 'Must be at least 200000. Must not be greater than 2000000000.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      image:
-        custom: []
-        name: image
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: true
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      value: 1
-    fileParameters:
-      image:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/menus/{menu_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      menu_id:
-        custom: []
-        name: menu_id
-        description: 'The ID of the menu.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      menu_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
-        required: true
-        example: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      items:
-        custom: []
-        name: items
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
-      items: '["architecto","architecto"]'
-      status: false
+      currency: zmi
+      type: 'y'
+      minimum_sale: 16
+      dimension: d
+      score: 1
+      status: 1
+      sort: 52
+      original_path: i
+      preview_path: k
     fileParameters: []
     responses: []
     responseFields: []
@@ -437,666 +336,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PATCH
-    uri: 'api/addresses/{address_id}'
+      - PUT
+    uri: 'api/products/{id}'
     metadata:
       custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      address_id:
-        custom: []
-        name: address_id
-        description: 'The ID of the address.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      address_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      user_id:
-        custom: []
-        name: user_id
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      title:
-        custom: []
-        name: title
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      province:
-        custom: []
-        name: province
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      city:
-        custom: []
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      address:
-        custom: []
-        name: address
-        description: 'Must not be greater than 500 characters.'
-        required: false
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      postal_code:
-        custom: []
-        name: postal_code
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      mobile:
-        custom: []
-        name: mobile
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: 'y'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      is_default:
-        custom: []
-        name: is_default
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      province: 'n'
-      city: g
-      address: z
-      postal_code: m
-      phone: i
-      mobile: 'y'
-      is_default: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/logistics/{logistic_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      logistic_id:
-        custom: []
-        name: logistic_id
-        description: 'The ID of the logistic.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      logistic_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      city:
-        custom: []
-        name: city
-        description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      province:
-        custom: []
-        name: province
-        description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      country:
-        custom: []
-        name: country
-        description: 'Must be at least 3 characters. Must not be greater than 128 characters.'
-        required: true
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Must not be greater than 128 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      capacity:
-        custom: []
-        name: capacity
-        description: 'Must be between 1 and 250 digits.'
-        required: false
-        example: '13744917167193680612589365'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      price:
-        custom: []
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      min_price_for_free_delivery:
-        custom: []
-        name: min_price_for_free_delivery
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      start_delivery_after_day:
-        custom: []
-        name: start_delivery_after_day
-        description: 'Must be between 1 and 250 digits.'
-        required: false
-        example: '13744917167193680612589365'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      start_delivery_after_time:
-        custom: []
-        name: start_delivery_after_time
-        description: 'Must be between 1 and 250 digits.'
-        required: false
-        example: '13744917167193680612589365'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      start_time:
-        custom: []
-        name: start_time
-        description: 'Must be between 1 and 24 digits.'
-        required: false
-        example: '1374491711936806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      end_time:
-        custom: []
-        name: end_time
-        description: 'Must be between 1 and 24 digits.'
-        required: false
-        example: '1374491711936806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      divide_time:
-        custom: []
-        name: divide_time
-        description: 'Must be between 1 and 24 digits.'
-        required: false
-        example: '1374491711936806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_active_in_holiday:
-        custom: []
-        name: is_active_in_holiday
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      days_not_working:
-        custom: []
-        name: days_not_working
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      default:
-        custom: []
-        name: default
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_capital:
-        custom: []
-        name: is_capital
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      description:
-        custom: []
-        name: description
-        description: 'Must not be greater than 250 characters.'
-        required: false
-        example: 'Et animi quos velit et fugiat.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      city: b
-      province: 'n'
-      country: g
-      type: z
-      capacity: '13744917167193680612589365'
-      price: 4326.41688
-      min_price_for_free_delivery: 4326.41688
-      start_delivery_after_day: '13744917167193680612589365'
-      start_delivery_after_time: '13744917167193680612589365'
-      start_time: '1374491711936806'
-      end_time: '1374491711936806'
-      divide_time: '1374491711936806'
-      is_active_in_holiday: false
-      days_not_working: '["architecto","architecto"]'
-      status: false
-      default: true
-      is_capital: false
-      description: 'Et animi quos velit et fugiat.'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/warehouses/{warehouse_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      warehouse_id:
-        custom: []
-        name: warehouse_id
-        description: 'The ID of the warehouse.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      warehouse_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      product_id:
-        custom: []
-        name: product_id
-        description: 'The <code>id</code> of an existing record in the products table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      count:
-        custom: []
-        name: count
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      weight:
-        custom: []
-        name: weight
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      price:
-        custom: []
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      expiry_date:
-        custom: []
-        name: expiry_date
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-11-19T14:11:05'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      warehouse_address:
-        custom: []
-        name: warehouse_address
-        description: 'Must not be greater than 500 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      source:
-        custom: []
-        name: source
-        description: 'Must not be greater than 500 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      product_id: 4326.41688
-      count: 4326.41688
-      weight: 4326.41688
-      price: 4326.41688
-      expiry_date: '2025-11-19T14:11:05'
-      warehouse_address: m
-      source: i
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/landings/{landing_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      landing_id:
-        custom: []
-        name: landing_id
-        description: 'The ID of the landing.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      landing_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must not be greater than 100 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      content:
-        custom: []
-        name: content
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      content: '["architecto","architecto"]'
-      status: true
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/users/two-steps
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/users/restore/{id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -1111,287 +355,48 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the restore.'
+        description: 'The ID of the product.'
         required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/users-soft-deleted
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/users
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      mobile:
-        custom: []
-        name: mobile
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: rowan.gulgowski@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: ''
-        required: false
-        example: ordinary
-        type: string
-        enumValues:
-          - panel
-          - webservice
-          - admin
-          - esaj
-          - ordinary
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      private:
-        custom: []
-        name: private
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profile_confirm:
-        custom: []
-        name: profile_confirm
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      two_step:
-        custom: []
-        name: two_step
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      mobile: '137449171806'
-      email: rowan.gulgowski@example.com
-      type: ordinary
-      private: true
-      profile_confirm: true
-      name: architecto
-      two_step: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/users/{user_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      user_id:
-        custom: []
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      user_id: 1
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      mobile:
+      user_id:
         custom: []
-        name: mobile
-        description: 'Must be between 12 and 12 digits.'
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: true
-        example: '137449171806'
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      email:
+      variant_id:
         custom: []
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: rowan.gulgowski@example.com
-        type: string
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      type:
+      work_id:
         custom: []
-        name: type
-        description: ''
-        required: false
-        example: ordinary
-        type: string
-        enumValues:
-          - panel
-          - webservice
-          - admin
-          - esaj
-          - ordinary
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      private:
-        custom: []
-        name: private
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profile_confirm:
-        custom: []
-        name: profile_confirm
-        description: ''
-        required: false
-        example: true
-        type: boolean
+        name: work_id
+        description: 'The <code>id</code> of an existing record in the works table.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -1399,6 +404,50 @@ endpoints:
       name:
         custom: []
         name: name
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 220 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      name_en:
+        custom: []
+        name: name_en
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
         description: ''
         required: false
         example: architecto
@@ -1407,25 +456,180 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      two_step:
+      sku:
         custom: []
-        name: two_step
-        description: ''
+        name: sku
+        description: 'Must not be greater than 100 characters.'
         required: false
-        example: true
-        type: boolean
+        example: 'n'
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      currency:
+        custom: []
+        name: currency
+        description: 'Must be 3 characters.'
+        required: false
+        example: zmi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      minimum_sale:
+        custom: []
+        name: minimum_sale
+        description: 'Must be at least 1.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      dimension:
+        custom: []
+        name: dimension
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      score:
+        custom: []
+        name: score
+        description: 'Must be between 0 and 100.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must be between 0 and 5.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: 'Must be at least 0.'
+        required: false
+        example: 52
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      original_path:
+        custom: []
+        name: original_path
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      preview_path:
+        custom: []
+        name: preview_path
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: k
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      settings:
+        custom: []
+        name: settings
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      mobile: '137449171806'
-      email: rowan.gulgowski@example.com
-      type: ordinary
-      private: true
-      profile_confirm: true
-      name: architecto
-      two_step: true
+      user_id: 16
+      variant_id: 16
+      work_id: 16
+      name: 'n'
+      slug: g
+      name_en: z
+      description: 'Eius et animi quos velit et.'
+      description_full: architecto
+      sku: 'n'
+      price: 84
+      currency: zmi
+      type: 'y'
+      minimum_sale: 16
+      dimension: d
+      score: 1
+      status: 1
+      sort: 52
+      original_path: i
+      preview_path: k
     fileParameters: []
     responses: []
     responseFields: []
@@ -1437,1772 +641,10 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/users/{user_id}'
+    uri: 'api/products/{product_id}'
     metadata:
       custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      user_id:
-        custom: []
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      user_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/users/add-images
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      mobile:
-        custom: []
-        name: mobile
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: rowan.gulgowski@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: ''
-        required: false
-        example: webservice
-        type: string
-        enumValues:
-          - panel
-          - webservice
-          - admin
-          - esaj
-          - ordinary
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      private:
-        custom: []
-        name: private
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profile_confirm:
-        custom: []
-        name: profile_confirm
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      two_step:
-        custom: []
-        name: two_step
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      mobile: '137449171806'
-      email: rowan.gulgowski@example.com
-      type: webservice
-      private: false
-      profile_confirm: true
-      name: architecto
-      two_step: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/settings/{setting_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      setting_id:
-        custom: []
-        name: setting_id
-        description: 'The ID of the setting.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      setting_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      sms:
-        custom: []
-        name: sms
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      auth:
-        custom: []
-        name: auth
-        description: ''
-        required: false
-        example: otp
-        type: string
-        enumValues:
-          - otp
-          - otpOrPassword
-          - usernamePassword
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      otp:
-        custom: []
-        name: otp
-        description: ''
-        required: false
-        example: sms
-        type: string
-        enumValues:
-          - sms
-          - google2fa
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      jwt_expiration_time:
-        custom: []
-        name: jwt_expiration_time
-        description: 'Must be at least 1. Must not be greater than 1000.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      front:
-        custom: []
-        name: front
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      sms: true
-      email: true
-      auth: otp
-      otp: sms
-      jwt_expiration_time: 1
-      front: '["architecto","architecto"]'
-      status: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/comments/{comment_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      comment_id:
-        custom: []
-        name: comment_id
-        description: 'The ID of the comment.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      comment_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      comment:
-        custom: []
-        name: comment
-        description: 'Must be at least 10 characters. Must not be greater than 500 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      comment: b
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/profits/{profit_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      profit_id:
-        custom: []
-        name: profit_id
-        description: 'The ID of the profit.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      profit_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profit:
-        custom: []
-        name: profit
-        description: 'Must be at least 1. Must not be greater than 100.'
-        required: true
-        example: 22
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Must be between 0 and 1 digit.'
-        required: false
-        example: '1'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_id:
-        custom: []
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: true
-        example: 6217831.72
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: r
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      profit: 22
-      status: '1'
-      operator_id: 6217831.72
-      type: r
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/profit-splits/{profitSplit_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      profitSplit_id:
-        custom: []
-        name: profitSplit_id
-        description: 'The ID of the profitSplit.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      profitSplit_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must be at least 3 characters. Must not be greater than 100 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      seller_profit:
-        custom: []
-        name: seller_profit
-        description: 'Must be at least 1. Must not be greater than 100.'
-        required: true
-        example: 22
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profit_id:
-        custom: []
-        name: profit_id
-        description: 'The <code>id</code> of an existing record in the profits table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      seller_profit: 22
-      profit_id: 4326.41688
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/profit-groups/user
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/profit-groups/{profitGroup_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      profitGroup_id:
-        custom: []
-        name: profitGroup_id
-        description: 'The ID of the profitGroup.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      profitGroup_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profit_split_ids:
-        custom: []
-        name: profit_split_ids
-        description: 'The <code>id</code> of an existing record in the profit_splits table.'
-        required: true
-        example: []
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: b
-      profit_split_ids: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/profiles/by-admin/{user_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      user_id:
-        custom: []
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      user_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      birth_date:
-        custom: []
-        name: birth_date
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-11-19T14:11:05'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      address:
-        custom: []
-        name: address
-        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      postal_code:
-        custom: []
-        name: postal_code
-        description: 'Must not be greater than 50 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profession:
-        custom: []
-        name: profession
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      education:
-        custom: []
-        name: education
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      store_name:
-        custom: []
-        name: store_name
-        description: 'Must not be greater than 70 characters.'
-        required: true
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      national_code:
-        custom: []
-        name: national_code
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      province:
-        custom: []
-        name: province
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: 'y'
-        type: string
-        enumValues:
-          - 'آذربایجان شرقی'
-          - 'آذربایجان غربی'
-          - اردبیل
-          - اصفهان
-          - البرز
-          - ایلام
-          - بوشهر
-          - تهران
-          - 'چهارمحال و بختیاری'
-          - 'خراسان جنوبی'
-          - 'خراسان رضوی'
-          - 'خراسان شمالی'
-          - خوزستان
-          - زنجان
-          - سمنان
-          - 'سیستان و بلوچستان'
-          - فارس
-          - قزوین
-          - قم
-          - کردستان
-          - کرمان
-          - کرمانشاه
-          - 'کهگیلویه و بویراحمد'
-          - گلستان
-          - لرستان
-          - گیلان
-          - مازندران
-          - مرکزی
-          - هرمزگان
-          - همدان
-          - یزد
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      city:
-        custom: []
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: v
-        type: string
-        enumValues:
-          - null
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      gender:
-        custom: []
-        name: gender
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: d
-        type: string
-        enumValues:
-          - male
-          - female
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: l
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
-        required: true
-        example: j
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      legal_info:
-        custom: []
-        name: legal_info
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      ips:
-        custom: []
-        name: ips
-        description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
-        required: true
-        example:
-          - 'n'
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      images:
-        custom: []
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      birth_date: '2025-11-19T14:11:05'
-      address: b
-      postal_code: 'n'
-      profession: g
-      education: z
-      store_name: m
-      national_code: i
-      province: 'y'
-      city: v
-      gender: d
-      phone: l
-      name: j
-      legal_info: '["architecto","architecto"]'
-      ips:
-        - 'n'
-    fileParameters:
-      images:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: api/profiles
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      birth_date:
-        custom: []
-        name: birth_date
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-11-19T14:11:05'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      address:
-        custom: []
-        name: address
-        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      postal_code:
-        custom: []
-        name: postal_code
-        description: 'Must not be greater than 50 characters.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profession:
-        custom: []
-        name: profession
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      education:
-        custom: []
-        name: education
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      store_name:
-        custom: []
-        name: store_name
-        description: 'Must not be greater than 70 characters.'
-        required: true
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      national_code:
-        custom: []
-        name: national_code
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      province:
-        custom: []
-        name: province
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: 'y'
-        type: string
-        enumValues:
-          - 'آذربایجان شرقی'
-          - 'آذربایجان غربی'
-          - اردبیل
-          - اصفهان
-          - البرز
-          - ایلام
-          - بوشهر
-          - تهران
-          - 'چهارمحال و بختیاری'
-          - 'خراسان جنوبی'
-          - 'خراسان رضوی'
-          - 'خراسان شمالی'
-          - خوزستان
-          - زنجان
-          - سمنان
-          - 'سیستان و بلوچستان'
-          - فارس
-          - قزوین
-          - قم
-          - کردستان
-          - کرمان
-          - کرمانشاه
-          - 'کهگیلویه و بویراحمد'
-          - گلستان
-          - لرستان
-          - گیلان
-          - مازندران
-          - مرکزی
-          - هرمزگان
-          - همدان
-          - یزد
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      city:
-        custom: []
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: v
-        type: string
-        enumValues:
-          - null
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      gender:
-        custom: []
-        name: gender
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: d
-        type: string
-        enumValues:
-          - male
-          - female
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: l
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
-        required: true
-        example: j
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      legal_info:
-        custom: []
-        name: legal_info
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      ips:
-        custom: []
-        name: ips
-        description: 'Must be at least 7 characters. Must not be greater than 15 characters.'
-        required: true
-        example:
-          - 'n'
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      images:
-        custom: []
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      birth_date: '2025-11-19T14:11:05'
-      address: b
-      postal_code: 'n'
-      profession: g
-      education: z
-      store_name: m
-      national_code: i
-      province: 'y'
-      city: v
-      gender: d
-      phone: l
-      name: j
-      legal_info: '["architecto","architecto"]'
-      ips:
-        - 'n'
-    fileParameters:
-      images:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/phone-books/{phoneBook_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      phoneBook_id:
-        custom: []
-        name: phoneBook_id
-        description: 'The ID of the phoneBook.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      phoneBook_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: 'api/work/{work}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      work:
-        custom: []
-        name: work
-        description: 'The work.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      work: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/users/financial/info
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/points/{point_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      point_id:
-        custom: []
-        name: point_id
-        description: 'The ID of the point.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      point_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      operator_id:
-        custom: []
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: ''
-        required: true
-        example: cell_internet_direct_charge
-        type: string
-        enumValues:
-          - cell_internet
-          - td_lte_internet
-          - cell_internet_direct_charge
-          - cell_amazing_direct_charge
-          - cell_direct_charge
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      value:
-        custom: []
-        name: value
-        description: 'Must be at least 1000. Must not be greater than 1000000.'
-        required: true
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      point:
-        custom: []
-        name: point
-        description: 'Must be at least 1. Must not be greater than 1000.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      operator_id: 4326.41688
-      type: cell_internet_direct_charge
-      value: 17
-      point: 15
-      status: false
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/prizes/{prize_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      prize_id:
-        custom: []
-        name: prize_id
-        description: 'The ID of the prize.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      prize_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      description:
-        custom: []
-        name: description
-        description: 'Must be at least 3 characters. Must not be greater than 65535 characters.'
-        required: false
-        example: 'Et animi quos velit et fugiat.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      point:
-        custom: []
-        name: point
-        description: 'Must be at least 1. Must not be greater than 1000000.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: ''
-        required: true
-        example: increase_prize
-        type: string
-        enumValues:
-          - cell_internet
-          - td_lte_internet
-          - cell_internet_direct_charge
-          - cell_amazing_direct_charge
-          - cell_direct_charge
-          - physical
-          - increase_prize
-          - discount
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      price:
-        custom: []
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_id:
-        custom: []
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      product_id:
-        custom: []
-        name: product_id
-        description: 'The <code>id</code> of an existing record in the products table.'
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      profile_id:
-        custom: []
-        name: profile_id
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      ext_id:
-        custom: []
-        name: ext_id
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_type:
-        custom: []
-        name: operator_type
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      count:
-        custom: []
-        name: count
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      url:
-        custom: []
-        name: url
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      tags:
-        custom: []
-        name: tags
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example:
-          - k
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      images:
-        custom: []
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      name: b
-      description: 'Et animi quos velit et fugiat.'
-      point: 1
-      type: increase_prize
-      price: 4326.41688
-      operator_id: 4326.41688
-      product_id: 4326.41688
-      profile_id: architecto
-      ext_id: architecto
-      operator_type: 4326.41688
-      count: 4326.41688
-      url: 'http://rempel.com/sunt-nihil-accusantium-harum-mollitia'
-      tags:
-        - k
-    fileParameters:
-      images:
-        - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/auth/logout
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/search-demo/seed
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/search-demo/search
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/cart/{product_id}/{cart?}'
-    metadata:
-      custom: []
-      groupName: Endpoints
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -3225,370 +667,14 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      cart:
-        custom: []
-        name: cart
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
     cleanUrlParameters:
       product_id: 16
-      cart: architecto
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      quantity:
-        custom: []
-        name: quantity
-        description: 'Must be at least 1.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings:
-        custom: []
-        name: settings
-        description: 'تنظیمات چاپ / قرارگیری طرح روی موکاپ.'
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      settings.print_x:
-        custom: []
-        name: settings.print_x
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.print_y:
-        custom: []
-        name: settings.print_y
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.print_width:
-        custom: []
-        name: settings.print_width
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.print_height:
-        custom: []
-        name: settings.print_height
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.rotation:
-        custom: []
-        name: settings.rotation
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.fit_mode:
-        custom: []
-        name: settings.fit_mode
-        description: ''
-        required: false
-        example: cover
-        type: string
-        enumValues:
-          - contain
-          - cover
-          - stretch
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.design:
-        custom: []
-        name: settings.design
-        description: ''
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.design.scale:
-        custom: []
-        name: settings.design.scale
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.design.offset_x:
-        custom: []
-        name: settings.design.offset_x
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      settings.design.offset_y:
-        custom: []
-        name: settings.design.offset_y
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      mockup:
-        custom: []
-        name: mockup
-        description: 'mockup انتخاب‌شده برای این آیتم.'
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      mockup.id:
-        custom: []
-        name: mockup.id
-        description: ''
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      mockup.name:
-        custom: []
-        name: mockup.name
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      mockup.preview_bg:
-        custom: []
-        name: mockup.preview_bg
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      mockup.preview:
-        custom: []
-        name: mockup.preview
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      preview:
-        custom: []
-        name: preview
-        description: 'اطلاعات تصویر نهایی/پریویو.'
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      preview.path:
-        custom: []
-        name: preview.path
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      preview.thumb:
-        custom: []
-        name: preview.thumb
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      preview.driver:
-        custom: []
-        name: preview.driver
-        description: ''
-        required: false
-        example: public
-        type: string
-        enumValues:
-          - local
-          - public
-          - s3
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      options:
-        custom: []
-        name: options
-        description: 'optionها (سایز، رنگ، ...).'
-        required: false
-        example: null
-        type: 'object[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      meta:
-        custom: []
-        name: meta
-        description: 'هرچیز اضافه‌ای که بخوای برای آینده.'
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'options[].option_id':
-        custom: []
-        name: 'options[].option_id'
-        description: 'This field is required when <code>options.*.option_value_id</code> is present.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'options[].option_name':
-        custom: []
-        name: 'options[].option_name'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'options[].option_value_id':
-        custom: []
-        name: 'options[].option_value_id'
-        description: 'This field is required when <code>options.*.option_id</code> is present.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'options[].option_value':
-        custom: []
-        name: 'options[].option_value'
-        description: ''
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      quantity: 16
-      settings:
-        print_x: 4326.41688
-        print_y: 4326.41688
-        print_width: 4326.41688
-        print_height: 4326.41688
-        rotation: 4326.41688
-        fit_mode: cover
-        design:
-          scale: 4326.41688
-          offset_x: 4326.41688
-          offset_y: 4326.41688
-      mockup:
-        id: 16
-        name: architecto
-        preview_bg: architecto
-        preview: architecto
-      preview:
-        path: architecto
-        thumb: architecto
-        driver: public
-      options:
-        -
-          option_id: 16
-          option_name: architecto
-          option_value_id: 16
-          option_value: architecto
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 404
-        content: |-
-          {
-              "message": "No query results for model [App\\Models\\Product] 16"
-          }
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5997'
-          access-control-allow-origin: '*'
-        description: null
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -3598,10 +684,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/designs
+    uri: 'api/products/{id}/restore'
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -3610,51 +696,27 @@ endpoints:
       authenticated: false
       deprecated: false
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      config:
-        custom: []
-        name: config
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      rendered_image:
-        custom: []
-        name: rendered_image
-        description: 'Must be a file. Must not be greater than 5120 kilobytes.'
-        required: true
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      original_image:
-        custom: []
-        name: original_image
-        description: '5MB. Must be a file. Must not be greater than 10240 kilobytes.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      config: architecto
-    fileParameters:
-      rendered_image: null
-      original_image: null
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
     responses: []
     responseFields: []
     auth: []

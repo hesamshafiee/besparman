@@ -20,7 +20,7 @@ class Product extends Model implements Sortable
 
     protected $fillable = [
         'user_id',
-        'variant_id',      // 👈 به جای category_id
+        'variant_id',      
         'work_id',
         'name',
         'slug',
@@ -53,8 +53,8 @@ class Product extends Model implements Sortable
         'meta'     => 'array',
     ];
     public $sortable = [
-        'order_column_name'  => 'sort',   // به‌جای "order"
-        'sort_when_creating' => true,     // موقع ایجاد، آخر صف بذار
+        'order_column_name'  => 'sort',   
+        'sort_when_creating' => true,     
     ];
 
     /** روابط **/
@@ -64,7 +64,6 @@ class Product extends Model implements Sortable
         return $this->belongsTo(User::class);
     }
 
-    // قبلاً category بود، الان محصول مستقیم به Variant وصل است
     public function variant()
     {
         return $this->belongsTo(Variant::class);

@@ -230,7 +230,7 @@ endpoints:
         name: published_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-19T14:11:05'
+        example: '2025-11-20T11:48:44'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -240,7 +240,7 @@ endpoints:
       title: b
       description: 'Eius et animi quos velit et.'
       is_published: true
-      published_at: '2025-11-19T14:11:05'
+      published_at: '2025-11-20T11:48:44'
     fileParameters: []
     responses: []
     responseFields: []
@@ -310,7 +310,7 @@ endpoints:
         name: is_published
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -321,7 +321,7 @@ endpoints:
         name: published_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-19T14:11:05'
+        example: '2025-11-20T11:48:44'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -343,8 +343,8 @@ endpoints:
     cleanBodyParameters:
       title: b
       description: 'Eius et animi quos velit et.'
-      is_published: true
-      published_at: '2025-11-19T14:11:05'
+      is_published: false
+      published_at: '2025-11-20T11:48:44'
       image_driver: public
     fileParameters: []
     responses: []

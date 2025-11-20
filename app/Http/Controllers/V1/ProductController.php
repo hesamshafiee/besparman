@@ -16,7 +16,6 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     /**
-     * لیست محصولات کاربر (کلاینت)
      * @group Product(Client)
      */
     public function clientIndex(Request $request): JsonResponse
@@ -46,7 +45,6 @@ class ProductController extends Controller
     }
 
     /**
-     * ساخت محصول (کلاینت)
      * @group Product(Client)
      */
     public function clientStore(ProductRequest $request): JsonResponse
@@ -75,7 +73,6 @@ class ProductController extends Controller
     }
 
     /**
-     * بروزرسانی محصول (کلاینت)
      * @group Product(Client)
      */
     public function clientUpdate(ProductRequest $request, Product $product): JsonResponse
@@ -109,7 +106,6 @@ class ProductController extends Controller
     }
 
     /**
-     * حذف محصول (کلاینت) + پاکسازی فایل‌ها
      * @group Product(Client)
      */
     public function clientDestroy(Product $product)
@@ -141,25 +137,21 @@ class ProductController extends Controller
         $validated = $request->validate([
             'work_id'                 => ['required', 'integer', 'exists:works,id'],
 
-            // مقادیر عمومی (در صورت نبودن override در آیتم‌ها)
             'name'                    => ['required', 'string', 'max:200'],
             'price'                   => ['required', 'integer', 'min:0'],
             'status'                  => ['nullable', 'integer', 'in:0,1'],
             'sku'                     => ['nullable', 'string', 'max:100'],
             'mockup_id'               => ['nullable', 'integer', 'exists:mockups,id'],
-            'settings'                => ['nullable'], // json/array/string
+            'settings'                => ['nullable'], 
             'options'                 => ['nullable'],
             'meta'                    => ['nullable'],
 
-            // تصویر عمومی
             'image'                   => ['nullable', 'file', 'image', 'max:5120'],
 
-            // لیست واریانت‌ها (هر آیتم = یک محصول)
             'variants'                           => ['required', 'array', 'min:1'],
             'variants.*.variant_id'              => ['required', 'integer', 'exists:variants,id'],
             'variants.*.address'                 => ['nullable', 'string', 'max:100'], // اگر در meta استفاده می‌کنی
 
-            // overrideهای اختیاری مخصوص همان واریانت
             'variants.*.name'                    => ['nullable', 'string', 'max:200'],
             'variants.*.price'                   => ['nullable', 'integer', 'min:0'],
             'variants.*.status'                  => ['nullable', 'integer', 'in:0,1'],
@@ -169,11 +161,9 @@ class ProductController extends Controller
             'variants.*.options'                 => ['nullable'],
             'variants.*.meta'                    => ['nullable'],
 
-            // تصویر اختصاصی همان واریانت (اختیاری)
             'variants.*.image'                   => ['nullable', 'file', 'image', 'max:5120'],
         ]);
 
-        // اطمینان از داشتن تصویر: یا عمومی، یا برای تک‌تک واریانت‌ها
         $hasGlobal = $request->hasFile('image');
         if (!$hasGlobal) {
             foreach ($request->input('variants', []) as $idx => $row) {
@@ -185,14 +175,12 @@ class ProductController extends Controller
             }
         }
 
-        // JSONهای عمومی را یکدست کنیم
         $global = $this->normalizeJsonFields($validated, ['settings', 'options', 'meta']);
         $userId = Auth::id();
         $createdIds = [];
 
         \DB::beginTransaction();
         try {
-            // اگر تصویر عمومی داریم، یک بار ذخیره کن
             $globalOrig = $globalPrev = null;
             if ($hasGlobal) {
                 [$globalOrig, $globalPrev] = $this->storeImageAndPreview($request->file('image'), $userId);
@@ -200,7 +188,6 @@ class ProductController extends Controller
 
             foreach ($validated['variants'] as $idx => $row) {
 
-                // تصویر اختصاصی → اگر نبود از عمومی
                 if ($request->hasFile("variants.$idx.image")) {
                     [$orig, $prev] = $this->storeImageAndPreview($request->file("variants.$idx.image"), $userId);
                 } else {
@@ -208,7 +195,6 @@ class ProductController extends Controller
                     $prev = $globalPrev;
                 }
 
-                // settings/options/meta مخصوص آیتم یا عمومی
                 $rowNormalized = $this->normalizeJsonFields($row, ['settings', 'options', 'meta']);
 
                 $p = new Product();
@@ -284,7 +270,6 @@ class ProductController extends Controller
     // ---------------------------------------------------------------------
 
     /**
-     * لیست محصولات (ادمین)
      * @group Product(Admin)
      * @throws AuthorizationException
      */
@@ -324,7 +309,6 @@ class ProductController extends Controller
     }
 
     /**
-     * ساخت محصول (ادمین)
      * @group Product(Admin)
      * @throws AuthorizationException
      */
@@ -354,7 +338,6 @@ class ProductController extends Controller
     }
 
     /**
-     * بروزرسانی محصول (ادمین)
      * @group Product(Admin)
      * @throws AuthorizationException
      */
@@ -388,7 +371,6 @@ class ProductController extends Controller
     }
 
     /**
-     * حذف محصول (ادمین)
      * @group Product(Admin)
      * @throws AuthorizationException
      */
@@ -409,8 +391,7 @@ class ProductController extends Controller
     }
 
     /**
-     * بازیابی محصول حذف‌شده (ادمین)
-     * @group Product(Admin)
+      * @group Product(Admin)
      * @throws AuthorizationException
      */
     public function restore(int $id)
@@ -423,9 +404,7 @@ class ProductController extends Controller
         return response()->ok(__('general.restoredSuccessfully'));
     }
 
-    // ===========================
-    // Helpers
-    // ===========================
+
 
     private function normalizeJsonFields(array $data, array $keys): array
     {
@@ -468,7 +447,6 @@ class ProductController extends Controller
 
     private function makePreview(string $disk, string $originalRel, string $previewRel): void
     {
-        // اگر Intervention/Image اضافه کردی، اینجا ری‌سایز واقعی انجام بده
         Storage::disk($disk)->copy($originalRel, $previewRel);
     }
 

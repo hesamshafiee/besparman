@@ -429,7 +429,6 @@ class ProductTest extends TestCase
                 ],
                 [
                     'variant_id' => $v2->id,
-                    // تصویر ندارد → باید 422 بدهد
                 ],
             ],
         ];
