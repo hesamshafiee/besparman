@@ -26,7 +26,7 @@ class VariantTest extends TestCase
         parent::setUp();
 
         $this->artisan('migrate');
-        $this->artisan('db:seed'); // 👈 اینجا OptionSeeder و OptionValueSeeder و CategorySeeder اجرا می‌شن
+        $this->artisan('db:seed'); // سیدرها اجرا می‌شن ولی تست خودش هم آماده‌سازی لازم رو انجام می‌ده
 
         // ادمین
         $this->adminUser = User::factory()->create([
@@ -58,20 +58,85 @@ class VariantTest extends TestCase
     }
 
     /**
-     * از options/option_values موجود (از Seeder) چند تا می‌گیریم
+     * اگر options/value های مورد انتظار در DB نیستند، این متد آنها را موقت می‌سازد
+     * تا تست وابستگی‌محور نباشد. (بدون تغییر در سیدرهای پروژه)
+     */
+    protected function ensureOptionsAndValuesExist(): void
+    {
+        // اگر گزینه color وجود نداره، بسازش و چند value اضافه کن
+        $color = Option::firstOrCreate(
+            ['code' => 'color'],
+            [
+                'name'         => 'رنگ',
+                'type'         => 'color',
+                'display_type' => 'color-picker',
+                'is_required'  => true,
+                'is_active'    => 1,
+                'meta'         => [],
+                'sort_order'   => 1,
+            ]
+        );
+
+        $size = Option::firstOrCreate(
+            ['code' => 'size'],
+            [
+                'name'         => 'سایز',
+                'type'         => 'select',
+                'display_type' => 'select',
+                'is_required'  => true,
+                'is_active'    => 1,
+                'meta'         => [],
+                'sort_order'   => 2,
+            ]
+        );
+
+        // یک‌بار برای رنگ‌ها
+        foreach ([
+            ['code' => 'red',   'name' => 'قرمز',  'meta' => ['color' => '#FF0000']],
+            ['code' => 'blue',  'name' => 'آبی',   'meta' => ['color' => '#0000FF']],
+            ['code' => 'white', 'name' => 'سفید',  'meta' => ['color' => '#FFFFFF']],
+        ] as $v) {
+            OptionValue::firstOrCreate(
+                ['option_id' => $color->id, 'code' => $v['code']],
+                ['name' => $v['name'], 'meta' => $v['meta'] ?? [], 'is_active' => 1, 'sort_order' => 0]
+            );
+        }
+
+        // یک‌بار برای سایزها
+        foreach ([
+            ['code' => 's',  'name' => 'S'],
+            ['code' => 'm',  'name' => 'M'],
+            ['code' => 'l',  'name' => 'L'],
+        ] as $v) {
+            OptionValue::firstOrCreate(
+                ['option_id' => $size->id, 'code' => $v['code']],
+                ['name' => $v['name'], 'meta' => [], 'is_active' => 1, 'sort_order' => 0]
+            );
+        }
+
+        // توجه: اگر پروژه‌ات گزینه/مقادیر دیگری هم از قبل داشت، آنها دست نخورده باقی می‌مانند
+    }
+
+    /**
+     * از options/option_values موجود (از Seeder یا ensure) چند تا می‌گیریم
      */
     protected function getSomeOptionValueIds(): array
     {
+        // اگر سِیدرها مقادیر رو نساخته باشند، این helper اون‌ها رو ایجاد می‌کند
+        $this->ensureOptionsAndValuesExist();
+
         $color = Option::where('code', 'color')->first();
         $size  = Option::where('code', 'size')->first();
 
         $ids = [];
 
         if ($color) {
-            $ids[] = OptionValue::where('option_id', $color->id)->value('id');
+            $val = OptionValue::where('option_id', $color->id)->value('id');
+            if ($val) $ids[] = $val;
         }
         if ($size) {
-            $ids[] = OptionValue::where('option_id', $size->id)->value('id');
+            $val = OptionValue::where('option_id', $size->id)->value('id');
+            if ($val) $ids[] = $val;
         }
 
         // فیلتر nullها
@@ -155,9 +220,9 @@ class VariantTest extends TestCase
 
         $variant = Variant::latest('id')->first();
         $this->assertNotNull($variant);
-        $this->assertNotNull($variant->sku); 
+        $this->assertNotNull($variant->sku);
 
-        // بررسی اتصال pivot
+        // بررسی اتصال pivot (ممکن است فقط یک id در array باشد)
         $this->assertDatabaseHas('variant_option_value', [
             'variant_id'      => $variant->id,
             'option_value_id' => $optionValueIds[0] ?? null,

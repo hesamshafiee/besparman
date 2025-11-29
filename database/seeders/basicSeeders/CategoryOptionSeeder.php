@@ -18,21 +18,21 @@ class CategoryOptionSeeder extends Seeder
         $phoneModelId = DB::table('options')->where('code', 'phone_model')->value('id');
 
         // دسته‌ها
-        $tshirtId  = DB::table('categories')->where('name', 'تیشرت')->value('id');
-        $hoodieId  = DB::table('categories')->where('name', 'هودی')->value('id');
+        /*$tshirtId  = DB::table('categories')->where('name', 'تیشرت')->value('id');
+        $hoodieId  = DB::table('categories')->where('name', 'هودی')->value('id');*/
         $appleId   = DB::table('categories')->where('name', 'اپل')->value('id');
         $samsungId = DB::table('categories')->where('name', 'سامسونگ')->value('id');
         $xiaomiId  = DB::table('categories')->where('name', 'شیاِومی')->value('id');
 
         $rows = [
             // تیشرت: رنگ + سایز + جنس
-            [$tshirtId, $colorId],
+            /*[$tshirtId, $colorId],
             [$tshirtId, $sizeId],
             [$tshirtId, $materialId],
 
             // هودی: رنگ + سایز
             [$hoodieId, $colorId],
-            [$hoodieId, $sizeId],
+            [$hoodieId, $sizeId],*/
 
             // قاب‌ها: رنگ + مدل گوشی
             [$appleId,   $colorId],
@@ -50,7 +50,7 @@ class CategoryOptionSeeder extends Seeder
                 DB::table('category_option')->insert([
                     'category_id' => $categoryId,
                     'option_id'   => $optionId,
-                    'is_required' => null, // یعنی از خود options.is_required تبعیت کند
+                    'is_required' => null, 
                     'is_active'   => 1,
                     'sort_order'  => 0,
                     'created_at'  => $now,

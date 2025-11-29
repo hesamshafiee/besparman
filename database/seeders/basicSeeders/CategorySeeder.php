@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
         $now = Carbon::now();
 
         $categories = [
-            [
+            /*[
                 'name' => 'لباس',
                 'children' => [
                     [
@@ -31,7 +31,7 @@ class CategorySeeder extends Seeder
                         ],
                     ],
                 ],
-            ],
+            ],*/
             [
                 'name' => 'قاب',
                 'children' => [

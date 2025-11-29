@@ -12,14 +12,14 @@ class OptionValueSeeder extends Seeder
     {
         $now = Carbon::now();
 
-        $colorId      = DB::table('options')->where('code', 'color')->value('id');
+        /*$colorId      = DB::table('options')->where('code', 'color')->value('id');
         $sizeId       = DB::table('options')->where('code', 'size')->value('id');
-        $materialId   = DB::table('options')->where('code', 'material')->value('id');
+        $materialId   = DB::table('options')->where('code', 'material')->value('id');*/
         $phoneModelId = DB::table('options')->where('code', 'phone_model')->value('id');
 
         $values = [
             // رنگ‌ها
-            [
+            /*[
                 'option_id' => $colorId,
                 'name'      => 'قرمز',
                 'code'      => 'red',
@@ -53,6 +53,7 @@ class OptionValueSeeder extends Seeder
             // جنس
             ['option_id' => $materialId, 'name' => 'نخی',       'code' => 'cotton'],
             ['option_id' => $materialId, 'name' => 'پلی‌استر',  'code' => 'polyester'],
+            */
 
             // مدل‌های گوشی – APPLE
             ['option_id' => $phoneModelId, 'name' => 'iPhone 11',       'code' => 'iphone_11'],

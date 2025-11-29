@@ -178,14 +178,14 @@ endpoints:
         name: personalAccessToken_id
         description: 'The ID of the personalAccessToken.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      personalAccessToken_id: 16
+      personalAccessToken_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

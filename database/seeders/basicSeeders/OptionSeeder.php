@@ -13,7 +13,7 @@ class OptionSeeder extends Seeder
         $now = Carbon::now();
 
         $options = [
-            [
+            /*[
                 'name' => 'رنگ',
                 'code' => 'color',
                 'type' => 'color',
@@ -36,7 +36,7 @@ class OptionSeeder extends Seeder
                 'display_type' => 'select',
                 'is_required' => false,
                 'sort_order' => 3,
-            ],
+            ],*/
             [
                 'name' => 'مدل گوشی',
                 'code' => 'phone_model',

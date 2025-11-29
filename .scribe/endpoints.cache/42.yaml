@@ -224,7 +224,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: discount
         type: string
         enumValues:
           - cell_internet
@@ -354,7 +354,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_direct_charge
+      type: discount
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
