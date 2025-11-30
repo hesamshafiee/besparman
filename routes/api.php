@@ -298,13 +298,15 @@ Route::middleware(['checkToken'])->group(function () {
         Route::delete('/phone-books/{phoneBook}', [PhoneBookController::class, 'destroy']);
 
 
-        Route::get('/work', [WorkController::class, 'index']);
-        Route::delete('/work/{work}', [WorkController::class, 'destroy']);
-        Route::post('/work/{work}', [WorkController::class, 'restore']);
-        Route::get('/clients/work', [WorkController::class, 'clientIndex']);
-        Route::delete('/clients/work/{work}', [WorkController::class, 'clientDestroy']);
-        Route::post('/clients/work', [WorkController::class, 'clientStore']);
-        Route::patch('/clients/work/{work}', [WorkController::class, 'clientUpdate']);
+        Route::get('/works', [WorkController::class, 'index']);
+        Route::delete('/works/{work}', [WorkController::class, 'destroy']);
+        Route::post('/works/{work}', [WorkController::class, 'restore']);
+        Route::patch('/works/publish/{work}', [WorkController::class, 'updatePublishStatus']);
+
+        Route::get('/clients/works', [WorkController::class, 'clientIndex']);
+        Route::delete('/clients/works/{work}', [WorkController::class, 'clientDestroy']);
+        Route::post('/clients/works', [WorkController::class, 'clientStore']);
+        Route::patch('/clients/works/{work}', [WorkController::class, 'clientUpdate']);
 
 
 

@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Support\Facades\Storage;
+use Predis\Command\Redis\PUBLISH;
 
 class Work extends Model
 {
     use HasFactory, SoftDeletes;
 
+    const IS_PUBLISHED_TRUE = 1 ;
+    const IS_PUBLISHED_FALSE= 0 ;
 
     protected $fillable = [
         'user_id',
@@ -32,7 +35,7 @@ class Work extends Model
 
 
     protected $casts = [
-        'is_published' => 'boolean',
+        'is_published' => 'integer',
         'published_at' => 'datetime',
     ];
 
@@ -52,5 +55,14 @@ class Work extends Model
             $slug = $base . '-' . (++$i);
         }
         return $slug;
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if (!$this->image) {
+            return null;
+        }
+
+        return Storage::disk('public')->url($this->image);
     }
 }
