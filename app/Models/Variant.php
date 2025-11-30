@@ -20,6 +20,11 @@ class Variant extends Model
         'is_active' => 'boolean',
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function mockups()
     {
         return $this->hasMany(Mockup::class);

@@ -45,6 +45,7 @@ class MockupRequest extends FormRequest
             'preview_bg'    => ['nullable','string','max:15'], // '#FFFFFF' یا 'transparent'
             'is_active'     => ['nullable','boolean'],
             'sort'          => ['nullable','integer','min:0'],
+            'is_defult'     => ['nullable','integer','min:0'],
         ];
     }
 

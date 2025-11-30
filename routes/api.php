@@ -94,6 +94,8 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/mockups',        [MockupController::class, 'store']);
         Route::put('/mockups/{id}',   [MockupController::class, 'update']);
         Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
+        Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
+        Route::get('/client/mockups/{id}', [MockupController::class, 'clientIndex']);
 
         Route::get('/client/products',            [ProductController::class, 'clientIndex']);
         Route::post('/client/products',            [ProductController::class, 'clientStore']);
@@ -146,7 +148,7 @@ Route::middleware(['checkToken'])->group(function () {
         Route::get('/orders', [PaymentController::class, 'orders']);
         Route::get('/orders/physical', [OrderController::class, 'index']);
         Route::get('/orders/{order}', [OrderController::class, 'getOrder']);
-        Route::get('/client/orders', [OrderController::class, 'clientIndexOrder']);
+        Route::get('/clients/orders', [OrderController::class, 'clientIndexOrder']);
         Route::patch('/orders/status/{order}', [OrderController::class, 'updateStatus']);
         Route::get('/payments', [PaymentController::class, 'index']);
         Route::get('/clients/payments', [PaymentController::class, 'clientIndex']);
@@ -334,7 +336,7 @@ Route::middleware(['checkToken'])->group(function () {
         Route::delete('/points/{point}', [PointController::class, 'destroy']);
 
         Route::get('/point-histories', [PointHistoryController::class, 'index']);
-        Route::get('/client/point-histories', [PointHistoryController::class, 'clientIndex']);
+        Route::get('/clients/point-histories', [PointHistoryController::class, 'clientIndex']);
 
         Route::get('/prizes', [PrizeController::class, 'index']);
         Route::get('/clients/prizes', [PrizeController::class, 'clientIndex']);

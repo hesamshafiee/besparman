@@ -26,6 +26,7 @@ class Mockup extends Model
         'preview_bg',
         'is_active',
         'sort',
+        'is_defult'
     ];
 
     protected $casts = [
@@ -40,7 +41,8 @@ class Mockup extends Model
         'print_height'  => 'integer',
         'print_rotation'=> 'integer',
         'sort'          => 'integer',
-    ]; // 👈 این سطر خیلی مهمه؛ حتماً `];` داشته باشه
+        'is_defult'     => 'integer',
+    ]; 
 
     public function variant()
     {

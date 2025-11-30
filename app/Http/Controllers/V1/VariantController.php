@@ -36,7 +36,10 @@ class VariantController extends Controller
             $typeOrder = 'desc';
         }
 
-        $base = Variant::query();
+        $base = Variant::with(['category'])
+            ->whereHas('category', function ($q) {
+                $q->where('show_in_work', 1);
+        });
 
 
 

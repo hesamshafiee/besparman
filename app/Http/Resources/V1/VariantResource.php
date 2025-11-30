@@ -27,10 +27,7 @@ class VariantResource extends JsonResource
             }),
 
             'category' => $this->whenLoaded('category', function () {
-                return [
-                    'id'   => $this->category->id,
-                    'name' => $this->category->name ?? null,
-                ];
+                return new CategoryResource($this->category);
             }),
 
             'created_at' => $this->created_at?->toIso8601String(),

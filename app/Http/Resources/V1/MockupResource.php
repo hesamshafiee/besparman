@@ -29,6 +29,7 @@ class MockupResource extends JsonResource
             'preview_bg'     => $this->preview_bg,
             'is_active'      => (bool) $this->is_active,
             'sort'           => $this->sort,
+            'is_defult'     => $this->is_defult,
             'created_at'     => $this->created_at,
             'updated_at'     => $this->updated_at,
         ];

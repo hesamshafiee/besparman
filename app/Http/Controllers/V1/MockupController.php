@@ -12,6 +12,50 @@ use Illuminate\Http\Request;
 
 class MockupController extends Controller
 {
+
+    public function clientIndex(Request $request): JsonResponse
+    {
+        $id = (int) $request->query('id', 0);
+        if ($id) {
+            $item = Mockup::where('id', $id)
+                ->where('is_default', 1)
+                ->firstOrFail();
+
+            return response()->jsonMacro(new MockupResource($item));
+        }
+
+        $order   = $request->query('order', 'id');
+        $type    = strtolower($request->query('type_order', 'desc'));
+        $perPage = (int) $request->query('per_page', 10);
+
+        $allowedColumns = ['id', 'created_at', 'updated_at', 'sort'];
+        if (! in_array($order, $allowedColumns, true)) {
+            $order = 'id';
+        }
+
+        if (! in_array($type, ['asc', 'desc'], true)) {
+            $type = 'desc';
+        }
+
+        $q = Mockup::where('is_default', 1);
+
+        if ($request->filled('variant_id')) {
+            $q->where('variant_id', (int) $request->query('variant_id'));
+        }
+
+        if ($request->filled('active')) {
+            $q->where('is_active', (int) $request->query('active') ? 1 : 0);
+        }
+
+        $paginator = $q->orderBy($order, $type)->paginate($perPage);
+
+        return response()->jsonMacro(
+            MockupResource::collection($paginator)
+        );
+    }
+
+
+
     /**
      * لیست موکاپ‌ها
      *
@@ -44,12 +88,10 @@ class MockupController extends Controller
 
         $q = Mockup::query();
 
-        // فیلتر بر اساس variant_id (دیگه category_id نداریم)
         if ($request->filled('variant_id')) {
             $q->where('variant_id', (int) $request->query('variant_id'));
         }
 
-        // فیلتر فعال/غیرفعال بودن
         if ($request->filled('active')) {
             $q->where('is_active', (int) $request->query('active') ? 1 : 0);
         }

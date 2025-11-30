@@ -185,4 +185,36 @@ class MockupTest extends TestCase
             $json->hasAll(['data', 'balance', 'additional'])
         );
     }
+
+    public function test_client_fetch_single_mockup(): void
+{
+    // ساخت یک موکاپ برای تست
+    $mockup = Mockup::create([
+        'variant_id'    => $this->variant->id,
+        'name'          => 'Client Mockup',
+        'slug'          => fake()->unique()->slug(),
+        'canvas_width'  => 2000,
+        'canvas_height' => 2000,
+        'dpi'           => 150,
+        'print_x'       => 100,
+        'print_y'       => 100,
+        'print_width'   => 1600,
+        'print_height'  => 1600,
+        'print_rotation'=> 0,
+        'fit_mode'      => 'contain',
+        'layers'        => ['base' => 'mockups/base/client.png'],
+        'preview_bg'    => '#FFFFFF',
+        'is_active'     => 1,
+        'is_default'    => 1,
+        'sort'          => 0,
+    ]);
+
+    // درخواست به route جدید
+    $response = $this->get('/api/client/mockups/' . $mockup->id);
+
+    $response->assertStatus(200)->assertJson(
+            fn (AssertableJson $json) =>
+            $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
+    );}
+
 }
