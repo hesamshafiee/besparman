@@ -259,6 +259,12 @@ class ProductController extends Controller
                 ],
             ]);
         } catch (\Throwable $e) {
+             dd([
+        'message' => $e->getMessage(),
+        'file'    => $e->getFile(),
+        'line'    => $e->getLine(),
+        // 'trace'   => $e->getTraceAsString(), // اگر جزییات بیشتر خواستی، این رو هم باز کن
+    ]);
             \DB::rollBack();
             report($e);
             return response()->serverError(__('general.somethingWrong'));

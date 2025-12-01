@@ -113,7 +113,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-29T12:27:29'
+        example: '2025-12-01T13:02:31'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -146,7 +146,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-11-29T12:27:29'
+      expiry_date: '2025-12-01T13:02:31'
       warehouse_address: m
       source: i
     fileParameters: []

@@ -95,13 +95,13 @@ Route::middleware(['checkToken'])->group(function () {
         Route::put('/mockups/{id}',   [MockupController::class, 'update']);
         Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
         Route::delete('/mockups/{id}', [MockupController::class, 'destroy']);
-        Route::get('/client/mockups/{id}', [MockupController::class, 'clientIndex']);
+        Route::get('/clients/mockups/{id}', [MockupController::class, 'clientIndex']);
 
-        Route::get('/client/products',            [ProductController::class, 'clientIndex']);
-        Route::post('/client/products',            [ProductController::class, 'clientStore']);
-        Route::put('/client/products/{product}',  [ProductController::class, 'clientUpdate']);
-        Route::delete('/client/products/{product}',  [ProductController::class, 'clientDestroy']);
-        Route::post('/client/products/bulk',  [ProductController::class, 'clientBulkStore']);
+        Route::get('/clients/products',            [ProductController::class, 'clientIndex']);
+        Route::post('/clients/products',            [ProductController::class, 'clientStore']);
+        Route::put('/clients/products/{product}',  [ProductController::class, 'clientUpdate']);
+        Route::delete('/clients/products/{product}',  [ProductController::class, 'clientDestroy']);
+        Route::post('/clients/products/bulk',  [ProductController::class, 'clientBulkStore']);
 
 
         Route::get('/products',           [ProductController::class, 'index']);

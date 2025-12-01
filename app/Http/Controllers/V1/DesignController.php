@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-
+use App\Models\Product;
 
 class DesignController extends Controller
 {
@@ -44,6 +44,16 @@ class DesignController extends Controller
         }
 
         // TODO: در DB ذخیره کن (designs table) با فیلدهای design_id, config(json), paths …
+        $product = Product::where('id', 1)->first();
+        $product->settings = [
+            'design_id' => $designId,
+            'config'    => $config,
+            'paths'     => [
+                'rendered' => $renderedPath,
+                'original' => $originalPath,
+            ],
+        ];
+        $product->save();
 
         return response()->json([
             'design_id'     => $designId,

@@ -1,14 +1,14 @@
-name: Discount
+name: Product(Admin)
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/discounts
+    uri: api/products
     metadata:
       custom: []
-      groupName: Discount
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/discounts
+    uri: api/products
     metadata:
       custom: []
-      groupName: Discount
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -64,145 +64,268 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      code:
+      user_id:
         custom: []
-        name: code
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      variant_id:
+        custom: []
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The <code>id</code> of an existing record in the works table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 220 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      name_en:
+        custom: []
+        name: name_en
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sku:
+        custom: []
+        name: sku
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      currency:
+        custom: []
+        name: currency
+        description: 'Must be 3 characters.'
+        required: false
+        example: zmi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
       type:
         custom: []
         name: type
-        description: ''
-        required: true
-        example: percent
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
         type: string
-        enumValues:
-          - money
-          - percent
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      value:
-        custom: []
-        name: value
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      min_purchase:
+      minimum_sale:
         custom: []
-        name: min_purchase
-        description: ''
+        name: minimum_sale
+        description: 'Must be at least 1.'
         required: false
-        example: 4326.41688
-        type: number
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      max_purchase:
+      dimension:
         custom: []
-        name: max_purchase
-        description: ''
+        name: dimension
+        description: 'Must not be greater than 50 characters.'
         required: false
-        example: 4326.41688
-        type: number
+        example: d
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      count:
+      score:
         custom: []
-        name: count
-        description: ''
+        name: score
+        description: 'Must be between 0 and 100.'
         required: false
-        example: 4326.41688
-        type: number
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       status:
         custom: []
         name: status
-        description: ''
+        description: 'Must be between 0 and 5.'
         required: false
-        example: true
-        type: boolean
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      reusable:
+      sort:
         custom: []
-        name: reusable
-        description: ''
+        name: sort
+        description: 'Must be at least 0.'
         required: false
-        example: true
-        type: boolean
+        example: 52
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      expire_at:
+      original_path:
         custom: []
-        name: expire_at
-        description: 'Must be a valid date.'
+        name: original_path
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: '2025-11-29T12:27:29'
+        example: i
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      users:
+      preview_path:
         custom: []
-        name: users
-        description: 'The <code>id</code> of an existing record in the users table.'
+        name: preview_path
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
+        example: k
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      products:
+      settings:
         custom: []
-        name: products
-        description: 'The <code>id</code> of an existing record in the products table.'
+        name: settings
+        description: ''
         required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      code: b
-      type: percent
-      value: 4326.41688
-      min_purchase: 4326.41688
-      max_purchase: 4326.41688
-      count: 4326.41688
-      status: true
-      reusable: true
-      expire_at: '2025-11-29T12:27:29'
-      users:
-        - 4326.41688
-      products:
-        - 4326.41688
+      user_id: 16
+      variant_id: 16
+      work_id: 16
+      name: 'n'
+      slug: g
+      name_en: z
+      description: 'Eius et animi quos velit et.'
+      description_full: architecto
+      sku: 'n'
+      price: 84
+      currency: zmi
+      type: 'y'
+      minimum_sale: 16
+      dimension: d
+      score: 1
+      status: 1
+      sort: 52
+      original_path: i
+      preview_path: k
     fileParameters: []
     responses: []
     responseFields: []
@@ -213,11 +336,11 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PATCH
-    uri: 'api/discounts/{discount_id}'
+      - PUT
+    uri: 'api/products/{id}'
     metadata:
       custom: []
-      groupName: Discount
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -229,10 +352,26 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      discount_id:
+      id:
         custom: []
-        name: discount_id
-        description: 'The ID of the discount.'
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: true
         example: 16
         type: integer
@@ -240,150 +379,257 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanUrlParameters:
-      discount_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      code:
+      variant_id:
         custom: []
-        name: code
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: b
-        type: string
+        name: variant_id
+        description: 'The <code>id</code> of an existing record in the variants table.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      work_id:
+        custom: []
+        name: work_id
+        description: 'The <code>id</code> of an existing record in the works table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      slug:
+        custom: []
+        name: slug
+        description: 'Must not be greater than 220 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      name_en:
+        custom: []
+        name: name_en
+        description: 'Must not be greater than 200 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description_full:
+        custom: []
+        name: description_full
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sku:
+        custom: []
+        name: sku
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      price:
+        custom: []
+        name: price
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      currency:
+        custom: []
+        name: currency
+        description: 'Must be 3 characters.'
+        required: false
+        example: zmi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
       type:
         custom: []
         name: type
-        description: ''
-        required: true
-        example: percent
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
         type: string
-        enumValues:
-          - money
-          - percent
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      value:
-        custom: []
-        name: value
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      min_purchase:
+      minimum_sale:
         custom: []
-        name: min_purchase
-        description: ''
+        name: minimum_sale
+        description: 'Must be at least 1.'
         required: false
-        example: 4326.41688
-        type: number
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      max_purchase:
+      dimension:
         custom: []
-        name: max_purchase
-        description: ''
+        name: dimension
+        description: 'Must not be greater than 50 characters.'
         required: false
-        example: 4326.41688
-        type: number
+        example: d
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      count:
+      score:
         custom: []
-        name: count
-        description: ''
+        name: score
+        description: 'Must be between 0 and 100.'
         required: false
-        example: 4326.41688
-        type: number
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
       status:
         custom: []
         name: status
-        description: ''
+        description: 'Must be between 0 and 5.'
         required: false
-        example: true
-        type: boolean
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      reusable:
+      sort:
         custom: []
-        name: reusable
-        description: ''
+        name: sort
+        description: 'Must be at least 0.'
         required: false
-        example: true
-        type: boolean
+        example: 52
+        type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      expire_at:
+      original_path:
         custom: []
-        name: expire_at
-        description: 'Must be a valid date.'
+        name: original_path
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: '2025-11-29T12:27:29'
+        example: i
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      users:
+      preview_path:
         custom: []
-        name: users
-        description: 'The <code>id</code> of an existing record in the users table.'
+        name: preview_path
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
+        example: k
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      products:
+      settings:
         custom: []
-        name: products
-        description: 'The <code>id</code> of an existing record in the products table.'
+        name: settings
+        description: ''
         required: false
-        example:
-          - 4326.41688
-        type: 'number[]'
+        example: null
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      options:
+        custom: []
+        name: options
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      meta:
+        custom: []
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      code: b
-      type: percent
-      value: 4326.41688
-      min_purchase: 4326.41688
-      max_purchase: 4326.41688
-      count: 4326.41688
-      status: true
-      reusable: true
-      expire_at: '2025-11-29T12:27:29'
-      users:
-        - 4326.41688
-      products:
-        - 4326.41688
+      user_id: 16
+      variant_id: 16
+      work_id: 16
+      name: 'n'
+      slug: g
+      name_en: z
+      description: 'Eius et animi quos velit et.'
+      description_full: architecto
+      sku: 'n'
+      price: 84
+      currency: zmi
+      type: 'y'
+      minimum_sale: 16
+      dimension: d
+      score: 1
+      status: 1
+      sort: 52
+      original_path: i
+      preview_path: k
     fileParameters: []
     responses: []
     responseFields: []
@@ -395,10 +641,10 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/discounts/{discount_id}'
+    uri: 'api/products/{product_id}'
     metadata:
       custom: []
-      groupName: Discount
+      groupName: Product(Admin)
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -410,19 +656,62 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      discount_id:
+      product_id:
         custom: []
-        name: discount_id
-        description: 'The ID of the discount.'
+        name: product_id
+        description: 'The ID of the product.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      discount_id: 16
+      product_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/products/{id}/restore'
+    metadata:
+      custom: []
+      groupName: Product(Admin)
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

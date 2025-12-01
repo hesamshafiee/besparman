@@ -210,7 +210,7 @@ class MockupTest extends TestCase
     ]);
 
     // درخواست به route جدید
-    $response = $this->get('/api/client/mockups/' . $mockup->id);
+    $response = $this->get('/api/clients/mockups/' . $mockup->id);
 
     $response->assertStatus(200)->assertJson(
             fn (AssertableJson $json) =>

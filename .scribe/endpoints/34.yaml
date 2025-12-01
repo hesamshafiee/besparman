@@ -142,7 +142,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -164,7 +164,7 @@ endpoints:
       category_id: 16
       stock: 39
       add_price: 84
-      is_active: false
+      is_active: true
       option_value_ids:
         - 16
     fileParameters: []
@@ -247,7 +247,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -269,7 +269,7 @@ endpoints:
       category_id: 16
       stock: 39
       add_price: 84
-      is_active: true
+      is_active: false
       option_value_ids:
         - 16
     fileParameters: []

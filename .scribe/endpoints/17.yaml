@@ -185,7 +185,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5994'
+          x-ratelimit-remaining: '5993'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
