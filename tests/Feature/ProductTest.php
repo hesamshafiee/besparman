@@ -82,7 +82,7 @@ class ProductTest extends TestCase
             ]),
         ];
 
-        $res = $this->post('/api/client/products', $payload);
+        $res = $this->post('/api/clients/products', $payload);
 
         $res->assertStatus(200)->assertJson([
             'status'  => true,
@@ -92,7 +92,7 @@ class ProductTest extends TestCase
         $product = Product::where('user_id', $this->user->id)->first();
         $this->assertNotNull($product);
 
-        $del = $this->delete('/api/client/products/' . $product->id);
+        $del = $this->delete('/api/clients/products/' . $product->id);
         $del->assertStatus(200)->assertJson([
             'status'  => true,
             'message' => __('general.deletedSuccessfully', ['id' => $product->id]),
@@ -144,7 +144,7 @@ class ProductTest extends TestCase
             'slug'       => '',
         ];
 
-        $res = $this->put('/api/client/products/' . $product->id, $update);
+        $res = $this->put('/api/clients/products/' . $product->id, $update);
 
         $res->assertStatus(200)->assertJson([
             'status'  => true,
@@ -193,7 +193,7 @@ class ProductTest extends TestCase
             'status'     => 1,
         ]);
 
-        $res = $this->get('/api/client/products?per_page=2');
+        $res = $this->get('/api/clients/products?per_page=2');
 
         $res->assertStatus(200)->assertJson(
             fn (AssertableJson $json) =>
@@ -202,7 +202,7 @@ class ProductTest extends TestCase
 
         $first = Product::where('user_id', $this->user->id)->first();
 
-        $res2 = $this->get('/api/client/products?id=' . $first->id);
+        $res2 = $this->get('/api/clients/products?id=' . $first->id);
 
         $res2->assertStatus(200)->assertJson(
             fn (AssertableJson $json) =>
@@ -356,7 +356,7 @@ class ProductTest extends TestCase
             ],
         ];
 
-        $res = $this->post('/api/client/products/bulk', $payload);
+        $res = $this->post('/api/clients/products/bulk', $payload);
 
         $res->assertStatus(200)
             ->assertJson([
@@ -433,7 +433,7 @@ class ProductTest extends TestCase
             ],
         ];
 
-        $res = $this->post('/api/client/products/bulk', $payload);
+        $res = $this->post('/api/clients/products/bulk', $payload);
 
         $res->assertStatus(422);
     }
@@ -479,7 +479,7 @@ class ProductTest extends TestCase
             ],
         ];
 
-        $res = $this->post('/api/client/products/bulk', $payload);
+        $res = $this->post('/api/clients/products/bulk', $payload);
 
         $res->assertStatus(200)
             ->assertJson([

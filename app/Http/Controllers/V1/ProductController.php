@@ -49,10 +49,24 @@ class ProductController extends Controller
      */
     public function clientStore(ProductRequest $request): JsonResponse
     {
-        $data = $this->normalizeJsonFields($request->validated(), ['settings', 'options', 'meta']);
+
+        $validated = $request->validated();
+
+
+        $work = \App\Models\Work::where('id', $validated['work_id'])
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if (!$work) {
+            return response()->json([
+                'message' => 'شما مالک این work نیستید.',
+            ], 403);
+        }
+        $data = $this->normalizeJsonFields($validated, ['settings', 'options', 'meta']);
 
         $product = new Product($data);
         $product->user_id = Auth::id();
+
 
         if (empty($product->slug)) {
             $product->slug = Str::slug($product->name ?? 'product') . '-' . Str::random(4);
@@ -81,7 +95,22 @@ class ProductController extends Controller
             return response()->forbidden(__('general.forbidden'));
         }
 
-        $data = $this->normalizeJsonFields($request->validated(), ['settings', 'options', 'meta']);
+
+        $validated = $request->validated();
+
+        $work = \App\Models\Work::where('id', $validated['work_id'])
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if (!$work) {
+            return response()->json([
+                'message' => 'شما دسترسی به این کار ندارید یا چنین کاری وجود ندارد.'
+            ], 403);
+        }
+
+
+
+        $data = $this->normalizeJsonFields($validated, ['settings', 'options', 'meta']);
 
         if (array_key_exists('slug', $data) && empty($data['slug'])) {
             $data['slug'] = Str::slug($data['name'] ?? $product->name ?? 'product') . '-' . Str::random(4);
@@ -142,7 +171,7 @@ class ProductController extends Controller
             'status'                  => ['nullable', 'integer', 'in:0,1'],
             'sku'                     => ['nullable', 'string', 'max:100'],
             'mockup_id'               => ['nullable', 'integer', 'exists:mockups,id'],
-            'settings'                => ['nullable'], 
+            'settings'                => ['nullable'],
             'options'                 => ['nullable'],
             'meta'                    => ['nullable'],
 
@@ -163,6 +192,15 @@ class ProductController extends Controller
 
             'variants.*.image'                   => ['nullable', 'file', 'image', 'max:5120'],
         ]);
+        $work = \App\Models\Work::where('id', $validated['work_id'])
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if (!$work) {
+            return response()->json([
+                'message' => 'شما دسترسی به این کار ندارید یا چنین کاری وجود ندارد.'
+            ], 403);
+        }
 
         $hasGlobal = $request->hasFile('image');
         if (!$hasGlobal) {
@@ -259,12 +297,12 @@ class ProductController extends Controller
                 ],
             ]);
         } catch (\Throwable $e) {
-             dd([
-        'message' => $e->getMessage(),
-        'file'    => $e->getFile(),
-        'line'    => $e->getLine(),
-        // 'trace'   => $e->getTraceAsString(), // اگر جزییات بیشتر خواستی، این رو هم باز کن
-    ]);
+            dd([
+                'message' => $e->getMessage(),
+                'file'    => $e->getFile(),
+                'line'    => $e->getLine(),
+                // 'trace'   => $e->getTraceAsString(), // اگر جزییات بیشتر خواستی، این رو هم باز کن
+            ]);
             \DB::rollBack();
             report($e);
             return response()->serverError(__('general.somethingWrong'));
@@ -397,7 +435,7 @@ class ProductController extends Controller
     }
 
     /**
-      * @group Product(Admin)
+     * @group Product(Admin)
      * @throws AuthorizationException
      */
     public function restore(int $id)
