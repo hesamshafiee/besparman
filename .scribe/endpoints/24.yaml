@@ -1,14 +1,14 @@
-name: Setting
+name: Delivery
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/settings
+    uri: api/deliveries
     metadata:
       custom: []
-      groupName: Setting
+      groupName: Delivery
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -36,169 +36,6 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/settings
-    metadata:
-      custom: []
-      groupName: Setting
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      sms:
-        custom: []
-        name: sms
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      auth:
-        custom: []
-        name: auth
-        description: ''
-        required: false
-        example: otp
-        type: string
-        enumValues:
-          - otp
-          - otpOrPassword
-          - usernamePassword
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      otp:
-        custom: []
-        name: otp
-        description: ''
-        required: false
-        example: sms
-        type: string
-        enumValues:
-          - sms
-          - google2fa
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      jwt_expiration_time:
-        custom: []
-        name: jwt_expiration_time
-        description: 'Must be at least 1. Must not be greater than 1000.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      front:
-        custom: []
-        name: front
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      sms: false
-      email: true
-      auth: otp
-      otp: sms
-      jwt_expiration_time: 1
-      front: '["architecto","architecto"]'
-      status: true
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/settings/{setting_id}'
-    metadata:
-      custom: []
-      groupName: Setting
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      setting_id:
-        custom: []
-        name: setting_id
-        description: 'The ID of the setting.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      setting_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null

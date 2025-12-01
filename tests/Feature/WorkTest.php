@@ -50,8 +50,6 @@ class WorkTest extends TestCase
             'title' => 'Alpha',
             'slug' => Work::makeSlug('Alpha'),
             'description' => 'desc A',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
         $w2 = Work::create([
@@ -59,20 +57,18 @@ class WorkTest extends TestCase
             'title' => 'Beta',
             'slug' => Work::makeSlug('Beta'),
             'description' => 'desc B',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
         $w2->delete();
 
-        $response = $this->getJson('/api/work?with_trashed=1&order=id&type_order=asc&per_page=10');
+        $response = $this->getJson('/api/works?with_trashed=1&order=id&type_order=asc&per_page=10');
 
         $response->assertStatus(200)->assertJson(
             fn(AssertableJson $json) =>
             $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
-        $response = $this->getJson('/api/work?only_trashed=1');
+        $response = $this->getJson('/api/works?only_trashed=1');
 
         $response->assertStatus(200);
         $this->assertTrue(
@@ -88,11 +84,9 @@ class WorkTest extends TestCase
             'title' => 'Single',
             'slug' => Work::makeSlug('Single'),
             'description' => 'one',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $res = $this->getJson('/api/work?id=' . (int)$work->id);
+        $res = $this->getJson('/api/works?id=' . (int)$work->id);
 
         $res->assertStatus(200)->assertJson(
             fn(AssertableJson $json) =>
@@ -107,11 +101,9 @@ class WorkTest extends TestCase
             'title' => 'ToDelete',
             'slug' => Work::makeSlug('ToDelete'),
             'description' => 'delete me',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $del = $this->deleteJson('/api/work/' . $work->id);
+        $del = $this->deleteJson('/api/works/' . $work->id);
         $del->assertStatus(200)->assertJson([
             'status' => true,
             'message' => __('general.deletedSuccessfully', ['id' => $work->id]),
@@ -119,8 +111,8 @@ class WorkTest extends TestCase
 
         $this->assertSoftDeleted('works', ['id' => $work->id]);
 
-        // بازیابی (route: POST /work/{work} -> restore)
-        $restore = $this->postJson('/api/work/' . $work->id);
+        // بازیابی (route: POST /works/{work} -> restore)
+        $restore = $this->postJson('/api/works/' . $work->id);
         $restore->assertStatus(200)->assertJson([
             'status' => true,
             'message' => __('general.restoredSuccessfully'),
@@ -137,11 +129,9 @@ class WorkTest extends TestCase
         $payload = [
             'title' => 'Client Post',
             'description' => 'client desc',
-            'is_published' => true,
-            'published_at' => now()->toISOString(),
         ];
 
-        $res = $this->postJson('/api/clients/work', $payload);
+        $res = $this->postJson('/api/clients/works', $payload);
 
         $res->assertStatus(200)->assertJson([
             'status' => true,
@@ -163,11 +153,9 @@ class WorkTest extends TestCase
             'title' => 'Old Title',
             'slug' => Work::makeSlug('Old Title'),
             'description' => 'old',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $res = $this->patchJson('/api/clients/work/' . $work->id, [
+        $res = $this->patchJson('/api/clients/works/' . $work->id, [
             'title' => 'New Title',
             'description' => 'new',
             'is_published' => false,
@@ -194,8 +182,6 @@ class WorkTest extends TestCase
             'title' => 'M1',
             'slug' => Work::makeSlug('M1'),
             'description' => 'd1',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
         $mine2 = Work::create([
@@ -203,17 +189,15 @@ class WorkTest extends TestCase
             'title' => 'M2',
             'slug' => Work::makeSlug('M2'),
             'description' => 'd2',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $list = $this->getJson('/api/clients/work?order=id&type_order=desc&per_page=10');
+        $list = $this->getJson('/api/clients/works?order=id&type_order=desc&per_page=10');
         $list->assertStatus(200)->assertJson(
             fn(AssertableJson $json) =>
             $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
-        $show = $this->getJson('/api/clients/work?id=' . $mine1->id);
+        $show = $this->getJson('/api/clients/works?id=' . $mine1->id);
         $show->assertStatus(200)->assertJson(
             fn(AssertableJson $json) =>
             $json->where('data.id', $mine1->id)->etc()
@@ -229,11 +213,9 @@ class WorkTest extends TestCase
             'title' => 'ToRemove',
             'slug' => Work::makeSlug('ToRemove'),
             'description' => 'rm',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $res = $this->deleteJson('/api/clients/work/' . $work->id);
+        $res = $this->deleteJson('/api/clients/works/' . $work->id);
 
         $res->assertStatus(200)->assertJson([
             'status' => true,
@@ -257,11 +239,9 @@ class WorkTest extends TestCase
             'title' => 'Not Yours',
             'slug' => Work::makeSlug('Not Yours'),
             'description' => 'others',
-            'is_published' => true,
-            'published_at' => now(),
         ]);
 
-        $upd = $this->patchJson('/api/clients/work/' . $othersWork->id, [
+        $upd = $this->patchJson('/api/clients/works/' . $othersWork->id, [
             'title' => 'Hack',
         ]);
 
@@ -271,11 +251,51 @@ class WorkTest extends TestCase
             ]);
 
 
-        $del = $this->deleteJson('/api/clients/work/' . $othersWork->id);
+        $del = $this->deleteJson('/api/clients/works/' . $othersWork->id);
 
         $del->assertStatus(403)
             ->assertJson([
                 'message' => __('general.forbidden'),
             ]);
     }
+
+
+    public function test_admin_can_update_publish_status(): void
+    {
+        Sanctum::actingAs($this->adminUser, ['*']);
+
+        $work = Work::create([
+            'user_id' => $this->adminUser->id,
+            'title' => 'Publish Test',
+            'slug' => Work::makeSlug('Publish Test'),
+            'description' => 'pub',
+        ]);
+
+        // تغییر به 1
+        $res = $this->patchJson('/api/works/publish/' . $work->id, [
+            'is_published' => 1
+        ]);
+
+        $res->assertStatus(200)->assertJson([
+            'status' => true,
+            'message' => __('work.publishStatusUpdatedSuccessfully'),
+        ]);
+
+        $this->assertDatabaseHas('works', [
+            'id' => $work->id,
+            'is_published' => 1,
+        ]);
+
+        // تغییر به 2
+        $res2 = $this->patchJson('/api/works/publish/' . $work->id , [
+            'is_published' => 2
+        ]);
+
+        $res2->assertStatus(200);
+        $this->assertDatabaseHas('works', [
+            'id' => $work->id,
+            'is_published' => 2,
+        ]);
+    }
+
 }

@@ -25,7 +25,7 @@ class User extends Authentication
     use LogsActivityWithRequest;
 
 
-    const MOBILE_ESAJ = '888888888888';
+    const MOBILE_ADMIN = '888888888888';
 
     const TYPE_ESAJ = 'esaj';
     const TYPE_ORIDINARY = 'ordinary';

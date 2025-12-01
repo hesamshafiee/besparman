@@ -130,7 +130,7 @@ class PayBuilder implements Builder
         $this->user = Auth::user();
         $profile = $this->user->profile;
         $this->ips = empty($profile->ips) ? [] : explode('-', $profile->ips);
-        $this->esajUser = User::where('mobile', User::MOBILE_ESAJ)->first();
+        $this->esajUser = User::where('mobile', User::MOBILE_ADMIN)->first();
         $this->originalPrice = $data['value'];
         $this->takenValue = $data['takenValue'] ?? $this->originalPrice;
         $this->webserviceCode = $data['webserviceCode'] ?? null;

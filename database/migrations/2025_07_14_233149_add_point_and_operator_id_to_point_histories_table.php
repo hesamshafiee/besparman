@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('point_histories', function (Blueprint $table) {
             $table->unsignedBigInteger('operator_id')->nullable();
-            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('no action');
             $table->unsignedBigInteger('point');
         });
     }
@@ -24,7 +23,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('point_histories', function (Blueprint $table) {
-            $table->dropForeign(['operator_id']);
             $table->dropColumn('operator_id');
             $table->dropColumn('point');
         });

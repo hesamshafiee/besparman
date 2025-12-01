@@ -61,6 +61,11 @@ class CategoryController extends Controller
             $data['data'] = json_decode($data['data'], true);
         }
 
+
+        if (isset($data['default_setting']) && is_string($data['default_setting'])) {
+            $data['default_setting'] = json_decode($data['default_setting'], true);
+        }
+
         $category->fill($data);
 
 
@@ -95,56 +100,13 @@ class CategoryController extends Controller
             $data['data'] = json_decode($data['data'], true);
         }
 
+        if (isset($data['default_setting']) && is_string($data['default_setting'])) {
+            $data['default_setting'] = json_decode($data['default_setting'], true);
+        }
+
         $category->fill($data);
 
         if ($category->save()) {
-            $categoryName = '';
-            $groupedProducts = $category->products()
-                ->withPivot('address')
-                ->get()
-                ->groupBy('pivot.address')
-                ->map(function ($products) {
-                    return $products->pluck('id')->toArray();
-                })
-                ->toArray();
-
-            $data = is_string($category->data) ? json_decode($category->data, true) : $category->data;
-
-            foreach ($groupedProducts as $address => $ids) {
-                foreach ($data as $item) {
-                    if ($item['id'] == $address) {
-                        $path = [];
-                        $current = $item;
-
-                        $path[] = $current['text'];
-
-                        while ($current['parent'] != 0) {
-                            foreach ($data as $parentItem) {
-                                if ($parentItem['id'] == $current['parent']) {
-                                    $path[] = $parentItem['text'];
-                                    $current = $parentItem;
-                                    break;
-                                }
-                            }
-                        }
-
-                        $path = array_reverse($path);
-
-                        $categoryName .= implode(' > ', $path);
-
-                        Product::whereIn('id', $ids)
-                            ->chunkById(100, function ($products) use ($categoryName) {
-                                foreach ($products as $product) {
-                                    $product->update([
-                                        'category_name' => $categoryName,
-                                    ]);
-                                }
-                            });
-
-                        $categoryName = '';
-                    }
-                }
-            }
             if ($request->exists('images')) {
                 Image::modelImages($category, $request->file('images'), Image::DRIVER_PUBLIC);
             }

@@ -1,14 +1,14 @@
-name: Profit
+name: Setting
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/profits
+    uri: api/settings
     metadata:
       custom: []
-      groupName: Profit
+      groupName: Setting
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/profits
+    uri: api/settings
     metadata:
       custom: []
-      groupName: Profit
+      groupName: Setting
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -64,24 +64,73 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      title:
+      sms:
         custom: []
-        name: title
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: b
-        type: string
+        name: sms
+        description: ''
+        required: false
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      profit:
+      email:
         custom: []
-        name: profit
-        description: 'Must be at least 1. Must not be greater than 100.'
-        required: true
-        example: 22
-        type: number
+        name: email
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      auth:
+        custom: []
+        name: auth
+        description: ''
+        required: false
+        example: otp
+        type: string
+        enumValues:
+          - otp
+          - otpOrPassword
+          - usernamePassword
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      otp:
+        custom: []
+        name: otp
+        description: ''
+        required: false
+        example: google2fa
+        type: string
+        enumValues:
+          - sms
+          - google2fa
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      jwt_expiration_time:
+        custom: []
+        name: jwt_expiration_time
+        description: 'Must be at least 1. Must not be greater than 1000.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      front:
+        custom: []
+        name: front
+        description: 'Must be a valid JSON string.'
+        required: false
+        example: '["architecto","architecto"]'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -89,42 +138,22 @@ endpoints:
       status:
         custom: []
         name: status
-        description: 'Must be between 0 and 1 digit.'
+        description: ''
         required: false
-        example: '1'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      operator_id:
-        custom: []
-        name: operator_id
-        description: 'The <code>id</code> of an existing record in the operators table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Must be at least 3 characters. Must not be greater than 255 characters.'
-        required: true
-        example: m
-        type: string
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      title: b
-      profit: 22
-      status: '1'
-      operator_id: 4326.41688
-      type: m
+      sms: true
+      email: true
+      auth: otp
+      otp: google2fa
+      jwt_expiration_time: 1
+      front: '["architecto","architecto"]'
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -136,10 +165,10 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/profits/{profit_id}'
+    uri: 'api/settings/{setting_id}'
     metadata:
       custom: []
-      groupName: Profit
+      groupName: Setting
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -151,19 +180,19 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      profit_id:
+      setting_id:
         custom: []
-        name: profit_id
-        description: 'The ID of the profit.'
+        name: setting_id
+        description: 'The ID of the setting.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      profit_id: 1
+      setting_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
