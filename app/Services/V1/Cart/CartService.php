@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 use App\Models\Cart;
+use App\Models\Work;
+
 
 class CartService
 {
@@ -38,11 +40,15 @@ class CartService
 
         foreach ($this->cart['items'] as $key => $item) {
             $item = $this->withRelationshipIfExist($item);
+            if (isset($item['product']['work_id'])) {
+                $work = Work::find($item['product']['work_id']);
+                if (!$work || $work->is_published !== Work::IS_PUBLISHED_TRUE) {
+                    unset($this->cart['items'][$key]);
+                    continue;
+                }
+            }
 
-            if (
-                $item['product'] && $item['product']['status'] &&
-                in_array($item['product']['type'], [Product::TYPE_CART, Product::TYPE_CARD_CHARGE, Product::TYPE_PHYSICAL_CARD_CHARGE])
-            ) {
+            if ($item['product'] && $item['product']['status']){ //  && in_array($item['product']['type'], [Product::TYPE_CART, Product::TYPE_CARD_CHARGE, Product::TYPE_PHYSICAL_CARD_CHARGE])
                 $eachItem = $this->checkDiscountForEachProduct($item, $discountCheck, $saleCheck);
                 $this->cart['items'][$key] = $eachItem;
 
@@ -205,6 +211,15 @@ class CartService
     {
         $warehouse = $product->warehouse;
 
+         $work = $product->work ?? null; 
+
+          if ($work && $work->is_published !== Work::IS_PUBLISHED_TRUE) {
+                return [
+                    'status'  => false,
+                    'message' => 'این اثر هنوز منتشر نشده است و امکان افزودن به سبد خرید وجود ندارد.',
+                ];
+            }
+
         if (is_null($warehouse) || $this->count($product) < $warehouse->count) {
 
             // اگر قبلاً تو سبد هست، فعلاً فقط quantity رو زیاد می‌کنیم
@@ -221,7 +236,7 @@ class CartService
                         'price'        => $product->price,
                         'currency'     => $product->currency ?? 'IRR',
                         'preview_path' => $product->preview_path,
-                        'type'         => $product->type,
+                        'settings'     => $product->settings,
                     ],
                 ];
 

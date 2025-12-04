@@ -251,7 +251,7 @@ class FinancialService
                     $deliveryModel->mobile = $delivery['mobile'];
                     $deliveryModel->save();
                 }
-                $order->products()->attach($orderItems['product']);
+                $order->products()->attach(ids: $orderItems['product']);
                 return ['status' => true, 'order' => $order];
             }
 

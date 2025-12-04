@@ -29,28 +29,6 @@ class WalletTransaction
                 'userName' => ['index' => 'name', 'relation' => 'user'],
                 'bank_name' => ['index' => 'bank_name', 'relation' => 'payment'],
                 'bank_info' => ['index' => 'bank_info', 'relation' => 'payment'],
-                'product_type' => ['attribute_type' => 'attribute', 'in' =>
-                    [
-                        Product::TYPE_CART,
-                        Product::TYPE_CARD_CHARGE,
-                        Product::TYPE_CELL_INTERNET_PACKAGE,
-                        Product::TYPE_TD_LTE_INTERNET_PACKAGE,
-                        Product::TYPE_CELL_DIRECT_CHARGE,
-                        Product::TYPE_CELL_INTERNET_DIRECT_CHARGE,
-                        Product::TYPE_CELL_AMAZING_DIRECT_CHARGE
-                    ]
-                ],
-                'product_type_hide' => ['attribute_type' => 'hidden','index' => 'product_type', 'in' =>
-                    [
-                        Product::TYPE_CART,
-                        Product::TYPE_CARD_CHARGE,
-                        Product::TYPE_CELL_INTERNET_PACKAGE,
-                        Product::TYPE_TD_LTE_INTERNET_PACKAGE,
-                        Product::TYPE_CELL_DIRECT_CHARGE,
-                        Product::TYPE_CELL_INTERNET_DIRECT_CHARGE,
-                        Product::TYPE_CELL_AMAZING_DIRECT_CHARGE
-                    ]
-                ],
                 'created_at' => ['attribute_type' => 'attribute'],
                 'operator_id' => ['attribute_type' => 'attribute', 'like' => false],
                 'detail_hide' => ['attribute_type' => 'hidden','index' => 'detail', 'in' =>
@@ -160,28 +138,6 @@ class WalletTransaction
                 'third_party_status' => ['attribute_type' => 'attribute', 'in' => [true, false]],
                 'main_page' => ['attribute_type' => 'attribute', 'in' => [true, false]],
                 'payment' => ['with' => 'payment'],
-                'product_type' => ['attribute_type' => 'attribute', 'in' =>
-                    [
-                        Product::TYPE_CART,
-                        Product::TYPE_CARD_CHARGE,
-                        Product::TYPE_CELL_INTERNET_PACKAGE,
-                        Product::TYPE_TD_LTE_INTERNET_PACKAGE,
-                        Product::TYPE_CELL_DIRECT_CHARGE,
-                        Product::TYPE_CELL_INTERNET_DIRECT_CHARGE,
-                        Product::TYPE_CELL_AMAZING_DIRECT_CHARGE
-                    ]
-                ],
-                'product_type_hide' => ['attribute_type' => 'hidden','index' => 'product_type', 'in' =>
-                    [
-                        Product::TYPE_CART,
-                        Product::TYPE_CARD_CHARGE,
-                        Product::TYPE_CELL_INTERNET_PACKAGE,
-                        Product::TYPE_TD_LTE_INTERNET_PACKAGE,
-                        Product::TYPE_CELL_DIRECT_CHARGE,
-                        Product::TYPE_CELL_INTERNET_DIRECT_CHARGE,
-                        Product::TYPE_CELL_AMAZING_DIRECT_CHARGE
-                    ]
-                ],
                 'product_name' => ['attribute_type' => 'attribute'],
                 'operator' => ['index' => 'name', 'relation' => 'operator', 'in' => [
                     Operator::IRANCELL,

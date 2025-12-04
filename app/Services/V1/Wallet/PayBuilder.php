@@ -45,8 +45,7 @@ class PayBuilder implements Builder
             if ($this->allTransactions()) {
                 $this->order->status = Order::STATUSPAID;
                 if ($this->order->save()) {
-                    foreach ($this->order->products as $product) {
-                        if($product->type === Product::TYPE_CART) {
+                    /*foreach ($this->order->products as $product) {
                             $warehouse = Warehouse::where('product_id', $product->id)->lockForUpdate()->first();
                            if (!$warehouse || $warehouse->count < $product->pivot->quantity) {
                                 throw new \Exception("There is not enough stock available for product {$product->id}.");
@@ -55,8 +54,7 @@ class PayBuilder implements Builder
                                 $warehouse->count -= $product->pivot->quantity;
                                 $warehouse->save();
                             }
-                        }
-                    }
+                    }*/
 
                     Cart::instance($this->cartInstanceName)->flush();
                     return ['status' => true, 'order_id' => $this->order->id];
@@ -87,7 +85,7 @@ class PayBuilder implements Builder
         $transaction->city = optional($this->user->profile)->city;
         $transaction->mainPage = false;
         $transaction->productName = 'فروشگاه';
-        $transaction->productType = Product::TYPE_CART;
+        $transaction->productType = '';
 
         $transactionResult = $transaction->transaction();
 

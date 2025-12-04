@@ -29,14 +29,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request, Product $product, string $cart = null) : JsonResponse
     {
-        // فقط محصولاتی که برای سبد خرید اجازه دارن
-        if ($product->type != Product::TYPE_CART) {
-            return response()->json([
-                'message' => __('general.productTypeNotAllowed'),
-            ], status::HTTP_BAD_REQUEST);
-        }
-
-        // ولیدیشن ورودی (کانفیگ آیتم در سبد)
+        
         $validated = $request->validate([
             'quantity' => ['sometimes', 'integer', 'min:1'],
 
@@ -98,10 +91,8 @@ class CartController extends Controller
             $config['meta'] = $validated['meta'];
         }
 
-        // این همون اینستنس چند-سبدی خودته
         $cartObj = Cart::instance('cart', $cart);
 
-        // نسخه‌ی جدید سرویست که config هم می‌گیره
         $cartResponse = $cartObj->addToCart($product, $quantity, $config);
 
         return response()->json([
@@ -161,7 +152,6 @@ class CartController extends Controller
 
         $returnUrl = $validated['returnUrl'] ?? '';
         $bank = $validated['bank'] ?? '';
-
         //$response = Wallet::pay($returnUrl, $bank);
 
         $response['status'] = 1 ;
