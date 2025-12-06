@@ -156,11 +156,8 @@ class CartController extends Controller
         $bank = $validated['bank'] ?? '';
         $cartKey = $validated['cart_key'] ?? null;
         $cart = Cart::instance('cart', $cartKey)->all();
-    // dd($cart);
         $response = Wallet::pay($returnUrl, $bank, $cartKey);
 
-        // $response['status'] = 1 ;
-        // $response['token'] = 10 ;
 
         if (isset($response['status']) && $response['status']) {
             return response()->ok(__('checkout successfully'));

@@ -114,15 +114,11 @@ class WalletService
 
     private function Telegram( Collection $telegram_ids): void
     {
-        $Minimum_wallet = $this->wallet->user->settings->settings['minimum_wallet'] ?? 10000000;
+        //$Minimum_wallet = $this->wallet->user->settings->settings['minimum_wallet'] ?? 10000000;
        
-        if ($this->wallet->value < $Minimum_wallet) {
+        if (0) {
 
-             $message = 'کاربر گرامی، موجودی کیف پول شما از '
-                        . number_format($Minimum_wallet)
-                        . ' ریال کمتر شده است. '
-                        . 'موجودی فعلی: ' . number_format($this->wallet->value) . ' ریال می‌باشد.'
-                        . ' لطفاً جهت ادامه استفاده از خدمات، اعتبار کیف پول خود را افزایش دهید.';
+             $message = '💰 کیف پول شما در بسپارمن';
 
             foreach ($telegram_ids as $telegramAccount) {
                 $telegram_id = $telegramAccount->telegram_id;
