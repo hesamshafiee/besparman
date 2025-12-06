@@ -35,7 +35,6 @@ class ProductFactory extends Factory
             'description_full'  => $this->faker->paragraph(4),
 
             // قیمت / کد
-            'sku'      => strtoupper(Str::random(10)),
             'price'    => $this->faker->numberBetween(10000, 500000),
             'currency' => 'IRR',
             'type'     => 'standard',

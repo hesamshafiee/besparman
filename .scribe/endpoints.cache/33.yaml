@@ -121,7 +121,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -185,7 +185,7 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      is_active: true
+      is_active: false
       sort_order: 84
       meta:
         color: zmiyvdljnikhwayk
@@ -272,7 +272,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -336,7 +336,7 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      is_active: true
+      is_active: false
       sort_order: 84
       meta:
         color: zmiyvdljnikhwayk

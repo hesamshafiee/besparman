@@ -169,7 +169,6 @@ class ProductController extends Controller
             'name'                    => ['required', 'string', 'max:200'],
             'price'                   => ['required', 'integer', 'min:0'],
             'status'                  => ['nullable', 'integer', 'in:0,1'],
-            'sku'                     => ['nullable', 'string', 'max:100'],
             'mockup_id'               => ['nullable', 'integer', 'exists:mockups,id'],
             'settings'                => ['nullable'],
             'options'                 => ['nullable'],
@@ -252,12 +251,7 @@ class ProductController extends Controller
                 $p->price = (int) $price;
                 $p->status = $status;
 
-                // sku: اگر برای آیتم آمد، همان؛ وگرنه عمومی. برای یکتا شدن کمی تصادفی.
-                if (!empty($row['sku'])) {
-                    $p->sku = $row['sku'] . '-' . Str::lower(Str::random(4));
-                } elseif (!empty($validated['sku'])) {
-                    $p->sku = $validated['sku'] . '-' . Str::lower(Str::random(4));
-                }
+
 
                 // mockup_id: مخصوص آیتم > عمومی
                 if (!empty($row['mockup_id'])) {

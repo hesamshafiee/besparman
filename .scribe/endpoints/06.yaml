@@ -753,17 +753,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      sku:
-        custom: []
-        name: sku
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
       mockup_id:
         custom: []
         name: mockup_id
@@ -880,7 +869,7 @@ endpoints:
         name: 'variants[].status'
         description: ''
         required: false
-        example: '0'
+        example: '1'
         type: integer
         enumValues:
           - '0'
@@ -959,7 +948,6 @@ endpoints:
       name: 'n'
       price: 84
       status: '0'
-      sku: z
       mockup_id: 16
       variants:
         -
@@ -967,7 +955,7 @@ endpoints:
           address: 'n'
           name: g
           price: 12
-          status: '0'
+          status: '1'
           sku: m
           mockup_id: 16
     fileParameters:

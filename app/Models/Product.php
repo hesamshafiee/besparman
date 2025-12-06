@@ -27,7 +27,6 @@ class Product extends Model implements Sortable
         'name_en',
         'description',
         'description_full',
-        'sku',
         'price',
         'currency',
         'type',

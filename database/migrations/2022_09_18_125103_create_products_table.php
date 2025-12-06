@@ -26,7 +26,6 @@ return new class extends Migration
             $table->longText('description_full')->nullable();
 
             // کد/قیمت/نوع
-            $table->string('sku', 100)->nullable()->unique();
             $table->unsignedBigInteger('price')->default(0);
             $table->char('currency', 3)->default('IRR');
             $table->string('type', 50)->default('standard');

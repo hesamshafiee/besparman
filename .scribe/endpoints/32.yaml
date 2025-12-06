@@ -222,7 +222,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: text
+        example: multi_select
         type: string
         enumValues:
           - select
@@ -280,7 +280,7 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      type: text
+      type: multi_select
       is_required: false
       is_active: false
       sort_order: 84

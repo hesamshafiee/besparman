@@ -224,7 +224,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_internet
+        example: td_lte_internet
         type: string
         enumValues:
           - cell_internet
@@ -354,7 +354,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_internet
+      type: td_lte_internet
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
