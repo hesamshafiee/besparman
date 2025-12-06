@@ -24,8 +24,22 @@ class Order extends Model
     use LogsActivityWithRequest;
 
 
-    protected $fillable = ['status' , 'price' ,'tracking_serial', 'type', 'store', 'total_price', 'total_discount',
-        'from_wallet', 'discount_id', 'sale_id', 'comment', 'total_sale', 'sale_id', 'id_for_operator'];
+    protected $fillable = [
+        'status',
+        'price',
+        'tracking_serial',
+        'type',
+        'store',
+        'total_price',
+        'total_discount',
+        'from_wallet',
+        'discount_id',
+        'sale_id',
+        'comment',
+        'total_sale',
+        'sale_id',
+        'id_for_operator'
+    ];
 
     /**
      * @return mixed
@@ -73,5 +87,9 @@ class Order extends Model
     public function transactions(): HasMany
     {
         return $this->hasMany(WalletTransaction::class);
+    }
+    public function items()
+    {
+        return $this->hasMany(Orderable::class);
     }
 }

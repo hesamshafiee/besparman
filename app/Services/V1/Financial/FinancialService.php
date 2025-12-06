@@ -58,7 +58,7 @@ class FinancialService
             }
 
             if (!$mainPage && !empty($user->profile_confirm) && $profitSplit && in_array($profitSplit->id, $profitSplitIds)) {
-                $sellerPrice = bcsub($price, bcmul($price, bcdiv($profitSplit->seller_profit,100, 4), 4), 4);
+                $sellerPrice = bcsub($price, bcmul($price, bcdiv($profitSplit->seller_profit, 100, 4), 4), 4);
 
                 $presenterPrice = bcmul($price, bcdiv($profitSplit->presenter_profit, 100, 4), 4);
 
@@ -219,20 +219,6 @@ class FinancialService
         $order->delivery_price = $deliveryPrice;
         $order->detail = $detail;
 
-        if ($product && $product->operator_id) {
-
-            if (strcasecmp($product->operator->name, Operator::SHATEL) === 0 || strcasecmp($product->operator->name, Operator::MCI) === 0) {
-                $microtime = microtime(true);
-                mt_srand((int)($microtime * 1000000));
-                $random = mt_rand(0, 2147483647);
-            } else {
-                $random = Str::random(10) . time();
-            }
-
-
-            $order->id_for_operator = $random;
-        }
-
         return DB::transaction(function () use ($order, $orderItems, $delivery) {
             if ($order->save()) {
                 if ($delivery) {
@@ -251,7 +237,27 @@ class FinancialService
                     $deliveryModel->mobile = $delivery['mobile'];
                     $deliveryModel->save();
                 }
-                $order->products()->attach(ids: $orderItems['product']);
+
+                $pivotData = [];
+
+                foreach ($orderItems['product'] as $productId => $item) {
+                    $pivotData[$productId] = [
+                        'quantity' => $item['quantity'],
+                        'discount' => $item['discount'] ?? 0,
+                        'price' => $item['price'],
+
+                        // این دوتا رو خودمون json می‌کنیم
+                        'product_snapshot' => isset($item['product_snapshot'])
+                            ? json_encode($item['product_snapshot'])
+                            : null,
+
+                        'config' => isset($item['config'])
+                            ? json_encode($item['config'])
+                            : null,
+                    ];
+                }
+
+                $order->products()->attach($pivotData);
                 return ['status' => true, 'order' => $order];
             }
 
@@ -279,7 +285,7 @@ class FinancialService
         return ['status' => false, 'error' => $message];
     }
 
-    
+
     /**
      * @param float $esajPrice
      * @param float $esajProfit
@@ -433,9 +439,9 @@ class FinancialService
     {
         if ($user->isPanel()) {
             $point = Point::where('operator_id', optional($product->operator)->id)
-                    ->where('type', $product->type)
-                    ->where('status', 1)
-                    ->first();
+                ->where('type', $product->type)
+                ->where('status', 1)
+                ->first();
             if ($point) {
                 $points = (int) bcdiv($order->final_price, $point->value) * $point->point;
 
@@ -485,7 +491,7 @@ class FinancialService
 
         $discount = Discount::where('code', $discountCode)->where('status', Discount::STATUS_ACTIVE)->first();
 
-        if(!$discount) {
+        if (!$discount) {
             return [
                 'status' => false,
                 'message' => __('general.discountInvalid')
@@ -503,15 +509,15 @@ class FinancialService
             }
         }
 
-        if(!is_null($discount->expire_at) && $discount->expire_at < now()) {
+        if (!is_null($discount->expire_at) && $discount->expire_at < now()) {
             return [
                 'status' => false,
                 'message' => __('general.discountInvalidTime')
             ];
         }
 
-        if( $discount->users()->count() ) {
-            if(!in_array($userId, $discount->users->pluck('id')->toArray())) {
+        if ($discount->users()->count()) {
+            if (!in_array($userId, $discount->users->pluck('id')->toArray())) {
                 return [
                     'status' => false,
                     'message' => __('general.discountNotAble')
@@ -519,8 +525,8 @@ class FinancialService
             }
         }
 
-        if($discount->products()->count()) {
-            if(in_array($productId, $discount->products->pluck('id')->toArray())) {
+        if ($discount->products()->count()) {
+            if (in_array($productId, $discount->products->pluck('id')->toArray())) {
                 return [
                     'status' => false,
                     'message' => __('general.discountNotAble')
@@ -536,7 +542,7 @@ class FinancialService
         }
 
         if ($discount->type === Discount::TYPE_PERCENT) {
-            $discountValue = ($discount->value/100) * $price;
+            $discountValue = ($discount->value / 100) * $price;
         } else {
             $discountValue = $discount->value;
         }

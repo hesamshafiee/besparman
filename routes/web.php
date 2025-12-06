@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Auth;
 */
 
 use App\Http\Controllers\V1\MetricsController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/prometheus', [MetricsController::class, 'metrics']);
-Route::get('tesdt', function () {
-    Product::factory()->count(100)->create();
-    
-});

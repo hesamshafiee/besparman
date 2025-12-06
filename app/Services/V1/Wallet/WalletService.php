@@ -224,8 +224,6 @@ class WalletService
         $walletTransaction->province = $this->province ?? null;
         $walletTransaction->city = $this->city ?? null;
         $walletTransaction->main_page = $this->mainPage ?? false;
-        $walletTransaction->group_charge_id = $this->groupId ?? null;
-        $walletTransaction->multiple_top_up_id = $this->multipleTopupId ?? null;
         $walletTransaction->webservice_code = empty($this->webserviceCode) ? null : $this->webserviceCode;
         $walletTransaction->operator_id = $this->operatorId ?? null;
         $walletTransaction->user_type = $this->userType ?? null;

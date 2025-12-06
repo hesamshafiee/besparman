@@ -145,10 +145,10 @@ class Director
      * @param string $bank
      * @return array
      */
-    public function pay(string $returnUrl, string $bank): array
+    public function pay(string $returnUrl, string $bank, ?string $cartKey = null): array
     {
         $cartInstanceName = 'cart';
-        $cartObj = Cart::instance($cartInstanceName, null);
+        $cartObj = Cart::instance($cartInstanceName, $cartKey);
         $cartData = $cartObj->all();
         if (empty($cartData['items'])) {
             return ['status' => false, 'error' => 'Nothing in cart'];
