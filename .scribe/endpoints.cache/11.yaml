@@ -82,7 +82,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: percent
+        example: money
         type: string
         enumValues:
           - money
@@ -117,7 +117,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-12-06 16:12:33'
+        example: '2025-12-07 10:46:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -128,7 +128,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-30'
+        example: '2051-12-31'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -136,11 +136,11 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: b
-      type: percent
+      type: money
       value: 39
       status: true
-      start_date: '2025-12-06 16:12:33'
-      end_date: '2051-12-30'
+      start_date: '2025-12-07 10:46:38'
+      end_date: '2051-12-31'
     fileParameters: []
     responses: []
     responseFields: []
@@ -199,7 +199,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: percent
+        example: money
         type: string
         enumValues:
           - money
@@ -234,7 +234,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-12-06 16:12:33'
+        example: '2025-12-07 10:46:38'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -245,7 +245,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-30'
+        example: '2051-12-31'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,11 +253,11 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: b
-      type: percent
+      type: money
       value: 39
       status: true
-      start_date: '2025-12-06 16:12:33'
-      end_date: '2051-12-30'
+      start_date: '2025-12-07 10:46:38'
+      end_date: '2051-12-31'
     fileParameters: []
     responses: []
     responseFields: []

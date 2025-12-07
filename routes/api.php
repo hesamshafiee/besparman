@@ -19,9 +19,6 @@ use App\Http\Controllers\V1\OrderController;
 use App\Http\Controllers\V1\PanelMessageController;
 use App\Http\Controllers\V1\PaymentController;
 use App\Http\Controllers\V1\PhoneBookController;
-use App\Http\Controllers\V1\PointController;
-use App\Http\Controllers\V1\PointHistoryController;
-use App\Http\Controllers\V1\PrizeController;
 use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\ProfileController;
 use App\Http\Controllers\V1\ProfitController;
@@ -330,25 +327,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/tickets', [TicketController::class, 'store']);
         Route::get('/tickets/by-user-status', [TicketController::class, 'getTicketCountsGroupedByUserAndStatus']);
 
-        Route::get('/points', [PointController::class, 'index']);
-        Route::post('/points', [PointController::class, 'store']);
-        Route::patch('/points/{point}', [PointController::class, 'update']);
-        Route::delete('/points/{point}', [PointController::class, 'destroy']);
-
-        Route::get('/point-histories', [PointHistoryController::class, 'index']);
-        Route::get('/clients/point-histories', [PointHistoryController::class, 'clientIndex']);
-
-        Route::get('/prizes', [PrizeController::class, 'index']);
-        Route::get('/clients/prizes', [PrizeController::class, 'clientIndex']);
-        Route::get('/prizes-purchase', [PrizeController::class, 'purchaseIndex']);
-        Route::get('/clients/prizes-purchase', [PrizeController::class, 'purchaseClientIndex']);
-        Route::post('/prizes', [PrizeController::class, 'store']);
-        Route::post('/prizes/items', [PrizeController::class, 'ItemsStore']);
-        Route::patch('/prizes/{prize}', [PrizeController::class, 'update']);
-        Route::delete('/prizes/{prize}', [PrizeController::class, 'destroy']);
-        Route::patch('/prizes/status/{prize}', [PrizeController::class, 'status']);
-        Route::patch('/prizes-purchase/status/{prizePurchase}', [PrizeController::class, 'purchaseStatus']);
-        Route::post('/prizes/purchase/{prize}', [PrizeController::class, 'purchase']);
 
         Route::get('/tokens', [TokenController::class, 'index']);
         Route::get('/tokens/create', [TokenController::class, 'create']);

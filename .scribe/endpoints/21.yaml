@@ -274,7 +274,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -318,7 +318,7 @@ endpoints:
       is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
       status: false
-      default: false
+      default: true
       is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []

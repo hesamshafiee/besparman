@@ -1,14 +1,14 @@
-name: PointHistory
+name: Report
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: api/point-histories
+      - POST
+    uri: api/reports
     metadata:
       custom: []
-      groupName: PointHistory
+      groupName: Report
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -23,59 +23,104 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
+    bodyParameters:
+      collection:
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/clients/point-histories
-    metadata:
-      custom: []
-      groupName: PointHistory
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
+        name: collection
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sums:
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        name: sums
+        description: ''
+        required: false
+        example:
+          - architecto
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      groupBy:
+        custom: []
+        name: groupBy
+        description: ''
+        required: false
+        example:
+          - architecto
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sort:
+        custom: []
+        name: sort
+        description: ''
+        required: false
+        example:
+          - '-1'
+        type: 'integer[]'
+        enumValues:
+          - '1'
+          - '-1'
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Must be at least 1.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      page:
+        custom: []
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 67
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      wheres:
+        custom: []
+        name: wheres
+        description: ''
+        required: false
+        example:
+          - architecto
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      collection: architecto
+      sums:
+        - architecto
+      groupBy:
+        - architecto
+      sort:
+        - '-1'
+      limit: 22
+      page: 67
+      wheres:
+        - architecto
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
