@@ -41,8 +41,6 @@ return new class extends Migration
             $table->boolean('third_party_status')->nullable();
             $table->string('province')->nullable();
             $table->string('city')->nullable();
-            $table->unsignedBigInteger('operator_id')->nullable();
-            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('no action');
             $table->string('user_type')->nullable();
             $table->string('product_type')->nullable();
             $table->string('webservice_code')->unique()->nullable();
@@ -64,8 +62,6 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('no action');
             $table->string('operator_title');
-            $table->unsignedBigInteger('operator_id')->nullable();
-            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('no action');
             $table->boolean('third_party_status');
             $table->timestamps();
         });

@@ -26,7 +26,6 @@ class Director
     private Builder $increaseByRefund;
     private Builder $decreaseByAdmin;
     private Builder $pay;
-    private Builder $increaseByPrize;
 
     /**
      * @param Builder $transfer
@@ -39,7 +38,6 @@ class Director
      * @param Builder $increaseByBank
      * @param Builder $decreaseByBank
      * @param Builder $increaseByRefund
-     * @param Builder $increaseByPrize
      */
     public function __construct(Builder $transfer,
                                 Builder $rejectTransfer,
@@ -51,7 +49,6 @@ class Director
                                 Builder $increaseByBank,
                                 Builder $decreaseByBank,
                                 Builder $increaseByRefund,
-                                Builder $increaseByPrize,
     ) {
         $this->transfer = $transfer;
         $this->rejectTransfer = $rejectTransfer;
@@ -63,7 +60,6 @@ class Director
         $this->pay = $pay;
         $this->decreaseByBank = $decreaseByBank;
         $this->increaseByRefund = $increaseByRefund;
-        $this->increaseByPrize = $increaseByPrize;
     }
 
     /**
@@ -124,10 +120,6 @@ class Director
     }
 
 
-    public function increaseByPrize(string $value, int $userId, string $message): array
-    {
-        return $this->increaseByPrize->execute(['value' => $value, 'user-id' => $userId, 'description' => $message]);
-    }
 
     /**
      * @param string $value
@@ -182,34 +174,10 @@ class Director
      */
     public function continueAfterBank(Order $order, $topup = false): array
     {
-        if ($topup) {
-            $detail = json_decode($order->detail, true);
-            $product = Product::find($detail['product_id']);
 
-            if ($product->status) {
-                /*return $this->payWithoutCart->execute([
-                    'value' => $order->final_price,
-                    'order' => $order,
-                    'product' => $product,
-                    'mobile' => $detail['mobile'],
-                    'takenValue' => $detail['takenValue'],
-                    'type' => $detail['type'],
-                    'ext_id' => $detail['ext_id'],
-                    'offerCode' => $detail['offerCode'],
-                    'offerType' => $detail['offerType'],
-                    'webserviceCode' => $detail['webserviceCode'],
-                    'fakeResponse' => filter_var($detail['fakeResponse'], FILTER_VALIDATE_BOOLEAN),
-                    'mainPage' => $detail['mainPage'],
-                    'groupId' => null
-                ]);*/
-            }
-        } else {
             Delivery::createDelivery($order->id);
             return $this->pay->execute(['value' => $order->final_price, 'order' => $order,
                 'takenValue' => 0, 'webserviceCode' => '', 'cartInstanceName' => 'cart']);
-        }
-
-        return ['status' => false, 'error' => 'product or order problem'];
     }
 
     /**

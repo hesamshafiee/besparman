@@ -869,7 +869,7 @@ endpoints:
         name: 'variants[].status'
         description: ''
         required: false
-        example: '1'
+        example: '0'
         type: integer
         enumValues:
           - '0'
@@ -955,7 +955,7 @@ endpoints:
           address: 'n'
           name: g
           price: 12
-          status: '1'
+          status: '0'
           sku: m
           mockup_id: 16
     fileParameters:

@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('profits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('operator_id');
-            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('no action');
             $table->string('type');
             $table->string('title');
             $table->float('profit');

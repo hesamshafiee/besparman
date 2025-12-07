@@ -93,7 +93,7 @@ endpoints:
         name: date
         description: 'Must be a valid date.'
         required: true
-        example: '2025-12-06T15:49:37'
+        example: '2025-12-06T16:12:33'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -133,7 +133,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      date: '2025-12-06T15:49:37'
+      date: '2025-12-06T16:12:33'
       deliveryBetweenStart: '1374491711936806'
       deliveryBetweenEnd: '1374491711936806'
       address_id: 4326.41688

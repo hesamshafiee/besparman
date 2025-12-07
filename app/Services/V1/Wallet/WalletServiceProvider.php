@@ -21,7 +21,6 @@ class WalletServiceProvider extends ServiceProvider
                 new IncreaseByBankBuilder(),
                 new DecreaseByBankBuilder(),
                 new IncreaseByRefundBuilder(),
-                new IncreaseByPrizeBuilder(),
             );
         });
     }

@@ -115,7 +115,7 @@ endpoints:
         name: is_open
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
       short_content: tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr
       body: erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt
       status: false
-      is_open: false
+      is_open: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -207,7 +207,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -218,7 +218,7 @@ endpoints:
         name: is_open
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -228,8 +228,8 @@ endpoints:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       short_content: tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr
       body: erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt
-      status: true
-      is_open: true
+      status: false
+      is_open: false
     fileParameters: []
     responses: []
     responseFields: []

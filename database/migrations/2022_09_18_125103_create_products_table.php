@@ -53,8 +53,6 @@ return new class extends Migration
 
             // ایندکس‌ها
             $table->index(['status', 'category_id']);
-            // $table->index('user_id');  // لازم نیست؛ برای FK ایندکس ضمنی داریم
-            // $table->index('slug');     // زائد است چون unique دارد
         });
     }
 

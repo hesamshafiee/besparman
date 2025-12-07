@@ -93,7 +93,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: select
+        example: text
         type: string
         enumValues:
           - select
@@ -151,7 +151,7 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      type: select
+      type: text
       is_required: true
       is_active: true
       sort_order: 84
@@ -224,7 +224,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: multi_select
+        example: swatch
         type: string
         enumValues:
           - select
@@ -240,7 +240,7 @@ endpoints:
         name: is_required
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -251,7 +251,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -282,9 +282,9 @@ endpoints:
     cleanBodyParameters:
       name: b
       code: 'n'
-      type: multi_select
-      is_required: false
-      is_active: false
+      type: swatch
+      is_required: true
+      is_active: true
       sort_order: 84
     fileParameters: []
     responses: []

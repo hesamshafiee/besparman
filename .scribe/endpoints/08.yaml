@@ -137,7 +137,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -159,7 +159,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T15:49:37'
+        example: '2025-12-06T16:12:33'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -196,9 +196,9 @@ endpoints:
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
-      status: false
+      status: true
       reusable: true
-      expire_at: '2025-12-06T15:49:37'
+      expire_at: '2025-12-06T16:12:33'
       users:
         - 4326.41688
       products:
@@ -261,7 +261,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: percent
+        example: money
         type: string
         enumValues:
           - money
@@ -318,7 +318,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -340,7 +340,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T15:49:37'
+        example: '2025-12-06T16:12:33'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -372,14 +372,14 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       code: b
-      type: percent
+      type: money
       value: 4326.41688
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
-      status: true
+      status: false
       reusable: true
-      expire_at: '2025-12-06T15:49:37'
+      expire_at: '2025-12-06T16:12:33'
       users:
         - 4326.41688
       products:

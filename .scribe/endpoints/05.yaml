@@ -511,7 +511,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -533,7 +533,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -544,7 +544,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -585,10 +585,10 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: false
+      is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
-      status: false
-      default: true
+      status: true
+      default: false
       is_capital: false
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
@@ -682,7 +682,7 @@ endpoints:
         name: expiry_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T15:49:37'
+        example: '2025-12-06T16:12:34'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -715,7 +715,7 @@ endpoints:
       count: 4326.41688
       weight: 4326.41688
       price: 4326.41688
-      expiry_date: '2025-12-06T15:49:37'
+      expiry_date: '2025-12-06T16:12:34'
       warehouse_address: m
       source: i
     fileParameters: []
@@ -787,7 +787,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -796,7 +796,7 @@ endpoints:
     cleanBodyParameters:
       title: b
       content: '["architecto","architecto"]'
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -986,7 +986,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: ordinary
+        example: webservice
         type: string
         enumValues:
           - panel
@@ -1002,7 +1002,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1013,7 +1013,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1035,7 +1035,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1044,11 +1044,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: ordinary
-      private: true
-      profile_confirm: false
+      type: webservice
+      private: false
+      profile_confirm: true
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1118,7 +1118,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: panel
+        example: webservice
         type: string
         enumValues:
           - panel
@@ -1134,7 +1134,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1145,7 +1145,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1176,9 +1176,9 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: panel
-      private: false
-      profile_confirm: false
+      type: webservice
+      private: true
+      profile_confirm: true
       name: architecto
       two_step: false
     fileParameters: []
@@ -1281,7 +1281,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: ordinary
+        example: webservice
         type: string
         enumValues:
           - panel
@@ -1297,7 +1297,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1330,7 +1330,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1339,11 +1339,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: ordinary
-      private: true
+      type: webservice
+      private: false
       profile_confirm: true
       name: architecto
-      two_step: true
+      two_step: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -1391,7 +1391,7 @@ endpoints:
         name: sms
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1469,7 +1469,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      sms: true
+      sms: false
       email: false
       auth: usernamePassword
       otp: sms
@@ -1867,7 +1867,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T15:49:38'
+        example: '2025-12-06T16:12:34'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2064,7 +2064,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-06T15:49:38'
+      birth_date: '2025-12-06T16:12:34'
       address: b
       postal_code: 'n'
       profession: g
@@ -2116,7 +2116,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T15:49:38'
+        example: '2025-12-06T16:12:34'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2313,7 +2313,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-06T15:49:38'
+      birth_date: '2025-12-06T16:12:34'
       address: b
       postal_code: 'n'
       profession: g
@@ -2586,7 +2586,7 @@ endpoints:
         name: is_published
         description: ''
         required: true
-        example: '1'
+        example: '0'
         type: integer
         enumValues:
           - '0'
@@ -2596,7 +2596,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      is_published: '1'
+      is_published: '0'
     fileParameters: []
     responses: []
     responseFields: []
@@ -2924,7 +2924,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_amazing_direct_charge
+        example: cell_direct_charge
         type: string
         enumValues:
           - cell_internet
@@ -2962,7 +2962,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2970,10 +2970,10 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       operator_id: 4326.41688
-      type: cell_amazing_direct_charge
+      type: cell_direct_charge
       value: 17
       point: 15
-      status: false
+      status: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -3054,7 +3054,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: cell_direct_charge
+        example: td_lte_internet
         type: string
         enumValues:
           - cell_internet
@@ -3184,7 +3184,7 @@ endpoints:
       name: b
       description: 'Et animi quos velit et fugiat.'
       point: 1
-      type: cell_direct_charge
+      type: td_lte_internet
       price: 4326.41688
       operator_id: 4326.41688
       product_id: 4326.41688
