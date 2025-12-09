@@ -37,10 +37,7 @@ class OrderController extends Controller
             $typeOrder = 'desc';
         }
 
-         $records = Order::whereHas('products', function ($query) {
-                $query->where('type', 'cart');
-            })
-            ->orderBy($order, $typeOrder)
+         $records = Order::orderBy($order, $typeOrder)
             ->paginate($perPage);
 
         $orderIds = $records->pluck('id')->toArray();

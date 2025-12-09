@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('profit_groups', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->json('profit_split_ids');
-            $table->timestamps();
-        });
 
-        Schema::create('profit_groupables', function (Blueprint $table) {
-            $table->unsignedInteger('profit_group_id');
-            $table->unsignedInteger('profit_groupable_id');
-            $table->string('profit_groupable_type');
+            // new columns
+            $table->decimal('designer_profit', 5, 2);
+            $table->decimal('site_profit', 5, 2);
+            $table->decimal('referrer_profit', 5, 2);
+
+            $table->timestamps();
         });
     }
 
@@ -30,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profit_groupables');
         Schema::dropIfExists('profit_groups');
     }
 };

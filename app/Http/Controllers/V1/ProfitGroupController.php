@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\V1\Esaj\ProfitGroupRequest;
+use App\Http\Requests\V1\ProfitGroupRequest;
 use App\Http\Resources\V1\ProfitGroupResource;
-use App\Http\Resources\V1\ProfitMixResource;
-use App\Models\Profit;
 use App\Models\ProfitGroup;
-use App\Models\ProfitSplit;
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
@@ -28,24 +25,26 @@ class ProfitGroupController extends Controller
         $this->authorize('show', ProfitGroup::class);
 
         $id = (int) $request->query('id', 0);
+
+        // اگر id فرستاده شده، فقط همون ProfitGroup رو برگردون
         if ($id) {
             $profitGroup = ProfitGroup::findOrFail($id);
-            $profitSplits = ProfitSplit::whereIn('id', $profitGroup->profit_split_ids)->get();
-            $profitIds = collect($profitSplits)->pluck('profit_id')->toArray();
-            $profits = Profit::whereIn('id', $profitIds)->get();
-            return response()->jsonMacro(ProfitMixResource::collection(['profitGroup' => $profitGroup, 'profitSplits' => $profitSplits, 'profit' => $profits]));
+            return response()->jsonMacro(new ProfitGroupResource($profitGroup));
         }
 
         $order = $request->query('order', 'id');
         $typeOrder = $request->query('type_order', 'desc');
         $perPage = (int) $request->query('per_page', 10);
 
-
         if (!in_array(strtolower($typeOrder), ['asc', 'desc'])) {
             $typeOrder = 'desc';
         }
 
-        return response()->jsonMacro(ProfitGroupResource::collection(ProfitGroup::orderBy($order, $typeOrder)->paginate($perPage)));
+        $query = ProfitGroup::orderBy($order, $typeOrder);
+
+        return response()->jsonMacro(
+            ProfitGroupResource::collection($query->paginate($perPage))
+        );
     }
 
     /**
@@ -58,21 +57,25 @@ class ProfitGroupController extends Controller
     {
         $this->authorize('create', ProfitGroup::class);
 
-        if (!$this->check($request->profit_split_ids)) {
-            return response()->serverError('Same profit source is forbidden');
-        }
+        // داده‌ها از Request ولید شده
+        $data = $request->safe()->only([
+            'title',
+            'designer_profit',
+            'site_profit',
+            'referrer_profit',
+        ]);
 
-        $warehouse = new ProfitGroup();
-        $warehouse->fill($request->safe()->all());
+        $profitGroup = new ProfitGroup();
+        $profitGroup->fill($data);
 
-        if ($warehouse->save()) {
+        if ($profitGroup->save()) {
             return response()->ok(__('general.savedSuccessfully'));
         }
 
         return response()->serverError(__('general.somethingWrong'));
     }
 
-    /***
+    /**
      * @param ProfitGroupRequest $request
      * @param ProfitGroup $profitGroup
      * @return JsonResponse
@@ -83,11 +86,14 @@ class ProfitGroupController extends Controller
     {
         $this->authorize('update', ProfitGroup::class);
 
-        if (!$this->check($request->profit_split_ids)) {
-            return response()->serverError('Same profit source is forbidden');
-        }
+        $data = $request->safe()->only([
+            'title',
+            'designer_profit',
+            'site_profit',
+            'referrer_profit',
+        ]);
 
-        $profitGroup->fill($request->safe()->all());
+        $profitGroup->fill($data);
 
         if ($profitGroup->save()) {
             return response()->ok(__('general.updatedSuccessfully', ['id' => $profitGroup->id]));
@@ -114,55 +120,40 @@ class ProfitGroupController extends Controller
     }
 
     /**
-     * @param ProfitGroupRequest $request
+     * @param Request $request
      * @param User $user
      * @return JsonResponse
      * @throws AuthorizationException
      * @group ProfitGroup
      */
-    public function assignProfitGroupToUser(ProfitGroupRequest $request, User $user) : JsonResponse
+    public function assignProfitGroupToUser(Request $request, User $user): JsonResponse
     {
         $this->authorize('assignProfitGroup', ProfitGroup::class);
 
-        $user->profitGroups()->sync($request->profit_group_id);
+        $validated = $request->validate([
+            'profit_group_id' => ['required', 'exists:profit_groups,id'],
+        ]);
+
+        $user->profit_group_id = $validated['profit_group_id'];
+        $user->save();
 
         return response()->ok('Profit group has been assigned to user');
     }
 
+    /**
+     * گرفتن ProfitGroup کاربر لاگین شده
+     *
+     * @return JsonResponse
+     */
     public function getUserProfitGroup(): JsonResponse
     {
-        $profitGroup = Auth::user()->profitGroups->first();
-        if ($profitGroup) {
-            $profitSplits = ProfitSplit::select('title', 'profit_id', 'seller_profit')->whereIn('id', $profitGroup->profit_split_ids)->get();
-            if ($profitSplits) {
-                $profits = Profit::select('id', 'type', 'title', 'operator_id')->where('status', 1)->whereIn('id', $profitSplits->pluck('profit_id'))->with('operator')->get();
-            }
-        }
+        $user = Auth::user();
+        $profitGroup = $user?->profitGroup;
 
-        return response()->jsonMacro(ProfitMixResource::collection(['profitGroup' => $profitGroup, 'profitSplits' => $profitSplits ?? [], 'profit' => $profits ?? []]));
-    }
-
-    /**
-     * @param array $profitSplitIds
-     * @return bool
-     * @group ProfitGroup
-     */
-    private function check(array $profitSplitIds): bool
-    {
-        $profitIds = ProfitSplit::whereIn('id', $profitSplitIds)->get()->pluck('profit_id')->toArray();
-
-        $profits = Profit::select('operator_id', 'type')->whereIn('id', $profitIds)->get();
-
-        $array = [];
-        foreach ($profits as $profit) {
-            $x = isset($array[$profit->type . $profit->operator_id]) ? ($array[$profit->type . $profit->operator_id] + 1) : 1;
-            $array[$profit->type . $profit->operator_id] = $x;
-
-            if ($x > 1) {
-                return false;
-            }
-        }
-
-        return true;
+        return response()->jsonMacro(
+            $profitGroup
+            ? new ProfitGroupResource($profitGroup)
+            : null
+        );
     }
 }

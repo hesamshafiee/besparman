@@ -339,7 +339,7 @@ class FinancialService
         $walletServiceEsaj->mainPage = $mainPage;
         $walletServiceEsaj->groupId = $groupId;
         $walletServiceEsaj->multipleTopupId = $multipleTopupId;
-        $walletServiceEsaj->userType = User::TYPE_ESAJ;
+        $walletServiceEsaj->userType = User::TYPE_PICBOOM;
         $walletServiceEsaj->third_party_info = $thirdPartyInfo;
         $walletServiceEsaj->third_party_status = $thirdPartyStatus;
 

@@ -218,15 +218,6 @@ return [
                 'timeout' => 600,
                 'minProcesses' => 1,
             ],
-            'scheduled-topup-queues' => [
-                'connection' => 'redis',
-                'queue' => ['scheduled-topup'],
-                'maxProcesses' => 10,
-                'balance' => 'simple',
-                'tries' => 2,
-                'timeout' => 600,
-                'minProcesses' => 1,
-            ],
             'reports-queues' => [
                 'connection' => 'redis',
                 'queue' => ['report'],
@@ -260,15 +251,6 @@ return [
             'telegram-queues' => [
                 'connection' => 'redis',
                 'queue' => ['telegram'],
-                'maxProcesses' => 10,
-                'balance' => 'simple',
-                'tries' => 2,
-                'timeout' => 600,
-                'minProcesses' => 1,
-            ],
-            'scheduled-topup-queues' => [
-                'connection' => 'redis',
-                'queue' => ['scheduled-topup'],
                 'maxProcesses' => 10,
                 'balance' => 'simple',
                 'tries' => 2,

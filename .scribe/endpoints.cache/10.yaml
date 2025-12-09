@@ -79,14 +79,14 @@ endpoints:
         name: logistic_id
         description: 'The ID of the logistic.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      logistic_id: 1
+      logistic_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -95,7 +95,7 @@ endpoints:
         name: date
         description: 'Must be a valid date.'
         required: true
-        example: '2025-12-07T10:46:38'
+        example: '2025-12-09T17:42:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +135,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      date: '2025-12-07T10:46:38'
+      date: '2025-12-09T17:42:14'
       deliveryBetweenStart: '1374491711936806'
       deliveryBetweenEnd: '1374491711936806'
       address_id: 4326.41688
@@ -294,7 +294,7 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -312,7 +312,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      product_id: 1
+      product_id: 16
       cart: architecto
     queryParameters: []
     cleanQueryParameters: []

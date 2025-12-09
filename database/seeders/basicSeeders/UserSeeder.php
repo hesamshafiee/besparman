@@ -19,11 +19,11 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'esaj',
+                'name' => 'picboom',
                 'mobile' => User::MOBILE_ADMIN,
                 'mobile_verified_at' => now(),
                 'presenter_code' => Str::random(7),
-                'type' => User::TYPE_ESAJ,
+                'type' => User::TYPE_PICBOOM,
             ],
             [
                 'name' => 'تست',

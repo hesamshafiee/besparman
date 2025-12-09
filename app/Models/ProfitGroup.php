@@ -14,10 +14,9 @@ class ProfitGroup extends Model
 
     protected $fillable = [
         'title',
-        'profit_split_ids'
-        ];
-
-    protected $casts = [
-        'profit_split_ids' => 'array',
+        'designer_profit',
+        'site_profit',
+        'referrer_profit',
     ];
+
 }

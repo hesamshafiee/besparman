@@ -115,7 +115,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-12-07 10:46:38'
+        example: '2025-12-09 17:42:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-31'
+        example: '2052-01-02'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -137,8 +137,8 @@ endpoints:
       type: money
       value: 39
       status: true
-      start_date: '2025-12-07 10:46:38'
-      end_date: '2051-12-31'
+      start_date: '2025-12-09 17:42:14'
+      end_date: '2052-01-02'
     fileParameters: []
     responses: []
     responseFields: []
@@ -221,7 +221,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -232,7 +232,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>.'
         required: false
-        example: '2025-12-07 10:46:38'
+        example: '2025-12-09 17:42:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -243,7 +243,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2051-12-31'
+        example: '2052-01-02'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,9 +253,9 @@ endpoints:
       title: b
       type: money
       value: 39
-      status: true
-      start_date: '2025-12-07 10:46:38'
-      end_date: '2051-12-31'
+      status: false
+      start_date: '2025-12-09 17:42:14'
+      end_date: '2052-01-02'
     fileParameters: []
     responses: []
     responseFields: []

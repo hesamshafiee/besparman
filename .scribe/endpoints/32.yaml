@@ -1,18 +1,58 @@
-name: Option
+name: Variant
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/options
+    uri: api/clients/variants
     metadata:
       custom: []
-      groupName: Option
+      groupName: Variant
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست Optionها (پنل ادمین)'
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/variants
+    metadata:
+      custom: []
+      groupName: Variant
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -45,14 +85,14 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/options
+    uri: api/variants
     metadata:
       custom: []
-      groupName: Option
+      groupName: Variant
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'ساخت Option جدید'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -64,51 +104,35 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
+      category_id:
         custom: []
-        name: name
-        description: 'Must not be greater than 191 characters.'
+        name: category_id
+        description: 'The <code>id</code> of an existing record in the categories table.'
         required: true
-        example: b
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      code:
+      stock:
         custom: []
-        name: code
-        description: 'Must contain only letters, numbers, dashes and underscores. Must not be greater than 100 characters.'
+        name: stock
+        description: 'Must be at least 0.'
         required: true
-        example: 'n'
-        type: string
+        example: 39
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      type:
+      add_price:
         custom: []
-        name: type
-        description: ''
+        name: add_price
+        description: 'Must be at least 0.'
         required: true
-        example: multi_select
-        type: string
-        enumValues:
-          - select
-          - multi_select
-          - text
-          - number
-          - swatch
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_required:
-        custom: []
-        name: is_required
-        description: ''
-        required: false
-        example: false
-        type: boolean
+        example: 84
+        type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -118,41 +142,31 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      meta:
+      option_value_ids:
         custom: []
-        name: meta
-        description: ''
+        name: option_value_ids
+        description: 'The <code>id</code> of an existing record in the option_values table.'
         required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      sort_order:
-        custom: []
-        name: sort_order
-        description: 'Must be at least 0.'
-        required: false
-        example: 84
-        type: integer
+        example:
+          - 16
+        type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: b
-      code: 'n'
-      type: multi_select
-      is_required: false
-      is_active: false
-      sort_order: 84
+      category_id: 16
+      stock: 39
+      add_price: 84
+      is_active: true
+      option_value_ids:
+        - 16
     fileParameters: []
     responses: []
     responseFields: []
@@ -164,14 +178,14 @@ endpoints:
     custom: []
     httpMethods:
       - PATCH
-    uri: 'api/options/{option_id}'
+    uri: 'api/variants/{variant_id}'
     metadata:
       custom: []
-      groupName: Option
+      groupName: Variant
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'بروزرسانی Option'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -179,10 +193,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      option_id:
+      variant_id:
         custom: []
-        name: option_id
-        description: 'The ID of the option.'
+        name: variant_id
+        description: 'The ID of the variant.'
         required: true
         example: 1
         type: integer
@@ -191,55 +205,39 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      option_id: 1
+      variant_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
+      category_id:
         custom: []
-        name: name
-        description: 'Must not be greater than 191 characters.'
+        name: category_id
+        description: 'The <code>id</code> of an existing record in the categories table.'
         required: false
-        example: b
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      code:
+      stock:
         custom: []
-        name: code
-        description: 'Must contain only letters, numbers, dashes and underscores. Must not be greater than 100 characters.'
+        name: stock
+        description: 'Must be at least 0.'
         required: false
-        example: 'n'
-        type: string
+        example: 39
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      type:
+      add_price:
         custom: []
-        name: type
-        description: ''
+        name: add_price
+        description: 'Must be at least 0.'
         required: false
-        example: select
-        type: string
-        enumValues:
-          - select
-          - multi_select
-          - text
-          - number
-          - swatch
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_required:
-        custom: []
-        name: is_required
-        description: ''
-        required: false
-        example: true
-        type: boolean
+        example: 84
+        type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -249,41 +247,31 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      meta:
+      option_value_ids:
         custom: []
-        name: meta
-        description: ''
+        name: option_value_ids
+        description: 'The <code>id</code> of an existing record in the option_values table.'
         required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      sort_order:
-        custom: []
-        name: sort_order
-        description: 'Must be at least 0.'
-        required: false
-        example: 84
-        type: integer
+        example:
+          - 16
+        type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: b
-      code: 'n'
-      type: select
-      is_required: true
-      is_active: true
-      sort_order: 84
+      category_id: 16
+      stock: 39
+      add_price: 84
+      is_active: false
+      option_value_ids:
+        - 16
     fileParameters: []
     responses: []
     responseFields: []
@@ -295,14 +283,14 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/options/{option_id}'
+    uri: 'api/variants/{variant_id}'
     metadata:
       custom: []
-      groupName: Option
+      groupName: Variant
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'حذف Option'
+      title: 'حذف واریانت (فقط ادمین)'
       description: ''
       authenticated: false
       deprecated: false
@@ -310,10 +298,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      option_id:
+      variant_id:
         custom: []
-        name: option_id
-        description: 'The ID of the option.'
+        name: variant_id
+        description: 'The ID of the variant.'
         required: true
         example: 1
         type: integer
@@ -322,53 +310,13 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      option_id: 1
+      variant_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/clients/options
-    metadata:
-      custom: []
-      groupName: Option
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'لیست Optionها برای کلاینت (مثلاً Designer / Buyer)'
-      description: 'فقط Optionهای فعال'
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
     responseFields: []
     auth: []
     controller: null

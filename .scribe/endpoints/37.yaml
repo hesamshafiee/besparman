@@ -1,14 +1,14 @@
-name: WalletTransactionExtra
+name: Tag
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/wallet/transaction/extras
+    uri: api/tags
     metadata:
       custom: []
-      groupName: WalletTransactionExtra
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -44,11 +44,123 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PATCH
-    uri: 'api/wallet/transaction/extras/{walletTransactionExtra_id}'
+      - POST
+    uri: api/tags
     metadata:
       custom: []
-      groupName: WalletTransactionExtra
+      groupName: Tag
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      table:
+        custom: []
+        name: table
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tags:
+        custom: []
+        name: tags
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example:
+          - 'n'
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      table: architecto
+      tags:
+        - 'n'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/tags/create
+    metadata:
+      custom: []
+      groupName: Tag
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: architecto
+      type: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/tags/{tag_id}'
+    metadata:
+      custom: []
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -60,10 +172,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      walletTransactionExtra_id:
+      tag_id:
         custom: []
-        name: walletTransactionExtra_id
-        description: 'The ID of the walletTransactionExtra.'
+        name: tag_id
+        description: 'The ID of the tag.'
         required: true
         example: 16
         type: integer
@@ -72,23 +184,54 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      walletTransactionExtra_id: 16
+      tag_id: 16
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      taken_value:
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/tags/force/{tag_id}'
+    metadata:
+      custom: []
+      groupName: Tag
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      tag_id:
         custom: []
-        name: taken_value
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
+        name: tag_id
+        description: 'The ID of the tag.'
+        required: true
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanBodyParameters:
-      taken_value: 4326.41688
+    cleanUrlParameters:
+      tag_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

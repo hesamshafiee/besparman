@@ -27,7 +27,7 @@ class User extends Authentication
 
     const MOBILE_ADMIN = '888888888888';
 
-    const TYPE_ESAJ = 'esaj';
+    const TYPE_PICBOOM = 'esaj';
     const TYPE_ORIDINARY = 'ordinary';
     const TYPE_PANEL = 'panel';
     const TYPE_WEBSERVICE = 'webservice';
@@ -261,11 +261,11 @@ class User extends Authentication
     }
 
     /**
-     * @return MorphToMany
+     * @return BelongsTo
      */
-    public function profitGroups() : MorphToMany
+    public function profitGroup()
     {
-        return $this->morphToMany(ProfitGroup::class, 'profit_groupable');
+        return $this->belongsTo(ProfitGroup::class);
     }
 
     /**
@@ -349,7 +349,7 @@ class User extends Authentication
      */
     public function isEsaj(): bool
     {
-        return $this->type === self::TYPE_ESAJ;
+        return $this->type === self::TYPE_PICBOOM;
     }
 
     /**

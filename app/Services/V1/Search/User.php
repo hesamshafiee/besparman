@@ -20,7 +20,7 @@ class User
                 'name' => ['attribute_type' => 'attribute'],
                 'type' => ['attribute_type' => 'attribute', 'in' =>
                     [
-                        UserModel::TYPE_ESAJ,
+                        UserModel::TYPE_PICBOOM,
                         UserModel::TYPE_ORIDINARY,
                         UserModel::TYPE_PANEL,
                         UserModel::TYPE_WEBSERVICE,

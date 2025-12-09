@@ -18,8 +18,11 @@ class ProfitGroupResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'profit_split_ids' => $this->profit_split_ids,
-            'profit_splits' => ProfitSplit::find($this->profit_split_ids)
+            'designer_profit' => $this->designer_profit,
+            'site_profit' => $this->site_profit,
+            'referrer_profit' => $this->referrer_profit,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

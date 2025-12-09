@@ -78,34 +78,7 @@ class PaymentController extends Controller
         return response()->jsonMacro(PaymentResource::collection(Payment::where('user_id', Auth::id())->orderBy($order, $typeOrder)->paginate($perPage)));
     }
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     * @group Payment
-     */
-    public function clientIndexOrder(Request $request): JsonResponse
-    {
-        $id = (int) $request->query('id', 0);
-        if ($id) {
-            return response()->jsonMacro( new OrderResource(Order::where('user_id', Auth::id())->where('id', $id)->firstOrFail()));
-        }
 
-        $order = $request->query('order', 'id');
-        $typeOrder = $request->query('type_order', 'desc');
-        $perPage = (int) $request->query('per_page', 10);
-
-        $allowedColumns = ['id', 'created_at', 'updated_at'];
-        if (!in_array($order, $allowedColumns)) {
-            $order = 'id';
-        }
-
-
-        if (!in_array(strtolower($typeOrder), ['asc', 'desc'])) {
-            $typeOrder = 'desc';
-        }
-
-        return response()->jsonMacro(OrderResource::collection(Order::where('user_id', Auth::id())->orderBy($order, $typeOrder)->paginate($perPage)));
-    }
 
     /**
      * @return JsonResponse
@@ -219,7 +192,6 @@ class PaymentController extends Controller
     {
         $payment = null;
         $respond = false;
-        $topUp = false;
         $returnUrl = env('REDIRECT_TO_FRONT_AFTER_BANK');
         $res = $request->ResNum ?? $request->SaleOrderId;
 
@@ -240,10 +212,7 @@ class PaymentController extends Controller
 
             if (!empty($payment->order_id) && $respond) {
                 $order = Order::where('id', $payment->order_id)->first();
-                if ($order && $order->detail) {
-                    $topUp = true;
-                    $response = Wallet::continueAfterBank($order, $topUp);
-                } elseif ($order) {
+                if ($order) {
                     $response = Wallet::continueAfterBank($order);
                 }
             }
@@ -254,14 +223,7 @@ class PaymentController extends Controller
 
         $mark = $lastCharacter === '/' ? '?' : '&';
 
-        if ($topUp) {
-            $mobile = $response['mobile'] ?? '';
-            $price = $response['price'] ?? '';
-            $productName = $response['productName'] ?? '';
-            $url = $returnUrl . $mark . 'ok=' . !!$respond .  '&refCode=' . $res . '&topUpStatus=' . $response['status'] . '&topUpMobile='  . $mobile . '&topUpPrice='  . $price . '&topUpProductName='  . $productName;
-        } else {
-            $url = $returnUrl . $mark . 'ok=' . !!$respond .  '&refCode=' . $res;
-        }
+        $url = $returnUrl . $mark . 'ok=' . !!$respond .  '&refCode=' . $res;
 
         return Redirect::away($url);
     }

@@ -21,9 +21,7 @@ use App\Http\Controllers\V1\PaymentController;
 use App\Http\Controllers\V1\PhoneBookController;
 use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\ProfileController;
-use App\Http\Controllers\V1\ProfitController;
 use App\Http\Controllers\V1\ProfitGroupController;
-use App\Http\Controllers\V1\ProfitSplitController;
 use App\Http\Controllers\V1\ReportController;
 use App\Http\Controllers\V1\SaleController;
 use App\Http\Controllers\V1\SearchController;
@@ -142,14 +140,13 @@ Route::middleware(['checkToken'])->group(function () {
         Route::get('/clients/telegram', [TelegramController::class, 'clientIndex']);
         Route::delete('/clients/telegram/{userTelegramAccount}', [TelegramController::class, 'clientDestroy']);
 
-        Route::get('/orders', [PaymentController::class, 'orders']);
-        Route::get('/orders/physical', [OrderController::class, 'index']);
+        Route::get('/orders', [OrderController::class, 'index']);
         Route::get('/orders/{order}', [OrderController::class, 'getOrder']);
         Route::get('/clients/orders', [OrderController::class, 'clientIndexOrder']);
         Route::patch('/orders/status/{order}', [OrderController::class, 'updateStatus']);
+
         Route::get('/payments', [PaymentController::class, 'index']);
         Route::get('/clients/payments', [PaymentController::class, 'clientIndex']);
-        Route::get('/clients/orders', [PaymentController::class, 'clientIndexOrder']);
         Route::post('/payment/card/increase', [PaymentController::class, 'cardToCard']);
         Route::get('/payment/confirm/{payment}', [PaymentController::class, 'confirm']);
         Route::get('/payment/reject/{payment}', [PaymentController::class, 'reject']);
@@ -232,16 +229,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/comments', [CommentController::class, 'store']);
         Route::patch('/comments/{comment}', [CommentController::class, 'update']);
         Route::patch('/comments/status/{comment}', [CommentController::class, 'status']);
-
-        Route::get('/profits', [ProfitController::class, 'index']);
-        Route::post('/profits', [ProfitController::class, 'store']);
-        Route::patch('/profits/{profit}', [ProfitController::class, 'update']);
-        Route::delete('/profits/{profit}', [ProfitController::class, 'destroy']);
-
-        Route::get('/profit-splits', [ProfitSplitController::class, 'index']);
-        Route::post('/profit-splits', [ProfitSplitController::class, 'store']);
-        Route::patch('/profit-splits/{profitSplit}', [ProfitSplitController::class, 'update']);
-        Route::delete('/profit-splits/{profitSplit}', [ProfitSplitController::class, 'destroy']);
 
         Route::get('/profit-groups/user', [ProfitGroupController::class, 'getUserProfitGroup']);
         Route::get('/profit-groups', [ProfitGroupController::class, 'index']);

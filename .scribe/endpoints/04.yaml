@@ -190,7 +190,7 @@ endpoints:
         name: fit_mode
         description: ''
         required: true
-        example: cover
+        example: stretch
         type: string
         enumValues:
           - contain
@@ -310,7 +310,7 @@ endpoints:
       print_width: 26
       print_height: 40
       print_rotation: 1
-      fit_mode: cover
+      fit_mode: stretch
       preview_bg: w
       is_active: false
       sort: 39
@@ -483,7 +483,7 @@ endpoints:
         name: fit_mode
         description: ''
         required: true
-        example: stretch
+        example: contain
         type: string
         enumValues:
           - contain
@@ -563,7 +563,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -603,9 +603,9 @@ endpoints:
       print_width: 26
       print_height: 40
       print_rotation: 1
-      fit_mode: stretch
+      fit_mode: contain
       preview_bg: w
-      is_active: false
+      is_active: true
       sort: 39
       is_defult: 50
     fileParameters: []

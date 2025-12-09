@@ -324,17 +324,8 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-comments--comment_id-">
                                 <a href="#endpoints-PATCHapi-comments--comment_id-">PATCH api/comments/{comment_id}</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-profits--profit_id-">
-                                <a href="#endpoints-PATCHapi-profits--profit_id-">PATCH api/profits/{profit_id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-profit-splits--profitSplit_id-">
-                                <a href="#endpoints-PATCHapi-profit-splits--profitSplit_id-">PATCH api/profit-splits/{profitSplit_id}</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-profit-groups-user">
-                                <a href="#endpoints-GETapi-profit-groups-user">GET api/profit-groups/user</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-profit-groups--profitGroup_id-">
-                                <a href="#endpoints-PATCHapi-profit-groups--profitGroup_id-">PATCH api/profit-groups/{profitGroup_id}</a>
+                                <a href="#endpoints-GETapi-profit-groups-user">گرفتن ProfitGroup کاربر لاگین شده</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-profiles-by-admin--user_id-">
                                 <a href="#endpoints-PATCHapi-profiles-by-admin--user_id-">PATCH api/profiles/by-admin/{user_id}</a>
@@ -552,11 +543,14 @@
                     <a href="#order">Order</a>
                 </li>
                                     <ul id="tocify-subheader-order" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="order-GETapi-orders-physical">
-                                <a href="#order-GETapi-orders-physical">GET api/orders/physical</a>
+                                                    <li class="tocify-item level-2" data-unique="order-GETapi-orders">
+                                <a href="#order-GETapi-orders">GET api/orders</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="order-GETapi-orders--order-">
                                 <a href="#order-GETapi-orders--order-">GET api/orders/{order}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="order-GETapi-clients-orders">
+                                <a href="#order-GETapi-clients-orders">GET api/clients/orders</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="order-PATCHapi-orders-status--order_id-">
                                 <a href="#order-PATCHapi-orders-status--order_id-">PATCH api/orders/status/{order_id}</a>
@@ -593,13 +587,7 @@
                     <a href="#payment">Payment</a>
                 </li>
                                     <ul id="tocify-subheader-payment" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="payment-GETapi-orders">
-                                <a href="#payment-GETapi-orders">GET api/orders</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="payment-GETapi-clients-orders">
-                                <a href="#payment-GETapi-clients-orders">GET api/clients/orders</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="payment-GETapi-payments">
+                                                    <li class="tocify-item level-2" data-unique="payment-GETapi-payments">
                                 <a href="#payment-GETapi-payments">GET api/payments</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="payment-GETapi-clients-payments">
@@ -705,22 +693,6 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-profit" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="profit">
-                    <a href="#profit">Profit</a>
-                </li>
-                                    <ul id="tocify-subheader-profit" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="profit-GETapi-profits">
-                                <a href="#profit-GETapi-profits">GET api/profits</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="profit-POSTapi-profits">
-                                <a href="#profit-POSTapi-profits">POST api/profits</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="profit-DELETEapi-profits--profit_id-">
-                                <a href="#profit-DELETEapi-profits--profit_id-">DELETE api/profits/{profit_id}</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
                     <ul id="tocify-header-profitgroup" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="profitgroup">
                     <a href="#profitgroup">ProfitGroup</a>
@@ -732,27 +704,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="profitgroup-POSTapi-profit-groups">
                                 <a href="#profitgroup-POSTapi-profit-groups">POST api/profit-groups</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="profitgroup-PATCHapi-profit-groups--profitGroup_id-">
+                                <a href="#profitgroup-PATCHapi-profit-groups--profitGroup_id-">PATCH api/profit-groups/{profitGroup_id}</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="profitgroup-DELETEapi-profit-groups--profitGroup_id-">
                                 <a href="#profitgroup-DELETEapi-profit-groups--profitGroup_id-">DELETE api/profit-groups/{profitGroup_id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profitgroup-POSTapi-profit-groups-assign-profit-group-to-user--user_id-">
                                 <a href="#profitgroup-POSTapi-profit-groups-assign-profit-group-to-user--user_id-">POST api/profit-groups/assign-profit-group-to-user/{user_id}</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-profitsplit" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="profitsplit">
-                    <a href="#profitsplit">ProfitSplit</a>
-                </li>
-                                    <ul id="tocify-subheader-profitsplit" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="profitsplit-GETapi-profit-splits">
-                                <a href="#profitsplit-GETapi-profit-splits">GET api/profit-splits</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="profitsplit-POSTapi-profit-splits">
-                                <a href="#profitsplit-POSTapi-profit-splits">POST api/profit-splits</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="profitsplit-DELETEapi-profit-splits--profitSplit_id-">
-                                <a href="#profitsplit-DELETEapi-profit-splits--profitSplit_id-">DELETE api/profit-splits/{profitSplit_id}</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1050,7 +1009,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 7, 2025</li>
+        <li>Last updated: December 9, 2025</li>
     </ul>
 </div>
 
@@ -2927,14 +2886,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/addresses/1" \
+    "http://127.0.0.1/api/addresses/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/addresses/1"
+    "http://127.0.0.1/api/addresses/16"
 );
 
 const headers = {
@@ -3030,10 +2989,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="address_id"                data-endpoint="DELETEapi-addresses--address_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the address. Example: <code>1</code></p>
+<p>The ID of the address. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -3187,7 +3146,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"postal_code\": \"m\",
     \"phone\": \"i\",
     \"mobile\": \"y\",
-    \"is_default\": true
+    \"is_default\": false
 }"
 </code></pre></div>
 
@@ -3210,7 +3169,7 @@ let body = {
     "postal_code": "m",
     "phone": "i",
     "mobile": "y",
-    "is_default": true
+    "is_default": false
 };
 
 fetch(url, {
@@ -3411,7 +3370,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -3428,7 +3387,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/clients/addresses/1" \
+    "http://127.0.0.1/api/clients/addresses/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -3446,7 +3405,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/addresses/1"
+    "http://127.0.0.1/api/clients/addresses/16"
 );
 
 const headers = {
@@ -3554,10 +3513,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="address_id"                data-endpoint="PATCHapi-clients-addresses--address_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the address. Example: <code>1</code></p>
+<p>The ID of the address. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3693,14 +3652,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/clients/addresses/1" \
+    "http://127.0.0.1/api/clients/addresses/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/addresses/1"
+    "http://127.0.0.1/api/clients/addresses/16"
 );
 
 const headers = {
@@ -3796,10 +3755,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="address_id"                data-endpoint="DELETEapi-clients-addresses--address_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the address. Example: <code>1</code></p>
+<p>The ID of the address. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -3941,7 +3900,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"mobile\": \"137449171806\",
     \"password\": \"|]|{+-\",
     \"code\": \"vdlj\",
-    \"otpForce\": false,
+    \"otpForce\": true,
     \"twoStepType\": \"google2fa\"
 }"
 </code></pre></div>
@@ -3961,7 +3920,7 @@ let body = {
     "mobile": "137449171806",
     "password": "|]|{+-",
     "code": "vdlj",
-    "otpForce": false,
+    "otpForce": true,
     "twoStepType": "google2fa"
 };
 
@@ -4103,7 +4062,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>twoStepType</code></b>&nbsp;&nbsp;
@@ -4985,11 +4944,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/cart/delivery/1" \
+    "http://127.0.0.1/api/cart/delivery/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"date\": \"2025-12-07T10:46:38\",
+    \"date\": \"2025-12-09T17:42:14\",
     \"deliveryBetweenStart\": \"1374491711936806\",
     \"deliveryBetweenEnd\": \"1374491711936806\",
     \"address_id\": 4326.41688
@@ -4999,7 +4958,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/cart/delivery/1"
+    "http://127.0.0.1/api/cart/delivery/16"
 );
 
 const headers = {
@@ -5008,7 +4967,7 @@ const headers = {
 };
 
 let body = {
-    "date": "2025-12-07T10:46:38",
+    "date": "2025-12-09T17:42:14",
     "deliveryBetweenStart": "1374491711936806",
     "deliveryBetweenEnd": "1374491711936806",
     "address_id": 4326.41688
@@ -5103,10 +5062,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="logistic_id"                data-endpoint="POSTapi-cart-delivery--logistic_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the logistic. Example: <code>1</code></p>
+<p>The ID of the logistic. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5116,10 +5075,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-cart-delivery--logistic_id-"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deliveryBetweenStart</code></b>&nbsp;&nbsp;
@@ -5491,14 +5450,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/cart/1/architecto" \
+    "http://127.0.0.1/api/cart/16/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/cart/1/architecto"
+    "http://127.0.0.1/api/cart/16/architecto"
 );
 
 const headers = {
@@ -5594,10 +5553,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-cart--product_id---cart--"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>cart</code></b>&nbsp;&nbsp;
@@ -5763,7 +5722,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "data=["architecto","architecto"]"\
     --form "default_setting=["architecto","architecto"]"\
     --form "status=n"\
-    --form "images[]=@/tmp/phppgl133i2hrq6bI03Ed3" </code></pre></div>
+    --form "images[]=@/tmp/phpeuocjtullakjbpkGUCL" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5961,7 +5920,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "data=["architecto","architecto"]"\
     --form "default_setting=["architecto","architecto"]"\
     --form "status=n"\
-    --form "images[]=@/tmp/php2htmfckanshqd23UcUb" </code></pre></div>
+    --form "images[]=@/tmp/phpvv7u1nunv95j7heo6YU" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6445,7 +6404,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         {
             \"option_id\": 16,
             \"is_required\": false,
-            \"is_active\": false,
+            \"is_active\": true,
             \"sort_order\": 39
         }
     ]
@@ -6468,7 +6427,7 @@ let body = {
         {
             "option_id": 16,
             "is_required": false,
-            "is_active": false,
+            "is_active": true,
             "sort_order": 39
         }
     ]
@@ -6633,7 +6592,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
@@ -7656,14 +7615,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"code\": \"b\",
-    \"type\": \"money\",
+    \"type\": \"percent\",
     \"value\": 4326.41688,
     \"min_purchase\": 4326.41688,
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
     \"status\": false,
     \"reusable\": true,
-    \"expire_at\": \"2025-12-07T10:46:38\",
+    \"expire_at\": \"2025-12-09T17:42:14\",
     \"users\": [
         4326.41688
     ],
@@ -7686,14 +7645,14 @@ const headers = {
 
 let body = {
     "code": "b",
-    "type": "money",
+    "type": "percent",
     "value": 4326.41688,
     "min_purchase": 4326.41688,
     "max_purchase": 4326.41688,
     "count": 4326.41688,
     "status": false,
     "reusable": true,
-    "expire_at": "2025-12-07T10:46:38",
+    "expire_at": "2025-12-09T17:42:14",
     "users": [
         4326.41688
     ],
@@ -7803,10 +7762,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-discounts"
-               value="money"
+               value="percent"
                data-component="body">
     <br>
-<p>Example: <code>money</code></p>
+<p>Example: <code>percent</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>money</code></li> <li><code>percent</code></li></ul>
         </div>
@@ -7909,10 +7868,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="POSTapi-discounts"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -7967,9 +7926,9 @@ Must be one of:
     \"min_purchase\": 4326.41688,
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
-    \"status\": true,
+    \"status\": false,
     \"reusable\": true,
-    \"expire_at\": \"2025-12-07T10:46:38\",
+    \"expire_at\": \"2025-12-09T17:42:14\",
     \"users\": [
         4326.41688
     ],
@@ -7997,9 +7956,9 @@ let body = {
     "min_purchase": 4326.41688,
     "max_purchase": 4326.41688,
     "count": 4326.41688,
-    "status": true,
+    "status": false,
     "reusable": true,
-    "expire_at": "2025-12-07T10:46:38",
+    "expire_at": "2025-12-09T17:42:14",
     "users": [
         4326.41688
     ],
@@ -8197,7 +8156,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>reusable</code></b>&nbsp;&nbsp;
@@ -8228,10 +8187,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="PATCHapi-discounts--discount_id-"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -8546,7 +8505,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/php7k4e167ek4dncvYgRJD" </code></pre></div>
+    --form "image[]=@/tmp/phphhkgloo4ti3a4tE4dPP" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8692,7 +8651,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"items\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": true
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -8710,7 +8669,7 @@ const headers = {
 let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "items": "[\"architecto\",\"architecto\"]",
-    "status": true
+    "status": false
 };
 
 fetch(url, {
@@ -8852,7 +8811,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -8869,7 +8828,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/addresses/1" \
+    "http://127.0.0.1/api/addresses/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8880,14 +8839,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"postal_code\": \"m\",
     \"phone\": \"i\",
     \"mobile\": \"y\",
-    \"is_default\": false
+    \"is_default\": true
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/addresses/1"
+    "http://127.0.0.1/api/addresses/16"
 );
 
 const headers = {
@@ -8903,7 +8862,7 @@ let body = {
     "postal_code": "m",
     "phone": "i",
     "mobile": "y",
-    "is_default": false
+    "is_default": true
 };
 
 fetch(url, {
@@ -8995,10 +8954,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="address_id"                data-endpoint="PATCHapi-addresses--address_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the address. Example: <code>1</code></p>
+<p>The ID of the address. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -9117,7 +9076,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -9134,7 +9093,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/logistics/1" \
+    "http://127.0.0.1/api/logistics/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -9150,11 +9109,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"start_time\": \"1374491711936806\",
     \"end_time\": \"1374491711936806\",
     \"divide_time\": \"1374491711936806\",
-    \"is_active_in_holiday\": false,
+    \"is_active_in_holiday\": true,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false,
-    \"default\": true,
-    \"is_capital\": false,
+    \"status\": true,
+    \"default\": false,
+    \"is_capital\": true,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
 </code></pre></div>
@@ -9162,7 +9121,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/logistics/1"
+    "http://127.0.0.1/api/logistics/16"
 );
 
 const headers = {
@@ -9183,11 +9142,11 @@ let body = {
     "start_time": "1374491711936806",
     "end_time": "1374491711936806",
     "divide_time": "1374491711936806",
-    "is_active_in_holiday": false,
+    "is_active_in_holiday": true,
     "days_not_working": "[\"architecto\",\"architecto\"]",
-    "status": false,
-    "default": true,
-    "is_capital": false,
+    "status": true,
+    "default": false,
+    "is_capital": true,
     "description": "Et animi quos velit et fugiat."
 };
 
@@ -9280,10 +9239,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="logistic_id"                data-endpoint="PATCHapi-logistics--logistic_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the logistic. Example: <code>1</code></p>
+<p>The ID of the logistic. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -9450,7 +9409,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>days_not_working</code></b>&nbsp;&nbsp;
@@ -9484,7 +9443,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>default</code></b>&nbsp;&nbsp;
@@ -9506,7 +9465,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_capital</code></b>&nbsp;&nbsp;
@@ -9528,7 +9487,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -9565,7 +9524,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"count\": 4326.41688,
     \"weight\": 4326.41688,
     \"price\": 4326.41688,
-    \"expiry_date\": \"2025-12-07T10:46:38\",
+    \"expiry_date\": \"2025-12-09T17:42:14\",
     \"warehouse_address\": \"m\",
     \"source\": \"i\"
 }"
@@ -9587,7 +9546,7 @@ let body = {
     "count": 4326.41688,
     "weight": 4326.41688,
     "price": 4326.41688,
-    "expiry_date": "2025-12-07T10:46:38",
+    "expiry_date": "2025-12-09T17:42:14",
     "warehouse_address": "m",
     "source": "i"
 };
@@ -9742,10 +9701,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiry_date"                data-endpoint="PATCHapi-warehouses--warehouse_id-"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>warehouse_address</code></b>&nbsp;&nbsp;
@@ -9792,7 +9751,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"b\",
     \"content\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -9810,7 +9769,7 @@ const headers = {
 let body = {
     "title": "b",
     "content": "[\"architecto\",\"architecto\"]",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -9952,7 +9911,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -10366,11 +10325,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"esaj\",
+    \"type\": \"webservice\",
     \"private\": true,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
-    \"two_step\": false
+    \"two_step\": true
 }"
 </code></pre></div>
 
@@ -10388,11 +10347,11 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "esaj",
+    "type": "webservice",
     "private": true,
     "profile_confirm": true,
     "name": "architecto",
-    "two_step": false
+    "two_step": true
 };
 
 fetch(url, {
@@ -10508,10 +10467,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-users"
-               value="esaj"
+               value="webservice"
                data-component="body">
     <br>
-<p>Example: <code>esaj</code></p>
+<p>Example: <code>webservice</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10591,7 +10550,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -10614,11 +10573,11 @@ Must be one of:
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"esaj\",
-    \"private\": false,
+    \"type\": \"admin\",
+    \"private\": true,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
-    \"two_step\": false
+    \"two_step\": true
 }"
 </code></pre></div>
 
@@ -10636,11 +10595,11 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "esaj",
-    "private": false,
+    "type": "admin",
+    "private": true,
     "profile_confirm": true,
     "name": "architecto",
-    "two_step": false
+    "two_step": true
 };
 
 fetch(url, {
@@ -10769,10 +10728,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-users--user_id-"
-               value="esaj"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>esaj</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10796,7 +10755,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_confirm</code></b>&nbsp;&nbsp;
@@ -10852,7 +10811,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -10998,11 +10957,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"webservice\",
+    \"type\": \"ordinary\",
     \"private\": true,
-    \"profile_confirm\": true,
+    \"profile_confirm\": false,
     \"name\": \"architecto\",
-    \"two_step\": true
+    \"two_step\": false
 }"
 </code></pre></div>
 
@@ -11020,11 +10979,11 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "webservice",
+    "type": "ordinary",
     "private": true,
-    "profile_confirm": true,
+    "profile_confirm": false,
     "name": "architecto",
-    "two_step": true
+    "two_step": false
 };
 
 fetch(url, {
@@ -11140,10 +11099,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-users-add-images"
-               value="webservice"
+               value="ordinary"
                data-component="body">
     <br>
-<p>Example: <code>webservice</code></p>
+<p>Example: <code>ordinary</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -11189,7 +11148,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -11223,7 +11182,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -11244,9 +11203,9 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": false,
+    \"sms\": true,
     \"email\": true,
-    \"auth\": \"otpOrPassword\",
+    \"auth\": \"otp\",
     \"otp\": \"sms\",
     \"jwt_expiration_time\": 1,
     \"front\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
@@ -11266,9 +11225,9 @@ const headers = {
 };
 
 let body = {
-    "sms": false,
+    "sms": true,
     "email": true,
-    "auth": "otpOrPassword",
+    "auth": "otp",
     "otp": "sms",
     "jwt_expiration_time": 1,
     "front": "[\"architecto\",\"architecto\"]",
@@ -11390,7 +11349,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -11421,10 +11380,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="auth"                data-endpoint="PATCHapi-settings--setting_id-"
-               value="otpOrPassword"
+               value="otp"
                data-component="body">
     <br>
-<p>Example: <code>otpOrPassword</code></p>
+<p>Example: <code>otp</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>otp</code></li> <li><code>otpOrPassword</code></li> <li><code>usernamePassword</code></li></ul>
         </div>
@@ -11635,381 +11594,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-PATCHapi-profits--profit_id-">PATCH api/profits/{profit_id}</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-PATCHapi-profits--profit_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/profits/16" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"b\",
-    \"profit\": 22,
-    \"status\": \"1\",
-    \"operator_id\": 4326.41688,
-    \"type\": \"m\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profits/16"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "b",
-    "profit": 22,
-    "status": "1",
-    "operator_id": 4326.41688,
-    "type": "m"
-};
-
-fetch(url, {
-    method: "PATCH",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PATCHapi-profits--profit_id-">
-</span>
-<span id="execution-results-PATCHapi-profits--profit_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PATCHapi-profits--profit_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PATCHapi-profits--profit_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PATCHapi-profits--profit_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PATCHapi-profits--profit_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PATCHapi-profits--profit_id-" data-method="PATCH"
-      data-path="api/profits/{profit_id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-profits--profit_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-profits--profit_id-"
-                    onclick="tryItOut('PATCHapi-profits--profit_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-profits--profit_id-"
-                    onclick="cancelTryOut('PATCHapi-profits--profit_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-profits--profit_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/profits/{profit_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>profit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit_id"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the profit. Example: <code>16</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="title"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="b"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="22"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>22</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="1"
-               data-component="body">
-    <br>
-<p>Must be between 0 and 1 digit. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>operator_id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="operator_id"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="4326.41688"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the operators table. Example: <code>4326.41688</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="type"                data-endpoint="PATCHapi-profits--profit_id-"
-               value="m"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>m</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-PATCHapi-profit-splits--profitSplit_id-">PATCH api/profit-splits/{profitSplit_id}</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-PATCHapi-profit-splits--profitSplit_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/profit-splits/16" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"b\",
-    \"seller_profit\": 22,
-    \"profit_id\": 4326.41688
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-splits/16"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "b",
-    "seller_profit": 22,
-    "profit_id": 4326.41688
-};
-
-fetch(url, {
-    method: "PATCH",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PATCHapi-profit-splits--profitSplit_id-">
-</span>
-<span id="execution-results-PATCHapi-profit-splits--profitSplit_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PATCHapi-profit-splits--profitSplit_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PATCHapi-profit-splits--profitSplit_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PATCHapi-profit-splits--profitSplit_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PATCHapi-profit-splits--profitSplit_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PATCHapi-profit-splits--profitSplit_id-" data-method="PATCH"
-      data-path="api/profit-splits/{profitSplit_id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-profit-splits--profitSplit_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-profit-splits--profitSplit_id-"
-                    onclick="tryItOut('PATCHapi-profit-splits--profitSplit_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-profit-splits--profitSplit_id-"
-                    onclick="cancelTryOut('PATCHapi-profit-splits--profitSplit_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-profit-splits--profitSplit_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/profit-splits/{profitSplit_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>profitSplit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profitSplit_id"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the profitSplit. Example: <code>16</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="title"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="b"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 100 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>seller_profit</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="seller_profit"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="22"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>22</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit_id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit_id"                data-endpoint="PATCHapi-profit-splits--profitSplit_id-"
-               value="4326.41688"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the profits table. Example: <code>4326.41688</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-profit-groups-user">GET api/profit-groups/user</h2>
+                    <h2 id="endpoints-GETapi-profit-groups-user">گرفتن ProfitGroup کاربر لاگین شده</h2>
 
 <p>
 </p>
@@ -12135,165 +11720,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-PATCHapi-profit-groups--profitGroup_id-">PATCH api/profit-groups/{profitGroup_id}</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-PATCHapi-profit-groups--profitGroup_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/profit-groups/16" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"b\",
-    \"profit_split_ids\": []
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-groups/16"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "b",
-    "profit_split_ids": []
-};
-
-fetch(url, {
-    method: "PATCH",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PATCHapi-profit-groups--profitGroup_id-">
-</span>
-<span id="execution-results-PATCHapi-profit-groups--profitGroup_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PATCHapi-profit-groups--profitGroup_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PATCHapi-profit-groups--profitGroup_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PATCHapi-profit-groups--profitGroup_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PATCHapi-profit-groups--profitGroup_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PATCHapi-profit-groups--profitGroup_id-" data-method="PATCH"
-      data-path="api/profit-groups/{profitGroup_id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-profit-groups--profitGroup_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-profit-groups--profitGroup_id-"
-                    onclick="tryItOut('PATCHapi-profit-groups--profitGroup_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-profit-groups--profitGroup_id-"
-                    onclick="cancelTryOut('PATCHapi-profit-groups--profitGroup_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-profit-groups--profitGroup_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/profit-groups/{profitGroup_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>profitGroup_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profitGroup_id"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the profitGroup. Example: <code>16</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="title"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
-               value="b"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit_split_ids</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="profit_split_ids"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the profit_splits table.</p>
-        </div>
-        </form>
-
                     <h2 id="endpoints-PATCHapi-profiles-by-admin--user_id-">PATCH api/profiles/by-admin/{user_id}</h2>
 
 <p>
@@ -12310,7 +11736,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-07T10:46:38"\
+    --form "birth_date=2025-12-09T17:42:14"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -12324,7 +11750,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpu8ep8qco55u001Vxzfm" </code></pre></div>
+    --form "images[]=@/tmp/phpce4o96bcucafaJXYv4M" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12338,7 +11764,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-07T10:46:38');
+body.append('birth_date', '2025-12-09T17:42:14');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -12456,10 +11882,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -12657,7 +12083,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-07T10:46:38"\
+    --form "birth_date=2025-12-09T17:42:14"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -12671,7 +12097,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpq1kr4ei83i003Hgmplm" </code></pre></div>
+    --form "images[]=@/tmp/phpfhkj1j3slvac8VqT53E" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12685,7 +12111,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-07T10:46:38');
+body.append('birth_date', '2025-12-09T17:42:14');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -12790,10 +12216,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -13287,14 +12713,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/works/1" \
+    "http://127.0.0.1/api/works/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/works/1"
+    "http://127.0.0.1/api/works/16"
 );
 
 const headers = {
@@ -13390,10 +12816,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="work_id"                data-endpoint="DELETEapi-works--work_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the work. Example: <code>1</code></p>
+<p>The ID of the work. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -13410,14 +12836,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/works/1" \
+    "http://127.0.0.1/api/works/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/works/1"
+    "http://127.0.0.1/api/works/16"
 );
 
 const headers = {
@@ -13513,10 +12939,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="work"                data-endpoint="POSTapi-works--work-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The work. Example: <code>1</code></p>
+<p>The work. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -13536,7 +12962,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/works/publish/1" \
+    "http://127.0.0.1/api/works/publish/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -13547,7 +12973,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/works/publish/1"
+    "http://127.0.0.1/api/works/publish/16"
 );
 
 const headers = {
@@ -13648,10 +13074,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="work_id"                data-endpoint="PATCHapi-works-publish--work_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the work. Example: <code>1</code></p>
+<p>The ID of the work. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -13809,14 +13235,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/clients/works/1" \
+    "http://127.0.0.1/api/clients/works/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/works/1"
+    "http://127.0.0.1/api/clients/works/16"
 );
 
 const headers = {
@@ -13912,10 +13338,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="work_id"                data-endpoint="DELETEapi-clients-works--work_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the work. Example: <code>1</code></p>
+<p>The ID of the work. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -13937,7 +13363,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "title=b"\
     --form "description=Eius et animi quos velit et."\
-    --form "image=@/tmp/phpqr8k4flgulh47S1jolK" </code></pre></div>
+    --form "image=@/tmp/phpckal9v2lfsl102ZCjum" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -14071,7 +13497,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpqr8k4flgulh47S1jolK</code></p>
+<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpckal9v2lfsl102ZCjum</code></p>
         </div>
         </form>
 
@@ -14088,17 +13514,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/clients/works/1" \
+    "http://127.0.0.1/api/clients/works/16" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=b"\
     --form "description=Eius et animi quos velit et."\
-    --form "image=@/tmp/phpcrf7i3i5ds5d0QWjL6l" </code></pre></div>
+    --form "image=@/tmp/php921hmaj6ghha39bxj9v" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/works/1"
+    "http://127.0.0.1/api/clients/works/16"
 );
 
 const headers = {
@@ -14200,10 +13626,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="work_id"                data-endpoint="PATCHapi-clients-works--work_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the work. Example: <code>1</code></p>
+<p>The ID of the work. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -14240,7 +13666,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpcrf7i3i5ds5d0QWjL6l</code></p>
+<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/php921hmaj6ghha39bxj9v</code></p>
         </div>
         </form>
 
@@ -14761,7 +14187,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/cart/1/architecto" \
+    --get "http://127.0.0.1/api/cart/16/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -14772,7 +14198,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         \"print_width\": 4326.41688,
         \"print_height\": 4326.41688,
         \"rotation\": 4326.41688,
-        \"fit_mode\": \"contain\",
+        \"fit_mode\": \"stretch\",
         \"design\": {
             \"scale\": 4326.41688,
             \"offset_x\": 4326.41688,
@@ -14804,7 +14230,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/cart/1/architecto"
+    "http://127.0.0.1/api/cart/16/architecto"
 );
 
 const headers = {
@@ -14820,7 +14246,7 @@ let body = {
         "print_width": 4326.41688,
         "print_height": 4326.41688,
         "rotation": 4326.41688,
-        "fit_mode": "contain",
+        "fit_mode": "stretch",
         "design": {
             "scale": 4326.41688,
             "offset_x": 4326.41688,
@@ -14858,7 +14284,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-cart--product_id---cart--">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -14872,24 +14298,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Id: 1 has been added to cart successfully.&quot;,
-    &quot;cart_key&quot;: &quot;architecto&quot;,
-    &quot;cart&quot;: {
-        &quot;items&quot;: [],
-        &quot;discount&quot;: null,
-        &quot;delivery&quot;: null,
-        &quot;details&quot;: {
-            &quot;saleId&quot;: null,
-            &quot;discountId&quot;: null,
-            &quot;price&quot;: 0,
-            &quot;finalPrice&quot;: 0,
-            &quot;finalPriceWithDelivery&quot;: 0,
-            &quot;orderItems&quot;: [],
-            &quot;totalDiscount&quot;: 0,
-            &quot;totalSale&quot;: 0,
-            &quot;deliveryPrice&quot;: 0
-        }
-    }
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Product] 16&quot;
 }</code>
  </pre>
     </span>
@@ -14972,10 +14381,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="GETapi-cart--product_id---cart--"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>cart</code></b>&nbsp;&nbsp;
@@ -15079,10 +14488,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="settings.fit_mode"                data-endpoint="GETapi-cart--product_id---cart--"
-               value="contain"
+               value="stretch"
                data-component="body">
     <br>
-<p>Example: <code>contain</code></p>
+<p>Example: <code>stretch</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
                     </div>
@@ -15337,8 +14746,8 @@ Must be one of:
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "config=architecto"\
-    --form "rendered_image=@/tmp/phpj9pifsif0bk480YKmub" \
-    --form "original_image=@/tmp/phpicgdmi8ecklo2x01yp9" </code></pre></div>
+    --form "rendered_image=@/tmp/phpoerv6grv8rredo8DNV3" \
+    --form "original_image=@/tmp/phppbtp5dnqsnh0fxnr9VX" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -15460,7 +14869,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpj9pifsif0bk480YKmub</code></p>
+<p>Must be a file. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpoerv6grv8rredo8DNV3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>original_image</code></b>&nbsp;&nbsp;
@@ -15472,7 +14881,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>5MB. Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/phpicgdmi8ecklo2x01yp9</code></p>
+<p>5MB. Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/phppbtp5dnqsnh0fxnr9VX</code></p>
         </div>
         </form>
 
@@ -16384,7 +15793,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"b\",
     \"content\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": true
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -16402,7 +15811,7 @@ const headers = {
 let body = {
     "title": "b",
     "content": "[\"architecto\",\"architecto\"]",
-    "status": true
+    "status": false
 };
 
 fetch(url, {
@@ -16531,7 +15940,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -17364,11 +16773,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"start_time\": \"1374491711936806\",
     \"end_time\": \"1374491711936806\",
     \"divide_time\": \"1374491711936806\",
-    \"is_active_in_holiday\": false,
+    \"is_active_in_holiday\": true,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false,
-    \"default\": true,
-    \"is_capital\": true,
+    \"status\": true,
+    \"default\": false,
+    \"is_capital\": false,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
 </code></pre></div>
@@ -17397,11 +16806,11 @@ let body = {
     "start_time": "1374491711936806",
     "end_time": "1374491711936806",
     "divide_time": "1374491711936806",
-    "is_active_in_holiday": false,
+    "is_active_in_holiday": true,
     "days_not_working": "[\"architecto\",\"architecto\"]",
-    "status": false,
-    "default": true,
-    "is_capital": true,
+    "status": true,
+    "default": false,
+    "is_capital": false,
     "description": "Et animi quos velit et fugiat."
 };
 
@@ -17651,7 +17060,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>days_not_working</code></b>&nbsp;&nbsp;
@@ -17685,7 +17094,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>default</code></b>&nbsp;&nbsp;
@@ -17707,7 +17116,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_capital</code></b>&nbsp;&nbsp;
@@ -17729,7 +17138,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -17758,14 +17167,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/logistics/1" \
+    "http://127.0.0.1/api/logistics/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/logistics/1"
+    "http://127.0.0.1/api/logistics/16"
 );
 
 const headers = {
@@ -17861,10 +17270,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="logistic_id"                data-endpoint="DELETEapi-logistics--logistic_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the logistic. Example: <code>1</code></p>
+<p>The ID of the logistic. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -18017,7 +17426,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"items\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": true
+    \"status\": false
 }"
 </code></pre></div>
 
@@ -18035,7 +17444,7 @@ const headers = {
 let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "items": "[\"architecto\",\"architecto\"]",
-    "status": true
+    "status": false
 };
 
 fetch(url, {
@@ -18164,7 +17573,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -18614,7 +18023,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"print_width\": 26,
     \"print_height\": 40,
     \"print_rotation\": 1,
-    \"fit_mode\": \"cover\",
+    \"fit_mode\": \"stretch\",
     \"preview_bg\": \"w\",
     \"is_active\": false,
     \"sort\": 39,
@@ -18645,7 +18054,7 @@ let body = {
     "print_width": 26,
     "print_height": 40,
     "print_rotation": 1,
-    "fit_mode": "cover",
+    "fit_mode": "stretch",
     "preview_bg": "w",
     "is_active": false,
     "sort": 39,
@@ -18873,10 +18282,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fit_mode"                data-endpoint="POSTapi-mockups"
-               value="cover"
+               value="stretch"
                data-component="body">
     <br>
-<p>Example: <code>cover</code></p>
+<p>Example: <code>stretch</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
         </div>
@@ -19028,9 +18437,9 @@ Must be one of:
     \"print_width\": 26,
     \"print_height\": 40,
     \"print_rotation\": 1,
-    \"fit_mode\": \"stretch\",
+    \"fit_mode\": \"contain\",
     \"preview_bg\": \"w\",
-    \"is_active\": false,
+    \"is_active\": true,
     \"sort\": 39,
     \"is_defult\": 50
 }"
@@ -19059,9 +18468,9 @@ let body = {
     "print_width": 26,
     "print_height": 40,
     "print_rotation": 1,
-    "fit_mode": "stretch",
+    "fit_mode": "contain",
     "preview_bg": "w",
-    "is_active": false,
+    "is_active": true,
     "sort": 39,
     "is_defult": 50
 };
@@ -19300,10 +18709,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fit_mode"                data-endpoint="PUTapi-mockups--id-"
-               value="stretch"
+               value="contain"
                data-component="body">
     <br>
-<p>Example: <code>stretch</code></p>
+<p>Example: <code>contain</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
         </div>
@@ -19399,7 +18808,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -19699,8 +19108,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"type\": \"multi_select\",
-    \"is_required\": false,
+    \"type\": \"text\",
+    \"is_required\": true,
     \"is_active\": false,
     \"sort_order\": 84
 }"
@@ -19720,8 +19129,8 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "type": "multi_select",
-    "is_required": false,
+    "type": "text",
+    "is_required": true,
     "is_active": false,
     "sort_order": 84
 };
@@ -19839,10 +19248,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-options"
-               value="multi_select"
+               value="text"
                data-component="body">
     <br>
-<p>Example: <code>multi_select</code></p>
+<p>Example: <code>text</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>select</code></li> <li><code>multi_select</code></li> <li><code>text</code></li> <li><code>number</code></li> <li><code>swatch</code></li></ul>
         </div>
@@ -19866,7 +19275,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -19935,7 +19344,7 @@ Must be one of:
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"type\": \"select\",
+    \"type\": \"text\",
     \"is_required\": true,
     \"is_active\": true,
     \"sort_order\": 84
@@ -19956,7 +19365,7 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "type": "select",
+    "type": "text",
     "is_required": true,
     "is_active": true,
     "sort_order": 84
@@ -20088,10 +19497,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-options--option_id-"
-               value="select"
+               value="text"
                data-component="body">
     <br>
-<p>Example: <code>select</code></p>
+<p>Example: <code>text</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>select</code></li> <li><code>multi_select</code></li> <li><code>text</code></li> <li><code>number</code></li> <li><code>swatch</code></li></ul>
         </div>
@@ -20581,7 +19990,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"is_active\": false,
+    \"is_active\": true,
     \"sort_order\": 84,
     \"meta\": {
         \"color\": \"zmiyvdljnikhwayk\",
@@ -20605,7 +20014,7 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "is_active": false,
+    "is_active": true,
     "sort_order": 84,
     "meta": {
         "color": "zmiyvdljnikhwayk",
@@ -20753,7 +20162,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
@@ -20836,7 +20245,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"is_active\": true,
+    \"is_active\": false,
     \"sort_order\": 84,
     \"meta\": {
         \"color\": \"zmiyvdljnikhwayk\",
@@ -20860,7 +20269,7 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "is_active": true,
+    "is_active": false,
     "sort_order": 84,
     "meta": {
         "color": "zmiyvdljnikhwayk",
@@ -21020,7 +20429,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
@@ -21362,27 +20771,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="order-GETapi-orders-physical">GET api/orders/physical</h2>
+                                <h2 id="order-GETapi-orders">GET api/orders</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-orders-physical">
+<span id="example-requests-GETapi-orders">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/orders/physical" \
+    --get "http://127.0.0.1/api/orders" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/orders/physical"
+    "http://127.0.0.1/api/orders"
 );
 
 const headers = {
@@ -21397,7 +20806,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-orders-physical">
+<span id="example-responses-GETapi-orders">
             <blockquote>
             <p>Example response (401):</p>
         </blockquote>
@@ -21415,43 +20824,43 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-orders-physical" hidden>
+<span id="execution-results-GETapi-orders" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-orders-physical"></span>:
+                id="execution-response-status-GETapi-orders"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-orders-physical"
+    <pre class="json"><code id="execution-response-content-GETapi-orders"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-orders-physical" hidden>
+<span id="execution-error-GETapi-orders" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-orders-physical">
+    <pre><code id="execution-error-message-GETapi-orders">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-orders-physical" data-method="GET"
-      data-path="api/orders/physical"
+<form id="form-GETapi-orders" data-method="GET"
+      data-path="api/orders"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders-physical', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-orders-physical"
-                    onclick="tryItOut('GETapi-orders-physical');">Try it out ⚡
+                    id="btn-tryout-GETapi-orders"
+                    onclick="tryItOut('GETapi-orders');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-orders-physical"
-                    onclick="cancelTryOut('GETapi-orders-physical');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-orders"
+                    onclick="cancelTryOut('GETapi-orders');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-orders-physical"
+                    id="btn-executetryout-GETapi-orders"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -21459,7 +20868,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/orders/physical</code></b>
+            <b><code>api/orders</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -21468,7 +20877,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-orders-physical"
+                              name="Content-Type"                data-endpoint="GETapi-orders"
                value="application/json"
                data-component="header">
     <br>
@@ -21480,7 +20889,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-orders-physical"
+                              name="Accept"                data-endpoint="GETapi-orders"
                value="application/json"
                data-component="header">
     <br>
@@ -21627,6 +21036,132 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="order-GETapi-clients-orders">GET api/clients/orders</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-clients-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1/api/clients/orders" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1/api/clients/orders"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-clients-orders">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-clients-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-clients-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-clients-orders"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-clients-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-clients-orders">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-clients-orders" data-method="GET"
+      data-path="api/clients/orders"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-clients-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-clients-orders"
+                    onclick="tryItOut('GETapi-clients-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-clients-orders"
+                    onclick="cancelTryOut('GETapi-clients-orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-clients-orders"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/clients/orders</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-clients-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-clients-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                     <h2 id="order-PATCHapi-orders-status--order_id-">PATCH api/orders/status/{order_id}</h2>
 
 <p>
@@ -21640,7 +21175,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://127.0.0.1/api/orders/status/3" \
+    "http://127.0.0.1/api/orders/status/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -21651,7 +21186,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/orders/status/3"
+    "http://127.0.0.1/api/orders/status/16"
 );
 
 const headers = {
@@ -21752,10 +21287,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="order_id"                data-endpoint="PATCHapi-orders-status--order_id-"
-               value="3"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the order. Example: <code>3</code></p>
+<p>The ID of the order. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -21925,7 +21460,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"short_content\": \"tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr\",
     \"body\": \"erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt\",
     \"status\": true,
-    \"is_open\": true
+    \"is_open\": false
 }"
 </code></pre></div>
 
@@ -21945,7 +21480,7 @@ let body = {
     "short_content": "tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr",
     "body": "erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt",
     "status": true,
-    "is_open": true
+    "is_open": false
 };
 
 fetch(url, {
@@ -22108,7 +21643,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -22132,7 +21667,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"short_content\": \"tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr\",
     \"body\": \"erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt\",
-    \"status\": true,
+    \"status\": false,
     \"is_open\": false
 }"
 </code></pre></div>
@@ -22152,7 +21687,7 @@ let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "short_content": "tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr",
     "body": "erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt",
-    "status": true,
+    "status": false,
     "is_open": false
 };
 
@@ -22307,7 +21842,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_open</code></b>&nbsp;&nbsp;
@@ -22712,259 +22247,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="payment-GETapi-orders">GET api/orders</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-orders">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/orders" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/orders"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-orders">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-orders" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-orders"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-orders"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-orders" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-orders">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-orders" data-method="GET"
-      data-path="api/orders"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-orders"
-                    onclick="tryItOut('GETapi-orders');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-orders"
-                    onclick="cancelTryOut('GETapi-orders');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-orders"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/orders</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-orders"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-orders"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="payment-GETapi-clients-orders">GET api/clients/orders</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-clients-orders">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/clients/orders" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/orders"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-clients-orders">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-clients-orders" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-clients-orders"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-clients-orders"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-clients-orders" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-clients-orders">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-clients-orders" data-method="GET"
-      data-path="api/clients/orders"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-clients-orders', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-clients-orders"
-                    onclick="tryItOut('GETapi-clients-orders');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-clients-orders"
-                    onclick="cancelTryOut('GETapi-clients-orders');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-clients-orders"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/clients/orders</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-clients-orders"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-clients-orders"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="payment-GETapi-payments">GET api/payments</h2>
+                                <h2 id="payment-GETapi-payments">GET api/payments</h2>
 
 <p>
 </p>
@@ -23511,7 +22794,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/phpo3p5ij4ses2k2kzPBea" </code></pre></div>
+    --form "image[]=@/tmp/phpg7lpfaoc0t409sf6oQ4" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25044,7 +24327,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://127.0.0.1/api/products/1" \
+    "http://127.0.0.1/api/products/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -25073,7 +24356,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/products/1"
+    "http://127.0.0.1/api/products/16"
 );
 
 const headers = {
@@ -25192,10 +24475,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-products--id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -25477,14 +24760,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/products/1" \
+    "http://127.0.0.1/api/products/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/products/1"
+    "http://127.0.0.1/api/products/16"
 );
 
 const headers = {
@@ -25580,10 +24863,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-products--product_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -25600,14 +24883,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/products/1/restore" \
+    "http://127.0.0.1/api/products/16/restore" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/products/1/restore"
+    "http://127.0.0.1/api/products/16/restore"
 );
 
 const headers = {
@@ -25703,10 +24986,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="POSTapi-products--id--restore"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -26312,7 +25595,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://127.0.0.1/api/clients/products/1" \
+    "http://127.0.0.1/api/clients/products/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -26341,7 +25624,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/products/1"
+    "http://127.0.0.1/api/clients/products/16"
 );
 
 const headers = {
@@ -26460,10 +25743,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="PUTapi-clients-products--product_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -26745,14 +26028,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/clients/products/1" \
+    "http://127.0.0.1/api/clients/products/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/clients/products/1"
+    "http://127.0.0.1/api/clients/products/16"
 );
 
 const headers = {
@@ -26848,10 +26131,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-clients-products--product_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -26881,11 +26164,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "variants[][address]=n"\
     --form "variants[][name]=g"\
     --form "variants[][price]=12"\
-    --form "variants[][status]=1"\
+    --form "variants[][status]=0"\
     --form "variants[][sku]=m"\
     --form "variants[][mockup_id]=16"\
-    --form "image=@/tmp/phpnhng0nkvn892bpeTDgy" \
-    --form "variants[][image]=@/tmp/php514sotle7v710BcaMvL" </code></pre></div>
+    --form "image=@/tmp/phpdi7roglep6leaUib6zc" \
+    --form "variants[][image]=@/tmp/phpl5j2f9e85tii9WJJoC7" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -26908,7 +26191,7 @@ body.append('variants[][variant_id]', '16');
 body.append('variants[][address]', 'n');
 body.append('variants[][name]', 'g');
 body.append('variants[][price]', '12');
-body.append('variants[][status]', '1');
+body.append('variants[][status]', '0');
 body.append('variants[][sku]', 'm');
 body.append('variants[][mockup_id]', '16');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
@@ -27104,7 +26387,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpnhng0nkvn892bpeTDgy</code></p>
+<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpdi7roglep6leaUib6zc</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -27171,10 +26454,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="variants.0.status"                data-endpoint="POSTapi-clients-products-bulk"
-               value="1"
+               value="0"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>0</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
                     </div>
@@ -27248,7 +26531,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/php514sotle7v710BcaMvL</code></p>
+<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpl5j2f9e85tii9WJJoC7</code></p>
                     </div>
                                     </details>
         </div>
@@ -27400,7 +26683,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-07T10:46:38"\
+    --form "birth_date=2025-12-09T17:42:14"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -27414,7 +26697,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpqop3mvskj01o7v8djEz" </code></pre></div>
+    --form "images[]=@/tmp/php90uk5bhb849jepPiaaU" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -27428,7 +26711,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-07T10:46:38');
+body.append('birth_date', '2025-12-09T17:42:14');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -27533,10 +26816,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -27734,7 +27017,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-07T10:46:38"\
+    --form "birth_date=2025-12-09T17:42:14"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -27748,7 +27031,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/php1tmpvp2s6lnmfxmyjsb" </code></pre></div>
+    --form "images[]=@/tmp/php9goh55r3a8bva2CqNpC" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -27762,7 +27045,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-07T10:46:38');
+body.append('birth_date', '2025-12-09T17:42:14');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -27880,10 +27163,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles-by-admin--user_id-"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -28191,447 +27474,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                <h1 id="profit">Profit</h1>
-
-    
-
-                                <h2 id="profit-GETapi-profits">GET api/profits</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-profits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/profits" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profits"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-profits">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-profits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-profits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-profits"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-profits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-profits">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-profits" data-method="GET"
-      data-path="api/profits"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-profits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-profits"
-                    onclick="tryItOut('GETapi-profits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-profits"
-                    onclick="cancelTryOut('GETapi-profits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-profits"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/profits</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-profits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-profits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="profit-POSTapi-profits">POST api/profits</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-profits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/profits" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"b\",
-    \"profit\": 22,
-    \"status\": \"1\",
-    \"operator_id\": 4326.41688,
-    \"type\": \"m\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profits"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "b",
-    "profit": 22,
-    "status": "1",
-    "operator_id": 4326.41688,
-    "type": "m"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-profits">
-</span>
-<span id="execution-results-POSTapi-profits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-profits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-profits"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-profits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-profits">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-profits" data-method="POST"
-      data-path="api/profits"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-profits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-profits"
-                    onclick="tryItOut('POSTapi-profits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-profits"
-                    onclick="cancelTryOut('POSTapi-profits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-profits"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/profits</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-profits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-profits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="title"                data-endpoint="POSTapi-profits"
-               value="b"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit"                data-endpoint="POSTapi-profits"
-               value="22"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>22</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="POSTapi-profits"
-               value="1"
-               data-component="body">
-    <br>
-<p>Must be between 0 and 1 digit. Example: <code>1</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>operator_id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="operator_id"                data-endpoint="POSTapi-profits"
-               value="4326.41688"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the operators table. Example: <code>4326.41688</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="type"                data-endpoint="POSTapi-profits"
-               value="m"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>m</code></p>
-        </div>
-        </form>
-
-                    <h2 id="profit-DELETEapi-profits--profit_id-">DELETE api/profits/{profit_id}</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-profits--profit_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/profits/16" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profits/16"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-profits--profit_id-">
-</span>
-<span id="execution-results-DELETEapi-profits--profit_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-profits--profit_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-profits--profit_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-profits--profit_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-profits--profit_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-profits--profit_id-" data-method="DELETE"
-      data-path="api/profits/{profit_id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-profits--profit_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-profits--profit_id-"
-                    onclick="tryItOut('DELETEapi-profits--profit_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-profits--profit_id-"
-                    onclick="cancelTryOut('DELETEapi-profits--profit_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-profits--profit_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/profits/{profit_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-profits--profit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-profits--profit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>profit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit_id"                data-endpoint="DELETEapi-profits--profit_id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the profit. Example: <code>16</code></p>
-            </div>
-                    </form>
-
                 <h1 id="profitgroup">ProfitGroup</h1>
 
     
@@ -28780,7 +27622,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"b\",
-    \"profit_split_ids\": []
+    \"designer_profit\": 22,
+    \"site_profit\": 7,
+    \"referrer_profit\": 16
 }"
 </code></pre></div>
 
@@ -28797,7 +27641,9 @@ const headers = {
 
 let body = {
     "title": "b",
-    "profit_split_ids": []
+    "designer_profit": 22,
+    "site_profit": 7,
+    "referrer_profit": 16
 };
 
 fetch(url, {
@@ -28892,19 +27738,230 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="b"
                data-component="body">
     <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>b</code></p>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit_split_ids</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
+            <b style="line-height: 2;"><code>designer_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="designer_profit"                data-endpoint="POSTapi-profit-groups"
+               value="22"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>22</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>site_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="site_profit"                data-endpoint="POSTapi-profit-groups"
+               value="7"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>7</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>referrer_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="referrer_profit"                data-endpoint="POSTapi-profit-groups"
+               value="16"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>16</code></p>
+        </div>
+        </form>
+
+                    <h2 id="profitgroup-PATCHapi-profit-groups--profitGroup_id-">PATCH api/profit-groups/{profitGroup_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PATCHapi-profit-groups--profitGroup_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://127.0.0.1/api/profit-groups/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"b\",
+    \"designer_profit\": 22,
+    \"site_profit\": 7,
+    \"referrer_profit\": 16
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1/api/profit-groups/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "b",
+    "designer_profit": 22,
+    "site_profit": 7,
+    "referrer_profit": 16
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-profit-groups--profitGroup_id-">
+</span>
+<span id="execution-results-PATCHapi-profit-groups--profitGroup_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-profit-groups--profitGroup_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-profit-groups--profitGroup_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-profit-groups--profitGroup_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-profit-groups--profitGroup_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PATCHapi-profit-groups--profitGroup_id-" data-method="PATCH"
+      data-path="api/profit-groups/{profitGroup_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-profit-groups--profitGroup_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-profit-groups--profitGroup_id-"
+                    onclick="tryItOut('PATCHapi-profit-groups--profitGroup_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-profit-groups--profitGroup_id-"
+                    onclick="cancelTryOut('PATCHapi-profit-groups--profitGroup_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-profit-groups--profitGroup_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/profit-groups/{profitGroup_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="profit_split_ids"                data-endpoint="POSTapi-profit-groups"
-               value=""
+                              name="Content-Type"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>profitGroup_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="profitGroup_id"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the profitGroup. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="b"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the profit_splits table.</p>
+<p>Must not be greater than 255 characters. Example: <code>b</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>designer_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="designer_profit"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="22"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>22</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>site_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="site_profit"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="7"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>7</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>referrer_profit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="referrer_profit"                data-endpoint="PATCHapi-profit-groups--profitGroup_id-"
+               value="16"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 100. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -28921,14 +27978,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/profit-groups/16" \
+    "http://127.0.0.1/api/profit-groups/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-groups/16"
+    "http://127.0.0.1/api/profit-groups/1"
 );
 
 const headers = {
@@ -29024,10 +28081,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="profitGroup_id"                data-endpoint="DELETEapi-profit-groups--profitGroup_id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the profitGroup. Example: <code>16</code></p>
+<p>The ID of the profitGroup. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -29048,8 +28105,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"b\",
-    \"profit_split_ids\": []
+    \"profit_group_id\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -29065,8 +28121,7 @@ const headers = {
 };
 
 let body = {
-    "title": "b",
-    "profit_split_ids": []
+    "profit_group_id": "architecto"
 };
 
 fetch(url, {
@@ -29165,443 +28220,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>profit_group_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="title"                data-endpoint="POSTapi-profit-groups-assign-profit-group-to-user--user_id-"
-               value="b"
+                              name="profit_group_id"                data-endpoint="POSTapi-profit-groups-assign-profit-group-to-user--user_id-"
+               value="architecto"
                data-component="body">
     <br>
-<p>Must be at least 3 characters. Must not be greater than 255 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit_split_ids</code></b>&nbsp;&nbsp;
-<small>object</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="profit_split_ids"                data-endpoint="POSTapi-profit-groups-assign-profit-group-to-user--user_id-"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the profit_splits table.</p>
+<p>The <code>id</code> of an existing record in the profit_groups table. Example: <code>architecto</code></p>
         </div>
         </form>
-
-                <h1 id="profitsplit">ProfitSplit</h1>
-
-    
-
-                                <h2 id="profitsplit-GETapi-profit-splits">GET api/profit-splits</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-profit-splits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/profit-splits" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-splits"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-profit-splits">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-profit-splits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-profit-splits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-profit-splits"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-profit-splits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-profit-splits">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-profit-splits" data-method="GET"
-      data-path="api/profit-splits"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-profit-splits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-profit-splits"
-                    onclick="tryItOut('GETapi-profit-splits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-profit-splits"
-                    onclick="cancelTryOut('GETapi-profit-splits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-profit-splits"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/profit-splits</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-profit-splits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-profit-splits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="profitsplit-POSTapi-profit-splits">POST api/profit-splits</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-profit-splits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/profit-splits" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"b\",
-    \"seller_profit\": 22,
-    \"profit_id\": 4326.41688
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-splits"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "b",
-    "seller_profit": 22,
-    "profit_id": 4326.41688
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-profit-splits">
-</span>
-<span id="execution-results-POSTapi-profit-splits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-profit-splits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-profit-splits"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-profit-splits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-profit-splits">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-profit-splits" data-method="POST"
-      data-path="api/profit-splits"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-profit-splits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-profit-splits"
-                    onclick="tryItOut('POSTapi-profit-splits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-profit-splits"
-                    onclick="cancelTryOut('POSTapi-profit-splits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-profit-splits"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/profit-splits</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-profit-splits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-profit-splits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="title"                data-endpoint="POSTapi-profit-splits"
-               value="b"
-               data-component="body">
-    <br>
-<p>Must be at least 3 characters. Must not be greater than 100 characters. Example: <code>b</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>seller_profit</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="seller_profit"                data-endpoint="POSTapi-profit-splits"
-               value="22"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>22</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profit_id</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profit_id"                data-endpoint="POSTapi-profit-splits"
-               value="4326.41688"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the profits table. Example: <code>4326.41688</code></p>
-        </div>
-        </form>
-
-                    <h2 id="profitsplit-DELETEapi-profit-splits--profitSplit_id-">DELETE api/profit-splits/{profitSplit_id}</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-profit-splits--profitSplit_id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/profit-splits/16" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/profit-splits/16"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-profit-splits--profitSplit_id-">
-</span>
-<span id="execution-results-DELETEapi-profit-splits--profitSplit_id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-profit-splits--profitSplit_id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-profit-splits--profitSplit_id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-profit-splits--profitSplit_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-profit-splits--profitSplit_id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-profit-splits--profitSplit_id-" data-method="DELETE"
-      data-path="api/profit-splits/{profitSplit_id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-profit-splits--profitSplit_id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-profit-splits--profitSplit_id-"
-                    onclick="tryItOut('DELETEapi-profit-splits--profitSplit_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-profit-splits--profitSplit_id-"
-                    onclick="cancelTryOut('DELETEapi-profit-splits--profitSplit_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-profit-splits--profitSplit_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/profit-splits/{profitSplit_id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-profit-splits--profitSplit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-profit-splits--profitSplit_id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>profitSplit_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="profitSplit_id"                data-endpoint="DELETEapi-profit-splits--profitSplit_id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the profitSplit. Example: <code>16</code></p>
-            </div>
-                    </form>
 
                 <h1 id="report">Report</h1>
 
@@ -30000,8 +28630,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"type\": \"money\",
     \"value\": 39,
     \"status\": true,
-    \"start_date\": \"2025-12-07 10:46:38\",
-    \"end_date\": \"2051-12-31\"
+    \"start_date\": \"2025-12-09 17:42:14\",
+    \"end_date\": \"2052-01-02\"
 }"
 </code></pre></div>
 
@@ -30021,8 +28651,8 @@ let body = {
     "type": "money",
     "value": 39,
     "status": true,
-    "start_date": "2025-12-07 10:46:38",
-    "end_date": "2051-12-31"
+    "start_date": "2025-12-09 17:42:14",
+    "end_date": "2052-01-02"
 };
 
 fetch(url, {
@@ -30174,10 +28804,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="POSTapi-sales"
-               value="2025-12-07 10:46:38"
+               value="2025-12-09 17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-07 10:46:38</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-09 17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -30186,10 +28816,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_date"                data-endpoint="POSTapi-sales"
-               value="2051-12-31"
+               value="2052-01-02"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>. Example: <code>2051-12-31</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>. Example: <code>2052-01-02</code></p>
         </div>
         </form>
 
@@ -30213,9 +28843,9 @@ Must be one of:
     \"title\": \"b\",
     \"type\": \"money\",
     \"value\": 39,
-    \"status\": true,
-    \"start_date\": \"2025-12-07 10:46:38\",
-    \"end_date\": \"2051-12-31\"
+    \"status\": false,
+    \"start_date\": \"2025-12-09 17:42:14\",
+    \"end_date\": \"2052-01-02\"
 }"
 </code></pre></div>
 
@@ -30234,9 +28864,9 @@ let body = {
     "title": "b",
     "type": "money",
     "value": 39,
-    "status": true,
-    "start_date": "2025-12-07 10:46:38",
-    "end_date": "2051-12-31"
+    "status": false,
+    "start_date": "2025-12-09 17:42:14",
+    "end_date": "2052-01-02"
 };
 
 fetch(url, {
@@ -30392,7 +29022,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
@@ -30401,10 +29031,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="PATCHapi-sales--sale_id-"
-               value="2025-12-07 10:46:38"
+               value="2025-12-09 17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-07 10:46:38</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-09 17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -30413,10 +29043,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_date"                data-endpoint="PATCHapi-sales--sale_id-"
-               value="2051-12-31"
+               value="2052-01-02"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>. Example: <code>2051-12-31</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Must be a date after or equal to <code>start_date</code>. Example: <code>2052-01-02</code></p>
         </div>
         </form>
 
@@ -30846,9 +29476,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": false,
-    \"email\": false,
-    \"auth\": \"usernamePassword\",
+    \"sms\": true,
+    \"email\": true,
+    \"auth\": \"otpOrPassword\",
     \"otp\": \"google2fa\",
     \"jwt_expiration_time\": 1,
     \"front\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
@@ -30868,9 +29498,9 @@ const headers = {
 };
 
 let body = {
-    "sms": false,
-    "email": false,
-    "auth": "usernamePassword",
+    "sms": true,
+    "email": true,
+    "auth": "otpOrPassword",
     "otp": "google2fa",
     "jwt_expiration_time": 1,
     "front": "[\"architecto\",\"architecto\"]",
@@ -30979,7 +29609,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -31001,7 +29631,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>auth</code></b>&nbsp;&nbsp;
@@ -31010,10 +29640,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="auth"                data-endpoint="POSTapi-settings"
-               value="usernamePassword"
+               value="otpOrPassword"
                data-component="body">
     <br>
-<p>Example: <code>usernamePassword</code></p>
+<p>Example: <code>otpOrPassword</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>otp</code></li> <li><code>otpOrPassword</code></li> <li><code>usernamePassword</code></li></ul>
         </div>
@@ -32426,8 +31056,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "ticket_id=4326.41688"\
     --form "title=m"\
     --form "message=architecto"\
-    --form "category=feedback"\
-    --form "images[]=@/tmp/phpd04vkdaicqun41woasS" </code></pre></div>
+    --form "category=technical"\
+    --form "images[]=@/tmp/phpomv8m48jror84XQL01E" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -32444,7 +31074,7 @@ const body = new FormData();
 body.append('ticket_id', '4326.41688');
 body.append('title', 'm');
 body.append('message', 'architecto');
-body.append('category', 'feedback');
+body.append('category', 'technical');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -32572,10 +31202,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="POSTapi-tickets"
-               value="feedback"
+               value="technical"
                data-component="body">
     <br>
-<p>Example: <code>feedback</code></p>
+<p>Example: <code>technical</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>technical</code></li> <li><code>billing</code></li> <li><code>account</code></li> <li><code>feature_request</code></li> <li><code>general</code></li> <li><code>feedback</code></li></ul>
         </div>
@@ -33744,14 +32374,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/tokens/1" \
+    "http://127.0.0.1/api/tokens/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tokens/1"
+    "http://127.0.0.1/api/tokens/16"
 );
 
 const headers = {
@@ -33847,10 +32477,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="personalAccessToken_id"                data-endpoint="DELETEapi-tokens--personalAccessToken_id-"
-               value="1"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the personalAccessToken. Example: <code>1</code></p>
+<p>The ID of the personalAccessToken. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -37945,7 +36575,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"count\": 4326.41688,
     \"weight\": 4326.41688,
     \"price\": 4326.41688,
-    \"expiry_date\": \"2025-12-07T10:46:38\",
+    \"expiry_date\": \"2025-12-09T17:42:14\",
     \"warehouse_address\": \"m\",
     \"source\": \"i\"
 }"
@@ -37967,7 +36597,7 @@ let body = {
     "count": 4326.41688,
     "weight": 4326.41688,
     "price": 4326.41688,
-    "expiry_date": "2025-12-07T10:46:38",
+    "expiry_date": "2025-12-09T17:42:14",
     "warehouse_address": "m",
     "source": "i"
 };
@@ -38109,10 +36739,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiry_date"                data-endpoint="POSTapi-warehouses"
-               value="2025-12-07T10:46:38"
+               value="2025-12-09T17:42:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-07T10:46:38</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T17:42:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>warehouse_address</code></b>&nbsp;&nbsp;
