@@ -8,7 +8,6 @@ use App\Http\Resources\V1\UserResource;
 use App\Models\Order;
 use App\Models\ReportDailyBalance;
 use App\Models\User;
-use App\Models\WalletTransactionExtra;
 use App\Notifications\V1\SmsSystem;
 use App\Services\V1\Image\Image;
 use Carbon\Carbon;
@@ -178,22 +177,7 @@ class UserController extends Controller
         return response()->serverError(__('general.somethingWrong'));
     }
 
-    /**
-     * @return JsonResponse
-     */
-    public function getFinancialInfo(): JsonResponse
-    {
-        $results = WalletTransactionExtra::where('user_id', Auth::id())->where('third_party_status', 1)->where('created_at', '>=', Carbon::today());
 
-        $takenValues = $results->sum('taken_value');
-        $values = $results->sum('value');
-
-        return response()->json([
-            'takenValues' => $takenValues,
-            'values' => $values,
-            'profit' => abs($takenValues - $values)
-        ], status::HTTP_OK);
-    }
 
     public function getOrder($orderId): JsonResponse
     {

@@ -17,7 +17,6 @@ use App\Models\ProfitSplit;
 use App\Models\Report;
 use App\Models\User;
 use App\Models\WalletTransaction;
-use App\Models\WalletTransactionExtra;
 use App\Services\V1\Payment\PaymentService;
 use App\Services\V1\Wallet\Wallet;
 use App\Services\V1\Wallet\WalletService;

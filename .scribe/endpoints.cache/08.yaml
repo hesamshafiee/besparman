@@ -139,7 +139,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -150,7 +150,7 @@ endpoints:
         name: reusable
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -161,7 +161,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T17:42:14'
+        example: '2025-12-20T16:26:50'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -198,9 +198,9 @@ endpoints:
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
-      status: false
-      reusable: true
-      expire_at: '2025-12-09T17:42:14'
+      status: true
+      reusable: false
+      expire_at: '2025-12-20T16:26:50'
       users:
         - 4326.41688
       products:
@@ -320,7 +320,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -331,7 +331,7 @@ endpoints:
         name: reusable
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -342,7 +342,7 @@ endpoints:
         name: expire_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T17:42:14'
+        example: '2025-12-20T16:26:50'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -379,9 +379,9 @@ endpoints:
       min_purchase: 4326.41688
       max_purchase: 4326.41688
       count: 4326.41688
-      status: false
-      reusable: true
-      expire_at: '2025-12-09T17:42:14'
+      status: true
+      reusable: false
+      expire_at: '2025-12-20T16:26:50'
       users:
         - 4326.41688
       products:

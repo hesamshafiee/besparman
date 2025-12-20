@@ -31,7 +31,6 @@ use App\Http\Controllers\V1\TokenController;
 use App\Http\Controllers\V1\UserController;
 use App\Http\Controllers\V1\UsernameController;
 use App\Http\Controllers\V1\WalletController;
-use App\Http\Controllers\V1\WalletTransactionExtraController;
 use App\Http\Controllers\V1\WarehouseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\TagController;
@@ -301,8 +300,6 @@ Route::middleware(['checkToken'])->group(function () {
 
 
 
-        Route::get('/wallet/transaction/extras', [WalletTransactionExtraController::class, 'index']);
-        Route::patch('/wallet/transaction/extras/{walletTransactionExtra}', [WalletTransactionExtraController::class, 'update']);
 
 
         Route::get('/users/financial/info', [UserController::class, 'getFinancialInfo']);

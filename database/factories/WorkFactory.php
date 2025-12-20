@@ -16,7 +16,7 @@ class WorkFactory extends Factory
         $title = $this->faker->sentence(3);
 
         return [
-            'user_id'      => User::factory(), // اگر کاربر از قبل داری، تست می‌فرسته
+            'user_id'      => User::factory(),
             'title'        => $title,
             'slug'         => Str::slug($title) . '-' . Str::random(4),
             'description'  => $this->faker->paragraph(),

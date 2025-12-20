@@ -23,7 +23,10 @@ class BasicSeeder extends Seeder
             OptionValueSeeder::class,
             CategoryOptionSeeder::class,
             MockupSeeder::class,
-            ProfitGroupSeeder::class
+            ProfitGroupSeeder::class,
+            LogesticSeeder::class,
+            WorkProductSeeder::class,
+            AddressSeeder::class,
 
             //ProductSeeder::class,
             //ProfitSeeder::class

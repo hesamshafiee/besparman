@@ -203,14 +203,14 @@ endpoints:
         name: address_id
         description: 'The ID of the address.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      address_id: 16
+      address_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -378,7 +378,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -392,7 +392,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: false
+      is_default: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -424,14 +424,14 @@ endpoints:
         name: address_id
         description: 'The ID of the address.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      address_id: 16
+      address_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -528,7 +528,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -542,7 +542,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: true
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -574,14 +574,14 @@ endpoints:
         name: address_id
         description: 'The ID of the address.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      address_id: 16
+      address_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

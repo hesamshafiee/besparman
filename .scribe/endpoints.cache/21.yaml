@@ -265,7 +265,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -276,7 +276,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -287,7 +287,7 @@ endpoints:
         name: is_capital
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -319,9 +319,9 @@ endpoints:
       divide_time: '1374491711936806'
       is_active_in_holiday: true
       days_not_working: '["architecto","architecto"]'
-      status: true
-      default: false
-      is_capital: false
+      status: false
+      default: true
+      is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []
     responses: []
@@ -354,14 +354,14 @@ endpoints:
         name: logistic_id
         description: 'The ID of the logistic.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      logistic_id: 16
+      logistic_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

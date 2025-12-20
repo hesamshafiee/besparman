@@ -69,7 +69,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T17:42:14'
+        example: '2025-12-20T16:26:50'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -266,7 +266,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-09T17:42:14'
+      birth_date: '2025-12-20T16:26:50'
       address: b
       postal_code: 'n'
       profession: g
@@ -330,7 +330,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T17:42:14'
+        example: '2025-12-20T16:26:50'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -527,7 +527,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-09T17:42:14'
+      birth_date: '2025-12-20T16:26:50'
       address: b
       postal_code: 'n'
       profession: g

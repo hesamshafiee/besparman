@@ -221,7 +221,6 @@ class WalletService
         $walletTransaction->city = $this->city ?? null;
         $walletTransaction->main_page = $this->mainPage ?? false;
         $walletTransaction->webservice_code = empty($this->webserviceCode) ? null : $this->webserviceCode;
-        $walletTransaction->operator_id = $this->operatorId ?? null;
         $walletTransaction->user_type = $this->userType ?? null;
         $walletTransaction->product_type = $this->productType ?? null;
         $walletTransaction->product_name = $this->productName ?? null;
