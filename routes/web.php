@@ -12,13 +12,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 use App\Http\Controllers\V1\MetricsController;
-use App\Models\Address;
-use App\Models\Logistic;
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/prometheus', [MetricsController::class, 'metrics']);
-
-Route::get('/',function(){
-    Address::create(['user_id'=>3]) ;
-}) ;
