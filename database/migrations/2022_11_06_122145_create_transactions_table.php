@@ -47,24 +47,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('wallet_transaction_extras', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('wallet_transaction_id');
-            $table->foreign('wallet_transaction_id')->references('id')->on('wallet_transactions')->onDelete('no action');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
-            $table->decimal('taken_value', 17, 4)->nullable();
-            $table->decimal('value', 17, 4)->nullable();
-            $table->string('mobile');
-            $table->string('name');
-            $table->string('type');
-            $table->string('sim_card_type')->nullable();
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('no action');
-            $table->string('operator_title');
-            $table->boolean('third_party_status');
-            $table->timestamps();
-        });
     }
 
     /**
@@ -74,7 +56,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wallet_transaction_extras');
         Schema::dropIfExists('wallet_transactions');
     }
 };

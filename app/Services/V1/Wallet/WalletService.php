@@ -118,7 +118,7 @@ class WalletService
        
         if (0) {
 
-             $message = '💰 کیف پول شما در بسپارمن';
+             $message = '💰 کیف پول شما';
 
             foreach ($telegram_ids as $telegramAccount) {
                 $telegram_id = $telegramAccount->telegram_id;
