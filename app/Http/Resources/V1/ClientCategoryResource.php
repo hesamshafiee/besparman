@@ -18,10 +18,16 @@ class ClientCategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'parent_id' => $this->parent_id,
+            'status' => $this->status,
             'data' => $this->data,
-            'products' => ClientProductResource::collection($this->whenLoaded('products', function () {
-                return $this->products->where('status', Product::STATUS_ACTIVE);
-            })),
+            'default_setting' => $this->default_setting,
+            'base_price' => $this->base_price,
+            'markup_price' => $this->markup_price,
+            'parent_name' => optional($this->parent)->name,
+            'data' => $this->data,
+            'children' => CategoryResource::collection($this->whenLoaded('children')),
+            'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
         ];
     }
 }

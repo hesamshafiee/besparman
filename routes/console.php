@@ -1,7 +1,6 @@
 <?php
 
 use App\Jobs\DailyUsersBalanceJob;
-use App\Jobs\UserReportJob;
 use App\Models\IdempotencyKey;
 use App\Models\User;
 use Illuminate\Console\Scheduling\Schedule;
@@ -42,10 +41,3 @@ app(Schedule::class)->call(function () {
     IdempotencyKey::where('expires_at', '<', now())->delete();
 })->dailyAt('03:00');
 
-app(Schedule::class)->call(function () {
-    User::chunk(50, function ($users) {
-        foreach ($users as $user) {
-            UserReportJob::dispatch($user)->onQueue('report');
-        }
-    });
-})->dailyAt('00:15');

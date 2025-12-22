@@ -2,9 +2,7 @@
 
 namespace App\Services\V1\Search;
 
-use App\Models\Operator;
 use App\Models\WalletTransaction as WalletTransactionModel;
-use App\Models\Product;
 use App\Models\User;
 
 class WalletTransaction
@@ -30,7 +28,6 @@ class WalletTransaction
                 'bank_name' => ['index' => 'bank_name', 'relation' => 'payment'],
                 'bank_info' => ['index' => 'bank_info', 'relation' => 'payment'],
                 'created_at' => ['attribute_type' => 'attribute'],
-                'operator_id' => ['attribute_type' => 'attribute', 'like' => false],
                 'detail_hide' => ['attribute_type' => 'hidden','index' => 'detail', 'in' =>
                     [
                         WalletTransactionModel::DETAIL_INCREASE_PURCHASE_PRESENTER,
@@ -72,20 +69,12 @@ class WalletTransaction
                     User::TYPE_ADMIN,
                 ]],
                 'product_name' => ['attribute_type' => 'attribute'],
-                'operator' => ['index' => 'name', 'relation' => 'operator', 'in' => [
-                    Operator::IRANCELL,
-                    Operator::APTEL,
-                    Operator::SHATEL,
-                    Operator::MCI,
-                    Operator::RIGHTEL
-                ]],
                 'province' => ['attribute_type' => 'attribute'],
                 'payment' => ['with' => 'payment'],
                 'city' => ['attribute_type' => 'attribute'],
-                'charged_mobile' => ['attribute_type' => 'attribute'],
                 'order_id' => ['attribute_type' => 'attribute', 'like' => false],
                 'sum' => ['attribute_type' => 'sum', 'value' => ['value', 'original_price', 'countAll']],
-                'groupBy' => ['status', 'type', 'product_type' ,'operator_id' ,'province'  , 'city' , 'user_type', 'third_party_status', 'main_page', 'product_name', 'user_id', 'order_id', 'created_at', 'detail', 'provider']
+                'groupBy' => ['status', 'type', 'product_type' ,'province'  , 'city' , 'user_type', 'third_party_status', 'main_page', 'product_name', 'user_id', 'order_id', 'created_at', 'detail', 'provider']
             ];
         } elseif ($type === 'filter-public') {
             return [
@@ -128,10 +117,9 @@ class WalletTransaction
                         WalletTransactionModel::DETAIL_INCREASE_CARD,
                     ]
                 ],
-                'charged_mobile' => ['attribute_type' => 'attribute'],
-                'order_id' => ['attribute_type' => 'attribute', 'like' => false],
+\                'order_id' => ['attribute_type' => 'attribute', 'like' => false],
                 'sum' => ['attribute_type' => 'sum', 'value' => ['value', 'original_price', 'countAll']],
-                'groupBy' => ['status', 'type', 'product_type' ,'operator_id', 'product_name', 'created_at', 'order_id'],
+                'groupBy' => ['status', 'type', 'product_type', 'product_name', 'created_at', 'order_id'],
                 'city' => ['attribute_type' => 'attribute'],
                 'mobile' => ['index' => 'mobile', 'relation' => 'user'],
                 'resnumber' => ['attribute_type' => 'attribute'],
@@ -139,13 +127,6 @@ class WalletTransaction
                 'main_page' => ['attribute_type' => 'attribute', 'in' => [true, false]],
                 'payment' => ['with' => 'payment'],
                 'product_name' => ['attribute_type' => 'attribute'],
-                'operator' => ['index' => 'name', 'relation' => 'operator', 'in' => [
-                    Operator::IRANCELL,
-                    Operator::APTEL,
-                    Operator::SHATEL,
-                    Operator::MCI,
-                    Operator::RIGHTEL
-                ]],
             ];
         }
 

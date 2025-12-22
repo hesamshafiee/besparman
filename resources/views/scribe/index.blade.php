@@ -131,16 +131,6 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-alert" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="alert">
-                    <a href="#alert">Alert</a>
-                </li>
-                                    <ul id="tocify-subheader-alert" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="alert-POSTapi-alert-telegram">
-                                <a href="#alert-POSTapi-alert-telegram">POST api/alert/telegram</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
                     <ul id="tocify-header-auth" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="auth">
                     <a href="#auth">Auth</a>
@@ -3702,120 +3692,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="alert">Alert</h1>
-
-    
-
-                                <h2 id="alert-POSTapi-alert-telegram">POST api/alert/telegram</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-alert-telegram">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/alert/telegram" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/alert/telegram"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-alert-telegram">
-</span>
-<span id="execution-results-POSTapi-alert-telegram" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-alert-telegram"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-alert-telegram"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-alert-telegram" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-alert-telegram">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-alert-telegram" data-method="POST"
-      data-path="api/alert/telegram"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-alert-telegram', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-alert-telegram"
-                    onclick="tryItOut('POSTapi-alert-telegram');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-alert-telegram"
-                    onclick="cancelTryOut('POSTapi-alert-telegram');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-alert-telegram"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/alert/telegram</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-alert-telegram"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-alert-telegram"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
                 <h1 id="auth">Auth</h1>
 
     
@@ -4386,7 +4262,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5997
+x-ratelimit-remaining: 5999
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -4888,7 +4764,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"date\": \"2025-12-22T15:07:19\",
+    \"date\": \"2025-12-22T16:21:17\",
     \"deliveryBetweenStart\": \"1374491711936806\",
     \"deliveryBetweenEnd\": \"1374491711936806\",
     \"address_id\": 4326.41688
@@ -4907,7 +4783,7 @@ const headers = {
 };
 
 let body = {
-    "date": "2025-12-22T15:07:19",
+    "date": "2025-12-22T16:21:17",
     "deliveryBetweenStart": "1374491711936806",
     "deliveryBetweenEnd": "1374491711936806",
     "address_id": 4326.41688
@@ -5015,10 +4891,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-cart-delivery--logistic_id-"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deliveryBetweenStart</code></b>&nbsp;&nbsp;
@@ -5076,7 +4952,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"returnUrl\": \"http:\\/\\/www.bailey.biz\\/quos-velit-et-fugiat-sunt-nihil-accusantium-harum.html\",
-    \"bank\": \"saman\",
+    \"bank\": \"mellat\",
     \"cart_key\": \"architecto\"
 }"
 </code></pre></div>
@@ -5094,7 +4970,7 @@ const headers = {
 
 let body = {
     "returnUrl": "http:\/\/www.bailey.biz\/quos-velit-et-fugiat-sunt-nihil-accusantium-harum.html",
-    "bank": "saman",
+    "bank": "mellat",
     "cart_key": "architecto"
 };
 
@@ -5199,10 +5075,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank"                data-endpoint="POSTapi-cart-checkout"
-               value="saman"
+               value="mellat"
                data-component="body">
     <br>
-<p>This field is required when <code>returnUrl</code> is present. Example: <code>saman</code></p>
+<p>This field is required when <code>returnUrl</code> is present. Example: <code>mellat</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>saman</code></li> <li><code>mellat</code></li></ul>
         </div>
@@ -5267,7 +5143,7 @@ fetch(url, {
 content-type: application/json
 balance: 0
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5995
+x-ratelimit-remaining: 5997
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -5662,7 +5538,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "data=["architecto","architecto"]"\
     --form "default_setting=["architecto","architecto"]"\
     --form "status=n"\
-    --form "images[]=@/tmp/phpcut2v9dp8v2524xdA1A" </code></pre></div>
+    --form "images[]=@/tmp/phprrsgvn5bglcremzh6Ib" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5860,7 +5736,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "data=["architecto","architecto"]"\
     --form "default_setting=["architecto","architecto"]"\
     --form "status=n"\
-    --form "images[]=@/tmp/php2ec1qn3452o3fJSCDIA" </code></pre></div>
+    --form "images[]=@/tmp/phpr5e3pp2dp008eqBV80h" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6344,7 +6220,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         {
             \"option_id\": 16,
             \"is_required\": false,
-            \"is_active\": true,
+            \"is_active\": false,
             \"sort_order\": 39
         }
     ]
@@ -6367,7 +6243,7 @@ let body = {
         {
             "option_id": 16,
             "is_required": false,
-            "is_active": true,
+            "is_active": false,
             "sort_order": 39
         }
     ]
@@ -6532,7 +6408,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
@@ -7555,14 +7431,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"code\": \"b\",
-    \"type\": \"money\",
+    \"type\": \"percent\",
     \"value\": 4326.41688,
     \"min_purchase\": 4326.41688,
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
     \"status\": false,
-    \"reusable\": true,
-    \"expire_at\": \"2025-12-22T15:07:19\",
+    \"reusable\": false,
+    \"expire_at\": \"2025-12-22T16:21:17\",
     \"users\": [
         4326.41688
     ],
@@ -7585,14 +7461,14 @@ const headers = {
 
 let body = {
     "code": "b",
-    "type": "money",
+    "type": "percent",
     "value": 4326.41688,
     "min_purchase": 4326.41688,
     "max_purchase": 4326.41688,
     "count": 4326.41688,
     "status": false,
-    "reusable": true,
-    "expire_at": "2025-12-22T15:07:19",
+    "reusable": false,
+    "expire_at": "2025-12-22T16:21:17",
     "users": [
         4326.41688
     ],
@@ -7702,10 +7578,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-discounts"
-               value="money"
+               value="percent"
                data-component="body">
     <br>
-<p>Example: <code>money</code></p>
+<p>Example: <code>percent</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>money</code></li> <li><code>percent</code></li></ul>
         </div>
@@ -7799,7 +7675,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expire_at</code></b>&nbsp;&nbsp;
@@ -7808,10 +7684,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="POSTapi-discounts"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -7867,8 +7743,8 @@ Must be one of:
     \"max_purchase\": 4326.41688,
     \"count\": 4326.41688,
     \"status\": true,
-    \"reusable\": false,
-    \"expire_at\": \"2025-12-22T15:07:19\",
+    \"reusable\": true,
+    \"expire_at\": \"2025-12-22T16:21:17\",
     \"users\": [
         4326.41688
     ],
@@ -7897,8 +7773,8 @@ let body = {
     "max_purchase": 4326.41688,
     "count": 4326.41688,
     "status": true,
-    "reusable": false,
-    "expire_at": "2025-12-22T15:07:19",
+    "reusable": true,
+    "expire_at": "2025-12-22T16:21:17",
     "users": [
         4326.41688
     ],
@@ -8118,7 +7994,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expire_at</code></b>&nbsp;&nbsp;
@@ -8127,10 +8003,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="expire_at"                data-endpoint="PATCHapi-discounts--discount_id-"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>users</code></b>&nbsp;&nbsp;
@@ -8445,7 +8321,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/phpk3kvt4s9g209cH2c44Z" </code></pre></div>
+    --form "image[]=@/tmp/php7c6bpiuun29gfjAhJlU" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8779,7 +8655,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"postal_code\": \"m\",
     \"phone\": \"i\",
     \"mobile\": \"y\",
-    \"is_default\": true
+    \"is_default\": false
 }"
 </code></pre></div>
 
@@ -8802,7 +8678,7 @@ let body = {
     "postal_code": "m",
     "phone": "i",
     "mobile": "y",
-    "is_default": true
+    "is_default": false
 };
 
 fetch(url, {
@@ -9016,7 +8892,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -9052,7 +8928,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"is_active_in_holiday\": false,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
     \"status\": false,
-    \"default\": true,
+    \"default\": false,
     \"is_capital\": false,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
@@ -9085,7 +8961,7 @@ let body = {
     "is_active_in_holiday": false,
     "days_not_working": "[\"architecto\",\"architecto\"]",
     "status": false,
-    "default": true,
+    "default": false,
     "is_capital": false,
     "description": "Et animi quos velit et fugiat."
 };
@@ -9405,7 +9281,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_capital</code></b>&nbsp;&nbsp;
@@ -9462,7 +9338,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"b\",
     \"content\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -9480,7 +9356,7 @@ const headers = {
 let body = {
     "title": "b",
     "content": "[\"architecto\",\"architecto\"]",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -9622,7 +9498,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -10040,7 +9916,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"private\": false,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
-    \"two_step\": true
+    \"two_step\": false
 }"
 </code></pre></div>
 
@@ -10062,7 +9938,7 @@ let body = {
     "private": false,
     "profile_confirm": true,
     "name": "architecto",
-    "two_step": true
+    "two_step": false
 };
 
 fetch(url, {
@@ -10261,7 +10137,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -10284,11 +10160,11 @@ Must be one of:
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"panel\",
-    \"private\": true,
+    \"type\": \"admin\",
+    \"private\": false,
     \"profile_confirm\": true,
     \"name\": \"architecto\",
-    \"two_step\": true
+    \"two_step\": false
 }"
 </code></pre></div>
 
@@ -10306,11 +10182,11 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "panel",
-    "private": true,
+    "type": "admin",
+    "private": false,
     "profile_confirm": true,
     "name": "architecto",
-    "two_step": true
+    "two_step": false
 };
 
 fetch(url, {
@@ -10439,10 +10315,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-users--user_id-"
-               value="panel"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>panel</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10466,7 +10342,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_confirm</code></b>&nbsp;&nbsp;
@@ -10522,7 +10398,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -10668,11 +10544,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"mobile\": \"137449171806\",
     \"email\": \"rowan.gulgowski@example.com\",
-    \"type\": \"webservice\",
-    \"private\": true,
+    \"type\": \"panel\",
+    \"private\": false,
     \"profile_confirm\": false,
     \"name\": \"architecto\",
-    \"two_step\": true
+    \"two_step\": false
 }"
 </code></pre></div>
 
@@ -10690,11 +10566,11 @@ const headers = {
 let body = {
     "mobile": "137449171806",
     "email": "rowan.gulgowski@example.com",
-    "type": "webservice",
-    "private": true,
+    "type": "panel",
+    "private": false,
     "profile_confirm": false,
     "name": "architecto",
-    "two_step": true
+    "two_step": false
 };
 
 fetch(url, {
@@ -10810,10 +10686,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-users-add-images"
-               value="webservice"
+               value="panel"
                data-component="body">
     <br>
-<p>Example: <code>webservice</code></p>
+<p>Example: <code>panel</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>panel</code></li> <li><code>webservice</code></li> <li><code>admin</code></li> <li><code>esaj</code></li> <li><code>ordinary</code></li></ul>
         </div>
@@ -10837,7 +10713,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_confirm</code></b>&nbsp;&nbsp;
@@ -10893,7 +10769,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -10914,13 +10790,13 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": true,
+    \"sms\": false,
     \"email\": true,
-    \"auth\": \"otpOrPassword\",
+    \"auth\": \"usernamePassword\",
     \"otp\": \"google2fa\",
     \"jwt_expiration_time\": 1,
     \"front\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -10936,13 +10812,13 @@ const headers = {
 };
 
 let body = {
-    "sms": true,
+    "sms": false,
     "email": true,
-    "auth": "otpOrPassword",
+    "auth": "usernamePassword",
     "otp": "google2fa",
     "jwt_expiration_time": 1,
     "front": "[\"architecto\",\"architecto\"]",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -11060,7 +10936,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -11091,10 +10967,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="auth"                data-endpoint="PATCHapi-settings--setting_id-"
-               value="otpOrPassword"
+               value="usernamePassword"
                data-component="body">
     <br>
-<p>Example: <code>otpOrPassword</code></p>
+<p>Example: <code>usernamePassword</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>otp</code></li> <li><code>otpOrPassword</code></li> <li><code>usernamePassword</code></li></ul>
         </div>
@@ -11156,7 +11032,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -11447,21 +11323,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-22T15:07:19"\
-    --form "address=u"\
-    --form "postal_code=p"\
-    --form "profession=l"\
-    --form "education=p"\
-    --form "store_name=w"\
-    --form "national_code=f"\
-    --form "province=h"\
-    --form "city=n"\
-    --form "gender=j"\
-    --form "phone=b"\
-    --form "name=i"\
+    --form "birth_date=2025-12-22T16:21:17"\
+    --form "address=b"\
+    --form "postal_code=n"\
+    --form "profession=g"\
+    --form "education=z"\
+    --form "store_name=m"\
+    --form "national_code=i"\
+    --form "province=y"\
+    --form "city=v"\
+    --form "gender=d"\
+    --form "phone=l"\
+    --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/php5m1rqv2e4ij71HmNfGA" </code></pre></div>
+    --form "images[]=@/tmp/phpta19216jq6b3eJAlZDl" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -11475,18 +11351,18 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-22T15:07:19');
-body.append('address', 'u');
-body.append('postal_code', 'p');
-body.append('profession', 'l');
-body.append('education', 'p');
-body.append('store_name', 'w');
-body.append('national_code', 'f');
-body.append('province', 'h');
-body.append('city', 'n');
-body.append('gender', 'j');
-body.append('phone', 'b');
-body.append('name', 'i');
+body.append('birth_date', '2025-12-22T16:21:17');
+body.append('address', 'b');
+body.append('postal_code', 'n');
+body.append('profession', 'g');
+body.append('education', 'z');
+body.append('store_name', 'm');
+body.append('national_code', 'i');
+body.append('province', 'y');
+body.append('city', 'v');
+body.append('gender', 'd');
+body.append('phone', 'l');
+body.append('name', 'j');
 body.append('legal_info', '["architecto","architecto"]');
 body.append('ips[]', 'n');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
@@ -11593,10 +11469,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -11605,10 +11481,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="u"
+               value="b"
                data-component="body">
     <br>
-<p>Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters. Example: <code>u</code></p>
+<p>Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters. Example: <code>b</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
@@ -11617,10 +11493,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="postal_code"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="p"
+               value="n"
                data-component="body">
     <br>
-<p>Must not be greater than 50 characters. Example: <code>p</code></p>
+<p>Must not be greater than 50 characters. Example: <code>n</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profession</code></b>&nbsp;&nbsp;
@@ -11629,10 +11505,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="profession"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="l"
+               value="g"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>l</code></p>
+<p>Must not be greater than 255 characters. Example: <code>g</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>education</code></b>&nbsp;&nbsp;
@@ -11641,10 +11517,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="education"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="p"
+               value="z"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>p</code></p>
+<p>Must not be greater than 255 characters. Example: <code>z</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>store_name</code></b>&nbsp;&nbsp;
@@ -11653,10 +11529,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_name"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="w"
+               value="m"
                data-component="body">
     <br>
-<p>Must not be greater than 70 characters. Example: <code>w</code></p>
+<p>Must not be greater than 70 characters. Example: <code>m</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>national_code</code></b>&nbsp;&nbsp;
@@ -11665,10 +11541,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="national_code"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="f"
+               value="i"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>f</code></p>
+<p>Must not be greater than 255 characters. Example: <code>i</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>province</code></b>&nbsp;&nbsp;
@@ -11677,10 +11553,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="province"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="h"
+               value="y"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>h</code></p>
+<p>Must not be greater than 255 characters. Example: <code>y</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>آذربایجان شرقی</code></li> <li><code>آذربایجان غربی</code></li> <li><code>اردبیل</code></li> <li><code>اصفهان</code></li> <li><code>البرز</code></li> <li><code>ایلام</code></li> <li><code>بوشهر</code></li> <li><code>تهران</code></li> <li><code>چهارمحال و بختیاری</code></li> <li><code>خراسان جنوبی</code></li> <li><code>خراسان رضوی</code></li> <li><code>خراسان شمالی</code></li> <li><code>خوزستان</code></li> <li><code>زنجان</code></li> <li><code>سمنان</code></li> <li><code>سیستان و بلوچستان</code></li> <li><code>فارس</code></li> <li><code>قزوین</code></li> <li><code>قم</code></li> <li><code>کردستان</code></li> <li><code>کرمان</code></li> <li><code>کرمانشاه</code></li> <li><code>کهگیلویه و بویراحمد</code></li> <li><code>گلستان</code></li> <li><code>لرستان</code></li> <li><code>گیلان</code></li> <li><code>مازندران</code></li> <li><code>مرکزی</code></li> <li><code>هرمزگان</code></li> <li><code>همدان</code></li> <li><code>یزد</code></li></ul>
         </div>
@@ -11691,10 +11567,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="n"
+               value="v"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>n</code></p>
+<p>Must not be greater than 255 characters. Example: <code>v</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code></code></li></ul>
         </div>
@@ -11705,10 +11581,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="j"
+               value="d"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>j</code></p>
+<p>Must not be greater than 255 characters. Example: <code>d</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -11719,10 +11595,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="b"
+               value="l"
                data-component="body">
     <br>
-<p>Must not be greater than 50 characters. Example: <code>b</code></p>
+<p>Must not be greater than 50 characters. Example: <code>l</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -11731,10 +11607,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PATCHapi-profiles-by-admin--user_id-"
-               value="i"
+               value="j"
                data-component="body">
     <br>
-<p>Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters. Example: <code>i</code></p>
+<p>Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters. Example: <code>j</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>legal_info</code></b>&nbsp;&nbsp;
@@ -11794,7 +11670,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-22T15:07:19"\
+    --form "birth_date=2025-12-22T16:21:17"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -11808,7 +11684,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpffldjds24fk8cGV3epA" </code></pre></div>
+    --form "images[]=@/tmp/phplo2q2gajcm2r4HBJPCC" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -11822,7 +11698,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-22T15:07:19');
+body.append('birth_date', '2025-12-22T16:21:17');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -11927,10 +11803,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PATCHapi-profiles"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -12901,7 +12777,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "title=b"\
     --form "description=Eius et animi quos velit et."\
-    --form "image=@/tmp/phphb72p58j37029oyHhq3" </code></pre></div>
+    --form "image=@/tmp/phpq30lh0of6al6amnxo6o" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13035,7 +12911,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phphb72p58j37029oyHhq3</code></p>
+<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpq30lh0of6al6amnxo6o</code></p>
         </div>
         </form>
 
@@ -13057,7 +12933,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "title=b"\
     --form "description=Eius et animi quos velit et."\
-    --form "image=@/tmp/phpodhtcduhsdus6vzTABg" </code></pre></div>
+    --form "image=@/tmp/php6cn3oco5r92s80L5hYb" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -13204,7 +13080,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/phpodhtcduhsdus6vzTABg</code></p>
+<p>Must be an image. Must not be greater than 4096 kilobytes. Example: <code>/tmp/php6cn3oco5r92s80L5hYb</code></p>
         </div>
         </form>
 
@@ -13610,7 +13486,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         \"print_width\": 4326.41688,
         \"print_height\": 4326.41688,
         \"rotation\": 4326.41688,
-        \"fit_mode\": \"contain\",
+        \"fit_mode\": \"stretch\",
         \"design\": {
             \"scale\": 4326.41688,
             \"offset_x\": 4326.41688,
@@ -13626,7 +13502,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"preview\": {
         \"path\": \"architecto\",
         \"thumb\": \"architecto\",
-        \"driver\": \"public\"
+        \"driver\": \"local\"
     },
     \"options\": [
         {
@@ -13658,7 +13534,7 @@ let body = {
         "print_width": 4326.41688,
         "print_height": 4326.41688,
         "rotation": 4326.41688,
-        "fit_mode": "contain",
+        "fit_mode": "stretch",
         "design": {
             "scale": 4326.41688,
             "offset_x": 4326.41688,
@@ -13674,7 +13550,7 @@ let body = {
     "preview": {
         "path": "architecto",
         "thumb": "architecto",
-        "driver": "public"
+        "driver": "local"
     },
     "options": [
         {
@@ -13705,7 +13581,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5994
+x-ratelimit-remaining: 5996
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -13734,7 +13610,7 @@ access-control-allow-origin: *
                     &quot;print_width&quot;: 4326.41688,
                     &quot;print_height&quot;: 4326.41688,
                     &quot;rotation&quot;: 4326.41688,
-                    &quot;fit_mode&quot;: &quot;contain&quot;,
+                    &quot;fit_mode&quot;: &quot;stretch&quot;,
                     &quot;design&quot;: {
                         &quot;scale&quot;: 4326.41688,
                         &quot;offset_x&quot;: 4326.41688,
@@ -13750,7 +13626,7 @@ access-control-allow-origin: *
                 &quot;preview&quot;: {
                     &quot;path&quot;: &quot;architecto&quot;,
                     &quot;thumb&quot;: &quot;architecto&quot;,
-                    &quot;driver&quot;: &quot;public&quot;
+                    &quot;driver&quot;: &quot;local&quot;
                 },
                 &quot;options&quot;: [
                     {
@@ -13826,7 +13702,7 @@ access-control-allow-origin: *
                                 &quot;print_width&quot;: 4326.41688,
                                 &quot;print_height&quot;: 4326.41688,
                                 &quot;rotation&quot;: 4326.41688,
-                                &quot;fit_mode&quot;: &quot;contain&quot;,
+                                &quot;fit_mode&quot;: &quot;stretch&quot;,
                                 &quot;design&quot;: {
                                     &quot;scale&quot;: 4326.41688,
                                     &quot;offset_x&quot;: 4326.41688,
@@ -13842,7 +13718,7 @@ access-control-allow-origin: *
                             &quot;preview&quot;: {
                                 &quot;path&quot;: &quot;architecto&quot;,
                                 &quot;thumb&quot;: &quot;architecto&quot;,
-                                &quot;driver&quot;: &quot;public&quot;
+                                &quot;driver&quot;: &quot;local&quot;
                             },
                             &quot;options&quot;: [
                                 {
@@ -14051,10 +13927,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="settings.fit_mode"                data-endpoint="GETapi-cart--product_id---cart--"
-               value="contain"
+               value="stretch"
                data-component="body">
     <br>
-<p>Example: <code>contain</code></p>
+<p>Example: <code>stretch</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
                     </div>
@@ -14209,10 +14085,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="preview.driver"                data-endpoint="GETapi-cart--product_id---cart--"
-               value="public"
+               value="local"
                data-component="body">
     <br>
-<p>Example: <code>public</code></p>
+<p>Example: <code>local</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>local</code></li> <li><code>public</code></li> <li><code>s3</code></li></ul>
                     </div>
@@ -14309,8 +14185,8 @@ Must be one of:
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "config=architecto"\
-    --form "rendered_image=@/tmp/php89pp2eqbk811eVmnKN6" \
-    --form "original_image=@/tmp/phpusqvq3kql8vt18DNdWZ" </code></pre></div>
+    --form "rendered_image=@/tmp/phpn6qk971lbe01fMsk31h" \
+    --form "original_image=@/tmp/php8fovd2eb5snsbXq9036" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -14432,7 +14308,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 5120 kilobytes. Example: <code>/tmp/php89pp2eqbk811eVmnKN6</code></p>
+<p>Must be a file. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpn6qk971lbe01fMsk31h</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>original_image</code></b>&nbsp;&nbsp;
@@ -14444,7 +14320,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>5MB. Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/phpusqvq3kql8vt18DNdWZ</code></p>
+<p>5MB. Must be a file. Must not be greater than 10240 kilobytes. Example: <code>/tmp/php8fovd2eb5snsbXq9036</code></p>
         </div>
         </form>
 
@@ -14947,7 +14823,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5993
+x-ratelimit-remaining: 5995
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -15100,7 +14976,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5992
+x-ratelimit-remaining: 5994
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -15676,7 +15552,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5990
+x-ratelimit-remaining: 5992
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -16338,8 +16214,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"divide_time\": \"1374491711936806\",
     \"is_active_in_holiday\": false,
     \"days_not_working\": \"[\\\"architecto\\\",\\\"architecto\\\"]\",
-    \"status\": false,
-    \"default\": true,
+    \"status\": true,
+    \"default\": false,
     \"is_capital\": true,
     \"description\": \"Et animi quos velit et fugiat.\"
 }"
@@ -16371,8 +16247,8 @@ let body = {
     "divide_time": "1374491711936806",
     "is_active_in_holiday": false,
     "days_not_working": "[\"architecto\",\"architecto\"]",
-    "status": false,
-    "default": true,
+    "status": true,
+    "default": false,
     "is_capital": true,
     "description": "Et animi quos velit et fugiat."
 };
@@ -16657,7 +16533,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>default</code></b>&nbsp;&nbsp;
@@ -16679,7 +16555,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_capital</code></b>&nbsp;&nbsp;
@@ -17309,7 +17185,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5991
+x-ratelimit-remaining: 5993
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -17586,9 +17462,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"print_width\": 26,
     \"print_height\": 40,
     \"print_rotation\": 1,
-    \"fit_mode\": \"stretch\",
+    \"fit_mode\": \"cover\",
     \"preview_bg\": \"w\",
-    \"is_active\": true,
+    \"is_active\": false,
     \"sort\": 39,
     \"is_defult\": 50
 }"
@@ -17617,9 +17493,9 @@ let body = {
     "print_width": 26,
     "print_height": 40,
     "print_rotation": 1,
-    "fit_mode": "stretch",
+    "fit_mode": "cover",
     "preview_bg": "w",
-    "is_active": true,
+    "is_active": false,
     "sort": 39,
     "is_defult": 50
 };
@@ -17845,10 +17721,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fit_mode"                data-endpoint="POSTapi-mockups"
-               value="stretch"
+               value="cover"
                data-component="body">
     <br>
-<p>Example: <code>stretch</code></p>
+<p>Example: <code>cover</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
         </div>
@@ -17944,7 +17820,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -18000,9 +17876,9 @@ Must be one of:
     \"print_width\": 26,
     \"print_height\": 40,
     \"print_rotation\": 1,
-    \"fit_mode\": \"stretch\",
+    \"fit_mode\": \"contain\",
     \"preview_bg\": \"w\",
-    \"is_active\": false,
+    \"is_active\": true,
     \"sort\": 39,
     \"is_defult\": 50
 }"
@@ -18031,9 +17907,9 @@ let body = {
     "print_width": 26,
     "print_height": 40,
     "print_rotation": 1,
-    "fit_mode": "stretch",
+    "fit_mode": "contain",
     "preview_bg": "w",
-    "is_active": false,
+    "is_active": true,
     "sort": 39,
     "is_defult": 50
 };
@@ -18272,10 +18148,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fit_mode"                data-endpoint="PUTapi-mockups--id-"
-               value="stretch"
+               value="contain"
                data-component="body">
     <br>
-<p>Example: <code>stretch</code></p>
+<p>Example: <code>contain</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>contain</code></li> <li><code>cover</code></li> <li><code>stretch</code></li></ul>
         </div>
@@ -18371,7 +18247,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
@@ -18671,9 +18547,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"type\": \"number\",
-    \"is_required\": false,
-    \"is_active\": false,
+    \"type\": \"multi_select\",
+    \"is_required\": true,
+    \"is_active\": true,
     \"sort_order\": 84
 }"
 </code></pre></div>
@@ -18692,9 +18568,9 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "type": "number",
-    "is_required": false,
-    "is_active": false,
+    "type": "multi_select",
+    "is_required": true,
+    "is_active": true,
     "sort_order": 84
 };
 
@@ -18811,10 +18687,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-options"
-               value="number"
+               value="multi_select"
                data-component="body">
     <br>
-<p>Example: <code>number</code></p>
+<p>Example: <code>multi_select</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>select</code></li> <li><code>multi_select</code></li> <li><code>text</code></li> <li><code>number</code></li> <li><code>swatch</code></li></ul>
         </div>
@@ -18838,7 +18714,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -18860,7 +18736,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -18907,9 +18783,9 @@ Must be one of:
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"type\": \"select\",
-    \"is_required\": false,
-    \"is_active\": false,
+    \"type\": \"multi_select\",
+    \"is_required\": true,
+    \"is_active\": true,
     \"sort_order\": 84
 }"
 </code></pre></div>
@@ -18928,9 +18804,9 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "type": "select",
-    "is_required": false,
-    "is_active": false,
+    "type": "multi_select",
+    "is_required": true,
+    "is_active": true,
     "sort_order": 84
 };
 
@@ -19060,10 +18936,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-options--option_id-"
-               value="select"
+               value="multi_select"
                data-component="body">
     <br>
-<p>Example: <code>select</code></p>
+<p>Example: <code>multi_select</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>select</code></li> <li><code>multi_select</code></li> <li><code>text</code></li> <li><code>number</code></li> <li><code>swatch</code></li></ul>
         </div>
@@ -19087,7 +18963,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -19109,7 +18985,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -19808,7 +19684,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"b\",
     \"code\": \"n\",
-    \"is_active\": true,
+    \"is_active\": false,
     \"sort_order\": 84,
     \"meta\": {
         \"color\": \"zmiyvdljnikhwayk\",
@@ -19832,7 +19708,7 @@ const headers = {
 let body = {
     "name": "b",
     "code": "n",
-    "is_active": true,
+    "is_active": false,
     "sort_order": 84,
     "meta": {
         "color": "zmiyvdljnikhwayk",
@@ -19992,7 +19868,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
@@ -20742,7 +20618,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"paid\"
+    \"status\": \"reserved\"
 }"
 </code></pre></div>
 
@@ -20758,7 +20634,7 @@ const headers = {
 };
 
 let body = {
-    "status": "paid"
+    "status": "reserved"
 };
 
 fetch(url, {
@@ -20863,10 +20739,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PATCHapi-orders-status--order_id-"
-               value="paid"
+               value="reserved"
                data-component="body">
     <br>
-<p>Example: <code>paid</code></p>
+<p>Example: <code>reserved</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>canceled</code></li> <li><code>posted</code></li> <li><code>preparation</code></li> <li><code>paid</code></li> <li><code>reserved</code></li> <li><code>unpaid</code></li> <li><code>received</code></li></ul>
         </div>
@@ -21022,8 +20898,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"short_content\": \"tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr\",
     \"body\": \"erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt\",
-    \"status\": true,
-    \"is_open\": true
+    \"status\": false,
+    \"is_open\": false
 }"
 </code></pre></div>
 
@@ -21042,8 +20918,8 @@ let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "short_content": "tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr",
     "body": "erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt",
-    "status": true,
-    "is_open": true
+    "status": false,
+    "is_open": false
 };
 
 fetch(url, {
@@ -21184,7 +21060,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_open</code></b>&nbsp;&nbsp;
@@ -21206,7 +21082,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -21230,8 +21106,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"title\": \"bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn\",
     \"short_content\": \"tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr\",
     \"body\": \"erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt\",
-    \"status\": true,
-    \"is_open\": true
+    \"status\": false,
+    \"is_open\": false
 }"
 </code></pre></div>
 
@@ -21250,8 +21126,8 @@ let body = {
     "title": "bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn",
     "short_content": "tltcvipojsausgioglrbchgsrzyhcttwbkmkftmgosgtvnbobmzezcrcvalexqztppihrtgkkr",
     "body": "erexhqziqvndjouolkgssaaypacbpeaybeqdpmkbfywhzmitnadsmrvbekdxdemofrggdrzcnt",
-    "status": true,
-    "is_open": true
+    "status": false,
+    "is_open": false
 };
 
 fetch(url, {
@@ -21405,7 +21281,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_open</code></b>&nbsp;&nbsp;
@@ -21427,7 +21303,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -22357,7 +22233,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "value=1"\
-    --form "image[]=@/tmp/phpo5dqu7geebs67V88cxo" </code></pre></div>
+    --form "image[]=@/tmp/php2ct4ntf43s2obk9WSwW" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -23873,7 +23749,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5996
+x-ratelimit-remaining: 5998
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -24988,17 +24864,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "work_id=16"\
     --form "name=n"\
     --form "price=84"\
-    --form "status=0"\
+    --form "status=1"\
     --form "mockup_id=16"\
     --form "variants[][variant_id]=16"\
     --form "variants[][address]=n"\
     --form "variants[][name]=g"\
     --form "variants[][price]=12"\
-    --form "variants[][status]=1"\
+    --form "variants[][status]=0"\
     --form "variants[][sku]=m"\
     --form "variants[][mockup_id]=16"\
-    --form "image=@/tmp/php9vjb0hbrinvcaT9efHs" \
-    --form "variants[][image]=@/tmp/php5kfl8rhg24mccI2jBTu" </code></pre></div>
+    --form "image=@/tmp/phpd77jo4hrmcdf6pxbbTz" \
+    --form "variants[][image]=@/tmp/phpv2d1mjr7sjef1goJX94" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25015,13 +24891,13 @@ const body = new FormData();
 body.append('work_id', '16');
 body.append('name', 'n');
 body.append('price', '84');
-body.append('status', '0');
+body.append('status', '1');
 body.append('mockup_id', '16');
 body.append('variants[][variant_id]', '16');
 body.append('variants[][address]', 'n');
 body.append('variants[][name]', 'g');
 body.append('variants[][price]', '12');
-body.append('variants[][status]', '1');
+body.append('variants[][status]', '0');
 body.append('variants[][sku]', 'm');
 body.append('variants[][mockup_id]', '16');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
@@ -25152,10 +25028,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="status"                data-endpoint="POSTapi-clients-products-bulk"
-               value="0"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>0</code></p>
+<p>Example: <code>1</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
         </div>
@@ -25217,7 +25093,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/php9vjb0hbrinvcaT9efHs</code></p>
+<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpd77jo4hrmcdf6pxbbTz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -25284,10 +25160,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="variants.0.status"                data-endpoint="POSTapi-clients-products-bulk"
-               value="1"
+               value="0"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>0</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
                     </div>
@@ -25361,7 +25237,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/php5kfl8rhg24mccI2jBTu</code></p>
+<p>Must be a file. Must be an image. Must not be greater than 5120 kilobytes. Example: <code>/tmp/phpv2d1mjr7sjef1goJX94</code></p>
                     </div>
                                     </details>
         </div>
@@ -25513,7 +25389,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1/api/profiles" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-22T15:07:19"\
+    --form "birth_date=2025-12-22T16:21:17"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -25527,7 +25403,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpjnn02per0pdb6g75DV0" </code></pre></div>
+    --form "images[]=@/tmp/phpkjg9kmo3s0d6bc48etE" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25541,7 +25417,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-22T15:07:19');
+body.append('birth_date', '2025-12-22T16:21:17');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -25646,10 +25522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -25847,7 +25723,7 @@ Must be one of:
     "http://127.0.0.1/api/profiles/by-admin/1" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "birth_date=2025-12-22T15:07:19"\
+    --form "birth_date=2025-12-22T16:21:17"\
     --form "address=b"\
     --form "postal_code=n"\
     --form "profession=g"\
@@ -25861,7 +25737,7 @@ Must be one of:
     --form "name=j"\
     --form "legal_info=["architecto","architecto"]"\
     --form "ips[]=n"\
-    --form "images[]=@/tmp/phpeco814nhgf7s1Ctb2oT" </code></pre></div>
+    --form "images[]=@/tmp/phpjttq0vjvaqcueXLvBkZ" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25875,7 +25751,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('birth_date', '2025-12-22T15:07:19');
+body.append('birth_date', '2025-12-22T16:21:17');
 body.append('address', 'b');
 body.append('postal_code', 'n');
 body.append('profession', 'g');
@@ -25993,10 +25869,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-profiles-by-admin--user_id-"
-               value="2025-12-22T15:07:19"
+               value="2025-12-22T16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-22T15:07:19</code></p>
+<p>Must be a valid date. Example: <code>2025-12-22T16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -27460,7 +27336,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"type\": \"percent\",
     \"value\": 39,
     \"status\": true,
-    \"start_date\": \"2025-12-22 15:07:19\",
+    \"start_date\": \"2025-12-22 16:21:17\",
     \"end_date\": \"2052-01-15\"
 }"
 </code></pre></div>
@@ -27481,7 +27357,7 @@ let body = {
     "type": "percent",
     "value": 39,
     "status": true,
-    "start_date": "2025-12-22 15:07:19",
+    "start_date": "2025-12-22 16:21:17",
     "end_date": "2052-01-15"
 };
 
@@ -27634,10 +27510,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="POSTapi-sales"
-               value="2025-12-22 15:07:19"
+               value="2025-12-22 16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-22 15:07:19</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-22 16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -27671,10 +27547,10 @@ Must be one of:
     --header "Accept: application/json" \
     --data "{
     \"title\": \"b\",
-    \"type\": \"percent\",
+    \"type\": \"money\",
     \"value\": 39,
     \"status\": false,
-    \"start_date\": \"2025-12-22 15:07:19\",
+    \"start_date\": \"2025-12-22 16:21:17\",
     \"end_date\": \"2052-01-15\"
 }"
 </code></pre></div>
@@ -27692,10 +27568,10 @@ const headers = {
 
 let body = {
     "title": "b",
-    "type": "percent",
+    "type": "money",
     "value": 39,
     "status": false,
-    "start_date": "2025-12-22 15:07:19",
+    "start_date": "2025-12-22 16:21:17",
     "end_date": "2052-01-15"
 };
 
@@ -27813,10 +27689,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="PATCHapi-sales--sale_id-"
-               value="percent"
+               value="money"
                data-component="body">
     <br>
-<p>Example: <code>percent</code></p>
+<p>Example: <code>money</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>money</code></li> <li><code>percent</code></li></ul>
         </div>
@@ -27861,10 +27737,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="PATCHapi-sales--sale_id-"
-               value="2025-12-22 15:07:19"
+               value="2025-12-22 16:21:17"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-22 15:07:19</code></p>
+<p>Must be a valid date. Must be a valid date in the format <code>Y-m-d H:i:s</code>. Example: <code>2025-12-22 16:21:17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -28306,8 +28182,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sms\": false,
-    \"email\": false,
+    \"sms\": true,
+    \"email\": true,
     \"auth\": \"usernamePassword\",
     \"otp\": \"sms\",
     \"jwt_expiration_time\": 1,
@@ -28328,8 +28204,8 @@ const headers = {
 };
 
 let body = {
-    "sms": false,
-    "email": false,
+    "sms": true,
+    "email": true,
     "auth": "usernamePassword",
     "otp": "sms",
     "jwt_expiration_time": 1,
@@ -28439,7 +28315,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -28461,7 +28337,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>auth</code></b>&nbsp;&nbsp;
@@ -29887,7 +29763,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=m"\
     --form "message=architecto"\
     --form "category=feature_request"\
-    --form "images[]=@/tmp/php1rvvfs50iro087zRV60" </code></pre></div>
+    --form "images[]=@/tmp/phpte4n082e7hqdbHi6YJO" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -32080,7 +31956,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5988
+x-ratelimit-remaining: 5990
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -32655,7 +32531,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"category_id\": 16,
     \"stock\": 39,
     \"add_price\": 84,
-    \"is_active\": false,
+    \"is_active\": true,
     \"option_value_ids\": [
         16
     ]
@@ -32677,7 +32553,7 @@ let body = {
     "category_id": 16,
     "stock": 39,
     "add_price": 84,
-    "is_active": false,
+    "is_active": true,
     "option_value_ids": [
         16
     ]
@@ -32834,7 +32710,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>option_value_ids</code></b>&nbsp;&nbsp;
@@ -33126,7 +33002,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"type\": \"panel\",
     \"title\": \"architecto\",
     \"description\": \"Eius et animi quos velit et.\",
-    \"status\": false
+    \"status\": true
 }"
 </code></pre></div>
 
@@ -33146,7 +33022,7 @@ let body = {
     "type": "panel",
     "title": "architecto",
     "description": "Eius et animi quos velit et.",
-    "status": false
+    "status": true
 };
 
 fetch(url, {
@@ -33301,7 +33177,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -34884,7 +34760,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 6000
-x-ratelimit-remaining: 5989
+x-ratelimit-remaining: 5991
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 

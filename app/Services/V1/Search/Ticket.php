@@ -2,7 +2,6 @@
 
 namespace App\Services\V1\Search;
 
-use App\Models\Operator;
 use App\Models\Product as ProductModel;
 
 class Ticket

@@ -47,20 +47,20 @@ class AddressTest extends TestCase
     /**
      * @return void
      */
-    
-    public function test_storing_and_deleting_addresses_admin() : void
+
+    public function test_storing_and_deleting_addresses_admin(): void
     {
         $this->user->assignRole($this->role);
         $addressData = [
             'user_id' => $this->user->id,
             'title' => 'Home Address',
-            'province' => 'Tehran', 
-            'city' => 'Tehran', 
-            'address' => '123 Main St, Apt 4B', 
-            'postal_code' => '12345-6789', 
-            'phone' => '02112345678', 
-            'mobile' => '09121234567', 
-            'is_default' => true, 
+            'province' => 'Tehran',
+            'city' => 'Tehran',
+            'address' => '123 Main St, Apt 4B',
+            'postal_code' => '12345-6789',
+            'phone' => '02112345678',
+            'mobile' => '09121234567',
+            'is_default' => true,
         ];
 
         $response = $this->postJson('/api/addresses', $addressData);
@@ -69,7 +69,7 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-        $Address = Address::where('user_id', operator: $this->user->id)->first();
+        $Address = Address::where('user_id', $this->user->id)->first();
 
         $response = $this->delete('/api/addresses/' . $Address->id);
 
@@ -81,20 +81,20 @@ class AddressTest extends TestCase
     }
 
 
-    public function test_updating_addresses_admin() : void
+    public function test_updating_addresses_admin(): void
     {
         $this->user->assignRole($this->role);
 
         $addressData = [
             'user_id' => $this->user->id,
             'title' => 'Home Address',
-            'province' => 'Tehran', 
-            'city' => 'Tehran', 
-            'address' => '123 Main St, Apt 4B', 
-            'postal_code' => '12345-6789', 
-            'phone' => '02112345678', 
-            'mobile' => '09121234567', 
-            'is_default' => true, 
+            'province' => 'Tehran',
+            'city' => 'Tehran',
+            'address' => '123 Main St, Apt 4B',
+            'postal_code' => '12345-6789',
+            'phone' => '02112345678',
+            'mobile' => '09121234567',
+            'is_default' => true,
         ];
 
         $response = $this->postJson('/api/addresses', $addressData);
@@ -107,20 +107,20 @@ class AddressTest extends TestCase
     }
 
 
-    public function test_fetching_addresses_admin() : void
+    public function test_fetching_addresses_admin(): void
     {
         $this->user->assignRole($this->role);
 
         $addressData = [
             'user_id' => $this->user->id,
             'title' => 'Home Address',
-            'province' => 'Tehran', 
-            'city' => 'Tehran', 
-            'address' => '123 Main St, Apt 4B', 
-            'postal_code' => '12345-6789', 
-            'phone' => '02112345678', 
-            'mobile' => '09121234567', 
-            'is_default' => true, 
+            'province' => 'Tehran',
+            'city' => 'Tehran',
+            'address' => '123 Main St, Apt 4B',
+            'postal_code' => '12345-6789',
+            'phone' => '02112345678',
+            'mobile' => '09121234567',
+            'is_default' => true,
         ];
 
         $response = $this->postJson('/api/addresses', $addressData);
@@ -131,8 +131,9 @@ class AddressTest extends TestCase
 
         $response = $this->get('/api/addresses');
 
-        $response->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
-            $json->hasAll(['data', 'links', 'meta',  'balance',  'additional'])
+        $response->assertStatus(200)->assertJson(
+            fn(AssertableJson $json) =>
+            $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
 
 
@@ -140,7 +141,7 @@ class AddressTest extends TestCase
 
 
 
-    public function test_storing_and_deleting_addresses_client() : void
+    public function test_storing_and_deleting_addresses_client(): void
     {
         $addressData = [
             'title' => 'Home Address', // Using 'title' from model
@@ -159,7 +160,7 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-        $Address = Address::where('user_id', operator: $this->user->id)->first();
+        $Address = Address::where('user_id', $this->user->id)->first();
 
 
         $response = $this->delete('/api/clients/addresses/' . $Address->id);
@@ -168,22 +169,22 @@ class AddressTest extends TestCase
             'status' => true,
             'message' => __('general.deletedSuccessfully', ['id' => $Address->id]),
         ]);
-       
+
     }
 
 
-    public function test_updating_addresses_client() : void
+    public function test_updating_addresses_client(): void
     {
         $addressData = [
             'user_id' => $this->user->id,
             'title' => 'Home Address',
-            'province' => 'Tehran', 
-            'city' => 'Tehran', 
-            'address' => '123 Main St, Apt 4B', 
-            'postal_code' => '12345-6789', 
-            'phone' => '02112345678', 
-            'mobile' => '09121234567', 
-            'is_default' => true, 
+            'province' => 'Tehran',
+            'city' => 'Tehran',
+            'address' => '123 Main St, Apt 4B',
+            'postal_code' => '12345-6789',
+            'phone' => '02112345678',
+            'mobile' => '09121234567',
+            'is_default' => true,
         ];
 
         $response = $this->postJson('/api/clients/addresses', $addressData);
@@ -192,11 +193,13 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-        $Address = Address::where('user_id', operator: $this->user->id)->first();
-        
-        $response = $this->patch('/api/clients/addresses/' . $Address->id, ['items' =>json_encode([
-            'title' => 'office address', // Using 'title' from model
-        ])]);
+        $Address = Address::where('user_id', $this->user->id)->first();
+
+        $response = $this->patch('/api/clients/addresses/' . $Address->id, [
+            'items' => json_encode([
+                'title' => 'office address', // Using 'title' from model
+            ])
+        ]);
         $response->assertStatus(200)->assertJson([
             'status' => true,
             'message' => __('general.updatedSuccessfully', ['id' => $Address->id]),
@@ -209,13 +212,13 @@ class AddressTest extends TestCase
         $addressData = [
             'user_id' => $this->user->id,
             'title' => 'Home Address',
-            'province' => 'Tehran', 
-            'city' => 'Tehran', 
-            'address' => '123 Main St, Apt 4B', 
-            'postal_code' => '12345-6789', 
-            'phone' => '02112345678', 
-            'mobile' => '09121234567', 
-            'is_default' => true, 
+            'province' => 'Tehran',
+            'city' => 'Tehran',
+            'address' => '123 Main St, Apt 4B',
+            'postal_code' => '12345-6789',
+            'phone' => '02112345678',
+            'mobile' => '09121234567',
+            'is_default' => true,
         ];
 
         $response = $this->postJson('/api/clients/addresses', $addressData);
@@ -228,7 +231,7 @@ class AddressTest extends TestCase
 
         $response->assertStatus(200)->assertJson(
             fn(AssertableJson $json) =>
-            $json->hasAll(['data', 'links', 'meta',  'balance',  'additional'])
+            $json->hasAll(['data', 'links', 'meta', 'balance', 'additional'])
         );
     }
 }

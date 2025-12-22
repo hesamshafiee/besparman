@@ -136,7 +136,7 @@ endpoints:
         name: 'options[].is_active'
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -158,7 +158,7 @@ endpoints:
         -
           option_id: 16
           is_required: false
-          is_active: true
+          is_active: false
           sort_order: 39
     fileParameters: []
     responses: []

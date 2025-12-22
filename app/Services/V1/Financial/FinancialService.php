@@ -5,7 +5,6 @@ namespace App\Services\V1\Financial;
 use App\Models\Delivery;
 use App\Models\Discount;
 use App\Models\Logistic;
-use App\Models\Operator;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Point;
@@ -25,111 +24,7 @@ use Illuminate\Support\Str;
 
 class FinancialService
 {
-    /**
-     * @param Product $product
-     * @param string $mobile
-     * @param string $price
-     * @param bool $mainPage
-     * @return array
-     */
-    public function calculateProfit(Product $product, string $mobile, string $price, bool $mainPage): array
-    {
-        $profit = Profit::where('operator_id', $product->operator_id)->where('type', $product->type)->where('status', 1)->first();
-        $user = User::getLoggedInUserOrGetFromGivenMobile($mobile);
-        $profitSplitIds = [];
 
-        if ($profit && ($user->isPanel() || $user->isWebservice())) {
-            $profitGroups = $user->profitGroups;
-            foreach ($profitGroups as $profitGroup) {
-                $profitSplitIds = array_merge($profitSplitIds, $profitGroup->profit_split_ids);
-            }
-
-            $profitSplits = ProfitSplit::where('profit_id', $profit->id)->get();
-            $profitSplit = null;
-            $sameId = array_intersect($profitSplits->pluck('id')->toArray(), $profitSplitIds);
-            $sameId = reset($sameId);
-
-            foreach ($profitSplits as $val) {
-                if ($val->id === $sameId) {
-                    $profitSplit = $val;
-                }
-            }
-
-            if (!$mainPage && !empty($user->profile_confirm) && $profitSplit && in_array($profitSplit->id, $profitSplitIds)) {
-                $sellerPrice = bcsub($price, bcmul($price, bcdiv($profitSplit->seller_profit, 100, 4), 4), 4);
-
-                $presenterPrice = bcmul($price, bcdiv($profitSplit->presenter_profit, 100, 4), 4);
-
-                $esajPrice = $sellerPrice;
-
-                $esajProfit = bcmul($price, bcdiv((bcsub($profit->profit, bcadd($profitSplit->seller_profit, $profitSplit->presenter_profit, 4), 4)), 100, 4), 4);
-                $sellerProfit = bcmul($price, bcdiv($profitSplit->seller_profit, 100, 4), 4);
-
-                return [
-                    'esaj_price' => $esajPrice,
-                    'buyer_price' => $sellerPrice,
-                    'presenter_price' => $presenterPrice,
-                    'esaj_profit' => $esajProfit,
-                    'buyer_profit' => $sellerProfit
-                ];
-            }
-
-            $esajProfit = bcmul($price, bcdiv($profit->profit, 100, 4), 4);
-
-            return [
-                'esaj_price' => $price,
-                'buyer_price' => $price,
-                'presenter_price' => 0,
-                'esaj_profit' => $esajProfit,
-                'buyer_profit' => 0
-            ];
-        }
-
-        return [
-            'esaj_price' => $price,
-            'buyer_price' => $price,
-            'presenter_price' => 0,
-            'esaj_profit' => 0,
-            'buyer_profit' => 0
-        ];
-    }
-
-    /**
-     * @param array $productsData
-     * @param string $mobile
-     * @return string[]
-     */
-    public function calculateMultipleProfits(array $productsData, string $mobile): array
-    {
-        $totalEsajPrice = '0';
-        $totalBuyerPrice = '0';
-        $totalPresenterPrice = '0';
-        $totalEsajProfit = '0';
-        $totalBuyerProfit = '0';
-
-        foreach ($productsData as $data) {
-            $product = Product::find($data['product']['id']);
-            $price = $product->price;
-            $count = $data['quantity'];
-
-            $singleResult = $this->calculateProfit($product, $mobile, $price, false);
-
-            $totalEsajPrice = bcadd($totalEsajPrice, bcmul($singleResult['esaj_price'], $count, 4), 4);
-            $totalBuyerPrice = bcadd($totalBuyerPrice, bcmul($singleResult['buyer_price'], $count, 4), 4);
-            $totalPresenterPrice = bcadd($totalPresenterPrice, bcmul($singleResult['presenter_price'], $count, 4), 4);
-            $totalEsajProfit = bcadd($totalEsajProfit, bcmul($singleResult['esaj_profit'], $count, 4), 4);
-            $totalBuyerProfit = bcadd($totalBuyerProfit, bcmul($singleResult['buyer_profit'], $count, 4), 4);
-        }
-
-
-        return [
-            'esaj_price' => $totalEsajPrice,
-            'buyer_price' => $totalBuyerPrice,
-            'presenter_price' => $totalPresenterPrice,
-            'esaj_profit' => $totalEsajProfit,
-            'buyer_profit' => $totalBuyerProfit
-        ];
-    }
 
     /**
      * @param string $status
@@ -326,7 +221,6 @@ class FinancialService
 
         $walletServiceEsaj->value = $esajPrice;
         $walletServiceEsaj->profit = $esajProfit;
-        $walletServiceEsaj->operatorId = $product->operator_id ?? null;
         $walletServiceEsaj->productType = $product->type ?? Product::TYPE_CARD_CHARGE;
         $walletServiceEsaj->productName = $product
             ? ($product->name ?? '') . ' - ' .
@@ -386,7 +280,6 @@ class FinancialService
             'product_id' => $product->id ?? null,
             'product_name' => $product->name ?? null,
             'profile_id' => $product->profile_id ?? null,
-            'operator' => $product->operator ?? null,
         ];
 
         $walletServiceBuyer = new WalletService(
@@ -400,7 +293,6 @@ class FinancialService
 
         $walletServiceBuyer->value = $buyerPrice;
         $walletServiceBuyer->profit = $buyerProfit;
-        $walletServiceBuyer->operatorId = $product->operator_id ?? null;
         $walletServiceBuyer->userType = $user->type;
         $walletServiceBuyer->province = optional($user->profile)->province;
         $walletServiceBuyer->city = optional($user->profile)->city;
@@ -433,8 +325,7 @@ class FinancialService
     public function calculateUserPoints(User $user, Product $product, Order $order): bool
     {
         if ($user->isPanel()) {
-            $point = Point::where('operator_id', optional($product->operator)->id)
-                ->where('type', $product->type)
+            $point = Point::where('type', $product->type)
                 ->where('status', 1)
                 ->first();
             if ($point) {
@@ -449,7 +340,6 @@ class FinancialService
                             'point' => $points,
                             'type' => $product->type,
                             'product_name' => $product->name,
-                            'operator_id' => $product->operator_id,
                         ]);
                         return true;
                     }

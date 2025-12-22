@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\V1\AclController;
-use App\Http\Controllers\V1\AlertController;
 use App\Http\Controllers\V1\AuthController;
 use App\Http\Controllers\V1\CartController;
 use App\Http\Controllers\V1\CategoryController;
@@ -18,7 +17,6 @@ use App\Http\Controllers\V1\MenuController;
 use App\Http\Controllers\V1\OrderController;
 use App\Http\Controllers\V1\PanelMessageController;
 use App\Http\Controllers\V1\PaymentController;
-use App\Http\Controllers\V1\PhoneBookController;
 use App\Http\Controllers\V1\ProductController;
 use App\Http\Controllers\V1\ProfileController;
 use App\Http\Controllers\V1\ProfitGroupController;
@@ -316,7 +314,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::post('/reports', [ReportController::class, 'dynamicAggregate']);
 
 
-        Route::post('/alert/telegram', [AlertController::class, 'telegram']);
 
         Route::get('/profile', [ProfileController::class, 'getProfileOfLoggedInUser']);
 

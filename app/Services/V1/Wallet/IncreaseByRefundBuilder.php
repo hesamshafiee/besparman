@@ -31,7 +31,6 @@ class IncreaseByRefundBuilder implements Builder
 
         $walletService->value = $transaction->value;
         $walletService->profit = empty($transaction->profit) ? $transaction->profit : -$transaction->profit;
-        $walletService->operatorId = $transaction->operator_id;
         $walletService->userType = $transaction->user_type;
         $walletService->province = $transaction->province;
         $walletService->city = $transaction->city;

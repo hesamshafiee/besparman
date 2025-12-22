@@ -28,7 +28,6 @@ class WalletService
     public int|null $groupId;
     public string|null $multipleTopupId;
     public string|null $webserviceCode;
-    public int|null $operatorId;
     public string|null $productType;
     public string|null $productName;
     public string|null $userType;
@@ -216,7 +215,6 @@ class WalletService
         $walletTransaction->order_id = $this->orderId;
         $walletTransaction->extra_info = $this->extraInfo;
         $walletTransaction->original_price = $this->originalPrice;
-        $walletTransaction->charged_mobile = $this->chargedMobile;
         $walletTransaction->province = $this->province ?? null;
         $walletTransaction->city = $this->city ?? null;
         $walletTransaction->main_page = $this->mainPage ?? false;

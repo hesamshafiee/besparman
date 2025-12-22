@@ -156,13 +156,7 @@ class User extends Authentication
         return $this->hasOne(Wallet::class);
     }
 
-    /**
-     * @return HasMany
-     */
-    public function phoneBooks(): HasMany
-    {
-        return $this->hasMany(PhoneBook::class);
-    }
+
 
     /**
      * @return HasMany

@@ -263,7 +263,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -274,7 +274,7 @@ endpoints:
         name: default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -317,8 +317,8 @@ endpoints:
       divide_time: '1374491711936806'
       is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
-      status: false
-      default: true
+      status: true
+      default: false
       is_capital: true
       description: 'Et animi quos velit et fugiat.'
     fileParameters: []

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Events\CreateToken;
-use App\Models\Operator;
 use App\Models\Setting;
 use App\Models\User;
 use App\Observers\SettingObserver;

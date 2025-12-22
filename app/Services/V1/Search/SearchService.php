@@ -82,9 +82,6 @@ class SearchService
             $query->where('status', 1);
         }
 
-        if ($table === 'product' && (!Auth::check() || !Auth::user()->private)) {
-            $query->where('private', 0);
-        }
     }
 
     /**

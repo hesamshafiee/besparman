@@ -86,13 +86,7 @@ class WalletTransaction extends Model
         return $this->hasOne(Payment::class, 'transaction_id');
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function operator(): BelongsTo
-    {
-        return $this->belongsTo(Operator::class);
-    }
+
 
     /**
      * @return string

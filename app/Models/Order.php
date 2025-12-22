@@ -38,7 +38,6 @@ class Order extends Model
         'comment',
         'total_sale',
         'sale_id',
-        'id_for_operator'
     ];
 
     /**

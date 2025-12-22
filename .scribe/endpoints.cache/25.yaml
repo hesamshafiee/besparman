@@ -71,7 +71,7 @@ endpoints:
         name: sms
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -82,7 +82,7 @@ endpoints:
         name: email
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -149,8 +149,8 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      sms: false
-      email: false
+      sms: true
+      email: true
       auth: usernamePassword
       otp: sms
       jwt_expiration_time: 1

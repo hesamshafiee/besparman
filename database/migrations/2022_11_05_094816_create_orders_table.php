@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('id_for_operator', 50)->nullable();
             $table->string('store', 100);
             $table->string('status', 100);
             $table->decimal('weight', 10, 2, true)->nullable();

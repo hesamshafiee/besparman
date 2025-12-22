@@ -35,7 +35,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5996'
+          x-ratelimit-remaining: '5998'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -745,7 +745,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: '0'
+        example: '1'
         type: integer
         enumValues:
           - '0'
@@ -869,7 +869,7 @@ endpoints:
         name: 'variants[].status'
         description: ''
         required: false
-        example: '1'
+        example: '0'
         type: integer
         enumValues:
           - '0'
@@ -947,7 +947,7 @@ endpoints:
       work_id: 16
       name: 'n'
       price: 84
-      status: '0'
+      status: '1'
       mockup_id: 16
       variants:
         -
@@ -955,7 +955,7 @@ endpoints:
           address: 'n'
           name: g
           price: 12
-          status: '1'
+          status: '0'
           sku: m
           mockup_id: 16
     fileParameters:

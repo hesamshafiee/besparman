@@ -121,7 +121,7 @@ class CartTest extends TestCase
         ]);
 
 
-        $Address = Address::first();
+        $Address = Address::where('user_id', $this->user->id)->first();
 
         $this->post(
             '/api/cart/delivery/' . $logistic->id,
