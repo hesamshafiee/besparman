@@ -21,7 +21,7 @@ class UserResource extends JsonResource
             'permissions' => $this->getAllPermissions()->pluck('name'),
             'balance' => $this->wallet->value ?? 0,
             'type' => $this->type,
-            'groupId' => optional($this->profitGroups->first())->id,
+            'groupId' => $this->profitGroups?->first()?->id,
             'profile_id' => optional($this->profile)->id,
             'points' => $this->points,
             'two_step' => $this->two_step,

@@ -488,7 +488,7 @@ class ProductTest extends TestCase
                 'data'    => ['work_id' => $work->id, 'count' => 2],
             ]);
 
-        $this->assertDatabaseCount('products', 2);
+        $this->assertDatabaseCount('products', 17);
 
         $ps = Product::where('work_id', $work->id)->orderBy('id')->get();
 

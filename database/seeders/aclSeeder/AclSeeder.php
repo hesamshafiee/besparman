@@ -28,7 +28,6 @@ class AclSeeder extends Seeder
             LogSeeder::class,
             LogisticSeeder::class,
             DeliverySeeder::class,
-            WarehouseSeeder::class,
             UserSeeder::class,
             SettingSeeder::class,
             ProfitSeeder::class,

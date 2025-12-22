@@ -69,9 +69,9 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-         $Address = Address::first();
+        $Address = Address::where('user_id', operator: $this->user->id)->first();
 
-         $response = $this->delete('/api/addresses/' . $Address->id);
+        $response = $this->delete('/api/addresses/' . $Address->id);
 
         $response->assertStatus(200)->assertJson([
             'status' => true,
@@ -159,9 +159,10 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-         $Address = Address::first();
+        $Address = Address::where('user_id', operator: $this->user->id)->first();
 
-         $response = $this->delete('/api/clients/addresses/' . $Address->id);
+
+        $response = $this->delete('/api/clients/addresses/' . $Address->id);
 
         $response->assertStatus(200)->assertJson([
             'status' => true,
@@ -191,8 +192,9 @@ class AddressTest extends TestCase
             'message' => __('general.savedSuccessfully'),
         ]);
 
-        $Address = Address::first();
-         $response = $this->patch('/api/clients/addresses/' . $Address->id, ['items' =>json_encode([
+        $Address = Address::where('user_id', operator: $this->user->id)->first();
+        
+        $response = $this->patch('/api/clients/addresses/' . $Address->id, ['items' =>json_encode([
             'title' => 'office address', // Using 'title' from model
         ])]);
         $response->assertStatus(200)->assertJson([

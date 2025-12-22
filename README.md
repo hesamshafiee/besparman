@@ -7,7 +7,6 @@ Online store (Restful API backend) with general features.
 - categories
 - cart
 - products
-- warehouse
 - delivery
 - wallets
 - payments

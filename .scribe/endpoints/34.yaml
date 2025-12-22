@@ -1,14 +1,14 @@
-name: PhoneBook
+name: Tag
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/phone-books
+    uri: api/tags
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -45,10 +45,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/phone-books
+    uri: api/tags
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -64,43 +64,33 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone_number:
+      table:
         custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
+        name: table
+        description: ''
         required: true
-        example: '137449171806'
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      name:
+      tags:
         custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        name: tags
+        description: 'Must not be greater than 100 characters.'
         required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
+        example:
+          - 'n'
+        type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
+      table: architecto
+      tags:
+        - 'n'
     fileParameters: []
     responses: []
     responseFields: []
@@ -112,10 +102,10 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: api/phone-books/batch
+    uri: api/tags/create
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -131,110 +121,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      phone_number:
+      title:
         custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
+        name: title
+        description: ''
         required: true
-        example: '137449171806'
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      name:
+      type:
         custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        name: type
+        description: ''
         required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/phone-books/check
-    metadata:
-      custom: []
-      groupName: PhoneBook
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
+      title: architecto
+      type: architecto
     fileParameters: []
     responses: []
     responseFields: []
@@ -246,10 +157,10 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/phone-books/{phoneBook_id}'
+    uri: 'api/tags/{tag_id}'
     metadata:
       custom: []
-      groupName: PhoneBook
+      groupName: Tag
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -261,10 +172,10 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      phoneBook_id:
+      tag_id:
         custom: []
-        name: phoneBook_id
-        description: 'The ID of the phoneBook.'
+        name: tag_id
+        description: 'The ID of the tag.'
         required: true
         example: 16
         type: integer
@@ -273,7 +184,50 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      phoneBook_id: 16
+      tag_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/tags/force/{tag_id}'
+    metadata:
+      custom: []
+      groupName: Tag
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      tag_id:
+        custom: []
+        name: tag_id
+        description: 'The ID of the tag.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      tag_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

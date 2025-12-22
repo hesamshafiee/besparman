@@ -11,7 +11,6 @@ use App\Models\Sale;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Work;
-use App\Models\Warehouse;
 use App\Services\V1\Cart\Cart;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Redis;

@@ -209,8 +209,6 @@ class CartService
      */
     public function addToCart(mixed $product, int $quantity = 1, array $config = []): array
     {
-        $warehouse = $product->warehouse;
-
          $work = $product->work ?? null; 
 
           if ($work && $work->is_published !== Work::IS_PUBLISHED_TRUE) {
@@ -220,42 +218,34 @@ class CartService
                 ];
             }
 
-        if (is_null($warehouse) || $this->count($product) < $warehouse->count) {
-
-            // اگر قبلاً تو سبد هست، فعلاً فقط quantity رو زیاد می‌کنیم
-            if ($this->has($product)) {
-                $this->update($product, $quantity);
-            } else {
-                // اینجا اسنپ‌شات محصول + config رو ذخیره می‌کنیم
-                $base = [
-                    'quantity'         => $quantity,
-                    'product_snapshot' => [
-                        'id'           => $product->id,
-                        'name'         => $product->name,
-                        'slug'         => $product->slug,
-                        'price'        => $product->price,
-                        'currency'     => $product->currency ?? 'IRR',
-                        'preview_path' => $product->preview_path,
-                        'settings'     => $product->settings,
-                    ],
-                ];
-
-                $payload = array_merge($base, $config);
-
-                $this->put($payload, $product);
-            }
-
-            $this->dbSet();
-
-            return [
-                'status'  => true,
-                'message' => 'added to cart successfully',
+        // اگر قبلاً تو سبد هست، فعلاً فقط quantity رو زیاد می‌کنیم
+        if ($this->has($product)) {
+            $this->update($product, $quantity);
+        } else {
+            // اینجا اسنپ‌شات محصول + config رو ذخیره می‌کنیم
+            $base = [
+                'quantity'         => $quantity,
+                'product_snapshot' => [
+                    'id'           => $product->id,
+                    'name'         => $product->name,
+                    'slug'         => $product->slug,
+                    'price'        => $product->price,
+                    'currency'     => $product->currency ?? 'IRR',
+                    'preview_path' => $product->preview_path,
+                    'settings'     => $product->settings,
+                ],
             ];
+
+            $payload = array_merge($base, $config);
+
+            $this->put($payload, $product);
         }
 
+        $this->dbSet();
+
         return [
-            'status'  => false,
-            'message' => 'no item in warehouse',
+            'status'  => true,
+            'message' => 'added to cart successfully',
         ];
     }
 

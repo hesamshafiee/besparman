@@ -172,7 +172,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +181,7 @@ endpoints:
     cleanBodyParameters:
       title: bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzsnrwtujwvlxjklqppwqbewtnnoqitpxn
       items: '["architecto","architecto"]'
-      status: true
+      status: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -317,7 +317,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -331,7 +331,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: false
+      is_default: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -511,7 +511,7 @@ endpoints:
         name: is_active_in_holiday
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -533,7 +533,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -585,139 +585,12 @@ endpoints:
       start_time: '1374491711936806'
       end_time: '1374491711936806'
       divide_time: '1374491711936806'
-      is_active_in_holiday: true
+      is_active_in_holiday: false
       days_not_working: '["architecto","architecto"]'
-      status: true
+      status: false
       default: true
       is_capital: false
       description: 'Et animi quos velit et fugiat.'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/warehouses/{warehouse_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      warehouse_id:
-        custom: []
-        name: warehouse_id
-        description: 'The ID of the warehouse.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      warehouse_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      product_id:
-        custom: []
-        name: product_id
-        description: 'The <code>id</code> of an existing record in the products table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      count:
-        custom: []
-        name: count
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      weight:
-        custom: []
-        name: weight
-        description: ''
-        required: false
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      price:
-        custom: []
-        name: price
-        description: ''
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      expiry_date:
-        custom: []
-        name: expiry_date
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-12-20T16:26:50'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      warehouse_address:
-        custom: []
-        name: warehouse_address
-        description: 'Must not be greater than 500 characters.'
-        required: false
-        example: m
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      source:
-        custom: []
-        name: source
-        description: 'Must not be greater than 500 characters.'
-        required: false
-        example: i
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      product_id: 4326.41688
-      count: 4326.41688
-      weight: 4326.41688
-      price: 4326.41688
-      expiry_date: '2025-12-20T16:26:50'
-      warehouse_address: m
-      source: i
     fileParameters: []
     responses: []
     responseFields: []
@@ -986,7 +859,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: admin
+        example: esaj
         type: string
         enumValues:
           - panel
@@ -1002,7 +875,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1013,7 +886,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1035,7 +908,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1044,11 +917,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: admin
-      private: true
-      profile_confirm: false
+      type: esaj
+      private: false
+      profile_confirm: true
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1118,7 +991,7 @@ endpoints:
         name: type
         description: ''
         required: false
-        example: admin
+        example: panel
         type: string
         enumValues:
           - panel
@@ -1134,7 +1007,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1145,7 +1018,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1167,7 +1040,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1176,11 +1049,11 @@ endpoints:
     cleanBodyParameters:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
-      type: admin
-      private: false
-      profile_confirm: false
+      type: panel
+      private: true
+      profile_confirm: true
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1297,7 +1170,7 @@ endpoints:
         name: private
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1308,7 +1181,7 @@ endpoints:
         name: profile_confirm
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1330,7 +1203,7 @@ endpoints:
         name: two_step
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1340,10 +1213,10 @@ endpoints:
       mobile: '137449171806'
       email: rowan.gulgowski@example.com
       type: webservice
-      private: false
-      profile_confirm: true
+      private: true
+      profile_confirm: false
       name: architecto
-      two_step: false
+      two_step: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -1391,7 +1264,7 @@ endpoints:
         name: sms
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1402,7 +1275,7 @@ endpoints:
         name: email
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1413,7 +1286,7 @@ endpoints:
         name: auth
         description: ''
         required: false
-        example: usernamePassword
+        example: otpOrPassword
         type: string
         enumValues:
           - otp
@@ -1427,7 +1300,7 @@ endpoints:
         name: otp
         description: ''
         required: false
-        example: sms
+        example: google2fa
         type: string
         enumValues:
           - sms
@@ -1469,10 +1342,10 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      sms: false
-      email: false
-      auth: usernamePassword
-      otp: sms
+      sms: true
+      email: true
+      auth: otpOrPassword
+      otp: google2fa
       jwt_expiration_time: 1
       front: '["architecto","architecto"]'
       status: false
@@ -1618,7 +1491,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-20T16:26:50'
+        example: '2025-12-22T15:07:19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1629,7 +1502,7 @@ endpoints:
         name: address
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 500 characters.'
         required: true
-        example: b
+        example: u
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1640,7 +1513,7 @@ endpoints:
         name: postal_code
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: 'n'
+        example: p
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1651,7 +1524,7 @@ endpoints:
         name: profession
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: g
+        example: l
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1662,7 +1535,7 @@ endpoints:
         name: education
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: z
+        example: p
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1673,7 +1546,7 @@ endpoints:
         name: store_name
         description: 'Must not be greater than 70 characters.'
         required: true
-        example: m
+        example: w
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1684,7 +1557,7 @@ endpoints:
         name: national_code
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: i
+        example: f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1695,7 +1568,7 @@ endpoints:
         name: province
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: 'y'
+        example: h
         type: string
         enumValues:
           - 'آذربایجان شرقی'
@@ -1737,7 +1610,7 @@ endpoints:
         name: city
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: v
+        example: 'n'
         type: string
         enumValues:
           - null
@@ -1749,7 +1622,7 @@ endpoints:
         name: gender
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: d
+        example: j
         type: string
         enumValues:
           - male
@@ -1762,7 +1635,7 @@ endpoints:
         name: phone
         description: 'Must not be greater than 50 characters.'
         required: false
-        example: l
+        example: b
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1773,7 +1646,7 @@ endpoints:
         name: name
         description: 'Must match the regex /^[\x{0600}-\x{06FF}\x{0750}-\x{077F}\x{08A0}-\x{08FF}\x{FB50}-\x{FDFF}\x{FE70}-\x{FEFF}0-9\s,._-]+$/u. Must not be greater than 255 characters.'
         required: true
-        example: j
+        example: i
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1815,18 +1688,18 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-20T16:26:50'
-      address: b
-      postal_code: 'n'
-      profession: g
-      education: z
-      store_name: m
-      national_code: i
-      province: 'y'
-      city: v
-      gender: d
-      phone: l
-      name: j
+      birth_date: '2025-12-22T15:07:19'
+      address: u
+      postal_code: p
+      profession: l
+      education: p
+      store_name: w
+      national_code: f
+      province: h
+      city: 'n'
+      gender: j
+      phone: b
+      name: i
       legal_info: '["architecto","architecto"]'
       ips:
         - 'n'
@@ -1867,7 +1740,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-20T16:26:50'
+        example: '2025-12-22T15:07:19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2064,7 +1937,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      birth_date: '2025-12-20T16:26:50'
+      birth_date: '2025-12-22T15:07:19'
       address: b
       postal_code: 'n'
       profession: g
@@ -2082,85 +1955,6 @@ endpoints:
     fileParameters:
       images:
         - null
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/phone-books/{phoneBook_id}'
-    metadata:
-      custom: []
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      phoneBook_id:
-        custom: []
-        name: phoneBook_id
-        description: 'The ID of the phoneBook.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      phoneBook_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone_number:
-        custom: []
-        name: phone_number
-        description: 'Must be between 12 and 12 digits.'
-        required: true
-        example: '137449171806'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      name:
-        custom: []
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: true
-        example: z
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      last_settings:
-        custom: []
-        name: last_settings
-        description: 'Must be a valid JSON string.'
-        required: true
-        example: '["architecto","architecto"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      phone_number: '137449171806'
-      name: z
-      last_settings: '["architecto","architecto"]'
-    fileParameters: []
     responses: []
     responseFields: []
     auth: []
@@ -2337,7 +2131,7 @@ endpoints:
         name: is_published
         description: ''
         required: true
-        example: '0'
+        example: '2'
         type: integer
         enumValues:
           - '0'
@@ -2347,7 +2141,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      is_published: '0'
+      is_published: '2'
     fileParameters: []
     responses: []
     responseFields: []
@@ -3087,12 +2881,12 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"message":"Id: 1 has been added to cart successfully.","cart_key":"architecto","cart":{"items":[],"discount":null,"delivery":null,"details":{"saleId":null,"discountId":null,"price":0,"finalPrice":0,"finalPriceWithDelivery":0,"orderItems":[],"totalDiscount":0,"totalSale":0,"deliveryPrice":0}}}'
+        content: '{"message":"Id: 1 has been added to cart successfully.","cart_key":"architecto","cart":{"items":{"product-1":{"quantity":16,"product_snapshot":{"id":1,"name":"possimus praesentium quod","slug":"possimus-praesentium-quod-73qh8","price":449081,"currency":"IRR","preview_path":null,"settings":{"color":"green","size":"M"}},"settings":{"print_x":4326.41688,"print_y":4326.41688,"print_width":4326.41688,"print_height":4326.41688,"rotation":4326.41688,"fit_mode":"contain","design":{"scale":4326.41688,"offset_x":4326.41688,"offset_y":4326.41688}},"mockup":{"id":16,"name":"architecto","preview_bg":"architecto","preview":"architecto"},"preview":{"path":"architecto","thumb":"architecto","driver":"public"},"options":[{"option_id":16,"option_name":"architecto","option_value_id":16,"option_value":"architecto"}],"id":"product-1","discount_value":0,"product":{"id":1,"user_id":3,"variant_id":7,"work_id":1,"name":"possimus praesentium quod","slug":"possimus-praesentium-quod-73qh8","name_en":"qui nostrum incidunt","description":"Neque sint aut ea rerum quibusdam est dolores.","description_full":"Est fuga quia molestiae. Velit repellendus magnam corrupti voluptatem quae quidem omnis. Unde et quod et quod et sed. Eaque nobis laborum aliquid alias.","price":449081,"currency":"IRR","type":"standard","minimum_sale":4,"dimension":"50x70","score":2,"status":1,"sort":1,"original_path":null,"preview_path":null,"settings":"{\"color\":\"green\",\"size\":\"M\"}","options":"{\"material\":\"canvas\"}","meta":"{\"tags\":[\"velit\",\"minus\",\"aut\"]}","created_at":"2025-12-21 12:13:27","updated_at":"2025-12-21 12:13:27","deleted_at":null,"mockup_id":null},"final_unit_price":449081}},"discount":null,"delivery":null,"details":{"saleId":null,"discountId":null,"price":7185296,"finalPrice":7185296,"finalPriceWithDelivery":7185296,"orderItems":{"product":{"1":{"quantity":16,"discount":0,"price":449081,"product_snapshot":{"id":1,"name":"possimus praesentium quod","slug":"possimus-praesentium-quod-73qh8","price":449081,"currency":"IRR","preview_path":null,"settings":{"color":"green","size":"M"}},"config":{"settings":{"print_x":4326.41688,"print_y":4326.41688,"print_width":4326.41688,"print_height":4326.41688,"rotation":4326.41688,"fit_mode":"contain","design":{"scale":4326.41688,"offset_x":4326.41688,"offset_y":4326.41688}},"mockup":{"id":16,"name":"architecto","preview_bg":"architecto","preview":"architecto"},"preview":{"path":"architecto","thumb":"architecto","driver":"public"},"options":[{"option_id":16,"option_name":"architecto","option_value_id":16,"option_value":"architecto"}],"meta":null}}}},"totalDiscount":0,"totalSale":0,"deliveryPrice":0}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '6000'
-          x-ratelimit-remaining: '5996'
+          x-ratelimit-remaining: '5994'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

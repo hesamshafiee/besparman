@@ -6,7 +6,6 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\WalletTransaction;
-use App\Models\Warehouse;
 use App\Models\ProfitGroup;
 use App\Models\Variant;
 use App\Services\V1\Cart\Cart;
@@ -47,16 +46,6 @@ class PayBuilder implements Builder
             if ($this->allTransactions()) {
                 $this->order->status = Order::STATUSPAID;
                 if ($this->order->save()) {
-                    /*foreach ($this->order->products as $product) {
-                            $warehouse = Warehouse::where('product_id', $product->id)->lockForUpdate()->first();
-                           if (!$warehouse || $warehouse->count < $product->pivot->quantity) {
-                                throw new \Exception("There is not enough stock available for product {$product->id}.");
-                            }
-                            if ($warehouse) {
-                                $warehouse->count -= $product->pivot->quantity;
-                                $warehouse->save();
-                            }
-                    }*/
 
                     Cart::instance($this->cartInstanceName)->flush();
                     return ['status' => true, 'order_id' => $this->order->id];

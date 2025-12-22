@@ -31,7 +31,6 @@ use App\Http\Controllers\V1\TokenController;
 use App\Http\Controllers\V1\UserController;
 use App\Http\Controllers\V1\UsernameController;
 use App\Http\Controllers\V1\WalletController;
-use App\Http\Controllers\V1\WarehouseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\TagController;
 use App\Http\Controllers\V1\TelegramController;
@@ -196,11 +195,6 @@ Route::middleware(['checkToken'])->group(function () {
         Route::patch('/logistics/{logistic}', [LogisticController::class, 'update']);
         Route::delete('/logistics/{logistic}', [LogisticController::class, 'destroy']);
 
-        Route::get('/warehouses', [WarehouseController::class, 'index']);
-        Route::post('/warehouses', [WarehouseController::class, 'store']);
-        Route::patch('/warehouses/{warehouse}', [WarehouseController::class, 'update']);
-        Route::delete('/warehouses/{warehouse}', [WarehouseController::class, 'destroy']);
-
         Route::get('/landings', [LandingController::class, 'index']);
         Route::post('/landings', [LandingController::class, 'store']);
         Route::patch('/landings/{landing}', [LandingController::class, 'update']);
@@ -274,13 +268,6 @@ Route::middleware(['checkToken'])->group(function () {
 
 
 
-
-        Route::get('/phone-books', [PhoneBookController::class, 'index']);
-        Route::post('/phone-books', [PhoneBookController::class, 'store']);
-        Route::post('/phone-books/batch', [PhoneBookController::class, 'bachStore']);
-        Route::post('/phone-books/check', [PhoneBookController::class, 'checkPhoneNumberInPhoneBook']);
-        Route::patch('/phone-books/{phoneBook}', [PhoneBookController::class, 'update']);
-        Route::delete('/phone-books/{phoneBook}', [PhoneBookController::class, 'destroy']);
 
 
         Route::get('/works', [WorkController::class, 'index']);

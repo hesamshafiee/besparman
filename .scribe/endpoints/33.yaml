@@ -1,18 +1,18 @@
-name: CategoryOption
+name: Ticket
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: 'api/categories/options/{category_id}'
+    uri: 'api/tickets/by-user/{user?}'
     metadata:
       custom: []
-      groupName: CategoryOption
+      groupName: Ticket
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست Optionهای یک Category (ادمین)'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -20,11 +20,11 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      category_id:
+      user:
         custom: []
-        name: category_id
-        description: 'The ID of the category.'
-        required: true
+        name: user
+        description: ''
+        required: false
         example: 1
         type: integer
         enumValues: []
@@ -32,7 +32,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      category_id: 1
+      user: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -56,127 +56,15 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: 'api/categories/options/sync/{category_id}'
+      - GET
+    uri: 'api/tickets/conversation/{ticket_id}'
     metadata:
       custom: []
-      groupName: CategoryOption
+      groupName: Ticket
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'همگام‌سازی Optionهای یک Category'
-      description: |-
-        ساختار ورودی:
-        {
-          "options": [
-            { "option_id": 1, "is_required": true, "is_active": true, "sort_order": 0 },
-            ...
-          ]
-        }
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      category_id:
-        custom: []
-        name: category_id
-        description: 'The ID of the category.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      category_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      options:
-        custom: []
-        name: options
-        description: 'Must have at least 1 items.'
-        required: true
-        example:
-          - []
-        type: 'object[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'options[].option_id':
-        custom: []
-        name: 'options[].option_id'
-        description: 'The <code>id</code> of an existing record in the options table.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      'options[].is_required':
-        custom: []
-        name: 'options[].is_required'
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'options[].is_active':
-        custom: []
-        name: 'options[].is_active'
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      'options[].sort_order':
-        custom: []
-        name: 'options[].sort_order'
-        description: 'Must be at least 0.'
-        required: false
-        example: 39
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      options:
-        -
-          option_id: 16
-          is_required: false
-          is_active: false
-          sort_order: 39
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/categories/options/{category_id}/{option_id}'
-    metadata:
-      custom: []
-      groupName: CategoryOption
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'جدا کردن یک Option از Category'
+      title: ''
       description: ''
       authenticated: false
       deprecated: false
@@ -184,37 +72,34 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      category_id:
+      ticket_id:
         custom: []
-        name: category_id
-        description: 'The ID of the category.'
+        name: ticket_id
+        description: 'The ID of the ticket.'
         required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      option_id:
-        custom: []
-        name: option_id
-        description: 'The ID of the option.'
-        required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      category_id: 1
-      option_id: 1
+      ticket_id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []
     auth: []
     controller: null
@@ -224,37 +109,62 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/clients/categories/options/{category_id}'
+    uri: api/tickets
     metadata:
       custom: []
-      groupName: CategoryOption
+      groupName: Ticket
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'لیست Optionهای فعال یک Category برای کلاینت'
-      description: |-
-        فقط Optionهایی که:
-        - خود Option is_active = 1
-        - و در pivot is_active = 1
+      title: ''
+      description: ''
       authenticated: false
       deprecated: false
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      category_id:
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
         custom: []
-        name: category_id
-        description: 'The ID of the category.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      category_id: 1
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/tickets/by-user-status
+    metadata:
+      custom: []
+      groupName: Ticket
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get ticket counts grouped by user and status'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

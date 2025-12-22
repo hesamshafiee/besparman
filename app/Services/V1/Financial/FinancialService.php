@@ -8,7 +8,6 @@ use App\Models\Logistic;
 use App\Models\Operator;
 use App\Models\Order;
 use App\Models\Payment;
-use App\Models\PhoneBook;
 use App\Models\Point;
 use App\Models\PointHistory;
 use App\Models\Product;
@@ -378,13 +377,10 @@ class FinancialService
             return true;
         }
 
-        $phoneBookName = $mobile ? PhoneBook::where('phone_number', $mobile)
-            ->where('user_id', $user->id)
-            ->value('name') : null;
 
         $extraInfo = [
             'phone_number' => $mobile,
-            'phone_book_name' => $phoneBookName ?? '',
+            'phone_book_name' => '',
             'price' => $originalPrice,
             'taken_value' => $takenValue,
             'product_id' => $product->id ?? null,
