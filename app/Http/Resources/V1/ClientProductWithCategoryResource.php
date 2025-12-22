@@ -27,7 +27,6 @@ class ClientProductWithCategoryResource extends JsonResource
             'images' => $this->images,
             'product_type' => $this->type,
             'sim_card_type' => $this->sim_card_type,
-            'period' => $this->period,
             'categories_name' => $this->categories->pluck('name')
         ];
     }

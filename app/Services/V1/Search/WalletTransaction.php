@@ -117,7 +117,7 @@ class WalletTransaction
                         WalletTransactionModel::DETAIL_INCREASE_CARD,
                     ]
                 ],
-\                'order_id' => ['attribute_type' => 'attribute', 'like' => false],
+                'order_id' => ['attribute_type' => 'attribute', 'like' => false],
                 'sum' => ['attribute_type' => 'sum', 'value' => ['value', 'original_price', 'countAll']],
                 'groupBy' => ['status', 'type', 'product_type', 'product_name', 'created_at', 'order_id'],
                 'city' => ['attribute_type' => 'attribute'],

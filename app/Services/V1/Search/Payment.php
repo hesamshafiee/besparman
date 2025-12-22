@@ -16,10 +16,6 @@ class Payment
             return [
                 'status' => ['attribute_type' => 'attribute', 'in' => [PaymentModel::STATUSPAID, PaymentModel::STATUSCANCELED, PaymentModel::STATUSUNPAID, PaymentModel::STATUSREJECT, PaymentModel::BANKSTATEOK]],
                 'status_hide' => ['attribute_type' => 'hidden','index' => 'status', 'in' => [PaymentModel::STATUSPAID, PaymentModel::STATUSCANCELED, PaymentModel::STATUSUNPAID, PaymentModel::STATUSREJECT, PaymentModel::BANKSTATEOK]],
-                'type' => ['attribute_type' => 'attribute', 'in' => [
-                    PaymentModel::TYPE_CARD,
-                    PaymentModel::TYPE_ONLINE
-                ]],
                 'user' => ['with' => 'user'],
                 'sum' => ['attribute_type' => 'sum', 'value' => ['price']],
                 'userName' => ['index' => 'name', 'relation' => 'user'],
@@ -34,10 +30,6 @@ class Payment
             return [
                 'check' => ['auth' => true, 'user' => true],
                 'status' => ['attribute_type' => 'attribute', 'in' => [PaymentModel::STATUSPAID, PaymentModel::STATUSCANCELED, PaymentModel::STATUSUNPAID, PaymentModel::STATUSREJECT, PaymentModel::BANKSTATEOK]],
-                'type' => ['attribute_type' => 'attribute', 'in' => [
-                    PaymentModel::TYPE_CARD,
-                    PaymentModel::TYPE_ONLINE
-                ]],
                 'sum' => ['attribute_type' => 'sum', 'value' => ['price']],
                 'created_at' => ['attribute_type' => 'attribute'],
                 'groupBy' => ['status', 'bank_name', 'created_at'],

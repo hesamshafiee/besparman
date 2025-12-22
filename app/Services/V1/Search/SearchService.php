@@ -32,7 +32,7 @@ class SearchService
         $returnFlag = $this->applySpecificFilters($query, $searchStructureClass, $items);
 
         if (!$returnFlag) {
-            abort(404, 'No valid filters applied.');
+            abort(405, 'No valid filters applied.');
         }
 
         return $this->finalizeQuery($query, $items, $searchStructureClass);

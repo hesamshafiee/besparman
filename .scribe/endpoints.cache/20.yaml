@@ -159,7 +159,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -173,7 +173,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: false
+      is_default: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -530,7 +530,7 @@ endpoints:
         name: is_default
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -544,7 +544,7 @@ endpoints:
       postal_code: m
       phone: i
       mobile: 'y'
-      is_default: true
+      is_default: false
     fileParameters: []
     responses: []
     responseFields: []

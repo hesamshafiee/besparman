@@ -2,12 +2,14 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Laravel\Sanctum\Sanctum;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
@@ -25,6 +27,8 @@ class SearchTest extends TestCase
         $role = Role::create(['name' => 'role', 'guard_name' => 'web']);
         $role->givePermissionTo('user.*');
         $role->givePermissionTo('product.*');
+        $categoryPermission = Permission::firstOrCreate(['name' => 'category.show', 'guard_name' => 'web']);
+        $role->givePermissionTo($categoryPermission);
 
         Sanctum::actingAs(
             $user,
@@ -60,6 +64,22 @@ class SearchTest extends TestCase
 
         $response = $this->post('/api/filter', [
             'table' => 'product',
+            'items' => $items
+        ]);
+
+        $response->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
+            $json->hasAll(['data', 'links', 'meta',  'balance',  'additional'])
+        );
+    }
+
+    public function test_category_filter(): void
+    {
+        Category::factory()->create(['name' => 'سشسشس']);
+
+        $items['status'] = '1';
+
+        $response = $this->post('/api/filter', [
+            'table' => 'category',
             'items' => $items
         ]);
 

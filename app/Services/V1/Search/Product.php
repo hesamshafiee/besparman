@@ -23,7 +23,6 @@ class Product
                 'created_at' => ['attribute_type' => 'attribute'],
                 'profile_id' => ['attribute_type' => 'attribute', 'like' => false],
                 
-                'period' => ['attribute_type' => 'attribute'],
                 'name' => ['attribute_type' => 'attribute']
             ];
         } elseif ($type === 'filter-public') {
@@ -33,7 +32,6 @@ class Product
                 'categories' => ['with' => 'categories'],
                 'status' => ['attribute_type' => 'attribute', 'in' => [ProductModel::STATUS_ACTIVE, ProductModel::STATUS_INACTIVE]],
                 'deliverable' => ['attribute_type' => 'attribute', 'in' => [ProductModel::STATUS_ACTIVE, ProductModel::STATUS_INACTIVE]],
-                'period' => ['attribute_type' => 'attribute'],
                 'name' => ['attribute_type' => 'attribute'],
                 'created_at' => ['attribute_type' => 'attribute']
             ];
