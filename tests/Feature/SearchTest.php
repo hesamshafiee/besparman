@@ -87,4 +87,5 @@ class SearchTest extends TestCase
             $json->hasAll(['data', 'links', 'meta',  'balance',  'additional'])
         );
     }
+    
 }
